@@ -1504,7 +1504,7 @@ abstract class SGPopup
 			}
 			// true = find inside popup
 			$insidePopup = self::find($insidePopupId, $args);
-			if (empty($insidePopup) || $insidePopup == 'trash') {
+			if (empty($insidePopup) || $insidePopup == 'trash' || $insidePopup == 'inherit') {
 				continue;
 			}
 			$events = array('insideclick');

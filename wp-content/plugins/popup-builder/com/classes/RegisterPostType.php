@@ -173,7 +173,7 @@ class RegisterPostType
 		$args = $this->getPostTypeArgs();
 
 		register_post_type($postType, $args);
-
+		
 		$this->createPopupObjFromPopupType();
 		$this->registerTaxonomy();
 	}

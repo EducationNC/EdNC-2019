@@ -3,7 +3,7 @@
 * Tags: parallax, video, youtube, background, gutenberg
 * Requires at least: 4.0.0
 * Tested up to: 5.0
-* Stable tag: 1.5.5
+* Stable tag: 1.5.7
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,7 +16,7 @@ AWB let you to use parallax backgrounds with images, videos, youtube and vimeo. 
 
 #### Links ####
 
-* [Live Demo](https://demo.nkdev.info/#awb)
+* [Live Demo](https://wpbackgrounds.com)
 * [GitHub](https://github.com/nk-o/awb)
 
 = Features =
@@ -117,6 +117,20 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 
 ## Changelog ##
+
+= 1.5.7 =
+
+* fixed JS error if Ghost Kit plugin is not installed
+* fixed Gutenberg background preview
+
+= 1.5.6 =
+
+* added support for Ghost Kit Grid and Column blocks. [See live](https://ghostkit.io/blocks/grid/)
+* added support for Ghost Kit 2.0 update
+* added Loop option in Gutenberg block for videos
+* fixed editor background preview styles in alignfull block
+* fixed AWB video play without parallax on mobile devices
+* minor changes
 
 = 1.5.5 =
 

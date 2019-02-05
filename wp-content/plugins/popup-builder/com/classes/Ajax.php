@@ -50,6 +50,8 @@ class Ajax
 		add_action('wp_ajax_select2_search_data', array($this, 'select2SearchData'));
 		add_action('wp_ajax_sgpb_subscription_submission', array($this, 'subscriptionSubmission'));
 		add_action('wp_ajax_nopriv_sgpb_subscription_submission', array($this, 'subscriptionSubmission'));
+		add_action('wp_ajax_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
+		add_action('wp_ajax_nopriv_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
 		add_action('wp_ajax_change_popup_status', array($this, 'changePopupStatus'));
 		// proStartGold
 		add_action('wp_ajax_check_same_origin', array($this, 'checkSameOrigin'));
@@ -69,8 +71,6 @@ class Ajax
 		/*Extension notification panel*/
 		add_action('wp_ajax_sgpb_dont_show_extension_panel', array($this, 'extensionNotificationPanel'));
 		add_action('wp_ajax_sgpb_dont_show_problem_alert', array($this, 'dontShowProblemAlert'));
-		add_action('wp_ajax_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
-        add_action('wp_ajax_nopriv_sgpb_process_after_submission', array($this, 'sgpbSubsciptionFormSubmittedAction'));
 	}
 
 	public function dontShowReviewPopup()
@@ -173,17 +173,22 @@ class Ajax
 		check_ajax_referer(SG_AJAX_NONCE, 'nonce');
 
 		$popupParams = $_POST['params'];
-		$popupId = (int)$popupParams['popupId'];
+		$popupsIdCollection = $popupParams['popupsIdCollection'];
+
 		$popupsCounterData = get_option('SgpbCounter');
 
 		if ($popupsCounterData === false) {
 			$popupsCounterData = array();
 		}
 
-		if (empty($popupsCounterData[$popupId])) {
-			$popupsCounterData[$popupId] = 0;
+		if (!empty($popupsIdCollection)) {
+			foreach ($popupsIdCollection as $popupId => $popupCount) {
+				if (empty($popupsCounterData[$popupId])) {
+					$popupsCounterData[$popupId] = 0;
+				}
+				$popupsCounterData[$popupId] += $popupCount;
+			}
 		}
-		$popupsCounterData[$popupId] += 1;
 
 		update_option('SgpbCounter', $popupsCounterData);
 		wp_die();

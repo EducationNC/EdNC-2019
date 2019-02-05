@@ -36,48 +36,27 @@ class NK_AWB_Gutenberg {
      * @param object $page - page data.
      */
     public function register_block( $page ) {
-        $deps = array( 'wp-editor', 'wp-i18n', 'wp-element', 'underscore' );
-
-        if ( ! class_exists( 'GhostKit' ) ) {
-            // enqueue block spacings fallback from GhostKit.
-            wp_register_script(
-                'awb-spacings-gutenberg',
-                nk_awb()->plugin_url . 'assets/admin/gutenberg/block-spacings.min.js',
-                array(),
-                filemtime( nk_awb()->plugin_path . 'assets/admin/gutenberg/block-spacings.min.js' )
-            );
-            $deps[] = 'awb-spacings-gutenberg';
-        }
+        $deps = array( 'wp-editor', 'wp-i18n', 'wp-element', 'underscore', 'jquery' );
 
         // enqueue block js.
         wp_register_script(
             'awb-gutenberg',
-            nk_awb()->plugin_url . 'assets/admin/gutenberg/block.min.js',
+            nk_awb()->plugin_url . 'assets/admin/gutenberg/index.min.js',
             $deps,
-            filemtime( nk_awb()->plugin_path . 'assets/admin/gutenberg/block.min.js' )
-        );
-
-        // enqueue block css.
-        wp_register_style(
-            'awb-gutenberg',
-            nk_awb()->plugin_url . 'assets/admin/gutenberg/block-editor.min.css',
-            array( 'wp-edit-blocks' ),
-            filemtime( nk_awb()->plugin_path . 'assets/admin/gutenberg/block-editor.min.css' )
+            filemtime( nk_awb()->plugin_path . 'assets/admin/gutenberg/index.min.js' )
         );
 
         // register block.
         register_block_type( 'nk/awb', array(
             'editor_script' => 'awb-gutenberg',
-            'editor_style'  => 'awb-gutenberg',
             'script' => 'nk-awb',
             'style'  => 'nk-awb',
         ) );
 
         // add variables to script.
         $data = array(
-            // TODO: remove this since used svg icon.
-            'icon' => nk_awb()->plugin_url . 'assets/admin/gutenberg/icon.png',
             'full_width_fallback' => ! get_theme_support( 'align-wide' ),
+            'is_ghostkit_active' => class_exists( 'GhostKit' ),
         );
         wp_localize_script( 'awb-gutenberg', 'AWBGutenbergData', $data );
     }

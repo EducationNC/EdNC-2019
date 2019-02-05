@@ -59,10 +59,38 @@ class SgpbPopupExtension implements SgpbIPopupExtension
 				'nonce' => wp_create_nonce(SG_AJAX_NONCE)
 			)
 		);
+		$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'gutenbergBlock.min.js');
+
+		$localizeData[] = array(
+			'handle' => 'gutenbergBlock.min.js',
+			'name' => 'SGPB_GUTENBERG_PARAMS',
+			'data' => array(
+				'allPopups' => AdminHelper::getGutenbergPopupsIdAndTitle(),
+				'allEvents' => AdminHelper::getGutenbergPopupsEvents(),
+				'title'   => __('Popup Builder', SG_POPUP_TEXT_DOMAIN),
+				'description'   => __('This block will help you to add Popup Builder’s shortcode inside the page content', SG_POPUP_TEXT_DOMAIN),
+				'i18n'=> array(
+					'title'            => __( 'WPForms', 'wpforms-lite' ),
+					'description'      => __( 'Select and display one of your forms.', 'wpforms-lite' ),
+					'form_keyword'     => __( 'form', 'wpforms-lite' ),
+					'form_select'      => __( 'Select Popup', 'wpforms-lite' ),
+					'form_settings'    => __( 'Form Settings', 'wpforms-lite' ),
+					'form_selected'    => __( 'Form', 'wpforms-lite' ),
+					'show_title'       => __( 'Show Title', 'wpforms-lite' ),
+					'show_description' => __( 'Show Description', 'wpforms-lite' ),
+				),
+				'logo_url' => SG_POPUP_IMG_URL.'bannerLogo.png',
+				'logo_classname' => 'sgpb-gutenberg-logo',
+				'clickText' => __('Click me', SG_POPUP_TEXT_DOMAIN)
+			)
+		);
+
 		if (in_array($pageName, $allowPages)) {
 			$jsFiles[] = array('folderUrl'=> '', 'filename' => 'wp-color-picker');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'select2.min.js', 'dep' => '', 'ver' => '3.86', 'inFooter' => '');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'sgpbSelect2.js');
+
+
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'bootstrap.min.js');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'sgPopupRangeSlider.js');
 			$jsFiles[] = array('folderUrl'=> SG_POPUP_JS_URL, 'filename' => 'Backend.js');

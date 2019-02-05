@@ -445,6 +445,13 @@ final class WPN_Helper
     public static function form_in_maintenance( $form_id ) {
         global $wpdb;
 
+        $db_version = get_option( 'ninja_forms_db_version' );
+
+        if( ! $db_version ) return false;
+
+        // Exit early if the column doesn't exist.
+        if( version_compare( '1.3', $db_version, '>' ) ) return false;
+
         // Get our maintenance value from the DB and return it at the zero position.
         $maintenance = $wpdb->get_row(
             "SELECT `maintenance` FROM `{$wpdb->prefix}nf3_upgrades` WHERE `id` = {$form_id}", 'ARRAY_A'

@@ -1,1 +1,0 @@
-OembedCache.init(EMBEDOPT);

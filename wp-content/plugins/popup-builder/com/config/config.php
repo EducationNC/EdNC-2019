@@ -46,6 +46,7 @@ class SgpbPopupConfig
 		self::addDefine('SG_POPUP_LOGIN_URL', 'https://popup-builder.com/downloads/login-popup/');
 		self::addDefine('SG_POPUP_REGISTRATION_URL', 'https://popup-builder.com/downloads/registration-popup/');
 		self::addDefine('SG_POPUP_SUBSCRIPTION_PLUS_URL', 'https://popup-builder.com/downloads/subscription-plus-popup/');
+		self::addDefine('SG_POPUP_PUSH_NOTIFICATION_URL', 'https://popup-builder.com/downloads/web-push-notification-popup/');
 		self::addDefine('SG_POPUP_ADMIN_URL', admin_url());
 		self::addDefine('SG_POPUP_BUILDER_URL', plugins_url().'/'.SG_POPUP_FOLDER_NAME.'/');
 		self::addDefine('SG_POPUP_BUILDER_PATH', WP_PLUGIN_DIR.'/'.SG_POPUP_FOLDER_NAME.'/');

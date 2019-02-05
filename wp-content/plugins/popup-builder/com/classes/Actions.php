@@ -52,6 +52,9 @@ class Actions
 		add_action('pre_get_posts', array($this, 'preGetPosts'));
 		add_action('template_redirect', array($this, 'redirectFromPopupPage'));
 		add_filter('views_edit-popupbuilder', array($this, 'mainActionButtons'), 10, 1);
+
+		// activate extensions
+		add_action('wp_before_admin_bar_render', array($this, 'pluginActivated'), 10, 2);
 		new Ajax();
 	}
 
@@ -110,8 +113,11 @@ class Actions
 	public function redirectFromPopupPage()
 	{
 		global $post;
+		$currentPostType = '';
 
-		$currentPostType = @$post->post_type;
+		if (is_object($post)) {
+			$currentPostType = @$post->post_type;
+		}
 		// in some themes global $post returns null
 		if (empty($currentPostType)) {
 			global $post_type;
@@ -284,6 +290,15 @@ class Actions
 		return true;
 	}
 
+	public function pluginActivated()
+	{
+		if (!get_option('sgpbActivateExtensions') && SGPB_POPUP_PKG != SGPB_POPUP_PKG_FREE) {
+			$obj = new PopupExtensionActivator();
+			$obj->activate();
+			update_option('sgpbActivateExtensions', 1);
+		}
+	}
+
 	public function disableAutosave()
 	{
 		if (!empty($_GET['post_type']) && $_GET['post_type'] == SG_POPUP_POST_TYPE) {
@@ -322,6 +337,15 @@ class Actions
 		if (!isset($args['event']) && isset($args['insidepopup'])) {
 			unset($args['insidepopup']);
 			$event = 'insideclick';
+			$insideShortcodeKey = $popupId.$event;
+
+			// for prevent infinity chain
+			if (in_array($insideShortcodeKey, $this->insideShortcodes)) {
+				$shortcodeContent =  SGPopup::renderPopupContentShortcode($content, $argsId, $event, $args);
+
+				return $shortcodeContent;
+			}
+			$this->insideShortcodes[] = $insideShortcodeKey;
 		}
 		// if no event attribute is set, or old shortcode
 		if (!isset($args['event']) || $oldShortcode || $isInherit) {

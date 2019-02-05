@@ -7,7 +7,7 @@ Tags: popup, pop up, wordpress popup, popup maker, exit popup, popup builder, wo
 Requires at least: 3.8
 Tested up to: 5.0
 Requires PHP: 5.3.3
-Stable tag: 3.1.3
+Stable tag: 3.1.5.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -83,6 +83,8 @@ With Popup Builder plugin you can insert any type of content, right into your Po
 *   Registration popup - open registration form inside the popup.
 
 *   Iframe popup - you can set the URL you want to load within an iframe and the popup will load that iframe.
+
+*   Autoresponder (subscription plus extension) - send targeted emails right after the visitor subscribes to your newsletter. You can send coupon codes or download links.
 
 *   Video popup - embed YouTube and Vimeo videos inside your popup.
 
@@ -177,6 +179,32 @@ Go to the Popup Builder settings and set your desired options.
 13. Facebook popup
 
 == Changelog ==
+
+= Version 3.1.5.2 =
+* Added new extension Web Push Notification.
+* Gutenberg block improvements.
+* Code improvements and minor bug fixes.
+
+= Version 3.1.5.1 =
+* Bug fixes and improvements.
+
+= Version 3.1.5 =
+* Improvements related to popup analytics.
+* Bug fixed related to onclick with 'set popup by css class' option.
+* Improvements related to some filters inside the subscriber's list section.
+* Bug fixed related to multiple onload subscription popups.
+* Bug fixed related to infinite loop with popups shortcode.
+* Code improvements and minor bug fixes.
+
+= Version 3.1.4.1 =
+* Bug fixed related to JS error for blocks.
+
+= Version 3.1.4 =
+* Added Popup Builder block for Gutenberg.
+* Bug fixed related to popup limitation for IE browser.
+* Improvements related to the Iframes inside the HTML popup.
+* Added filter inside subscriber's table.
+* URL detection.
 
 = Version 3.1.3 =
 * Bug fixed related to banner closing.
@@ -901,7 +929,7 @@ Leave us a good review :)
 
 == Upgrade Notice ==
 
-Current Version of Popup Builder is 3.1
+Current Version of Popup Builder is 3.1.5
 
 == Other Notes ==
 

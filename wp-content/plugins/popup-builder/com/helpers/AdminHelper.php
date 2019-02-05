@@ -422,7 +422,7 @@ class AdminHelper
 		if (isset($_GET['sgpb-subscription-popup-id']) && !empty($_GET['sgpb-subscription-popup-id'])) {
 			$filterCriteria = esc_sql($_GET['sgpb-subscription-popup-id']);
 			if ($filterCriteria != 'all') {
-				$searchQuery .= "(subscriptionType = $filterCriteria)";
+				$searchQuery .= " AND (subscriptionType = $filterCriteria)";
 			}
 		}
 		if ($filterCriteria != '' && $filterCriteria != 'all' && isset($_GET['s']) && !empty($_GET['s'])) {
@@ -897,7 +897,7 @@ class AdminHelper
 		global $post_type;
 		global $post;
 		$currentPostType = '';
-		
+
 		if (is_object($post)) {
 			$currentPostType = @$post->post_type;
 		}
@@ -1384,5 +1384,72 @@ class AdminHelper
 	{
 		$bannerText = get_option('sgpb-metabox-banner-remote-get');
 		return $bannerText;
+	}
+
+	public static function findSubscribersByEmail($subscriberEmail = '', $list = 0)
+	{
+		global $wpdb;
+		$subscriber = array();
+
+		$prepareSql = $wpdb->prepare('SELECT * FROM '.$wpdb->prefix.SGPB_SUBSCRIBERS_TABLE_NAME.' WHERE email = %s AND subscriptionType = %d ', $subscriberEmail, $list);
+		$subscriber = $wpdb->get_row($prepareSql, ARRAY_A);
+		if (!$list) {
+			$prepareSql = $wpdb->prepare('SELECT * FROM '.$wpdb->prefix.SGPB_SUBSCRIBERS_TABLE_NAME.' WHERE email = %s ', $subscriberEmail);
+			$subscriber = $wpdb->get_results($prepareSql, ARRAY_A);
+		}
+
+		return $subscriber;
+	}
+
+	public static function getGutenbergPopupsIdAndTitle($excludesPopups = array())
+	{
+		$allPopups = SGPopup::getAllPopups();
+		$popupIdTitles = array();
+
+		if (empty($allPopups)) {
+			return $popupIdTitles;
+		}
+
+		foreach ($allPopups as $popup) {
+			if (empty($popup)) {
+				continue;
+			}
+
+			$id = $popup->getId();
+			$title = $popup->getTitle();
+			$type = $popup->getType();
+
+			if (!empty($excludesPopups)) {
+				foreach ($excludesPopups as $excludesPopupId) {
+					if ($excludesPopupId != $id) {
+						$array = array();
+						$array['id'] = $id;
+						$array['title'] = $title . ' - ' . $type;
+						$popupIdTitles[] = $array;
+					}
+				}
+			}
+			else {
+				$array = array();
+				$array['id'] = $id;
+				$array['title'] = $title . ' - ' . $type;
+				$popupIdTitles[] = $array;
+			}
+		}
+
+		return $popupIdTitles;
+	}
+
+	public static function getGutenbergPopupsEvents()
+	{
+		$data =  array(
+			array('value' => '', 'title' => __('Select Event', SG_POPUP_TEXT_DOMAIN)),
+			array('value' => 'inherit', 'title' => __('Inherit', SG_POPUP_TEXT_DOMAIN)),
+			array('value' => 'onLoad', 'title' => __('On load', SG_POPUP_TEXT_DOMAIN)),
+			array('value' => 'click', 'title' => __('On click', SG_POPUP_TEXT_DOMAIN)),
+			array('value' => 'hover', 'title' => __('On hover', SG_POPUP_TEXT_DOMAIN))
+		);
+
+		return $data;
 	}
 }

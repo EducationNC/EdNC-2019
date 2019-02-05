@@ -22,6 +22,7 @@
 		$forceRtlClass = ' sgpb-forms-preview-direction';
 	}
 ?>
+
 <div class="sgpb-wrapper">
 	<div class="row">
 		<div class="col-md-7">
@@ -382,6 +383,9 @@
 				);
 				echo $popupTypeObj->getFormCustomStyles($styleData)
 				?>
+				<div style="max-width: 300px;margin: 0 auto;">
+					<span class="sgpb-align-center"><?php _e('Get the <a href="'.SG_POPUP_SUBSCRIPTION_PLUS_URL.'">Subscription Plus</a> extension to add or customize the form fields.', SG_POPUP_TEXT_DOMAIN);?></span>
+				</div>
 			</div>
 		</div>
 	</div>

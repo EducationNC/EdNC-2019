@@ -415,9 +415,7 @@ class SgpbDataConfig
 		);
 
 		$targetParams = array(
-			'select_role' => __('Select role', SG_POPUP_TEXT_DOMAIN),
-			'Groups' => array(
-			)
+			'select_role' => __('Select role', SG_POPUP_TEXT_DOMAIN)
 		);
 
 		$targetOperators = array(
@@ -622,6 +620,12 @@ class SgpbDataConfig
 			'pluginKey' =>  'popupbuilder-subscription-plus/PopupBuilderSubscriptionPlus.php',
 			'key' => 'subscriptionPlus',
 			'url' => SG_POPUP_SUBSCRIPTION_PLUS_URL
+		);
+		$keys[] = array(
+			'label' => __('Push Notification', SG_POPUP_TEXT_DOMAIN),
+			'pluginKey' =>  'popupbuilder-push-notification/PopupBuilderPushNotification.php',
+			'key' => 'pushNotification',
+			'url' => SG_POPUP_PUSH_NOTIFICATION_URL
 		);
 
 		return apply_filters('sgpbExtensionsKeys', $keys);

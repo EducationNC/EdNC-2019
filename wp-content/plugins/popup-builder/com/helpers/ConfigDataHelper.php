@@ -65,7 +65,7 @@ class ConfigDataHelper
 	{
 		$allCustomPostTypes = self::getAllCustomPosts();
 		// for conditions, to exclude other post types, tags etc.
-		if (isset($targetParams['select_role']) && isset($targetParams['Groups'])) {
+		if (isset($targetParams['select_role'])) {
 			return $targetParams;
 		}
 

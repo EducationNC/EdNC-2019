@@ -132,6 +132,8 @@ class NF_Updates_CacheCollateObjects extends NF_Abstracts_RequiredUpdate
         if ( ! $this->debug ) {
             // Ensure that our data tables are updated.
             $this->migrate( 'cache_collate_objects' );
+            // Set out new db version.
+            update_option( 'ninja_forms_db_version', '1.4' );
         }
         // Get the number of rows in the objects table.
         $sql = "SELECT COUNT( `id` ) as Total FROM `{$this->table}`";

@@ -112,6 +112,7 @@ class PopupChecker
 		//If permissive for current page check conditions
 		if ($isPermissive) {
 			$conditions = $this->divideConditionsData();
+			$conditions = apply_filters('sgpbFilterDividedConditions', $conditions);
 			$isSatisfyForConditions = $this->isSatisfyForConditions($conditions);
 
 			if ($isSatisfyForConditions === false) {
@@ -349,7 +350,7 @@ class PopupChecker
 					} else if ( is_front_page() ) {
 						// static homepage
 						$isSatisfy = true;
-					    break;
+						break;
 					}
 				}
 				else if ($postType()) {
@@ -381,7 +382,6 @@ class PopupChecker
 				}
 			}
 		}
-
 
 		if (!$isSatisfy && do_action('isAllowedForTarget', $targetData, $post)) {
 			$isSatisfy = true;

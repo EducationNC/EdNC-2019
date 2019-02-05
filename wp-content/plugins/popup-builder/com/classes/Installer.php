@@ -97,6 +97,12 @@ class Installer
 				}
 			}
 		}
+
+		// install extensions
+		if (SGPB_POPUP_PKG != SGPB_POPUP_PKG_FREE) {
+			$obj = new PopupExtensionActivator();
+			$obj->install();
+		}
 	}
 
 	public static function setupInstallationsDateConfig()
@@ -132,6 +138,8 @@ class Installer
 		delete_option('sgpb-dont-delete-data');
 		delete_option('sgpb-new-subscriber');
 		delete_option('sgpbUnsubscribeColumnFixed');
+		delete_option('sgpbActivateExtensions');
+		delete_option('sgpbExtensionsInfo');
 
 		// Trigger popup data delete action
 		do_action('sgpbDeletePopupData');

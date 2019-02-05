@@ -10,7 +10,7 @@
  * Plugin URI:  https://wpengine.com
  * Description: Make sure your plugins and themes are compatible with newer PHP versions.
  * Author:      WP Engine
- * Version:     1.4.6
+ * Version:     1.4.7
  * Author URI:  https://wpengine.com
  * Text Domain: php-compatibility-checker
  */
@@ -74,6 +74,9 @@ class WPEngine_PHPCompat {
 	 */
 	public static function init() {
 		$instance = self::instance();
+
+		// Load textdomain.
+		add_action( 'init', array( $instance, 'load_textdomain' ) );
 
 		// Build our tools page.
 		add_action( 'admin_menu', array( $instance, 'create_menu' ) );
@@ -308,6 +311,17 @@ class WPEngine_PHPCompat {
 			'public'      => false,
 			'has_archive' => false,
 		) );
+	}
+
+	/**
+	 * Loads textdomain for WP < 4.6 translation support.
+	 *
+	 * @since 1.4.7
+	 *
+	 * @action admin_init
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( 'php-compatibility-checker' );
 	}
 
 	/**

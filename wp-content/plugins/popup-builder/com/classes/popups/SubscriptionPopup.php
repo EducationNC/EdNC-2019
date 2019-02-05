@@ -1,6 +1,7 @@
 <?php
 namespace sgpb;
 require_once(dirname(__FILE__).'/SGPopup.php');
+require_once(ABSPATH.'wp-admin/includes/plugin.php');
 
 class SubscriptionPopup extends SGPopup
 {
@@ -17,7 +18,11 @@ class SubscriptionPopup extends SGPopup
 
 	private function frontendFilters()
 	{
-		add_filter('sgpbFrontendJsFiles', array($this, 'frontJsFilter'), 1, 1);
+		$isSubscriptionPlusActive = is_plugin_active(SGPB_POPUP_SUBSCRIPTION_PLUS_EXTENSION_KEY);
+
+		if (!$isSubscriptionPlusActive) {
+			add_filter('sgpbFrontendJsFiles', array($this, 'frontJsFilter'), 1, 1);
+		}
 		add_filter('sgpbFrontendCssFiles', array($this, 'frontCssFilter'), 1, 1);
 	}
 
@@ -136,8 +141,11 @@ class SubscriptionPopup extends SGPopup
 	{
 		$this->setData($postData);
 		$this->setPostData($postData);
-		
-		$postData['sgpb-subs-fields'] = $this->createFormFieldsData();
+		$isSubscriptionPlusActive = is_plugin_active(SGPB_POPUP_SUBSCRIPTION_PLUS_EXTENSION_KEY);
+
+		if (!$isSubscriptionPlusActive) {
+			$postData['sgpb-subs-fields'] = $this->createFormFieldsData();
+		}
 
 		return $postData;
 	}
@@ -346,13 +354,18 @@ class SubscriptionPopup extends SGPopup
 	private function createValidateObj($subsFields, $validationMessages)
 	{
 		$validateObj = '';
+		$id = $this->getId();
+		$requiredMessage = $this->getOptionValue('sgpb-subs-validation-message');
+		$emailMessage = $this->getOptionValue('sgpb-subs-invalid-message');
 
 		if (empty($subsFields)) {
 			return $validateObj;
 		}
 
 		$rules = 'rules: { ';
-		$validateObj = 'var sgpbSubsValidateObj = { ';
+		$messages = 'messages: { ';
+
+		$validateObj = 'var sgpbSubsValidateObj'.$id.' = { ';
 		foreach ($subsFields as $subsField) {
 
 			if (empty($subsField['attrs'])) {
@@ -376,6 +389,10 @@ class SubscriptionPopup extends SGPopup
 
 			if ($type == 'email') {
 				$rules .= '"'.$name.'": {required: true, email: true},';
+				$messages .= '"'.$name.'": {
+					"required": "'.$requiredMessage.'",
+					"email": "'.$emailMessage.'"
+				},';
 				continue;
 			}
 
@@ -383,17 +400,20 @@ class SubscriptionPopup extends SGPopup
 				continue;
 			}
 
+			$messages .= '"'.$name.'": "'.$requiredMessage.'",';
 			$rules .= '"'.$name.'" : "required",';
 
 		}
 		$rules = rtrim($rules, ',');
+		$messages = rtrim($messages, ',');
 
 		$rules .= '},';
+		$messages .= '}';
+
 		$validateObj .= $rules;
+		$validateObj .= $messages;
+
 		$validateObj .= '};';
-		$validateObj .= 'jQuery.extend(jQuery.validator.messages, { ';
-		$validateObj .= 'required: "'.$validationMessages['requiredMessage'].'"';
-		$validateObj .= ' });';
 
 		return $validateObj;
 	}
@@ -452,6 +472,12 @@ class SubscriptionPopup extends SGPopup
 			'filePath' => SG_POPUP_TYPE_OPTIONS_PATH . 'subscription.php',
 			'metaboxTitle' => 'Subscription Options'
 		);
+
+		$isSubscriptionPlusActive = is_plugin_active(SGPB_POPUP_SUBSCRIPTION_PLUS_EXTENSION_KEY);
+
+		if ($isSubscriptionPlusActive) {
+			return array();
+		}
 
 		return $optionsViewData;
 	}

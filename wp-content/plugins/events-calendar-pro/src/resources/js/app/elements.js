@@ -108,6 +108,71 @@ if (false) { var throwOnDirectAccess, isValidElement, REACT_ELEMENT_TYPE; } else
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+
+// EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/io.js
+var io = __webpack_require__(15);
+
+// EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/sagaHelpers/index.js + 4 modules
+var sagaHelpers = __webpack_require__(56);
+
+// CONCATENATED MODULE: ./node_modules/redux-saga/es/internal/io-helpers.js
+
+
+
+function takeEvery(patternOrChannel, worker) {
+  for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
+    args[_key - 2] = arguments[_key];
+  }
+
+  return io["f" /* fork */].apply(undefined, [sagaHelpers["a" /* takeEveryHelper */], patternOrChannel, worker].concat(args));
+}
+
+function takeLatest(patternOrChannel, worker) {
+  for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
+    args[_key2 - 2] = arguments[_key2];
+  }
+
+  return io["f" /* fork */].apply(undefined, [sagaHelpers["b" /* takeLatestHelper */], patternOrChannel, worker].concat(args));
+}
+
+function throttle(ms, pattern, worker) {
+  for (var _len3 = arguments.length, args = Array(_len3 > 3 ? _len3 - 3 : 0), _key3 = 3; _key3 < _len3; _key3++) {
+    args[_key3 - 3] = arguments[_key3];
+  }
+
+  return io["f" /* fork */].apply(undefined, [sagaHelpers["c" /* throttleHelper */], ms, pattern, worker].concat(args));
+}
+// CONCATENATED MODULE: ./node_modules/redux-saga/es/effects.js
+/* concated harmony reexport take */__webpack_require__.d(__webpack_exports__, "h", function() { return io["j" /* take */]; });
+/* unused concated harmony import takem */
+/* concated harmony reexport put */__webpack_require__.d(__webpack_exports__, "e", function() { return io["g" /* put */]; });
+/* concated harmony reexport all */__webpack_require__.d(__webpack_exports__, "a", function() { return io["b" /* all */]; });
+/* concated harmony reexport race */__webpack_require__.d(__webpack_exports__, "f", function() { return io["h" /* race */]; });
+/* concated harmony reexport call */__webpack_require__.d(__webpack_exports__, "b", function() { return io["d" /* call */]; });
+/* unused concated harmony import apply */
+/* unused concated harmony import cps */
+/* concated harmony reexport fork */__webpack_require__.d(__webpack_exports__, "d", function() { return io["f" /* fork */]; });
+/* unused concated harmony import spawn */
+/* unused concated harmony import join */
+/* concated harmony reexport cancel */__webpack_require__.d(__webpack_exports__, "c", function() { return io["e" /* cancel */]; });
+/* concated harmony reexport select */__webpack_require__.d(__webpack_exports__, "g", function() { return io["i" /* select */]; });
+/* unused concated harmony import actionChannel */
+/* unused concated harmony import cancelled */
+/* unused concated harmony import flush */
+/* unused concated harmony import getContext */
+/* unused concated harmony import setContext */
+/* concated harmony reexport takeEvery */__webpack_require__.d(__webpack_exports__, "i", function() { return takeEvery; });
+/* concated harmony reexport takeLatest */__webpack_require__.d(__webpack_exports__, "j", function() { return takeLatest; });
+/* unused concated harmony import throttle */
+
+
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return sym; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return TASK; });
 /* unused harmony export HELPER */
@@ -424,71 +489,6 @@ var cloneableGenerator = function cloneableGenerator(generatorFunc) {
 };
 
 /***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-// EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/io.js
-var io = __webpack_require__(15);
-
-// EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/sagaHelpers/index.js + 4 modules
-var sagaHelpers = __webpack_require__(56);
-
-// CONCATENATED MODULE: ./node_modules/redux-saga/es/internal/io-helpers.js
-
-
-
-function takeEvery(patternOrChannel, worker) {
-  for (var _len = arguments.length, args = Array(_len > 2 ? _len - 2 : 0), _key = 2; _key < _len; _key++) {
-    args[_key - 2] = arguments[_key];
-  }
-
-  return io["f" /* fork */].apply(undefined, [sagaHelpers["a" /* takeEveryHelper */], patternOrChannel, worker].concat(args));
-}
-
-function takeLatest(patternOrChannel, worker) {
-  for (var _len2 = arguments.length, args = Array(_len2 > 2 ? _len2 - 2 : 0), _key2 = 2; _key2 < _len2; _key2++) {
-    args[_key2 - 2] = arguments[_key2];
-  }
-
-  return io["f" /* fork */].apply(undefined, [sagaHelpers["b" /* takeLatestHelper */], patternOrChannel, worker].concat(args));
-}
-
-function throttle(ms, pattern, worker) {
-  for (var _len3 = arguments.length, args = Array(_len3 > 3 ? _len3 - 3 : 0), _key3 = 3; _key3 < _len3; _key3++) {
-    args[_key3 - 3] = arguments[_key3];
-  }
-
-  return io["f" /* fork */].apply(undefined, [sagaHelpers["c" /* throttleHelper */], ms, pattern, worker].concat(args));
-}
-// CONCATENATED MODULE: ./node_modules/redux-saga/es/effects.js
-/* concated harmony reexport take */__webpack_require__.d(__webpack_exports__, "h", function() { return io["j" /* take */]; });
-/* unused concated harmony import takem */
-/* concated harmony reexport put */__webpack_require__.d(__webpack_exports__, "e", function() { return io["g" /* put */]; });
-/* concated harmony reexport all */__webpack_require__.d(__webpack_exports__, "a", function() { return io["b" /* all */]; });
-/* concated harmony reexport race */__webpack_require__.d(__webpack_exports__, "f", function() { return io["h" /* race */]; });
-/* concated harmony reexport call */__webpack_require__.d(__webpack_exports__, "b", function() { return io["d" /* call */]; });
-/* unused concated harmony import apply */
-/* unused concated harmony import cps */
-/* concated harmony reexport fork */__webpack_require__.d(__webpack_exports__, "d", function() { return io["f" /* fork */]; });
-/* unused concated harmony import spawn */
-/* unused concated harmony import join */
-/* concated harmony reexport cancel */__webpack_require__.d(__webpack_exports__, "c", function() { return io["e" /* cancel */]; });
-/* concated harmony reexport select */__webpack_require__.d(__webpack_exports__, "g", function() { return io["i" /* select */]; });
-/* unused concated harmony import actionChannel */
-/* unused concated harmony import cancelled */
-/* unused concated harmony import flush */
-/* unused concated harmony import getContext */
-/* unused concated harmony import setContext */
-/* concated harmony reexport takeEvery */__webpack_require__.d(__webpack_exports__, "i", function() { return takeEvery; });
-/* concated harmony reexport takeLatest */__webpack_require__.d(__webpack_exports__, "j", function() { return takeLatest; });
-/* unused concated harmony import throttle */
-
-
-
-
-/***/ }),
 /* 3 */
 /***/ (function(module, exports) {
 
@@ -640,6 +640,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEEKLY_LABEL", function() { return WEEKLY_LABEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MONTHLY_LABEL", function() { return MONTHLY_LABEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YEARLY_LABEL", function() { return YEARLY_LABEL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "DAILY_LABEL_PLURAL", function() { return DAILY_LABEL_PLURAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "WEEKLY_LABEL_PLURAL", function() { return WEEKLY_LABEL_PLURAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MONTHLY_LABEL_PLURAL", function() { return MONTHLY_LABEL_PLURAL; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "YEARLY_LABEL_PLURAL", function() { return YEARLY_LABEL_PLURAL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SINGLE_LABEL", function() { return SINGLE_LABEL; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RECURRENCE_TYPES", function() { return RECURRENCE_TYPES; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ON", function() { return ON; });
@@ -776,11 +780,17 @@ var MONTHLY = 'monthly';
 var YEARLY = 'yearly';
 var SINGLE = 'single';
 
-var DAILY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'events-gutenberg');
-var WEEKLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Week', 'events-gutenberg');
-var MONTHLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Month', 'events-gutenberg');
-var YEARLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Year', 'events-gutenberg');
-var SINGLE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Single Recurrence', 'events-gutenberg');
+var DAILY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'tribe-events-calendar-pro');
+var WEEKLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Week', 'tribe-events-calendar-pro');
+var MONTHLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Month', 'tribe-events-calendar-pro');
+var YEARLY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Year', 'tribe-events-calendar-pro');
+
+var DAILY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Days', 'tribe-events-calendar-pro');
+var WEEKLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Weeks', 'tribe-events-calendar-pro');
+var MONTHLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Months', 'tribe-events-calendar-pro');
+var YEARLY_LABEL_PLURAL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Years', 'tribe-events-calendar-pro');
+
+var SINGLE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Single Recurrence', 'tribe-events-calendar-pro');
 
 var RECURRENCE_TYPES = [DAILY, WEEKLY, MONTHLY, YEARLY, SINGLE];
 
@@ -792,9 +802,9 @@ var ON = 'on';
 var AFTER = 'after';
 var NEVER = 'never';
 
-var ON_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('On', 'events-gutenberg');
-var AFTER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('After', 'events-gutenberg');
-var NEVER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Never', 'events-gutenberg');
+var ON_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('On', 'tribe-events-calendar-pro');
+var AFTER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('After', 'tribe-events-calendar-pro');
+var NEVER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Never', 'tribe-events-calendar-pro');
 
 var DATE = 'date';
 var COUNT = 'count';
@@ -811,21 +821,21 @@ var THURSDAY = 'thursday';
 var FRIDAY = 'friday';
 var SATURDAY = 'saturday';
 
-var SUNDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sunday', 'events-gutenberg');
-var MONDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Monday', 'events-gutenberg');
-var TUESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Tuesday', 'events-gutenberg');
-var WEDNESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Wednesday', 'events-gutenberg');
-var THURSDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Thursday', 'events-gutenberg');
-var FRIDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Friday', 'events-gutenberg');
-var SATURDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Saturday', 'events-gutenberg');
+var SUNDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sunday', 'tribe-events-calendar-pro');
+var MONDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Monday', 'tribe-events-calendar-pro');
+var TUESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Tuesday', 'tribe-events-calendar-pro');
+var WEDNESDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Wednesday', 'tribe-events-calendar-pro');
+var THURSDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Thursday', 'tribe-events-calendar-pro');
+var FRIDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Friday', 'tribe-events-calendar-pro');
+var SATURDAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Saturday', 'tribe-events-calendar-pro');
 
-var SUNDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'events-gutenberg');
-var MONDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('M', 'events-gutenberg');
-var TUESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'events-gutenberg');
-var WEDNESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('W', 'events-gutenberg');
-var THURSDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'events-gutenberg');
-var FRIDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('F', 'events-gutenberg');
-var SATURDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'events-gutenberg');
+var SUNDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'tribe-events-calendar-pro');
+var MONDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('M', 'tribe-events-calendar-pro');
+var TUESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'tribe-events-calendar-pro');
+var WEDNESDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('W', 'tribe-events-calendar-pro');
+var THURSDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('T', 'tribe-events-calendar-pro');
+var FRIDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('F', 'tribe-events-calendar-pro');
+var SATURDAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('S', 'tribe-events-calendar-pro');
 
 var SUNDAY_CHECKED = 'sundayChecked';
 var MONDAY_CHECKED = 'mondayChecked';
@@ -861,7 +871,7 @@ var DAYS_OF_THE_MONTH = Array(31).fill().map(function (_, index) {
 });
 
 var DAY = 'day';
-var DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'events-gutenberg');
+var DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Day', 'tribe-events-calendar-pro');
 
 //
 // ─── WEEKS OF THE MONTH ─────────────────────────────────────────────────────────
@@ -874,12 +884,12 @@ var FOURTH = 'fourth';
 var FIFTH = 'fifth';
 var LAST = 'last';
 
-var FIRST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('First', 'events-gutenberg');
-var SECOND_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Second', 'events-gutenberg');
-var THIRD_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Third', 'events-gutenberg');
-var FOURTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fourth', 'events-gutenberg');
-var FIFTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fifth', 'events-gutenberg');
-var LAST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Last', 'events-gutenberg');
+var FIRST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('First', 'tribe-events-calendar-pro');
+var SECOND_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Second', 'tribe-events-calendar-pro');
+var THIRD_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Third', 'tribe-events-calendar-pro');
+var FOURTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fourth', 'tribe-events-calendar-pro');
+var FIFTH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Fifth', 'tribe-events-calendar-pro');
+var LAST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Last', 'tribe-events-calendar-pro');
 
 var WEEKS_OF_THE_MONTH = [FIRST, SECOND, THIRD, FOURTH, FIFTH, LAST];
 var WEEK_NUM_MAPPING_TO_WEEKS_OF_THE_MONTH = {
@@ -907,31 +917,31 @@ var OCTOBER = 'october';
 var NOVEMBER = 'november';
 var DECEMBER = 'december';
 
-var JANUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('January', 'events-gutenberg');
-var FEBRUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('February', 'events-gutenberg');
-var MARCH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('March', 'events-gutenberg');
-var APRIL_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('April', 'events-gutenberg');
-var MAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'events-gutenberg');
-var JUNE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('June', 'events-gutenberg');
-var JULY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('July', 'events-gutenberg');
-var AUGUST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('August', 'events-gutenberg');
-var SEPTEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('September', 'events-gutenberg');
-var OCTOBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('October', 'events-gutenberg');
-var NOVEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('November', 'events-gutenberg');
-var DECEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('December', 'events-gutenberg');
+var JANUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('January', 'tribe-events-calendar-pro');
+var FEBRUARY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('February', 'tribe-events-calendar-pro');
+var MARCH_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('March', 'tribe-events-calendar-pro');
+var APRIL_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('April', 'tribe-events-calendar-pro');
+var MAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'tribe-events-calendar-pro');
+var JUNE_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('June', 'tribe-events-calendar-pro');
+var JULY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('July', 'tribe-events-calendar-pro');
+var AUGUST_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('August', 'tribe-events-calendar-pro');
+var SEPTEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('September', 'tribe-events-calendar-pro');
+var OCTOBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('October', 'tribe-events-calendar-pro');
+var NOVEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('November', 'tribe-events-calendar-pro');
+var DECEMBER_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('December', 'tribe-events-calendar-pro');
 
-var JANUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jan', 'events-gutenberg');
-var FEBRUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Feb', 'events-gutenberg');
-var MARCH_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Mar', 'events-gutenberg');
-var APRIL_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Apr', 'events-gutenberg');
-var MAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'events-gutenberg');
-var JUNE_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jun', 'events-gutenberg');
-var JULY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jul', 'events-gutenberg');
-var AUGUST_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Aug', 'events-gutenberg');
-var SEPTEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sep', 'events-gutenberg');
-var OCTOBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Oct', 'events-gutenberg');
-var NOVEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Nov', 'events-gutenberg');
-var DECEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Dec', 'events-gutenberg');
+var JANUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jan', 'tribe-events-calendar-pro');
+var FEBRUARY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Feb', 'tribe-events-calendar-pro');
+var MARCH_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Mar', 'tribe-events-calendar-pro');
+var APRIL_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Apr', 'tribe-events-calendar-pro');
+var MAY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('May', 'tribe-events-calendar-pro');
+var JUNE_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jun', 'tribe-events-calendar-pro');
+var JULY_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Jul', 'tribe-events-calendar-pro');
+var AUGUST_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Aug', 'tribe-events-calendar-pro');
+var SEPTEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Sep', 'tribe-events-calendar-pro');
+var OCTOBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Oct', 'tribe-events-calendar-pro');
+var NOVEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Nov', 'tribe-events-calendar-pro');
+var DECEMBER_ABBR = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Dec', 'tribe-events-calendar-pro');
 
 var MONTHS_OF_THE_YEAR_MAPPING_TO_STATE = (_MONTHS_OF_THE_YEAR_M = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JANUARY, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, FEBRUARY, 2), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, MARCH, 3), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, APRIL, 4), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, MAY, 5), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JUNE, 6), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, JULY, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, AUGUST, 8), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, SEPTEMBER, 9), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, OCTOBER, 10), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, NOVEMBER, 11), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_0___default()(_MONTHS_OF_THE_YEAR_M, DECEMBER, 12), _MONTHS_OF_THE_YEAR_M);
 
@@ -949,13 +959,13 @@ var FIFTH_DAY = 'fifth_day';
 var SIXTH_DAY = 'sixth_day';
 var SEVENTH_DAY = 'seventh_day';
 
-var NEXT_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Next day', 'events-gutenberg');
-var SECOND_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('2nd day', 'events-gutenberg');
-var THIRD_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('3rd day', 'events-gutenberg');
-var FOURTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('4th day', 'events-gutenberg');
-var FIFTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('5th day', 'events-gutenberg');
-var SIXTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('6th day', 'events-gutenberg');
-var SEVENTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('7th day', 'events-gutenberg');
+var NEXT_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Next day', 'tribe-events-calendar-pro');
+var SECOND_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('2nd day', 'tribe-events-calendar-pro');
+var THIRD_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('3rd day', 'tribe-events-calendar-pro');
+var FOURTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('4th day', 'tribe-events-calendar-pro');
+var FIFTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('5th day', 'tribe-events-calendar-pro');
+var SIXTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('6th day', 'tribe-events-calendar-pro');
+var SEVENTH_DAY_LABEL = Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('7th day', 'tribe-events-calendar-pro');
 
 /***/ }),
 /* 6 */
@@ -1092,13 +1102,13 @@ var keys = __webpack_require__(40);
 var keys_default = /*#__PURE__*/__webpack_require__.n(keys);
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/effects.js + 1 modules
-var effects = __webpack_require__(2);
+var effects = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./src/modules/data/blocks/constants.js
 var blocks_constants = __webpack_require__(12);
 
 // EXTERNAL MODULE: ./src/modules/data/ui/index.js + 4 modules
-var ui = __webpack_require__(41);
+var ui = __webpack_require__(42);
 
 // EXTERNAL MODULE: ./src/modules/data/shared/sagas.js
 var sagas = __webpack_require__(33);
@@ -5864,12 +5874,6 @@ return hooks;
 
 /***/ }),
 /* 9 */
-/***/ (function(module, exports) {
-
-module.exports = React;
-
-/***/ }),
-/* 10 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5926,6 +5930,12 @@ var additional_fields = __webpack_require__(13);
 
 
 /***/ }),
+/* 10 */
+/***/ (function(module, exports) {
+
+module.exports = React;
+
+/***/ }),
 /* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -5947,6 +5957,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_MULTI_DAY_SPAN", function() { return KEY_MULTI_DAY_SPAN; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_START_TIME", function() { return KEY_START_TIME; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_END_TIME", function() { return KEY_END_TIME; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_START_TIME_INPUT", function() { return KEY_START_TIME_INPUT; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_END_TIME_INPUT", function() { return KEY_END_TIME_INPUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_START_DATE", function() { return KEY_START_DATE; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_START_DATE_INPUT", function() { return KEY_START_DATE_INPUT; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "KEY_START_DATE_OBJ", function() { return KEY_START_DATE_OBJ; });
@@ -5982,6 +5994,8 @@ var KEY_MULTI_DAY = 'multi_day';
 var KEY_MULTI_DAY_SPAN = 'multi_day_span';
 var KEY_START_TIME = 'start_time';
 var KEY_END_TIME = 'end_time';
+var KEY_START_TIME_INPUT = '_start_time_input';
+var KEY_END_TIME_INPUT = '_end_time_input';
 var KEY_START_DATE = 'start_date';
 var KEY_START_DATE_INPUT = '_start_date_input';
 var KEY_START_DATE_OBJ = '_start_date_obj';
@@ -6424,7 +6438,7 @@ var actions_setFieldOutput = function setFieldOutput(name, output) {
 var lib = __webpack_require__(4);
 
 // EXTERNAL MODULE: ./node_modules/lodash/identity.js
-var identity = __webpack_require__(46);
+var identity = __webpack_require__(47);
 var identity_default = /*#__PURE__*/__webpack_require__.n(identity);
 
 // EXTERNAL MODULE: ./node_modules/lodash/includes.js
@@ -6556,7 +6570,7 @@ var regenerator = __webpack_require__(11);
 var regenerator_default = /*#__PURE__*/__webpack_require__.n(regenerator);
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/effects.js + 1 modules
-var effects = __webpack_require__(2);
+var effects = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./node_modules/lodash/noop.js
 var noop = __webpack_require__(69);
@@ -6877,30 +6891,32 @@ function watchers() {
 
 "use strict";
 /* unused harmony export getRule */
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "y", function() { return getType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return getAllDay; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return getMultiDay; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return getMultiDaySpan; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return getStartDate; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return getStartDateInput; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getStartDateObj; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getStartTime; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getStartTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return getMultiDay; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "q", function() { return getMultiDaySpan; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return getStartDate; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "s", function() { return getStartDateInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "t", function() { return getStartDateObj; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "u", function() { return getStartTime; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return getStartTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getStartTimeInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getEndDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return getEndDateInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getEndDateObj; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return getEndTime; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getEndTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return getEndTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getEndTimeInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return getBetween; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return getLimitType; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return getLimit; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return getLimitDateInput; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return getLimitDateObj; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return getLimitType; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "k", function() { return getLimit; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "l", function() { return getLimitDateInput; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "m", function() { return getLimitDateObj; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getDays; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getWeek; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "z", function() { return getWeek; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return getDay; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "n", function() { return getMonth; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "v", function() { return getTimezone; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return getMonth; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "x", function() { return getTimezone; });
 /* harmony import */ var reselect__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4);
 /* harmony import */ var reselect__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(reselect__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(12);
@@ -6952,6 +6968,10 @@ var getStartTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["create
 	return startTime.slice(0, -3);
 });
 
+var getStartTimeInput = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])([getRule], function (rule) {
+	return rule[_moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_1__["KEY_START_TIME_INPUT"]];
+});
+
 var getEndDate = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])([getRule], function (rule) {
 	return rule[_moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_1__["KEY_END_DATE"]];
 });
@@ -6970,6 +6990,10 @@ var getEndTime = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])
 
 var getEndTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])([getEndTime], function (endTime) {
 	return endTime.slice(0, -3);
+});
+
+var getEndTimeInput = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])([getRule], function (rule) {
+	return rule[_moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_1__["KEY_END_TIME_INPUT"]];
 });
 
 var getBetween = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"])([getRule], function (rule) {
@@ -7037,7 +7061,7 @@ var getTimezone = Object(reselect__WEBPACK_IMPORTED_MODULE_0__["createSelector"]
 /* unused harmony export getContext */
 /* unused harmony export setContext */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return asEffect; });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 
 var IO = /*#__PURE__*/Object(_utils__WEBPACK_IMPORTED_MODULE_0__[/* sym */ "u"])('IO');
@@ -7989,7 +8013,7 @@ function _inheritsLoose(subClass, superClass) {
   subClass.__proto__ = superClass;
 }
 // EXTERNAL MODULE: external "React"
-var external_React_ = __webpack_require__(9);
+var external_React_ = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(0);
@@ -8996,11 +9020,13 @@ __webpack_require__.d(selectors_namespaceObject, "getStartDateObj", function() {
 __webpack_require__.d(selectors_namespaceObject, "getStartDateInput", function() { return getStartDateInput; });
 __webpack_require__.d(selectors_namespaceObject, "getStartTime", function() { return getStartTime; });
 __webpack_require__.d(selectors_namespaceObject, "getStartTimeNoSeconds", function() { return getStartTimeNoSeconds; });
+__webpack_require__.d(selectors_namespaceObject, "getStartTimeInput", function() { return getStartTimeInput; });
 __webpack_require__.d(selectors_namespaceObject, "getEndDate", function() { return getEndDate; });
 __webpack_require__.d(selectors_namespaceObject, "getEndDateObj", function() { return getEndDateObj; });
 __webpack_require__.d(selectors_namespaceObject, "getEndDateInput", function() { return getEndDateInput; });
 __webpack_require__.d(selectors_namespaceObject, "getEndTime", function() { return getEndTime; });
 __webpack_require__.d(selectors_namespaceObject, "getEndTimeNoSeconds", function() { return getEndTimeNoSeconds; });
+__webpack_require__.d(selectors_namespaceObject, "getEndTimeInput", function() { return getEndTimeInput; });
 __webpack_require__.d(selectors_namespaceObject, "getBetween", function() { return getBetween; });
 __webpack_require__.d(selectors_namespaceObject, "getLimitType", function() { return getLimitType; });
 __webpack_require__.d(selectors_namespaceObject, "getLimit", function() { return getLimit; });
@@ -9107,7 +9133,7 @@ var constants = __webpack_require__(5);
  */
 
 
-var EXCEPTION_OCCURRENCE_OPTIONS = [{ label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Daily', 'events-gutenberg'), value: constants["DAILY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Weekly', 'events-gutenberg'), value: constants["WEEKLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Monthly', 'events-gutenberg'), value: constants["MONTHLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Yearly', 'events-gutenberg'), value: constants["YEARLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Single Exception', 'events-gutenberg'), value: constants["SINGLE"] }];
+var EXCEPTION_OCCURRENCE_OPTIONS = [{ label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Daily', 'tribe-events-calendar-pro'), value: constants["DAILY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Weekly', 'tribe-events-calendar-pro'), value: constants["WEEKLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Monthly', 'tribe-events-calendar-pro'), value: constants["MONTHLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Yearly', 'tribe-events-calendar-pro'), value: constants["YEARLY"] }, { label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Single Exception', 'tribe-events-calendar-pro'), value: constants["SINGLE"] }];
 // EXTERNAL MODULE: ./src/modules/data/blocks/recurring/options.js
 var options = __webpack_require__(55);
 
@@ -9151,30 +9177,32 @@ var getRule = Object(lib["createSelector"])([selectors_getExceptions, getIndex],
 	return exceptions[index];
 });
 
-var getType = Object(lib["createSelector"])(getRule, selectors["w" /* getType */]);
+var getType = Object(lib["createSelector"])(getRule, selectors["y" /* getType */]);
 var getAllDay = Object(lib["createSelector"])(getRule, selectors["a" /* getAllDay */]);
-var getMultiDay = Object(lib["createSelector"])(getRule, selectors["o" /* getMultiDay */]);
-var getMultiDaySpan = Object(lib["createSelector"])(getRule, selectors["p" /* getMultiDaySpan */]);
-var getStartDate = Object(lib["createSelector"])(getRule, selectors["q" /* getStartDate */]);
-var getStartDateObj = Object(lib["createSelector"])(getRule, selectors["s" /* getStartDateObj */]);
-var getStartDateInput = Object(lib["createSelector"])(getRule, selectors["r" /* getStartDateInput */]);
-var getStartTime = Object(lib["createSelector"])(getRule, selectors["t" /* getStartTime */]);
-var getStartTimeNoSeconds = Object(lib["createSelector"])(getRule, selectors["u" /* getStartTimeNoSeconds */]);
+var getMultiDay = Object(lib["createSelector"])(getRule, selectors["p" /* getMultiDay */]);
+var getMultiDaySpan = Object(lib["createSelector"])(getRule, selectors["q" /* getMultiDaySpan */]);
+var getStartDate = Object(lib["createSelector"])(getRule, selectors["r" /* getStartDate */]);
+var getStartDateObj = Object(lib["createSelector"])(getRule, selectors["t" /* getStartDateObj */]);
+var getStartDateInput = Object(lib["createSelector"])(getRule, selectors["s" /* getStartDateInput */]);
+var getStartTime = Object(lib["createSelector"])(getRule, selectors["u" /* getStartTime */]);
+var getStartTimeNoSeconds = Object(lib["createSelector"])(getRule, selectors["w" /* getStartTimeNoSeconds */]);
+var getStartTimeInput = Object(lib["createSelector"])(getRule, selectors["v" /* getStartTimeInput */]);
 var getEndDate = Object(lib["createSelector"])(getRule, selectors["e" /* getEndDate */]);
 var getEndDateObj = Object(lib["createSelector"])(getRule, selectors["g" /* getEndDateObj */]);
 var getEndDateInput = Object(lib["createSelector"])(getRule, selectors["f" /* getEndDateInput */]);
 var getEndTime = Object(lib["createSelector"])(getRule, selectors["h" /* getEndTime */]);
-var getEndTimeNoSeconds = Object(lib["createSelector"])(getRule, selectors["i" /* getEndTimeNoSeconds */]);
+var getEndTimeNoSeconds = Object(lib["createSelector"])(getRule, selectors["j" /* getEndTimeNoSeconds */]);
+var getEndTimeInput = Object(lib["createSelector"])(getRule, selectors["i" /* getEndTimeInput */]);
 var getBetween = Object(lib["createSelector"])(getRule, selectors["b" /* getBetween */]);
-var getLimitType = Object(lib["createSelector"])(getRule, selectors["m" /* getLimitType */]);
-var getLimit = Object(lib["createSelector"])(getRule, selectors["j" /* getLimit */]);
-var getLimitDateObj = Object(lib["createSelector"])(getRule, selectors["l" /* getLimitDateObj */]);
-var getLimitDateInput = Object(lib["createSelector"])(getRule, selectors["k" /* getLimitDateInput */]);
+var getLimitType = Object(lib["createSelector"])(getRule, selectors["n" /* getLimitType */]);
+var getLimit = Object(lib["createSelector"])(getRule, selectors["k" /* getLimit */]);
+var getLimitDateObj = Object(lib["createSelector"])(getRule, selectors["m" /* getLimitDateObj */]);
+var getLimitDateInput = Object(lib["createSelector"])(getRule, selectors["l" /* getLimitDateInput */]);
 var getDays = Object(lib["createSelector"])(getRule, selectors["d" /* getDays */]);
 var getDay = Object(lib["createSelector"])(getRule, selectors["c" /* getDay */]);
-var getMonth = Object(lib["createSelector"])(getRule, selectors["n" /* getMonth */]);
-var getWeek = Object(lib["createSelector"])(getRule, selectors["x" /* getWeek */]);
-var getTimezone = Object(lib["createSelector"])(getRule, selectors["v" /* getTimezone */]);
+var getMonth = Object(lib["createSelector"])(getRule, selectors["o" /* getMonth */]);
+var getWeek = Object(lib["createSelector"])(getRule, selectors["z" /* getWeek */]);
+var getTimezone = Object(lib["createSelector"])(getRule, selectors["x" /* getTimezone */]);
 
 var getTypeOption = Object(lib["createSelector"])([getType], function (type) {
 	return find_default()(EXCEPTION_OCCURRENCE_OPTIONS, function (option) {
@@ -9200,16 +9228,16 @@ var keys = __webpack_require__(40);
 var keys_default = /*#__PURE__*/__webpack_require__.n(keys);
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/effects.js + 1 modules
-var effects = __webpack_require__(2);
+var effects = __webpack_require__(1);
 
 // EXTERNAL MODULE: ./src/modules/data/blocks/index.js + 1 modules
-var blocks = __webpack_require__(10);
+var blocks = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./src/modules/data/shared/sagas.js
 var sagas = __webpack_require__(33);
 
 // EXTERNAL MODULE: ./src/modules/data/ui/index.js + 4 modules
-var ui = __webpack_require__(41);
+var ui = __webpack_require__(42);
 
 // EXTERNAL MODULE: external "tribe.events.data"
 var external_tribe_events_data_ = __webpack_require__(27);
@@ -9598,9 +9626,9 @@ module.exports = root;
 /* unused harmony export channel */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return eventChannel; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return stdChannel; });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
-/* harmony import */ var _buffers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(48);
-/* harmony import */ var _scheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(75);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
+/* harmony import */ var _buffers__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(49);
+/* harmony import */ var _scheduler__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(76);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -9807,6 +9835,7 @@ function stdChannel(subscribe) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return handleAddition; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return handleTimeChange; });
+/* unused harmony export handleTimeInput */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return handleMultiDayChange; });
 /* unused harmony export preventEndTimeBeforeStartTime */
 /* unused harmony export preventStartTimeAfterEndTime */
@@ -9817,7 +9846,7 @@ function stdChannel(subscribe) {
 /* harmony import */ var babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(6);
 /* harmony import */ var babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(2);
+/* harmony import */ var redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(1);
 /* harmony import */ var _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(12);
 /* harmony import */ var _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(5);
 /* harmony import */ var _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(16);
@@ -9829,12 +9858,13 @@ function stdChannel(subscribe) {
 
 var _marked = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleAddition),
     _marked2 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleTimeChange),
-    _marked3 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleMultiDayChange),
-    _marked4 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(preventEndTimeBeforeStartTime),
-    _marked5 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(preventStartTimeAfterEndTime),
-    _marked6 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleWeekChange),
-    _marked7 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleLimitTypeChange),
-    _marked8 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleTimezoneChange);
+    _marked3 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleTimeInput),
+    _marked4 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleMultiDayChange),
+    _marked5 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(preventEndTimeBeforeStartTime),
+    _marked6 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(preventStartTimeAfterEndTime),
+    _marked7 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleWeekChange),
+    _marked8 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleLimitTypeChange),
+    _marked9 = /*#__PURE__*/babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(handleTimezoneChange);
 
 /**
  * External dependencies
@@ -9854,6 +9884,8 @@ var KEY_TYPE = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_M
     KEY_MULTI_DAY = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_MULTI_DAY"],
     KEY_START_TIME = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_START_TIME"],
     KEY_END_TIME = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_END_TIME"],
+    KEY_START_TIME_INPUT = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_START_TIME_INPUT"],
+    KEY_END_TIME_INPUT = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_END_TIME_INPUT"],
     KEY_START_DATE = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_START_DATE"],
     KEY_START_DATE_INPUT = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_START_DATE_INPUT"],
     KEY_START_DATE_OBJ = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_START_DATE_OBJ"],
@@ -9874,7 +9906,9 @@ var KEY_TYPE = _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_M
 var toMoment = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toMoment,
     toDate = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toDate,
     toDatabaseDate = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toDatabaseDate,
-    toDatabaseTime = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toDatabaseTime;
+    toDatabaseTime = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toDatabaseTime,
+    toTime = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].toTime,
+    TIME_FORMAT = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["moment"].TIME_FORMAT;
 var MINUTE_IN_SECONDS = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["time"].MINUTE_IN_SECONDS,
     HALF_HOUR_IN_SECONDS = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["time"].HALF_HOUR_IN_SECONDS,
     HOUR_IN_SECONDS = _moderntribe_common_utils__WEBPACK_IMPORTED_MODULE_5__["time"].HOUR_IN_SECONDS,
@@ -9888,7 +9922,7 @@ function handleAddition(_ref) {
 	var _actions$add;
 
 	var actions = _ref.actions;
-	var start, end, allDay, multiDay, timezone, startMoment, endMoment, startMomentDate, startWeekNum, startWeek, startWeekday, startMonth, startDate, startTime, endDate, endTime, startDateInput, startDateObj, endDateInput, endDateObj;
+	var start, end, allDay, multiDay, timezone, startMoment, endMoment, startMomentDate, startWeekNum, startWeek, startWeekday, startMonth, startDate, startTime, endDate, endTime, startDateInput, startDateObj, endDateInput, endDateObj, startTimeInput, endTimeInput;
 	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleAddition$(_context) {
 		while (1) {
 			switch (_context.prev = _context.next) {
@@ -9982,9 +10016,19 @@ function handleAddition(_ref) {
 					endDateInput = _context.sent;
 					endDateObj = new Date(endDateInput);
 					_context.next = 56;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.add((_actions$add = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["SINGLE"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_ALL_DAY, allDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY, multiDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE, startDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_INPUT, startDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_OBJ, startDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_TIME, startTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE, endDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_TIME, endTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_BETWEEN, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAYS, [startWeekday]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_WEEK, startWeek), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAY, startWeekday), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MONTH, [startMonth + 1]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TIMEZONE, timezone), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY_SPAN, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["NEXT_DAY"]), _actions$add)));
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toTime, startMoment);
 
 				case 56:
+					startTimeInput = _context.sent;
+					_context.next = 59;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toTime, endMoment);
+
+				case 59:
+					endTimeInput = _context.sent;
+					_context.next = 62;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.add((_actions$add = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["SINGLE"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_ALL_DAY, allDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY, multiDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE, startDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_INPUT, startDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_DATE_OBJ, startDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_TIME, startTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_START_TIME_INPUT, startTimeInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE, endDate), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_TIME, endTime), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_END_TIME_INPUT, endTimeInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_BETWEEN, 1), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_TYPE, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT, 7), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_INPUT, endDateInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_LIMIT_DATE_OBJ, endDateObj), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAYS, [startWeekday]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_WEEK, startWeek), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_DAY, startWeekday), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MONTH, [startMonth + 1]), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_TIMEZONE, timezone), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$add, KEY_MULTI_DAY_SPAN, _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["NEXT_DAY"]), _actions$add)));
+
+				case 62:
 				case 'end':
 					return _context.stop();
 			}
@@ -10097,6 +10141,10 @@ function handleTimeChange(_ref2, action, key) {
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync3 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync3, KEY_ALL_DAY, isAllDay), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync3, key, payloadTime + ':00'), _actions$sync3)));
 
 				case 42:
+					_context2.next = 44;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(handleTimeInput, { actions: actions, selectors: selectors }, action, key);
+
+				case 44:
 				case 'end':
 					return _context2.stop();
 			}
@@ -10104,40 +10152,121 @@ function handleTimeChange(_ref2, action, key) {
 	}, _marked2, this);
 }
 
-function handleMultiDayChange(_ref3, action, key) {
+function handleTimeInput(_ref3, action, key) {
 	var actions = _ref3.actions,
 	    selectors = _ref3.selectors;
-	var isMultiDay, startTime, endTime;
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleMultiDayChange$(_context3) {
+
+	var _actions$sync4;
+
+	var payloadTime, isAllDay, startTimeMoment, endTimeMoment, startTime, endTime, startTimeInput, endTimeInput;
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleTimeInput$(_context3) {
 		while (1) {
 			switch (_context3.prev = _context3.next) {
 				case 0:
-					isMultiDay = action.payload[key];
+					payloadTime = action.payload[key];
+					isAllDay = payloadTime === 'all-day';
+					startTimeMoment = void 0, endTimeMoment = void 0;
 
-					if (isMultiDay) {
-						_context3.next = 10;
+					if (!isAllDay) {
+						_context3.next = 12;
 						break;
 					}
 
-					_context3.next = 4;
+					_context3.next = 6;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, '00:00', TIME_FORMAT, false);
+
+				case 6:
+					startTimeMoment = _context3.sent;
+					_context3.next = 9;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, '23:59', TIME_FORMAT, false);
+
+				case 9:
+					endTimeMoment = _context3.sent;
+					_context3.next = 24;
+					break;
+
+				case 12:
+					_context3.next = 14;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getStartTimeNoSeconds, action);
 
-				case 4:
+				case 14:
 					startTime = _context3.sent;
-					_context3.next = 7;
+					_context3.next = 17;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getEndTimeNoSeconds, action);
 
-				case 7:
+				case 17:
 					endTime = _context3.sent;
-					_context3.next = 10;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(preventEndTimeBeforeStartTime, { actions: actions }, { startTime: startTime, endTime: endTime }, action);
+					_context3.next = 20;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, startTime, TIME_FORMAT, false);
 
-				case 10:
+				case 20:
+					startTimeMoment = _context3.sent;
+					_context3.next = 23;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, endTime, TIME_FORMAT, false);
+
+				case 23:
+					endTimeMoment = _context3.sent;
+
+				case 24:
+					_context3.next = 26;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toTime, startTimeMoment);
+
+				case 26:
+					startTimeInput = _context3.sent;
+					_context3.next = 29;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toTime, endTimeMoment);
+
+				case 29:
+					endTimeInput = _context3.sent;
+					_context3.next = 32;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync4 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync4, KEY_START_TIME_INPUT, startTimeInput), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync4, KEY_END_TIME_INPUT, endTimeInput), _actions$sync4)));
+
+				case 32:
 				case 'end':
 					return _context3.stop();
 			}
 		}
 	}, _marked3, this);
+}
+
+function handleMultiDayChange(_ref4, action, key) {
+	var actions = _ref4.actions,
+	    selectors = _ref4.selectors;
+	var isMultiDay, startTime, endTime;
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleMultiDayChange$(_context4) {
+		while (1) {
+			switch (_context4.prev = _context4.next) {
+				case 0:
+					isMultiDay = action.payload[key];
+
+					if (isMultiDay) {
+						_context4.next = 12;
+						break;
+					}
+
+					_context4.next = 4;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getStartTimeNoSeconds, action);
+
+				case 4:
+					startTime = _context4.sent;
+					_context4.next = 7;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getEndTimeNoSeconds, action);
+
+				case 7:
+					endTime = _context4.sent;
+					_context4.next = 10;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(preventEndTimeBeforeStartTime, { actions: actions }, { startTime: startTime, endTime: endTime }, action);
+
+				case 10:
+					_context4.next = 12;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(handleTimeInput, { actions: actions, selectors: selectors }, action, key);
+
+				case 12:
+				case 'end':
+					return _context4.stop();
+			}
+		}
+	}, _marked4, this);
 }
 
 /**
@@ -10149,78 +10278,14 @@ function handleMultiDayChange(_ref3, action, key) {
  * @param {Object} { startTime, endTime } Start and end time
  * @param {Object} action Action received
  */
-function preventEndTimeBeforeStartTime(_ref4, _ref5, action) {
-	var actions = _ref4.actions;
-	var startTime = _ref5.startTime,
-	    endTime = _ref5.endTime;
-
-	var startTimeSeconds, endTimeSeconds, _actions$sync4, adjustedStartTime, adjustedEndTime;
-
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function preventEndTimeBeforeStartTime$(_context4) {
-		while (1) {
-			switch (_context4.prev = _context4.next) {
-				case 0:
-					_context4.next = 2;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toSeconds, startTime, TIME_FORMAT_HH_MM);
-
-				case 2:
-					startTimeSeconds = _context4.sent;
-					_context4.next = 5;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toSeconds, endTime, TIME_FORMAT_HH_MM);
-
-				case 5:
-					endTimeSeconds = _context4.sent;
-
-					if (!(endTimeSeconds <= startTimeSeconds)) {
-						_context4.next = 17;
-						break;
-					}
-
-					// If there is less than half an hour left in the day, roll back one hour
-					if (startTimeSeconds + HALF_HOUR_IN_SECONDS >= DAY_IN_SECONDS) {
-						startTimeSeconds -= HOUR_IN_SECONDS;
-					}
-
-					endTimeSeconds = startTimeSeconds + HALF_HOUR_IN_SECONDS;
-
-					_context4.next = 11;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(fromSeconds, startTimeSeconds, TIME_FORMAT_HH_MM);
-
-				case 11:
-					adjustedStartTime = _context4.sent;
-					_context4.next = 14;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(fromSeconds, endTimeSeconds, TIME_FORMAT_HH_MM);
-
-				case 14:
-					adjustedEndTime = _context4.sent;
-					_context4.next = 17;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync4 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync4, KEY_START_TIME, adjustedStartTime + ':00'), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync4, KEY_END_TIME, adjustedEndTime + ':00'), _actions$sync4)));
-
-				case 17:
-				case 'end':
-					return _context4.stop();
-			}
-		}
-	}, _marked4, this);
-}
-
-/**
- * Prevents start time from appearing ahead of end time.
- * Should only prevent when not a multi-day event.
- *
- * @export
- * @param {Object} { actions } Actions for syncing
- * @param {Object} { startTime, endTime } Start and end time
- * @param {Object} action Action received
- */
-function preventStartTimeAfterEndTime(_ref6, _ref7, action) {
-	var actions = _ref6.actions;
-	var startTime = _ref7.startTime,
-	    endTime = _ref7.endTime;
+function preventEndTimeBeforeStartTime(_ref5, _ref6, action) {
+	var actions = _ref5.actions;
+	var startTime = _ref6.startTime,
+	    endTime = _ref6.endTime;
 
 	var startTimeSeconds, endTimeSeconds, _actions$sync5, adjustedStartTime, adjustedEndTime;
 
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function preventStartTimeAfterEndTime$(_context5) {
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function preventEndTimeBeforeStartTime$(_context5) {
 		while (1) {
 			switch (_context5.prev = _context5.next) {
 				case 0:
@@ -10235,13 +10300,17 @@ function preventStartTimeAfterEndTime(_ref6, _ref7, action) {
 				case 5:
 					endTimeSeconds = _context5.sent;
 
-					if (!(startTimeSeconds >= endTimeSeconds)) {
+					if (!(endTimeSeconds <= startTimeSeconds)) {
 						_context5.next = 17;
 						break;
 					}
 
-					startTimeSeconds = Math.max(endTimeSeconds - HALF_HOUR_IN_SECONDS, 0);
-					endTimeSeconds = Math.max(startTimeSeconds + MINUTE_IN_SECONDS, endTimeSeconds);
+					// If there is less than half an hour left in the day, roll back one hour
+					if (startTimeSeconds + HALF_HOUR_IN_SECONDS >= DAY_IN_SECONDS) {
+						startTimeSeconds -= HOUR_IN_SECONDS;
+					}
+
+					endTimeSeconds = startTimeSeconds + HALF_HOUR_IN_SECONDS;
 
 					_context5.next = 11;
 					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(fromSeconds, startTimeSeconds, TIME_FORMAT_HH_MM);
@@ -10264,32 +10333,59 @@ function preventStartTimeAfterEndTime(_ref6, _ref7, action) {
 	}, _marked5, this);
 }
 
-function handleWeekChange(_ref8, action, key) {
-	var actions = _ref8.actions,
-	    selectors = _ref8.selectors;
+/**
+ * Prevents start time from appearing ahead of end time.
+ * Should only prevent when not a multi-day event.
+ *
+ * @export
+ * @param {Object} { actions } Actions for syncing
+ * @param {Object} { startTime, endTime } Start and end time
+ * @param {Object} action Action received
+ */
+function preventStartTimeAfterEndTime(_ref7, _ref8, action) {
+	var actions = _ref7.actions;
+	var startTime = _ref8.startTime,
+	    endTime = _ref8.endTime;
 
-	var payloadWeek, weekWasNull, _actions$sync6;
+	var startTimeSeconds, endTimeSeconds, _actions$sync6, adjustedStartTime, adjustedEndTime;
 
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleWeekChange$(_context6) {
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function preventStartTimeAfterEndTime$(_context6) {
 		while (1) {
 			switch (_context6.prev = _context6.next) {
 				case 0:
-					payloadWeek = action.payload[key];
-					_context6.next = 3;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getWeek, action);
+					_context6.next = 2;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toSeconds, startTime, TIME_FORMAT_HH_MM);
 
-				case 3:
-					weekWasNull = !_context6.sent;
+				case 2:
+					startTimeSeconds = _context6.sent;
+					_context6.next = 5;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toSeconds, endTime, TIME_FORMAT_HH_MM);
 
-					if (!(payloadWeek && weekWasNull)) {
-						_context6.next = 7;
+				case 5:
+					endTimeSeconds = _context6.sent;
+
+					if (!(startTimeSeconds >= endTimeSeconds)) {
+						_context6.next = 17;
 						break;
 					}
 
-					_context6.next = 7;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync6 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync6, key, payloadWeek), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync6, KEY_DAY, 1), _actions$sync6)));
+					startTimeSeconds = Math.max(endTimeSeconds - HALF_HOUR_IN_SECONDS, 0);
+					endTimeSeconds = Math.max(startTimeSeconds + MINUTE_IN_SECONDS, endTimeSeconds);
 
-				case 7:
+					_context6.next = 11;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(fromSeconds, startTimeSeconds, TIME_FORMAT_HH_MM);
+
+				case 11:
+					adjustedStartTime = _context6.sent;
+					_context6.next = 14;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(fromSeconds, endTimeSeconds, TIME_FORMAT_HH_MM);
+
+				case 14:
+					adjustedEndTime = _context6.sent;
+					_context6.next = 17;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync6 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync6, KEY_START_TIME, adjustedStartTime + ':00'), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync6, KEY_END_TIME, adjustedEndTime + ':00'), _actions$sync6)));
+
+				case 17:
 				case 'end':
 					return _context6.stop();
 			}
@@ -10297,62 +10393,32 @@ function handleWeekChange(_ref8, action, key) {
 	}, _marked6, this);
 }
 
-function handleLimitTypeChange(_ref9, action, key) {
-	var actions = _ref9.actions;
-	var value, isDate, isCount, start, startMoment, startDate;
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleLimitTypeChange$(_context7) {
+function handleWeekChange(_ref9, action, key) {
+	var actions = _ref9.actions,
+	    selectors = _ref9.selectors;
+
+	var payloadWeek, weekWasNull, _actions$sync7;
+
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleWeekChange$(_context7) {
 		while (1) {
 			switch (_context7.prev = _context7.next) {
 				case 0:
-					value = action.payload[key];
-					isDate = value === _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["DATE"];
-					isCount = value === _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"];
+					payloadWeek = action.payload[key];
+					_context7.next = 3;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(selectors.getWeek, action);
 
-					if (!isDate) {
-						_context7.next = 17;
+				case 3:
+					weekWasNull = !_context7.sent;
+
+					if (!(payloadWeek && weekWasNull)) {
+						_context7.next = 7;
 						break;
 					}
 
-					_context7.next = 6;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(_moderntribe_events_data__WEBPACK_IMPORTED_MODULE_6__["blocks"].datetime.selectors.getStart);
+					_context7.next = 7;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, (_actions$sync7 = {}, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync7, key, payloadWeek), babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()(_actions$sync7, KEY_DAY, 1), _actions$sync7)));
 
-				case 6:
-					start = _context7.sent;
-					_context7.next = 9;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, start);
-
-				case 9:
-					startMoment = _context7.sent;
-					_context7.next = 12;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseDate, startMoment);
-
-				case 12:
-					startDate = _context7.sent;
-					_context7.next = 15;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], startDate)));
-
-				case 15:
-					_context7.next = 24;
-					break;
-
-				case 17:
-					if (!isCount) {
-						_context7.next = 22;
-						break;
-					}
-
-					_context7.next = 20;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], 1)));
-
-				case 20:
-					_context7.next = 24;
-					break;
-
-				case 22:
-					_context7.next = 24;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], null)));
-
-				case 24:
+				case 7:
 				case 'end':
 					return _context7.stop();
 			}
@@ -10360,21 +10426,84 @@ function handleLimitTypeChange(_ref9, action, key) {
 	}, _marked7, this);
 }
 
-function handleTimezoneChange(_ref10, action, key) {
+function handleLimitTypeChange(_ref10, action, key) {
 	var actions = _ref10.actions;
-	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleTimezoneChange$(_context8) {
+	var value, isDate, isCount, start, startMoment, startDate;
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleLimitTypeChange$(_context8) {
 		while (1) {
 			switch (_context8.prev = _context8.next) {
 				case 0:
-					_context8.next = 2;
-					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_TIMEZONE"], action.payload[key])));
+					value = action.payload[key];
+					isDate = value === _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["DATE"];
+					isCount = value === _moderntribe_events_pro_data_blocks_recurring_constants__WEBPACK_IMPORTED_MODULE_4__["COUNT"];
 
-				case 2:
+					if (!isDate) {
+						_context8.next = 17;
+						break;
+					}
+
+					_context8.next = 6;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* select */ "g"])(_moderntribe_events_data__WEBPACK_IMPORTED_MODULE_6__["blocks"].datetime.selectors.getStart);
+
+				case 6:
+					start = _context8.sent;
+					_context8.next = 9;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toMoment, start);
+
+				case 9:
+					startMoment = _context8.sent;
+					_context8.next = 12;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* call */ "b"])(toDatabaseDate, startMoment);
+
+				case 12:
+					startDate = _context8.sent;
+					_context8.next = 15;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], startDate)));
+
+				case 15:
+					_context8.next = 24;
+					break;
+
+				case 17:
+					if (!isCount) {
+						_context8.next = 22;
+						break;
+					}
+
+					_context8.next = 20;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], 1)));
+
+				case 20:
+					_context8.next = 24;
+					break;
+
+				case 22:
+					_context8.next = 24;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_LIMIT"], null)));
+
+				case 24:
 				case 'end':
 					return _context8.stop();
 			}
 		}
 	}, _marked8, this);
+}
+
+function handleTimezoneChange(_ref11, action, key) {
+	var actions = _ref11.actions;
+	return babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function handleTimezoneChange$(_context9) {
+		while (1) {
+			switch (_context9.prev = _context9.next) {
+				case 0:
+					_context9.next = 2;
+					return Object(redux_saga_effects__WEBPACK_IMPORTED_MODULE_2__[/* put */ "e"])(actions.sync(action.index, babel_runtime_helpers_defineProperty__WEBPACK_IMPORTED_MODULE_1___default()({}, _moderntribe_events_pro_data_blocks_constants__WEBPACK_IMPORTED_MODULE_3__["KEY_TIMEZONE"], action.payload[key])));
+
+				case 2:
+				case 'end':
+					return _context9.stop();
+			}
+		}
+	}, _marked9, this);
 }
 
 /***/ }),
@@ -10615,6 +10744,27 @@ module.exports = keys;
 
 /***/ }),
 /* 41 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+
+exports.default = function (obj, keys) {
+  var target = {};
+
+  for (var i in obj) {
+    if (keys.indexOf(i) >= 0) continue;
+    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
+    target[i] = obj[i];
+  }
+
+  return target;
+};
+
+/***/ }),
+/* 42 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10832,7 +10982,7 @@ var isExceptionPanelExpanded = Object(lib["createSelector"])([selectors_getUI], 
 
 
 /***/ }),
-/* 42 */
+/* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var store = __webpack_require__(141)('wks');
@@ -10849,7 +10999,7 @@ $exports.store = store;
 
 
 /***/ }),
-/* 43 */
+/* 44 */
 /***/ (function(module, exports) {
 
 var core = module.exports = { version: '2.5.7' };
@@ -10857,7 +11007,7 @@ if (typeof __e == 'number') __e = core; // eslint-disable-line no-undef
 
 
 /***/ }),
-/* 44 */
+/* 45 */
 /***/ (function(module, exports) {
 
 /**
@@ -10894,7 +11044,7 @@ module.exports = isObject;
 
 
 /***/ }),
-/* 45 */
+/* 46 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var Symbol = __webpack_require__(61),
@@ -10928,7 +11078,7 @@ module.exports = baseGetTag;
 
 
 /***/ }),
-/* 46 */
+/* 47 */
 /***/ (function(module, exports) {
 
 /**
@@ -10955,19 +11105,19 @@ module.exports = identity;
 
 
 /***/ }),
-/* 47 */
+/* 48 */
 /***/ (function(module, exports) {
 
 module.exports = tribe.common.utils.string;
 
 /***/ }),
-/* 48 */
+/* 49 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export BUFFER_OVERFLOW */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return buffers; });
-/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(1);
+/* harmony import */ var _utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(2);
 
 
 var BUFFER_OVERFLOW = "Channel's Buffer overflow!";
@@ -11072,27 +11222,6 @@ var buffers = {
 };
 
 /***/ }),
-/* 49 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-
-exports.default = function (obj, keys) {
-  var target = {};
-
-  for (var i in obj) {
-    if (keys.indexOf(i) >= 0) continue;
-    if (!Object.prototype.hasOwnProperty.call(obj, i)) continue;
-    target[i] = obj[i];
-  }
-
-  return target;
-};
-
-/***/ }),
 /* 50 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -11106,7 +11235,7 @@ var toConsumableArray_default = /*#__PURE__*/__webpack_require__.n(toConsumableA
 var external_var_wp_i18n_root_wp_i18n_ = __webpack_require__(3);
 
 // EXTERNAL MODULE: external "tribe.common.utils.string"
-var external_tribe_common_utils_string_ = __webpack_require__(47);
+var external_tribe_common_utils_string_ = __webpack_require__(48);
 
 // EXTERNAL MODULE: ./node_modules/react-redux/es/index.js + 19 modules
 var es = __webpack_require__(22);
@@ -11160,7 +11289,7 @@ var container_mapDispatchToProps = function mapDispatchToProps(dispatch, ownProp
 
 /* harmony default export */ var container = (Object(redux["c" /* compose */])(Object(external_tribe_common_hoc_["withStore"])(), Object(es["a" /* connect */])(container_mapStateToProps, container_mapDispatchToProps), Object(external_tribe_common_hoc_["withSaveData"])(), Object(external_tribe_common_hoc_["withSelected"])()));
 // EXTERNAL MODULE: external "React"
-var external_React_ = __webpack_require__(9);
+var external_React_ = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(0);
@@ -11201,15 +11330,15 @@ var template_Settings = function Settings(_ref) {
 		before,
 		wp.element.createElement(
 			external_var_wp_components_root_wp_components_["PanelBody"],
-			{ title: Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('%1$s Settings', 'events-gutenberg'), name) },
+			{ title: Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('%1$s Settings', 'tribe-events-calendar-pro'), name) },
 			!!settingsLink && wp.element.createElement(
 				'span',
 				null,
-				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Adjust this block’s options under Events → Settings → ', 'events-gutenberg'),
+				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Adjust this block’s options under Events → Settings → ', 'tribe-events-calendar-pro'),
 				wp.element.createElement(
 					'a',
 					{ href: settingsLink, target: '_blank', rel: 'noreferrer noopener' },
-					Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Fields', 'events-gutenberg')
+					Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Fields', 'tribe-events-calendar-pro')
 				)
 			)
 		),
@@ -11409,7 +11538,7 @@ var template_FieldTemplate = function FieldTemplate(_ref) {
 	}
 
 	if (isPristine) {
-		var placeholderMessage = Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add %1$s', 'events-gutenberg'), capitalize_default()(label));
+		var placeholderMessage = Object(sprintf["sprintf"])(Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add %1$s', 'tribe-events-calendar-pro'), capitalize_default()(label));
 		return wp.element.createElement(
 			external_tribe_common_elements_["Placeholder"],
 			null,
@@ -11927,15 +12056,15 @@ var template_CheckboxSettings = function CheckboxSettings(props) {
 	var After = function After() {
 		return wp.element.createElement(
 			external_var_wp_components_root_wp_components_["PanelBody"],
-			{ title: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Custom Dividers', 'events-gutenberg') },
+			{ title: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Custom Dividers', 'tribe-events-calendar-pro') },
 			wp.element.createElement(external_var_wp_components_root_wp_components_["TextControl"], {
-				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List divider', 'events-gutenberg'),
+				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List divider', 'tribe-events-calendar-pro'),
 				value: listDividerValue,
 				onChange: listDividerOnChange,
 				className: 'tribe-editor__additional-fields__divider-settings'
 			}),
 			wp.element.createElement(external_var_wp_components_root_wp_components_["TextControl"], {
-				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List ender', 'events-gutenberg'),
+				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('List ender', 'tribe-events-calendar-pro'),
 				value: listEnderValue,
 				onChange: listEnderOnChange,
 				className: 'tribe-editor__additional-fields__divider-settings'
@@ -12197,7 +12326,7 @@ var utils_fieldToBlock = function fieldToBlock(field) {
 	var block = {
 		id: 'field-' + Object(external_tribe_common_utils_string_["toBlockName"])(name),
 		title: label,
-		description: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Field', 'events-gutenberg'),
+		description: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Additional Field', 'tribe-events-calendar-pro'),
 		icon: schema.icon,
 		category: 'tribe-events-pro-additional-fields',
 		keywords: ['event', 'events-gutenberg', 'tribe'],
@@ -12300,11 +12429,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStartDateInput", function() { return getStartDateInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStartTime", function() { return getStartTime; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStartTimeNoSeconds", function() { return getStartTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getStartTimeInput", function() { return getStartTimeInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndDate", function() { return getEndDate; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndDateObj", function() { return getEndDateObj; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndDateInput", function() { return getEndDateInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndTime", function() { return getEndTime; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndTimeNoSeconds", function() { return getEndTimeNoSeconds; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getEndTimeInput", function() { return getEndTimeInput; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getBetween", function() { return getBetween; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLimitType", function() { return getLimitType; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "getLimit", function() { return getLimit; });
@@ -12358,30 +12489,32 @@ var getRule = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])([g
 	return rules[index];
 });
 
-var getType = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getType */ "w"]);
+var getType = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getType */ "y"]);
 var getAllDay = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getAllDay */ "a"]);
-var getMultiDay = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMultiDay */ "o"]);
-var getMultiDaySpan = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMultiDaySpan */ "p"]);
-var getStartDate = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDate */ "q"]);
-var getStartDateObj = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDateObj */ "s"]);
-var getStartDateInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDateInput */ "r"]);
-var getStartTime = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartTime */ "t"]);
-var getStartTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartTimeNoSeconds */ "u"]);
+var getMultiDay = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMultiDay */ "p"]);
+var getMultiDaySpan = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMultiDaySpan */ "q"]);
+var getStartDate = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDate */ "r"]);
+var getStartDateObj = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDateObj */ "t"]);
+var getStartDateInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartDateInput */ "s"]);
+var getStartTime = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartTime */ "u"]);
+var getStartTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartTimeNoSeconds */ "w"]);
+var getStartTimeInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getStartTimeInput */ "v"]);
 var getEndDate = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndDate */ "e"]);
 var getEndDateObj = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndDateObj */ "g"]);
 var getEndDateInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndDateInput */ "f"]);
 var getEndTime = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndTime */ "h"]);
-var getEndTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndTimeNoSeconds */ "i"]);
+var getEndTimeNoSeconds = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndTimeNoSeconds */ "j"]);
+var getEndTimeInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getEndTimeInput */ "i"]);
 var getBetween = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getBetween */ "b"]);
-var getLimitType = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitType */ "m"]);
-var getLimit = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimit */ "j"]);
-var getLimitDateObj = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitDateObj */ "l"]);
-var getLimitDateInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitDateInput */ "k"]);
+var getLimitType = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitType */ "n"]);
+var getLimit = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimit */ "k"]);
+var getLimitDateObj = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitDateObj */ "m"]);
+var getLimitDateInput = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getLimitDateInput */ "l"]);
 var getDays = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getDays */ "d"]);
 var getDay = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getDay */ "c"]);
-var getMonth = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMonth */ "n"]);
-var getWeek = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getWeek */ "x"]);
-var getTimezone = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getTimezone */ "v"]);
+var getMonth = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getMonth */ "o"]);
+var getWeek = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getWeek */ "z"]);
+var getTimezone = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])(getRule, _moderntribe_events_pro_data_shared_selectors__WEBPACK_IMPORTED_MODULE_4__[/* getTimezone */ "x"]);
 
 var getTypeOption = Object(reselect__WEBPACK_IMPORTED_MODULE_1__["createSelector"])([getType], function (type) {
 	return lodash_find__WEBPACK_IMPORTED_MODULE_0___default()(_options__WEBPACK_IMPORTED_MODULE_2__["RECURRENCE_TYPE_RULES_OPTIONS"], function (option) {
@@ -12491,7 +12624,26 @@ __webpack_require__.r(__webpack_exports__);
 // ─── RECURRENCE TYPES OPTIONS ───────────────────────────────────────────────────
 //
 
-var RECURRENCE_TYPE_RULES_OPTIONS = [{ label: _constants__WEBPACK_IMPORTED_MODULE_2__["DAILY_LABEL"], value: _constants__WEBPACK_IMPORTED_MODULE_2__["DAILY"] }, { label: _constants__WEBPACK_IMPORTED_MODULE_2__["WEEKLY_LABEL"], value: _constants__WEBPACK_IMPORTED_MODULE_2__["WEEKLY"] }, { label: _constants__WEBPACK_IMPORTED_MODULE_2__["MONTHLY_LABEL"], value: _constants__WEBPACK_IMPORTED_MODULE_2__["MONTHLY"] }, { label: _constants__WEBPACK_IMPORTED_MODULE_2__["YEARLY_LABEL"], value: _constants__WEBPACK_IMPORTED_MODULE_2__["YEARLY"] }, { label: _constants__WEBPACK_IMPORTED_MODULE_2__["SINGLE_LABEL"], value: _constants__WEBPACK_IMPORTED_MODULE_2__["SINGLE"] }];
+var RECURRENCE_TYPE_RULES_OPTIONS = [{
+	label: _constants__WEBPACK_IMPORTED_MODULE_2__["DAILY_LABEL"],
+	label_plural: _constants__WEBPACK_IMPORTED_MODULE_2__["DAILY_LABEL_PLURAL"],
+	value: _constants__WEBPACK_IMPORTED_MODULE_2__["DAILY"]
+}, {
+	label: _constants__WEBPACK_IMPORTED_MODULE_2__["WEEKLY_LABEL"],
+	label_plural: _constants__WEBPACK_IMPORTED_MODULE_2__["WEEKLY_LABEL_PLURAL"],
+	value: _constants__WEBPACK_IMPORTED_MODULE_2__["WEEKLY"]
+}, {
+	label: _constants__WEBPACK_IMPORTED_MODULE_2__["MONTHLY_LABEL"],
+	label_plural: _constants__WEBPACK_IMPORTED_MODULE_2__["MONTHLY_LABEL_PLURAL"],
+	value: _constants__WEBPACK_IMPORTED_MODULE_2__["MONTHLY"]
+}, {
+	label: _constants__WEBPACK_IMPORTED_MODULE_2__["YEARLY_LABEL"],
+	label_plural: _constants__WEBPACK_IMPORTED_MODULE_2__["YEARLY_LABEL_PLURAL"],
+	value: _constants__WEBPACK_IMPORTED_MODULE_2__["YEARLY"]
+}, {
+	label: _constants__WEBPACK_IMPORTED_MODULE_2__["SINGLE_LABEL"],
+	value: _constants__WEBPACK_IMPORTED_MODULE_2__["SINGLE"]
+}];
 
 //
 // ─── RECURRENCE FREQUENCY OPTIONS ───────────────────────────────────────────────
@@ -12606,7 +12758,7 @@ var RECURRING_MULTI_DAY_OPTIONS = [{ label: _constants__WEBPACK_IMPORTED_MODULE_
 "use strict";
 
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/utils.js
-var utils = __webpack_require__(1);
+var utils = __webpack_require__(2);
 
 // CONCATENATED MODULE: ./node_modules/redux-saga/es/internal/sagaHelpers/fsmIterator.js
 
@@ -12733,7 +12885,7 @@ function takeLatest(patternOrChannel, worker) {
   }, 'q1', 'takeLatest(' + safeName(patternOrChannel) + ', ' + worker.name + ')');
 }
 // EXTERNAL MODULE: ./node_modules/redux-saga/es/internal/buffers.js
-var buffers = __webpack_require__(48);
+var buffers = __webpack_require__(49);
 
 // CONCATENATED MODULE: ./node_modules/redux-saga/es/internal/sagaHelpers/throttle.js
 
@@ -12858,7 +13010,7 @@ module.exports = isArrayLike;
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(52);
-var core = __webpack_require__(43);
+var core = __webpack_require__(44);
 var ctx = __webpack_require__(139);
 var hide = __webpack_require__(67);
 var has = __webpack_require__(60);
@@ -12952,7 +13104,7 @@ var DataView = __webpack_require__(316),
     Promise = __webpack_require__(317),
     Set = __webpack_require__(188),
     WeakMap = __webpack_require__(158),
-    baseGetTag = __webpack_require__(45),
+    baseGetTag = __webpack_require__(46),
     toSource = __webpack_require__(160);
 
 /** `Object#toString` result references. */
@@ -13011,7 +13163,7 @@ module.exports = getTag;
 /* 63 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isSymbol = __webpack_require__(72);
+var isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -13079,7 +13231,7 @@ module.exports = __webpack_require__(57) ? function (object, key, value) {
 /* 68 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 module.exports = function (it) {
   if (!isObject(it)) throw TypeError(it + ' is not an object!');
   return it;
@@ -13169,7 +13321,8 @@ module.exports = includes;
 
 
 /***/ }),
-/* 71 */
+/* 71 */,
+/* 72 */
 /***/ (function(module, exports) {
 
 module.exports = function (it) {
@@ -13178,10 +13331,10 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 72 */
+/* 73 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -13213,7 +13366,7 @@ module.exports = isSymbol;
 
 
 /***/ }),
-/* 73 */
+/* 74 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var assignValue = __webpack_require__(178),
@@ -13259,7 +13412,7 @@ module.exports = copyObject;
 
 
 /***/ }),
-/* 74 */
+/* 75 */
 /***/ (function(module, exports, __webpack_require__) {
 
 // to indexed object, toObject with fallback for non-array-like ES3 strings
@@ -13271,7 +13424,7 @@ module.exports = function (it) {
 
 
 /***/ }),
-/* 75 */
+/* 76 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -13342,7 +13495,6 @@ function flush() {
 }
 
 /***/ }),
-/* 76 */,
 /* 77 */
 /***/ (function(module, exports) {
 
@@ -13381,7 +13533,7 @@ module.exports = {};
 /***/ (function(module, exports, __webpack_require__) {
 
 var baseCreate = __webpack_require__(81),
-    isObject = __webpack_require__(44);
+    isObject = __webpack_require__(45);
 
 /**
  * Creates a function that produces an instance of `Ctor` regardless of
@@ -13423,7 +13575,7 @@ module.exports = createCtor;
 /* 81 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(44);
+var isObject = __webpack_require__(45);
 
 /** Built-in value references. */
 var objectCreate = Object.create;
@@ -14281,7 +14433,7 @@ module.exports = function(module) {
 
 var baseMatches = __webpack_require__(332),
     baseMatchesProperty = __webpack_require__(341),
-    identity = __webpack_require__(46),
+    identity = __webpack_require__(47),
     isArray = __webpack_require__(29),
     property = __webpack_require__(349);
 
@@ -14320,7 +14472,7 @@ module.exports = baseIteratee;
 __webpack_require__.r(__webpack_exports__);
 
 // EXTERNAL MODULE: external "React"
-var external_React_ = __webpack_require__(9);
+var external_React_ = __webpack_require__(10);
 var external_React_default = /*#__PURE__*/__webpack_require__.n(external_React_);
 
 // CONCATENATED MODULE: ./src/modules/icons/arrow.svg
@@ -14606,8 +14758,8 @@ module.exports = createWrap;
 /* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
-    isObject = __webpack_require__(44);
+var baseGetTag = __webpack_require__(46),
+    isObject = __webpack_require__(45);
 
 /** `Object#toString` result references. */
 var asyncTag = '[object AsyncFunction]',
@@ -14974,7 +15126,7 @@ var Stack = __webpack_require__(125),
     isArray = __webpack_require__(29),
     isBuffer = __webpack_require__(85),
     isMap = __webpack_require__(325),
-    isObject = __webpack_require__(44),
+    isObject = __webpack_require__(45),
     isSet = __webpack_require__(327),
     keys = __webpack_require__(40);
 
@@ -15368,7 +15520,7 @@ module.exports = baseGet;
 /***/ (function(module, exports, __webpack_require__) {
 
 var isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72);
+    isSymbol = __webpack_require__(73);
 
 /** Used to match property names within property paths. */
 var reIsDeepProp = /\.|\[(?:[^[\]]*|(["'])(?:(?!\1)[^\\]|\\.)*?\1)\]/,
@@ -15415,7 +15567,7 @@ if (true) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
@@ -15502,7 +15654,7 @@ var result = Object(_ponyfill_js__WEBPACK_IMPORTED_MODULE_0__[/* default */ "a"]
 
 var constant = __webpack_require__(171),
     createInverter = __webpack_require__(362),
-    identity = __webpack_require__(46);
+    identity = __webpack_require__(47);
 
 /** Used for built-in method references. */
 var objectProto = Object.prototype;
@@ -15585,7 +15737,7 @@ module.exports = function (it) {
 /* 141 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var core = __webpack_require__(43);
+var core = __webpack_require__(44);
 var global = __webpack_require__(52);
 var SHARED = '__core-js_shared__';
 var store = global[SHARED] || (global[SHARED] = {});
@@ -15615,7 +15767,7 @@ module.exports = (
 
 var def = __webpack_require__(53).f;
 var has = __webpack_require__(60);
-var TAG = __webpack_require__(42)('toStringTag');
+var TAG = __webpack_require__(43)('toStringTag');
 
 module.exports = function (it, tag, stat) {
   if (it && !has(it = stat ? it : it.prototype, TAG)) def(it, TAG, { configurable: true, value: tag });
@@ -15649,7 +15801,7 @@ var inherits = __webpack_require__(37);
 var inherits_default = /*#__PURE__*/__webpack_require__.n(inherits);
 
 // EXTERNAL MODULE: external "React"
-var external_React_ = __webpack_require__(9);
+var external_React_ = __webpack_require__(10);
 
 // EXTERNAL MODULE: ./node_modules/prop-types/index.js
 var prop_types = __webpack_require__(0);
@@ -15699,7 +15851,7 @@ element_RemoveField.propTypes = {
 var external_var_wp_i18n_root_wp_i18n_ = __webpack_require__(3);
 
 // EXTERNAL MODULE: ./src/modules/data/blocks/index.js + 1 modules
-var blocks = __webpack_require__(10);
+var blocks = __webpack_require__(9);
 
 // EXTERNAL MODULE: ./src/modules/data/blocks/exception/index.js + 4 modules
 var exception = __webpack_require__(24);
@@ -15730,7 +15882,7 @@ var singular_SingularField = function SingularField(_ref) {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
 			options: exception["b" /* options */].EXCEPTION_OCCURRENCE_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('A', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('A', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_date_picker_element, {
 			blockType: blocks["constants"].EXCEPTION,
@@ -15769,12 +15921,12 @@ var daily_DailyField = function DailyField(_ref) {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
 			options: exception["b" /* options */].EXCEPTION_OCCURRENCE_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(series_ends_element, {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'tribe-events-calendar-pro')
 		})
 	);
 };
@@ -15809,7 +15961,7 @@ var weekly_WeeklyField = function WeeklyField(_ref) {
 			blockType: blocks["constants"].EXCEPTION,
 			options: exception["b" /* options */].EXCEPTION_OCCURRENCE_OPTIONS,
 			index: index,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_day_of_week_element, {
 			blockType: blocks["constants"].EXCEPTION,
@@ -15818,7 +15970,7 @@ var weekly_WeeklyField = function WeeklyField(_ref) {
 		wp.element.createElement(series_ends_element, {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'tribe-events-calendar-pro')
 		})
 	);
 };
@@ -15853,7 +16005,7 @@ var monthly_MonthlyField = function MonthlyField(_ref) {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
 			options: exception["b" /* options */].EXCEPTION_OCCURRENCE_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_day_of_month_picker_element, {
 			blockType: blocks["constants"].EXCEPTION,
@@ -15862,7 +16014,7 @@ var monthly_MonthlyField = function MonthlyField(_ref) {
 		wp.element.createElement(series_ends_element, {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'tribe-events-calendar-pro')
 		})
 	);
 };
@@ -15897,7 +16049,7 @@ var yearly_YearlyField = function YearlyField(_ref) {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
 			options: exception["b" /* options */].EXCEPTION_OCCURRENCE_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(in_month_element, {
 			blockType: blocks["constants"].EXCEPTION,
@@ -15910,7 +16062,7 @@ var yearly_YearlyField = function YearlyField(_ref) {
 		wp.element.createElement(series_ends_element, {
 			blockType: blocks["constants"].EXCEPTION,
 			index: index,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Exception ends', 'tribe-events-calendar-pro')
 		})
 	);
 };
@@ -16038,7 +16190,7 @@ var recurring_field_singular_SingularField = function SingularField(_ref) {
 			blockType: blocks["constants"].RECURRING,
 			index: index,
 			options: recurring["options"].RECURRENCE_TYPE_RULES_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('A', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('A', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_date_picker_element, {
 			blockType: blocks["constants"].RECURRING,
@@ -16084,7 +16236,7 @@ var recurring_field_daily_DailyField = function DailyField(_ref) {
 			blockType: blocks["constants"].RECURRING,
 			index: index,
 			options: recurring["options"].RECURRENCE_TYPE_RULES_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(from_time_range_picker_element, {
 			blockType: blocks["constants"].RECURRING,
@@ -16130,7 +16282,7 @@ var recurring_field_weekly_WeeklyField = function WeeklyField(_ref) {
 			blockType: blocks["constants"].RECURRING,
 			index: index,
 			options: recurring["options"].RECURRENCE_TYPE_RULES_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_day_of_week_element, {
 			blockType: blocks["constants"].RECURRING,
@@ -16180,7 +16332,7 @@ var recurring_field_monthly_MonthlyField = function MonthlyField(_ref) {
 			blockType: blocks["constants"].RECURRING,
 			index: index,
 			options: recurring["options"].RECURRENCE_TYPE_RULES_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(on_day_of_month_picker_element, {
 			blockType: blocks["constants"].RECURRING,
@@ -16230,7 +16382,7 @@ var recurring_field_yearly_YearlyField = function YearlyField(_ref) {
 			blockType: blocks["constants"].RECURRING,
 			index: index,
 			options: recurring["options"].RECURRENCE_TYPE_RULES_OPTIONS,
-			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'events-gutenberg')
+			rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Every', 'tribe-events-calendar-pro')
 		}),
 		wp.element.createElement(in_month_element, {
 			blockType: blocks["constants"].RECURRING,
@@ -16545,7 +16697,7 @@ var element_MultiDayCheckbox = function (_PureComponent) {
 				className: classnames_default()('tribe-editor__multi-day-checkbox', className),
 				disabled: disabled,
 				id: this.id,
-				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Multi-day', 'events-gutenberg'),
+				label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Multi-day', 'tribe-events-calendar-pro'),
 				onChange: onChange
 			});
 		}
@@ -16568,7 +16720,7 @@ var helpers_extends = __webpack_require__(19);
 var extends_default = /*#__PURE__*/__webpack_require__.n(helpers_extends);
 
 // EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/objectWithoutProperties.js
-var objectWithoutProperties = __webpack_require__(49);
+var objectWithoutProperties = __webpack_require__(41);
 var objectWithoutProperties_default = /*#__PURE__*/__webpack_require__.n(objectWithoutProperties);
 
 // EXTERNAL MODULE: ./node_modules/babel-runtime/helpers/defineProperty.js
@@ -16647,7 +16799,7 @@ var template_SeriesEnds = function SeriesEnds(_ref) {
 				wp.element.createElement(
 					'span',
 					{ className: 'tribe-editor__series-ends__number-input-label' },
-					seriesEndsAfterTimes > 1 ? Object(external_var_wp_i18n_root_wp_i18n_["__"])('events', 'events-gutenberg') : Object(external_var_wp_i18n_root_wp_i18n_["__"])('event', 'events-gutenberg')
+					seriesEndsAfterTimes > 1 ? Object(external_var_wp_i18n_root_wp_i18n_["__"])('events', 'tribe-events-calendar-pro') : Object(external_var_wp_i18n_root_wp_i18n_["__"])('event', 'tribe-events-calendar-pro')
 				)
 			);
 		}
@@ -16687,7 +16839,7 @@ template_SeriesEnds.propTypes = {
 
 template_SeriesEnds.defaultProps = {
 	seriesEndsOnDateFormat: 'LL',
-	rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Series ends', 'events-gutenberg')
+	rowLabel: Object(external_var_wp_i18n_root_wp_i18n_["__"])('Series ends', 'tribe-events-calendar-pro')
 };
 
 /* harmony default export */ var template = (template_SeriesEnds);
@@ -17045,7 +17197,7 @@ var template_OnDayOfWeek = function OnDayOfWeek(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__on-day-of-week', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(day_of_week_picker_element, {
 			sundayChecked: sundayChecked,
@@ -17218,7 +17370,7 @@ var element_DayOfMonthPicker = function DayOfMonthPicker(_ref) {
 		wp.element.createElement(
 			'span',
 			null,
-			Object(external_var_wp_i18n_root_wp_i18n_["__"])('of the month', 'events-gutenberg')
+			Object(external_var_wp_i18n_root_wp_i18n_["__"])('of the month', 'tribe-events-calendar-pro')
 		)
 	);
 };
@@ -17258,7 +17410,7 @@ var template_OnDayOfMonthPicker = function OnDayOfMonthPicker(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__on-day-of-month-picker', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On the', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On the', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(day_of_month_picker_element, {
 			dayOfMonth: dayOfMonth,
@@ -17384,14 +17536,11 @@ var recurring_to_date_time_picker_style = __webpack_require__(550);
 
 
 
-var START_OF_DAY = external_tribe_common_utils_["time"].START_OF_DAY,
-    END_OF_DAY = external_tribe_common_utils_["time"].END_OF_DAY;
-
-
 var template_RecurringToDateTimePicker = function RecurringToDateTimePicker(_ref) {
 	var className = _ref.className,
-	    endTime = _ref.endTime,
+	    endTimeInput = _ref.endTimeInput,
 	    isAllDay = _ref.isAllDay,
+	    onEndTimeBlur = _ref.onEndTimeBlur,
 	    onEndTimeChange = _ref.onEndTimeChange,
 	    onEndTimeClick = _ref.onEndTimeClick,
 	    onRecurringMultiDayChange = _ref.onRecurringMultiDayChange,
@@ -17400,12 +17549,13 @@ var template_RecurringToDateTimePicker = function RecurringToDateTimePicker(_ref
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__recurring-to-date-time-picker', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('To', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('To', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(external_tribe_common_elements_["TimePicker"], {
-			current: endTime,
-			start: START_OF_DAY,
-			end: END_OF_DAY,
+			current: endTimeInput,
+			start: external_tribe_common_utils_["time"].START_OF_DAY,
+			end: external_tribe_common_utils_["time"].END_OF_DAY,
+			onBlur: onEndTimeBlur,
 			onChange: onEndTimeChange,
 			onClick: onEndTimeClick,
 			showAllDay: true,
@@ -17414,7 +17564,7 @@ var template_RecurringToDateTimePicker = function RecurringToDateTimePicker(_ref
 		wp.element.createElement(
 			'span',
 			null,
-			Object(external_var_wp_i18n_root_wp_i18n_["__"])('on the', 'events-gutenberg')
+			Object(external_var_wp_i18n_root_wp_i18n_["__"])('on the', 'tribe-events-calendar-pro')
 		),
 		wp.element.createElement(external_tribe_common_elements_["Select"], {
 			className: 'tribe-editor__recurring-to-date-time-picker__select',
@@ -17429,8 +17579,9 @@ var template_RecurringToDateTimePicker = function RecurringToDateTimePicker(_ref
 
 template_RecurringToDateTimePicker.propTypes = {
 	className: prop_types_default.a.string,
-	endTime: external_tribe_common_utils_["TribePropTypes"].timeFormat,
+	endTimeInput: prop_types_default.a.string,
 	isAllDay: prop_types_default.a.bool,
+	onEndTimeBlur: prop_types_default.a.func,
 	onEndTimeChange: prop_types_default.a.func,
 	onEndTimeClick: prop_types_default.a.func,
 	onRecurringMultiDayChange: prop_types_default.a.func,
@@ -17439,6 +17590,8 @@ template_RecurringToDateTimePicker.propTypes = {
 
 /* harmony default export */ var recurring_to_date_time_picker_template = (template_RecurringToDateTimePicker);
 // CONCATENATED MODULE: ./src/modules/elements/recurring-to-date-time-picker/element.js
+
+
 
 
 /**
@@ -17458,7 +17611,11 @@ template_RecurringToDateTimePicker.propTypes = {
 
 
 var KEY_END_TIME = blocks["constants"].KEY_END_TIME,
+    KEY_END_TIME_INPUT = blocks["constants"].KEY_END_TIME_INPUT,
     KEY_MULTI_DAY_SPAN = blocks["constants"].KEY_MULTI_DAY_SPAN;
+var element_toMoment = external_tribe_common_utils_["moment"].toMoment,
+    toTime24Hr = external_tribe_common_utils_["moment"].toTime24Hr,
+    TIME_FORMAT = external_tribe_common_utils_["moment"].TIME_FORMAT;
 var TIME_FORMAT_HH_MM = external_tribe_common_utils_["time"].TIME_FORMAT_HH_MM,
     fromSeconds = external_tribe_common_utils_["time"].fromSeconds;
 
@@ -17470,9 +17627,20 @@ var element_getRecurringMultiDay = function getRecurringMultiDay(state, ownProps
 	});
 };
 
+var element_onEndTimeBlur = function onEndTimeBlur(dispatch, ownProps, endTimeNoSeconds) {
+	return function (e) {
+		var endTimeMoment = element_toMoment(e.target.value, TIME_FORMAT, false);
+		if (!endTimeMoment.isValid()) {
+			endTimeMoment = element_toMoment(endTimeNoSeconds, TIME_FORMAT, false);
+		}
+		var endTime = toTime24Hr(endTimeMoment);
+		dispatch(recurring["actions"].editRule(ownProps.index, defineProperty_default()({}, KEY_END_TIME, endTime)));
+	};
+};
+
 var element_onEndTimeChange = function onEndTimeChange(dispatch, ownProps) {
 	return function (e) {
-		return dispatch(recurring["actions"].editRule(ownProps.index, defineProperty_default()({}, KEY_END_TIME, e.target.value)));
+		return dispatch(recurring["actions"].editRule(ownProps.index, defineProperty_default()({}, KEY_END_TIME_INPUT, e.target.value)));
 	};
 };
 
@@ -17493,6 +17661,7 @@ var element_onRecurringMultiDayChange = function onRecurringMultiDayChange(dispa
 var recurring_to_date_time_picker_element_mapStateToProps = function mapStateToProps(state, ownProps) {
 	return {
 		endTime: recurring["selectors"].getEndTimeNoSeconds(state, ownProps),
+		endTimeInput: recurring["selectors"].getEndTimeInput(state, ownProps),
 		isAllDay: recurring["selectors"].getAllDay(state, ownProps),
 		recurringMultiDay: element_getRecurringMultiDay(state, ownProps)
 	};
@@ -17502,11 +17671,24 @@ var recurring_to_date_time_picker_element_mapDispatchToProps = function mapDispa
 	return {
 		onEndTimeChange: element_onEndTimeChange(dispatch, ownProps),
 		onEndTimeClick: element_onEndTimeClick(dispatch, ownProps),
-		onRecurringMultiDayChange: element_onRecurringMultiDayChange(dispatch, ownProps)
+		onRecurringMultiDayChange: element_onRecurringMultiDayChange(dispatch, ownProps),
+		dispatch: dispatch
 	};
 };
 
-/* harmony default export */ var recurring_to_date_time_picker_element = (Object(redux["c" /* compose */])(Object(external_tribe_common_hoc_["withStore"])(), Object(es["a" /* connect */])(recurring_to_date_time_picker_element_mapStateToProps, recurring_to_date_time_picker_element_mapDispatchToProps))(recurring_to_date_time_picker_template));
+var recurring_to_date_time_picker_element_mergeProps = function mergeProps(stateProps, dispatchProps, ownProps) {
+	var endTime = stateProps.endTime,
+	    restStateProps = objectWithoutProperties_default()(stateProps, ['endTime']);
+
+	var dispatch = dispatchProps.dispatch,
+	    restDispatchProps = objectWithoutProperties_default()(dispatchProps, ['dispatch']);
+
+	return extends_default()({}, ownProps, restStateProps, restDispatchProps, {
+		onEndTimeBlur: element_onEndTimeBlur(dispatch, ownProps, endTime)
+	});
+};
+
+/* harmony default export */ var recurring_to_date_time_picker_element = (Object(redux["c" /* compose */])(Object(external_tribe_common_hoc_["withStore"])(), Object(es["a" /* connect */])(recurring_to_date_time_picker_element_mapStateToProps, recurring_to_date_time_picker_element_mapDispatchToProps, recurring_to_date_time_picker_element_mergeProps))(recurring_to_date_time_picker_template));
 // EXTERNAL MODULE: ./src/modules/elements/single-to-date-time-picker/style.pcss
 var single_to_date_time_picker_style = __webpack_require__(551);
 
@@ -17528,16 +17710,13 @@ var single_to_date_time_picker_style = __webpack_require__(551);
 
 
 
-var template_START_OF_DAY = external_tribe_common_utils_["time"].START_OF_DAY,
-    template_END_OF_DAY = external_tribe_common_utils_["time"].END_OF_DAY;
-
-
 var template_SingleToDateTimePicker = function SingleToDateTimePicker(_ref) {
 	var className = _ref.className,
 	    endDate = _ref.endDate,
 	    endDateFormat = _ref.endDateFormat,
-	    endTime = _ref.endTime,
+	    endTimeInput = _ref.endTimeInput,
 	    isAllDay = _ref.isAllDay,
+	    onEndTimeBlur = _ref.onEndTimeBlur,
 	    onEndDateChange = _ref.onEndDateChange,
 	    onEndTimeChange = _ref.onEndTimeChange,
 	    onEndTimeClick = _ref.onEndTimeClick;
@@ -17548,21 +17727,21 @@ var template_SingleToDateTimePicker = function SingleToDateTimePicker(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__single-to-date-time-picker', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('To', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('To', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(external_tribe_common_elements_["TimePicker"], {
-			current: endTime,
-			start: template_START_OF_DAY,
-			end: template_END_OF_DAY,
+			current: endTimeInput,
+			start: external_tribe_common_utils_["time"].START_OF_DAY,
+			end: external_tribe_common_utils_["time"].END_OF_DAY,
+			onBlur: onEndTimeBlur,
 			onChange: onEndTimeChange,
 			onClick: onEndTimeClick,
-			showAllDay: true,
 			allDay: isAllDay
 		}),
 		wp.element.createElement(
 			'span',
 			null,
-			Object(external_var_wp_i18n_root_wp_i18n_["__"])('on', 'events-gutenberg')
+			Object(external_var_wp_i18n_root_wp_i18n_["__"])('on', 'tribe-events-calendar-pro')
 		),
 		wp.element.createElement(external_tribe_common_elements_["DayPickerInput"], {
 			value: endDate,
@@ -17584,9 +17763,10 @@ template_SingleToDateTimePicker.propTypes = {
 	className: prop_types_default.a.string,
 	endDate: prop_types_default.a.string,
 	endDateFormat: prop_types_default.a.string,
-	endTime: external_tribe_common_utils_["TribePropTypes"].timeFormat,
+	endTimeInput: prop_types_default.a.string,
 	isAllDay: prop_types_default.a.bool,
 	onEndDateChange: prop_types_default.a.func,
+	onEndTimeBlur: prop_types_default.a.func,
 	onEndTimeChange: prop_types_default.a.func,
 	onEndTimeClick: prop_types_default.a.func
 };
@@ -17621,9 +17801,12 @@ var element_RECURRING = blocks["constants"].RECURRING,
     KEY_END_DATE = blocks["constants"].KEY_END_DATE,
     KEY_END_DATE_INPUT = blocks["constants"].KEY_END_DATE_INPUT,
     KEY_END_DATE_OBJ = blocks["constants"].KEY_END_DATE_OBJ,
-    element_KEY_END_TIME = blocks["constants"].KEY_END_TIME;
-var element_toMoment = external_tribe_common_utils_["moment"].toMoment,
-    element_toDatabaseDate = external_tribe_common_utils_["moment"].toDatabaseDate;
+    element_KEY_END_TIME = blocks["constants"].KEY_END_TIME,
+    element_KEY_END_TIME_INPUT = blocks["constants"].KEY_END_TIME_INPUT;
+var single_to_date_time_picker_element_toMoment = external_tribe_common_utils_["moment"].toMoment,
+    element_toDatabaseDate = external_tribe_common_utils_["moment"].toDatabaseDate,
+    element_toTime24Hr = external_tribe_common_utils_["moment"].toTime24Hr,
+    element_TIME_FORMAT = external_tribe_common_utils_["moment"].TIME_FORMAT;
 var element_TIME_FORMAT_HH_MM = external_tribe_common_utils_["time"].TIME_FORMAT_HH_MM,
     element_fromSeconds = external_tribe_common_utils_["time"].fromSeconds;
 
@@ -17635,13 +17818,24 @@ var element_onEndDateChange = function onEndDateChange(ownProps, edit, end) {
 		// default end date is date time end date if date is undefined
 		var endDate = date ? date : end;
 
-		edit(ownProps.index, (_edit = {}, defineProperty_default()(_edit, KEY_END_DATE_INPUT, dayPickerInput.input.value), defineProperty_default()(_edit, KEY_END_DATE_OBJ, date), defineProperty_default()(_edit, KEY_END_DATE, element_toDatabaseDate(element_toMoment(endDate))), _edit));
+		edit(ownProps.index, (_edit = {}, defineProperty_default()(_edit, KEY_END_DATE_INPUT, dayPickerInput.input.value), defineProperty_default()(_edit, KEY_END_DATE_OBJ, date), defineProperty_default()(_edit, KEY_END_DATE, element_toDatabaseDate(single_to_date_time_picker_element_toMoment(endDate))), _edit));
+	};
+};
+
+var single_to_date_time_picker_element_onEndTimeBlur = function onEndTimeBlur(ownProps, edit, endTimeNoSeconds) {
+	return function (e) {
+		var endTimeMoment = single_to_date_time_picker_element_toMoment(e.target.value, element_TIME_FORMAT, false);
+		if (!endTimeMoment.isValid()) {
+			endTimeMoment = single_to_date_time_picker_element_toMoment(endTimeNoSeconds, element_TIME_FORMAT, false);
+		}
+		var endTime = element_toTime24Hr(endTimeMoment);
+		edit(ownProps.index, defineProperty_default()({}, element_KEY_END_TIME, endTime));
 	};
 };
 
 var single_to_date_time_picker_element_onEndTimeChange = function onEndTimeChange(ownProps, edit) {
 	return function (e) {
-		return edit(ownProps.index, defineProperty_default()({}, element_KEY_END_TIME, e.target.value));
+		return edit(ownProps.index, defineProperty_default()({}, element_KEY_END_TIME_INPUT, e.target.value));
 	};
 };
 
@@ -17660,6 +17854,7 @@ var single_to_date_time_picker_element_mapStateToProps = function mapStateToProp
 		end: external_tribe_events_data_["blocks"].datetime.selectors.getEnd(state),
 		endDate: selectors.getEndDateInput(state, ownProps),
 		endTime: selectors.getEndTimeNoSeconds(state, ownProps),
+		endTimeInput: selectors.getEndTimeInput(state, ownProps),
 		isAllDay: selectors.getAllDay(state, ownProps)
 	};
 };
@@ -17679,20 +17874,19 @@ var single_to_date_time_picker_element_mapDispatchToProps = function mapDispatch
 
 var single_to_date_time_picker_element_mergeProps = function mergeProps(stateProps, dispatchProps, ownProps) {
 	var end = stateProps.end,
-	    restStateProps = objectWithoutProperties_default()(stateProps, ['end']);
+	    endTime = stateProps.endTime,
+	    restStateProps = objectWithoutProperties_default()(stateProps, ['end', 'endTime']);
 
 	var edit = dispatchProps.edit,
 	    restDispatchProps = objectWithoutProperties_default()(dispatchProps, ['edit']);
 
 	return extends_default()({}, ownProps, restStateProps, restDispatchProps, {
-		onEndDateChange: element_onEndDateChange(ownProps, edit, end)
+		onEndDateChange: element_onEndDateChange(ownProps, edit, end),
+		onEndTimeBlur: single_to_date_time_picker_element_onEndTimeBlur(ownProps, edit, endTime)
 	});
 };
 
 /* harmony default export */ var single_to_date_time_picker_element = (Object(redux["c" /* compose */])(Object(external_tribe_common_hoc_["withStore"])(), Object(es["a" /* connect */])(single_to_date_time_picker_element_mapStateToProps, single_to_date_time_picker_element_mapDispatchToProps, single_to_date_time_picker_element_mergeProps))(single_to_date_time_picker_template));
-// EXTERNAL MODULE: ./node_modules/moment/moment.js
-var moment_moment = __webpack_require__(8);
-
 // EXTERNAL MODULE: ./src/modules/elements/from-time-range-picker/style.pcss
 var from_time_range_picker_style = __webpack_require__(552);
 
@@ -17700,7 +17894,6 @@ var from_time_range_picker_style = __webpack_require__(552);
 /**
  * External dependencies
  */
-
 
 
 
@@ -17715,35 +17908,28 @@ var from_time_range_picker_style = __webpack_require__(552);
 
 
 
-var MINUTE_IN_SECONDS = external_tribe_common_utils_["time"].MINUTE_IN_SECONDS,
-    HALF_HOUR_IN_SECONDS = external_tribe_common_utils_["time"].HALF_HOUR_IN_SECONDS,
-    DAY_IN_SECONDS = external_tribe_common_utils_["time"].DAY_IN_SECONDS,
-    from_time_range_picker_template_START_OF_DAY = external_tribe_common_utils_["time"].START_OF_DAY,
-    from_time_range_picker_template_END_OF_DAY = external_tribe_common_utils_["time"].END_OF_DAY,
-    template_TIME_FORMAT_HH_MM = external_tribe_common_utils_["time"].TIME_FORMAT_HH_MM,
-    toSeconds = external_tribe_common_utils_["time"].toSeconds,
-    template_fromSeconds = external_tribe_common_utils_["time"].fromSeconds;
-
-
 var template_FromTimeRangePicker = function FromTimeRangePicker(_ref) {
 	var className = _ref.className,
-	    endTime = _ref.endTime,
+	    endTimeInput = _ref.endTimeInput,
 	    isAllDay = _ref.isAllDay,
 	    isMultiDay = _ref.isMultiDay,
+	    onEndTimeBlur = _ref.onEndTimeBlur,
 	    onEndTimeChange = _ref.onEndTimeChange,
 	    onEndTimeClick = _ref.onEndTimeClick,
 	    onMultiDayChange = _ref.onMultiDayChange,
+	    onStartTimeBlur = _ref.onStartTimeBlur,
 	    onStartTimeChange = _ref.onStartTimeChange,
 	    onStartTimeClick = _ref.onStartTimeClick,
-	    startTime = _ref.startTime;
+	    startTimeInput = _ref.startTimeInput;
 
 	var getStartTimePickerProps = function getStartTimePickerProps() {
 		var props = {
-			current: startTime,
+			current: startTimeInput,
+			onBlur: onStartTimeBlur,
 			onChange: onStartTimeChange,
 			onClick: onStartTimeClick,
-			start: from_time_range_picker_template_START_OF_DAY,
-			end: from_time_range_picker_template_END_OF_DAY,
+			start: external_tribe_common_utils_["time"].START_OF_DAY,
+			end: external_tribe_common_utils_["time"].END_OF_DAY,
 			showAllDay: false,
 			allDay: isAllDay
 		};
@@ -17752,11 +17938,12 @@ var template_FromTimeRangePicker = function FromTimeRangePicker(_ref) {
 
 	var getEndTimePickerProps = function getEndTimePickerProps() {
 		var props = {
-			current: endTime,
+			current: endTimeInput,
+			onBlur: onEndTimeBlur,
 			onChange: onEndTimeChange,
 			onClick: onEndTimeClick,
-			start: from_time_range_picker_template_START_OF_DAY,
-			end: from_time_range_picker_template_END_OF_DAY,
+			start: external_tribe_common_utils_["time"].START_OF_DAY,
+			end: external_tribe_common_utils_["time"].END_OF_DAY,
 			disabled: isMultiDay,
 			showAllDay: false,
 			allDay: isAllDay
@@ -17768,7 +17955,7 @@ var template_FromTimeRangePicker = function FromTimeRangePicker(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__from-time-range-picker', { 'tribe-editor__from-time-range-picker--multi-day': isMultiDay }, className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('From', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('From', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(external_tribe_common_elements_["TimePicker"], getStartTimePickerProps()),
 		!isAllDay && wp.element.createElement(
@@ -17777,7 +17964,7 @@ var template_FromTimeRangePicker = function FromTimeRangePicker(_ref) {
 			wp.element.createElement(
 				'span',
 				null,
-				Object(external_var_wp_i18n_root_wp_i18n_["__"])('to', 'events-gutenberg')
+				Object(external_var_wp_i18n_root_wp_i18n_["__"])('to', 'tribe-events-calendar-pro')
 			),
 			wp.element.createElement(external_tribe_common_elements_["TimePicker"], getEndTimePickerProps())
 		),
@@ -17791,19 +17978,22 @@ var template_FromTimeRangePicker = function FromTimeRangePicker(_ref) {
 
 template_FromTimeRangePicker.propTypes = {
 	className: prop_types_default.a.string,
-	endTime: external_tribe_common_utils_["TribePropTypes"].timeFormat,
+	endTimeInput: prop_types_default.a.string,
 	isAllDay: prop_types_default.a.bool,
 	isMultiDay: prop_types_default.a.bool,
+	onEndTimeBlur: prop_types_default.a.func,
 	onEndTimeChange: prop_types_default.a.func,
 	onEndTimeClick: prop_types_default.a.func,
 	onMultiDayChange: prop_types_default.a.func,
+	onStartTimeBlur: prop_types_default.a.func,
 	onStartTimeChange: prop_types_default.a.func,
 	onStartTimeClick: prop_types_default.a.func,
-	startTime: external_tribe_common_utils_["TribePropTypes"].timeFormat
+	startTimeInput: prop_types_default.a.string
 };
 
 /* harmony default export */ var from_time_range_picker_template = (template_FromTimeRangePicker);
 // CONCATENATED MODULE: ./src/modules/elements/from-time-range-picker/element.js
+
 
 
 /**
@@ -17822,33 +18012,49 @@ template_FromTimeRangePicker.propTypes = {
 
 
 
+var from_time_range_picker_element_toMoment = external_tribe_common_utils_["moment"].toMoment,
+    from_time_range_picker_element_toTime24Hr = external_tribe_common_utils_["moment"].toTime24Hr,
+    from_time_range_picker_element_TIME_FORMAT = external_tribe_common_utils_["moment"].TIME_FORMAT;
 var from_time_range_picker_element_TIME_FORMAT_HH_MM = external_tribe_common_utils_["time"].TIME_FORMAT_HH_MM,
-    element_toSeconds = external_tribe_common_utils_["time"].toSeconds,
     from_time_range_picker_element_fromSeconds = external_tribe_common_utils_["time"].fromSeconds;
 var from_time_range_picker_element_KEY_END_TIME = blocks["constants"].KEY_END_TIME,
+    from_time_range_picker_element_KEY_END_TIME_INPUT = blocks["constants"].KEY_END_TIME_INPUT,
     KEY_MULTI_DAY = blocks["constants"].KEY_MULTI_DAY,
-    KEY_START_TIME = blocks["constants"].KEY_START_TIME;
+    KEY_START_TIME = blocks["constants"].KEY_START_TIME,
+    KEY_START_TIME_INPUT = blocks["constants"].KEY_START_TIME_INPUT;
 
 
-var from_time_range_picker_element_onEndTimeChange = function onEndTimeChange(stateProps, dispatchProps, ownProps) {
+var from_time_range_picker_element_onEndTimeBlur = function onEndTimeBlur(dispatchProps, ownProps, endTimeNoSeconds) {
 	return function (e) {
-		var seconds = element_toSeconds(e.target.value, from_time_range_picker_element_TIME_FORMAT_HH_MM);
-		var min = element_toSeconds(stateProps.startTime, from_time_range_picker_element_TIME_FORMAT_HH_MM);
-
-		if (stateProps.isMultiDay || !stateProps.isMultiDay && seconds > min) {
-			dispatchProps.editRule(ownProps.index, defineProperty_default()({}, from_time_range_picker_element_KEY_END_TIME, e.target.value));
+		var endTimeMoment = from_time_range_picker_element_toMoment(e.target.value, from_time_range_picker_element_TIME_FORMAT, false);
+		if (!endTimeMoment.isValid()) {
+			endTimeMoment = from_time_range_picker_element_toMoment(endTimeNoSeconds, from_time_range_picker_element_TIME_FORMAT, false);
 		}
+		var endTime = from_time_range_picker_element_toTime24Hr(endTimeMoment);
+		dispatchProps.editRule(ownProps.index, defineProperty_default()({}, from_time_range_picker_element_KEY_END_TIME, endTime));
 	};
 };
 
-var element_onStartTimeChange = function onStartTimeChange(stateProps, dispatchProps, ownProps) {
+var element_onStartTimeBlur = function onStartTimeBlur(dispatchProps, ownProps, startTimeNoSeconds) {
 	return function (e) {
-		var seconds = element_toSeconds(e.target.value, from_time_range_picker_element_TIME_FORMAT_HH_MM);
-		var max = element_toSeconds(stateProps.endTime, from_time_range_picker_element_TIME_FORMAT_HH_MM);
-
-		if (stateProps.isMultiDay || !stateProps.isMultiDay && seconds < max) {
-			dispatchProps.editRule(ownProps.index, defineProperty_default()({}, KEY_START_TIME, e.target.value));
+		var startTimeMoment = from_time_range_picker_element_toMoment(e.target.value, from_time_range_picker_element_TIME_FORMAT, false);
+		if (!startTimeMoment.isValid()) {
+			startTimeMoment = from_time_range_picker_element_toMoment(startTimeNoSeconds, from_time_range_picker_element_TIME_FORMAT, false);
 		}
+		var startTime = from_time_range_picker_element_toTime24Hr(startTimeMoment);
+		dispatchProps.editRule(ownProps.index, defineProperty_default()({}, KEY_START_TIME, startTime));
+	};
+};
+
+var from_time_range_picker_element_onEndTimeChange = function onEndTimeChange(dispatchProps, ownProps) {
+	return function (e) {
+		dispatchProps.editRule(ownProps.index, defineProperty_default()({}, from_time_range_picker_element_KEY_END_TIME_INPUT, e.target.value));
+	};
+};
+
+var element_onStartTimeChange = function onStartTimeChange(dispatchProps, ownProps) {
+	return function (e) {
+		dispatchProps.editRule(ownProps.index, defineProperty_default()({}, KEY_START_TIME_INPUT, e.target.value));
 	};
 };
 
@@ -17879,9 +18085,11 @@ var from_time_range_picker_element_mapStateToProps = function mapStateToProps(st
 
 	return {
 		endTime: selectors.getEndTimeNoSeconds(state, ownProps),
+		endTimeInput: selectors.getEndTimeInput(state, ownProps),
 		isAllDay: selectors.getAllDay(state, ownProps),
 		isMultiDay: selectors.getMultiDay(state, ownProps),
-		startTime: selectors.getStartTimeNoSeconds(state, ownProps)
+		startTime: selectors.getStartTimeNoSeconds(state, ownProps),
+		startTimeInput: selectors.getStartTimeInput(state, ownProps)
 	};
 };
 
@@ -17896,11 +18104,17 @@ var from_time_range_picker_element_mapDispatchToProps = function mapDispatchToPr
 };
 
 var from_time_range_picker_element_mergeProps = function mergeProps(stateProps, dispatchProps, ownProps) {
-	return extends_default()({}, ownProps, dispatchProps, stateProps, {
-		onEndTimeChange: from_time_range_picker_element_onEndTimeChange(stateProps, dispatchProps, ownProps),
-		onStartTimeChange: element_onStartTimeChange(stateProps, dispatchProps, ownProps),
-		onMultiDayChange: element_onMultiDayChange(dispatchProps, ownProps),
+	var endTime = stateProps.endTime,
+	    startTime = stateProps.startTime,
+	    restStateProps = objectWithoutProperties_default()(stateProps, ['endTime', 'startTime']);
+
+	return extends_default()({}, ownProps, restStateProps, dispatchProps, {
+		onEndTimeBlur: from_time_range_picker_element_onEndTimeBlur(dispatchProps, ownProps, endTime),
+		onEndTimeChange: from_time_range_picker_element_onEndTimeChange(dispatchProps, ownProps),
 		onEndTimeClick: from_time_range_picker_element_onEndTimeClick(dispatchProps, ownProps),
+		onMultiDayChange: element_onMultiDayChange(dispatchProps, ownProps),
+		onStartTimeBlur: element_onStartTimeBlur(dispatchProps, ownProps, startTime),
+		onStartTimeChange: element_onStartTimeChange(dispatchProps, ownProps),
 		onStartTimeClick: element_onStartTimeClick(dispatchProps, ownProps)
 	});
 };
@@ -17941,7 +18155,7 @@ var element_MonthTag = function MonthTag(_ref) {
 		wp.element.createElement(
 			'span',
 			{ className: 'tribe-editor__month-tag__remove' },
-			Object(external_var_wp_i18n_root_wp_i18n_["__"])('Remove', 'events-gutenberg')
+			Object(external_var_wp_i18n_root_wp_i18n_["__"])('Remove', 'tribe-events-calendar-pro')
 		),
 		children
 	);
@@ -18017,7 +18231,7 @@ var element_MonthPicker = function (_PureComponent) {
 					{ className: 'tribe-editor__month-picker__add-icon' },
 					'+'
 				),
-				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add', 'events-gutenberg')
+				Object(external_var_wp_i18n_root_wp_i18n_["__"])('Add', 'tribe-events-calendar-pro')
 			);
 		};
 
@@ -18095,7 +18309,7 @@ var template_InMonth = function InMonth(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__in-month', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('In', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('In', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(month_picker_element, {
 			className: 'tribe-editor__in-month__month-picker',
@@ -18373,7 +18587,9 @@ var template_TypePicker = function TypePicker(_ref) {
 	    onChange = _ref.onChange,
 	    options = _ref.options,
 	    rowLabel = _ref.rowLabel,
-	    selected = _ref.selected;
+	    selected = _ref.selected,
+	    isPlural = _ref.isPlural;
+
 
 	var getFrequencySelect = function getFrequencySelect() {
 		return selected && selected.value !== recurring["constants"].SINGLE && wp.element.createElement(frequency_select_element, {
@@ -18382,6 +18598,10 @@ var template_TypePicker = function TypePicker(_ref) {
 			index: index,
 			selected: selected
 		});
+	};
+
+	var getOptionLabel = function getOptionLabel(option) {
+		return isPlural && option.label_plural ? option.label_plural : option.label;
 	};
 
 	return wp.element.createElement(
@@ -18397,7 +18617,8 @@ var template_TypePicker = function TypePicker(_ref) {
 			value: selected,
 			isSearchable: false,
 			options: options,
-			onChange: onChange
+			onChange: onChange,
+			getOptionLabel: getOptionLabel
 		})
 	);
 };
@@ -18441,12 +18662,24 @@ var type_picker_element_RECURRING = blocks["constants"].RECURRING,
 
 var element_getSelected = function getSelected(state, ownProps) {
 	var selectors = ownProps.blockType === type_picker_element_RECURRING ? recurring["selectors"] : exception["d" /* selectors */];
+
 	return selectors.getTypeOption(state, ownProps);
 };
 
+var type_picker_element_getFrequency = function getFrequency(state, ownProps) {
+	var selectors = ownProps.blockType === type_picker_element_RECURRING ? recurring["selectors"] : exception["d" /* selectors */];
+
+	return selectors.getBetween(state, ownProps);
+};
+
 var type_picker_element_mapStateToProps = function mapStateToProps(state, ownProps) {
+
+	var frequency = type_picker_element_getFrequency(state, ownProps);
+	var isPlural = frequency > 1;
+
 	return {
-		selected: element_getSelected(state, ownProps)
+		selected: element_getSelected(state, ownProps),
+		isPlural: isPlural
 	};
 };
 
@@ -18493,7 +18726,7 @@ var template_OnDatePicker = function OnDatePicker(_ref) {
 		labeled_row_element,
 		{
 			className: classnames_default()('tribe-editor__on-date-picker', className),
-			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On', 'events-gutenberg')
+			label: Object(external_var_wp_i18n_root_wp_i18n_["__"])('On', 'tribe-events-calendar-pro')
 		},
 		wp.element.createElement(external_tribe_common_elements_["DayPickerInput"], {
 			value: date,
@@ -18654,7 +18887,7 @@ var on_date_picker_element_mergeProps = function mergeProps(stateProps, dispatch
 /***/ (function(module, exports, __webpack_require__) {
 
 // 7.1.1 ToPrimitive(input [, PreferredType])
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 // instead of the ES6 spec version, we didn't implement @@toPrimitive case
 // and the second argument - flag - preferred type is a string
 module.exports = function (it, S) {
@@ -18726,7 +18959,7 @@ module.exports = Object.create || function create(O, Properties) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
@@ -18781,7 +19014,7 @@ Panel.propTypes = {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
@@ -18891,7 +19124,7 @@ function now(){
 /* 151 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 var document = __webpack_require__(52).document;
 // typeof document.createElement is 'object' in old IE
 var is = isObject(document) && isObject(document.createElement);
@@ -18937,7 +19170,7 @@ g = (function() {
 
 try {
 	// This works if eval is allowed (see CSP)
-	g = g || Function("return this")() || (1, eval)("this");
+	g = g || new Function("return this")();
 } catch (e) {
 	// This works if the window reference is available
 	if (typeof window === "object") g = window;
@@ -18966,7 +19199,7 @@ module.exports = {};
 /* 156 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var identity = __webpack_require__(46),
+var identity = __webpack_require__(47),
     metaMap = __webpack_require__(157);
 
 /**
@@ -19621,7 +19854,7 @@ module.exports = getHolder;
 /* 177 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     keys = __webpack_require__(40);
 
 /**
@@ -20042,7 +20275,7 @@ module.exports = curry;
 /* 191 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     getPrototype = __webpack_require__(130),
     isObjectLike = __webpack_require__(38);
 
@@ -20285,7 +20518,7 @@ module.exports = cacheHas;
 /* 196 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(44);
+var isObject = __webpack_require__(45);
 
 /**
  * Checks if `value` is suitable for strict equality comparisons, i.e. `===`.
@@ -20457,7 +20690,7 @@ module.exports = hasUnicode;
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
@@ -20480,7 +20713,7 @@ var ExceptionAddField = function ExceptionAddField(props) {
 	return wp.element.createElement(
 		_moderntribe_events_pro_elements_add_field_element__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],
 		props,
-		Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Add Exception', 'events-gutenberg')
+		Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Add Exception', 'tribe-events-calendar-pro')
 	);
 };
 
@@ -20493,7 +20726,7 @@ ExceptionAddField.propTypes = {};
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_1__);
@@ -20516,7 +20749,7 @@ var RecurringAddField = function RecurringAddField(props) {
 	return wp.element.createElement(
 		_moderntribe_events_pro_elements_add_field_element__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],
 		props,
-		Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Add Rule', 'events-gutenberg')
+		Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_2__["__"])('Add Rule', 'tribe-events-calendar-pro')
 	);
 };
 
@@ -20536,7 +20769,7 @@ RecurringAddField.propTypes = {};
  * Copyrights licensed under the New BSD License. See the accompanying LICENSE file for terms.
  */
 var ReactIs = __webpack_require__(135);
-var React = __webpack_require__(9);
+var React = __webpack_require__(10);
 var REACT_STATICS = {
     childContextTypes: true,
     contextType: true,
@@ -20648,7 +20881,7 @@ var arrayMap = __webpack_require__(93),
     baseClone = __webpack_require__(124),
     baseUnset = __webpack_require__(368),
     castPath = __webpack_require__(91),
-    copyObject = __webpack_require__(73),
+    copyObject = __webpack_require__(74),
     customOmitClone = __webpack_require__(371),
     flatRest = __webpack_require__(199),
     getAllKeysIn = __webpack_require__(187);
@@ -20869,7 +21102,7 @@ module.exports = !__webpack_require__(57) && !__webpack_require__(77)(function (
 /***/ (function(module, exports, __webpack_require__) {
 
 var has = __webpack_require__(60);
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var arrayIndexOf = __webpack_require__(231)(false);
 var IE_PROTO = __webpack_require__(109)('IE_PROTO');
 
@@ -20925,7 +21158,7 @@ var Iterators = __webpack_require__(79);
 var $iterCreate = __webpack_require__(240);
 var setToStringTag = __webpack_require__(143);
 var getPrototypeOf = __webpack_require__(243);
-var ITERATOR = __webpack_require__(42)('iterator');
+var ITERATOR = __webpack_require__(43)('iterator');
 var BUGGY = !([].keys && 'next' in [].keys()); // Safari has buggy iterators w/o `next`
 var FF_ITERATOR = '@@iterator';
 var KEYS = 'keys';
@@ -21055,7 +21288,7 @@ module.exports = baseForOwn;
 /* 222 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.f = __webpack_require__(42);
+exports.f = __webpack_require__(43);
 
 
 /***/ }),
@@ -21063,7 +21296,7 @@ exports.f = __webpack_require__(42);
 /***/ (function(module, exports, __webpack_require__) {
 
 var global = __webpack_require__(52);
-var core = __webpack_require__(43);
+var core = __webpack_require__(44);
 var LIBRARY = __webpack_require__(105);
 var wksExt = __webpack_require__(222);
 var defineProperty = __webpack_require__(53).f;
@@ -21086,12 +21319,12 @@ module.exports = function (name) {
 /* harmony import */ var babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(37);
 /* harmony import */ var babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _moderntribe_events_pro_elements__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(144);
-/* harmony import */ var _moderntribe_events_pro_data_blocks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
+/* harmony import */ var _moderntribe_events_pro_data_blocks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9);
 
 
 
@@ -21166,12 +21399,12 @@ RecurringForm.defaultProps = {
 /* harmony import */ var babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(37);
 /* harmony import */ var babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(10);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_4__);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(0);
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_5__);
 /* harmony import */ var _moderntribe_events_pro_elements__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(144);
-/* harmony import */ var _moderntribe_events_pro_data_blocks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
+/* harmony import */ var _moderntribe_events_pro_data_blocks__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(9);
 
 
 
@@ -21239,7 +21472,7 @@ module.exports = { "default": __webpack_require__(227), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(228);
-module.exports = __webpack_require__(43).Object.assign;
+module.exports = __webpack_require__(44).Object.assign;
 
 
 /***/ }),
@@ -21309,7 +21542,7 @@ module.exports = !$assign || __webpack_require__(77)(function () {
 
 // false -> Array#indexOf
 // true  -> Array#includes
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var toLength = __webpack_require__(153);
 var toAbsoluteIndex = __webpack_require__(232);
 module.exports = function (IS_INCLUDES) {
@@ -21493,7 +21726,7 @@ module.exports = { "default": __webpack_require__(238), __esModule: true };
 
 __webpack_require__(216);
 __webpack_require__(244);
-module.exports = __webpack_require__(43).Array.from;
+module.exports = __webpack_require__(44).Array.from;
 
 
 /***/ }),
@@ -21531,7 +21764,7 @@ var setToStringTag = __webpack_require__(143);
 var IteratorPrototype = {};
 
 // 25.1.2.1.1 %IteratorPrototype%[@@iterator]()
-__webpack_require__(67)(IteratorPrototype, __webpack_require__(42)('iterator'), function () { return this; });
+__webpack_require__(67)(IteratorPrototype, __webpack_require__(43)('iterator'), function () { return this; });
 
 module.exports = function (Constructor, NAME, next) {
   Constructor.prototype = create(IteratorPrototype, { next: descriptor(1, next) });
@@ -21653,7 +21886,7 @@ module.exports = function (iterator, fn, value, entries) {
 
 // check on default Array iterator
 var Iterators = __webpack_require__(79);
-var ITERATOR = __webpack_require__(42)('iterator');
+var ITERATOR = __webpack_require__(43)('iterator');
 var ArrayProto = Array.prototype;
 
 module.exports = function (it) {
@@ -21681,9 +21914,9 @@ module.exports = function (object, index, value) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var classof = __webpack_require__(249);
-var ITERATOR = __webpack_require__(42)('iterator');
+var ITERATOR = __webpack_require__(43)('iterator');
 var Iterators = __webpack_require__(79);
-module.exports = __webpack_require__(43).getIteratorMethod = function (it) {
+module.exports = __webpack_require__(44).getIteratorMethod = function (it) {
   if (it != undefined) return it[ITERATOR]
     || it['@@iterator']
     || Iterators[classof(it)];
@@ -21696,7 +21929,7 @@ module.exports = __webpack_require__(43).getIteratorMethod = function (it) {
 
 // getting tag from 19.1.3.6 Object.prototype.toString()
 var cof = __webpack_require__(140);
-var TAG = __webpack_require__(42)('toStringTag');
+var TAG = __webpack_require__(43)('toStringTag');
 // ES3 wrong here
 var ARG = cof(function () { return arguments; }()) == 'Arguments';
 
@@ -21723,7 +21956,7 @@ module.exports = function (it) {
 /* 250 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var ITERATOR = __webpack_require__(42)('iterator');
+var ITERATOR = __webpack_require__(43)('iterator');
 var SAFE_CLOSING = false;
 
 try {
@@ -22773,7 +23006,7 @@ module.exports = ary;
 
 var isFunction = __webpack_require__(113),
     isMasked = __webpack_require__(259),
-    isObject = __webpack_require__(44),
+    isObject = __webpack_require__(45),
     toSource = __webpack_require__(160);
 
 /**
@@ -23391,7 +23624,7 @@ module.exports = insertWrapDetails;
 
 var constant = __webpack_require__(171),
     defineProperty = __webpack_require__(172),
-    identity = __webpack_require__(46);
+    identity = __webpack_require__(47);
 
 /**
  * The base implementation of `setToString` without support for hot loop shorting.
@@ -23744,8 +23977,8 @@ module.exports = toFinite;
 /* 280 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(44),
-    isSymbol = __webpack_require__(72);
+var isObject = __webpack_require__(45),
+    isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var NAN = 0 / 0;
@@ -23842,7 +24075,7 @@ module.exports = baseTimes;
 /* 282 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     isObjectLike = __webpack_require__(38);
 
 /** `Object#toString` result references. */
@@ -23890,7 +24123,7 @@ module.exports = stubFalse;
 /* 284 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     isLength = __webpack_require__(120),
     isObjectLike = __webpack_require__(38);
 
@@ -24594,7 +24827,7 @@ module.exports = mapCacheSet;
 /* 309 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     keysIn = __webpack_require__(182);
 
 /**
@@ -24617,7 +24850,7 @@ module.exports = baseAssignIn;
 /* 310 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var isObject = __webpack_require__(44),
+var isObject = __webpack_require__(45),
     isPrototype = __webpack_require__(86),
     nativeKeysIn = __webpack_require__(311);
 
@@ -24724,7 +24957,7 @@ module.exports = cloneBuffer;
 /* 313 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     getSymbols = __webpack_require__(128);
 
 /**
@@ -24777,7 +25010,7 @@ module.exports = arrayFilter;
 /* 315 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var copyObject = __webpack_require__(73),
+var copyObject = __webpack_require__(74),
     getSymbolsIn = __webpack_require__(184);
 
 /**
@@ -25169,7 +25402,7 @@ module.exports = baseIsSet;
 /* 329 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     isObjectLike = __webpack_require__(38),
     isPlainObject = __webpack_require__(191);
 
@@ -25993,7 +26226,7 @@ module.exports = memoize;
 var Symbol = __webpack_require__(61),
     arrayMap = __webpack_require__(93),
     isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72);
+    isSymbol = __webpack_require__(73);
 
 /** Used as references for various `Number` constants. */
 var INFINITY = 1 / 0;
@@ -26399,7 +26632,7 @@ module.exports = overRest;
 var arrayMap = __webpack_require__(93),
     copyArray = __webpack_require__(82),
     isArray = __webpack_require__(29),
-    isSymbol = __webpack_require__(72),
+    isSymbol = __webpack_require__(73),
     stringToPath = __webpack_require__(198),
     toKey = __webpack_require__(63),
     toString = __webpack_require__(92);
@@ -26528,7 +26761,7 @@ module.exports = findIndex;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(361);
-var $Object = __webpack_require__(43).Object;
+var $Object = __webpack_require__(44).Object;
 module.exports = function defineProperty(it, key, desc) {
   return $Object.defineProperty(it, key, desc);
 };
@@ -27520,7 +27753,7 @@ module.exports = customOmitClone;
 /* 372 */
 /***/ (function(module, exports, __webpack_require__) {
 
-var baseGetTag = __webpack_require__(45),
+var baseGetTag = __webpack_require__(46),
     isArray = __webpack_require__(29),
     isObjectLike = __webpack_require__(38);
 
@@ -28003,7 +28236,7 @@ exports.f = Object.getOwnPropertyNames || function getOwnPropertyNames(O) {
 
 var pIE = __webpack_require__(110);
 var createDesc = __webpack_require__(78);
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var toPrimitive = __webpack_require__(145);
 var has = __webpack_require__(60);
 var IE8_DOM_DEFINE = __webpack_require__(214);
@@ -39440,7 +39673,7 @@ __webpack_require__(517);
 var global = __webpack_require__(52);
 var hide = __webpack_require__(67);
 var Iterators = __webpack_require__(79);
-var TO_STRING_TAG = __webpack_require__(42)('toStringTag');
+var TO_STRING_TAG = __webpack_require__(43)('toStringTag');
 
 var DOMIterables = ('CSSRuleList,CSSStyleDeclaration,CSSValueList,ClientRectList,DOMRectList,DOMStringList,' +
   'DOMTokenList,DataTransferItemList,FileList,HTMLAllCollection,HTMLCollection,HTMLFormElement,HTMLSelectElement,' +
@@ -39466,7 +39699,7 @@ for (var i = 0; i < DOMIterables.length; i++) {
 var addToUnscopables = __webpack_require__(518);
 var step = __webpack_require__(519);
 var Iterators = __webpack_require__(79);
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 
 // 22.1.3.4 Array.prototype.entries()
 // 22.1.3.13 Array.prototype.keys()
@@ -39528,7 +39761,7 @@ __webpack_require__(522);
 __webpack_require__(527);
 __webpack_require__(528);
 __webpack_require__(529);
-module.exports = __webpack_require__(43).Symbol;
+module.exports = __webpack_require__(44).Symbol;
 
 
 /***/ }),
@@ -39548,14 +39781,14 @@ var $fails = __webpack_require__(77);
 var shared = __webpack_require__(141);
 var setToStringTag = __webpack_require__(143);
 var uid = __webpack_require__(106);
-var wks = __webpack_require__(42);
+var wks = __webpack_require__(43);
 var wksExt = __webpack_require__(222);
 var wksDefine = __webpack_require__(223);
 var enumKeys = __webpack_require__(524);
 var isArray = __webpack_require__(525);
 var anObject = __webpack_require__(68);
-var isObject = __webpack_require__(71);
-var toIObject = __webpack_require__(74);
+var isObject = __webpack_require__(72);
+var toIObject = __webpack_require__(75);
 var toPrimitive = __webpack_require__(145);
 var createDesc = __webpack_require__(78);
 var _create = __webpack_require__(147);
@@ -39777,7 +40010,7 @@ setToStringTag(global.JSON, 'JSON', true);
 /***/ (function(module, exports, __webpack_require__) {
 
 var META = __webpack_require__(106)('meta');
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 var has = __webpack_require__(60);
 var setDesc = __webpack_require__(53).f;
 var id = 0;
@@ -39868,7 +40101,7 @@ module.exports = Array.isArray || function isArray(arg) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // fallback for IE11 buggy Object.getOwnPropertyNames with iframe and window
-var toIObject = __webpack_require__(74);
+var toIObject = __webpack_require__(75);
 var gOPN = __webpack_require__(390).f;
 var toString = {}.toString;
 
@@ -39919,7 +40152,7 @@ module.exports = { "default": __webpack_require__(531), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(532);
-module.exports = __webpack_require__(43).Object.setPrototypeOf;
+module.exports = __webpack_require__(44).Object.setPrototypeOf;
 
 
 /***/ }),
@@ -39937,7 +40170,7 @@ $export($export.S, 'Object', { setPrototypeOf: __webpack_require__(533).set });
 
 // Works with __proto__ only. Old v8 can't work with null proto objects.
 /* eslint-disable no-proto */
-var isObject = __webpack_require__(71);
+var isObject = __webpack_require__(72);
 var anObject = __webpack_require__(68);
 var check = function (O, proto) {
   anObject(O);
@@ -39973,7 +40206,7 @@ module.exports = { "default": __webpack_require__(535), __esModule: true };
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(536);
-var $Object = __webpack_require__(43).Object;
+var $Object = __webpack_require__(44).Object;
 module.exports = function create(P, D) {
   return $Object.create(P, D);
 };

@@ -151,6 +151,8 @@ class NF_Updates_CacheCollateActions extends NF_Abstracts_RequiredUpdate
         if ( ! $this->debug ) {
             // Ensure that our data tables are updated.
             $this->migrate( 'cache_collate_actions' );
+            // Set out new db version.
+            update_option( 'ninja_forms_db_version', '1.2' );
         }
         // Get a list of our forms...
         $sql = "SELECT ID FROM `{$this->db->prefix}nf3_forms`";

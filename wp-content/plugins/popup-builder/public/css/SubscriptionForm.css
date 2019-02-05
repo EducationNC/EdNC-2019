@@ -10,6 +10,11 @@
 	font-size: 13px;
 }
 
+.sgpb-form-wrapper .sgpb-field-textarea-wrapper,
+.sgpb-form-wrapper .sgpb-field-dropdown-wrapper {
+	margin: 5px  auto !important;
+}
+
 .sgpb-form-wrapper input[type="submit"],
 .sgpb-form-wrapper input[type="button"] {
 	cursor: pointer;
@@ -120,7 +125,7 @@
 
 .sgpb-choice-option-wrapper input,
 .sgpb-field-gdpr-wrapper input[type=checkbox] {
-	margin: 0  10px 0 0px;
+	margin: 0  10px 0 0px !important;
 }
 
 .sgpb-buttons-wrapper,
@@ -149,4 +154,16 @@
 
 .sgpb-subscription-plus-form-error-placement label {
 	color: #ff0000;
+}
+
+.sgpb-field-checkbox-wrapper .sgpb-sub-option-label {
+	padding-left: 0 !important;
+}
+
+.sgpb-templates-shortcodes-wrapper .row {
+	margin-bottom: 10px;
+}
+
+.sgpb-subscription-plus-form {
+    display: inline-block;
 }

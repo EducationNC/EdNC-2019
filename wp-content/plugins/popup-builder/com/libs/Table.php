@@ -232,7 +232,7 @@ class SGPBTable extends SGPBListTable
 			<input type="hidden" class="sgpb-subscribers-date" name="sgpb-subscribers-date" value="<?php echo $selectedDate;?>">
 			<select name="sgpb-subscribers-dates" id="sgpb-subscribers-dates">
 				<?php
-				$gotDateList = '';
+				$gotDateList = '<option value="all">'.__('All dates', SG_POPUP_TEXT_DOMAIN).'</option>';
 				foreach ($uniqueDates as $date) {
 					if ($selectedDate == $date['date-value']) {
 						$selected = ' selected';
@@ -240,7 +240,7 @@ class SGPBTable extends SGPBListTable
 					else {
 						$selected = '';
 					}
-					$gotDateList .= '<option value="'.$date['date-value'].'"'.$selected.'>'.date('d F Y', strtotime($date['date-title'])).'</option>';
+					$gotDateList .= '<option value="'.$date['date-value'].'"'.$selected.'>'.$date['date-title'].'</option>';
 				}
 				if (empty($subscribersDates)) {
 					$gotDateList = '<option value="'.$date['date-value'].'"'.$selected.'>'.__('Date', SG_POPUP_TEXT_DOMAIN).'</option>';

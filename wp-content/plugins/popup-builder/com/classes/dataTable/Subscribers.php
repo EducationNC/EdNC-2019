@@ -16,15 +16,17 @@ class Subscribers extends SGPBTable
 
 		$this->setRowsPerPage(SGPB_APP_POPUP_TABLE_LIMIT);
 		$this->setTablename($wpdb->prefix.SGPB_SUBSCRIBERS_TABLE_NAME);
-		$this->setColumns(array(
+
+		$columns = array(
 			$this->tablename.'.id',
 			'firstName',
 			'lastName',
 			'email',
 			'cDate',
-			$wpdb->prefix.SGPB_POSTS_TABLE_NAME.'.post_title AS subscriptionType'
-		));
-		$this->setDisplayColumns(array(
+			'subscriptionType'
+		);
+
+		$displayColumns = array(
 			'bulk'=>'<input class="subs-bulk" type="checkbox" autocomplete="off">',
 			'id' => 'ID',
 			'firstName' => __('First name', SG_POPUP_TEXT_DOMAIN),
@@ -32,7 +34,17 @@ class Subscribers extends SGPBTable
 			'email' => __('Email', SG_POPUP_TEXT_DOMAIN),
 			'cDate' => __('Date', SG_POPUP_TEXT_DOMAIN),
 			'subscriptionType' => __('Popup', SG_POPUP_TEXT_DOMAIN)
-		));
+		);
+
+		$filterColumnsDisplaySettings = array(
+			'columns' => $columns,
+			'displayColumns' => $displayColumns
+		);
+
+		$filterColumnsDisplaySettings = apply_filters('sgpbAlterColumnIntoSubscribers', $filterColumnsDisplaySettings);
+
+		$this->setColumns(@$filterColumnsDisplaySettings['columns']);
+		$this->setDisplayColumns(@$filterColumnsDisplaySettings['displayColumns']);
 		$this->setSortableColumns(array(
 			'id' => array('id', false),
 			'firstName' => array('firstName', true),
@@ -48,7 +60,9 @@ class Subscribers extends SGPBTable
 
 	public function customizeRow(&$row)
 	{
-		$row[6] = $row[5];
+		$popupId = (int)$row[5];
+		$row = apply_filters('sgpbEditSubscribersTableRowValues', $row, $popupId);
+		$row[6] = get_the_title($popupId);
 		$row[5] = $row[4];
 		$row[4] = $row[3];
 		$row[3] = $row[2];

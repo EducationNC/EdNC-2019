@@ -581,6 +581,10 @@ class Tribe__Events__Pro__Recurrence__Meta {
 	 */
 	public static function loadRecurrenceData( $post_id ) {
 		$post = get_post( $post_id );
+		if ( ! empty( $post->post_parent ) ) {
+			return; // don't show recurrence fields for instances of a recurring event
+		}
+
 		/**
 		 * Control if the recurrence meta is displayed
 		 *
@@ -590,7 +594,11 @@ class Tribe__Events__Pro__Recurrence__Meta {
 		 * @param int $post_id The ID of the post where the meta box is being included
 		 */
 		$show_recurrence_meta = apply_filters( 'tribe_events_pro_show_recurrence_meta_box', true, $post_id );
+
 		if ( ! empty( $post->post_parent ) || ! $show_recurrence_meta ) {
+
+			include Tribe__Events__Pro__Main::instance()->pluginPath . 'src/admin-views/event-recurrence-blocks-message.php';
+
 			return; // don't show recurrence fields for instances of a recurring event
 		}
 
@@ -603,7 +611,7 @@ class Tribe__Events__Pro__Recurrence__Meta {
 
 		$premium = Tribe__Events__Pro__Main::instance();
 		include Tribe__Events__Pro__Main::instance()->pluginPath . 'src/admin-views/event-recurrence.php';
-	}//end loadRecurrenceData
+	}
 
 	/**
 	 * Localizes recurrence JS data

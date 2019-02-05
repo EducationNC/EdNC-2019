@@ -614,7 +614,7 @@ SGPBBackend.prototype.changeConditionParams = function()
 
 	jQuery('.popup-conditions-wrapper .sg-condition-param-wrapper select').each(function() {
 		jQuery(this).unbind('change').change(function(e) {
-			//if value hasn't change, don't do anything
+			/* if value hasn't change, don't do anything */
 			if (this.options[this.selectedIndex].defaultSelected) {
 				return;
 			}

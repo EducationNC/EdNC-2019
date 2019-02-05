@@ -295,8 +295,8 @@ final class NF_Database_Models_Form extends NF_Abstracts_Model
         ));
 
         // Get our field and field_meta table column names and values.
-        $fields_sql = self::get_sql_queries( 'field_table_columns' );
-        $field_meta_sql = self::get_sql_queries( 'field_meta_table_columns' );
+        $fields_sql = self::get_sql_queries( 'field_table_columns', $db_stage_one_complete );
+        $field_meta_sql = self::get_sql_queries( 'field_meta_table_columns', $db_stage_one_complete );
 
         foreach( $old_fields as $old_field ){
 
@@ -334,8 +334,8 @@ final class NF_Database_Models_Form extends NF_Abstracts_Model
         ));
 
         // Get our action and action_meta table columns and values.
-        $actions_sql = self::get_sql_queries( 'action_table_columns' );
-        $actions_meta_sql = self::get_sql_queries( 'action_meta_table_columns' );
+        $actions_sql = self::get_sql_queries( 'action_table_columns', $db_stage_one_complete );
+        $actions_meta_sql = self::get_sql_queries( 'action_meta_table_columns', $db_stage_one_complete );
 
         foreach( $old_actions as $old_action ){
             // Duplicate the Action Object.
@@ -433,33 +433,46 @@ final class NF_Database_Models_Form extends NF_Abstracts_Model
         );
 
         // If we haven't been passed a table name or the table name is invalid, return false.
-        if ( empty( $table_name ) || ! isset( $db_columns[ $table_name ] ) ) return false;
+        if ( empty( $table_name ) || ! isset( $db_columns[ $table_name ] ) ) {return false;}
        
         // If we have not completed stage one of our db update, then we unset new db columns.
         if ( ! $db_stage_one_complete ) {
-            unset(
-                $field_table_columns[ 'field_label' ],
-                $field_table_columns[ 'field_key' ],
-                $field_table_columns[ 'order' ],
-                $field_table_columns[ 'required' ],
-                $field_table_columns[ 'default_value' ],
-                $field_table_columns[ 'label_pos' ],
-                $field_table_columns[ 'personally_identifiable' ]
+
+            $db_columns[ 'field_table_columns' ] = array_diff( 
+                $db_columns[ 'field_table_columns' ], 
+                array( 
+                    'field_label',
+                    'field_key',
+                    'order',
+                    'required',
+                    'default_value',
+                    'label_pos',
+                    'personally_identifiable' 
+                    )
+                );
+            
+            $db_columns[ 'field_meta_table_columns' ] = array_diff(
+                $db_columns[ 'field_meta_table_columns'],
+                array(
+                    'meta_key',
+                    'meta_value'
+                )
             );
             
-            unset(
-                $field_meta_table_columns[ 'meta_key' ],
-                $field_meta_table_columns[ 'meta_value' ]
+            $db_columns[ 'action_table_columns' ] = array_diff(
+                $db_columns[ 'action_table_columns' ],
+                array(
+                    'label'
+                )
             );
 
-            unset(
-                $action_table_columns[ 'label' ]
-            );
-            
-            unset(
-                $action_meta_table_columns[ 'meta_key' ],
-                $action_meta_table_columns[ 'meta_value' ]
-            );
+            $db_columns[ 'action_meta_table_columns' ] = array_diff(
+                $db_columns[ 'action_meta_table_columns' ],
+                array(
+                    'meta_key',
+                    'meta_value'
+                )
+                );
         }
 
         /**

@@ -67,8 +67,8 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 		 */
 		public $template_namespace = 'events-pro';
 
-		const REQUIRED_TEC_VERSION = '4.7.2-dev';
-		const VERSION = '4.5.1';
+		const REQUIRED_TEC_VERSION = '4.7.4-dev';
+		const VERSION = '4.5.3';
 
 		private function __construct() {
 			$this->pluginDir = trailingslashit( basename( EVENTS_CALENDAR_PRO_DIR ) );
@@ -728,7 +728,7 @@ if ( ! class_exists( 'Tribe__Events__Pro__Main' ) ) {
 							'hideRelatedEvents' => array(
 								'type'            => 'checkbox_bool',
 								'label'           => __( 'Hide related events', 'tribe-events-calendar-pro' ),
-								'tooltip'         => __( 'Remove related events from the single event view', 'tribe-events-calendar-pro' ),
+								'tooltip'         => __( 'Remove related events from the single event view (with classic editor)', 'tribe-events-calendar-pro' ),
 								'default'         => false,
 								'validation_type' => 'boolean',
 							),

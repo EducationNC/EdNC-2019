@@ -12,20 +12,16 @@ import { __ } from '@wordpress/i18n';
  */
 import { TimePicker, DayPickerInput } from '@moderntribe/common/elements';
 import LabeledRow from '@moderntribe/events-pro/elements/labeled-row/element';
-import { TribePropTypes, time } from '@moderntribe/common/utils';
+import { time } from '@moderntribe/common/utils';
 import './style.pcss';
-
-const {
-	START_OF_DAY,
-	END_OF_DAY,
-} = time;
 
 const SingleToDateTimePicker = ( {
 	className,
 	endDate,
 	endDateFormat,
-	endTime,
+	endTimeInput,
 	isAllDay,
+	onEndTimeBlur,
 	onEndDateChange,
 	onEndTimeChange,
 	onEndTimeClick,
@@ -38,18 +34,18 @@ const SingleToDateTimePicker = ( {
 				'tribe-editor__single-to-date-time-picker',
 				className,
 			) }
-			label={ __( 'To', 'events-gutenberg' ) }
+			label={ __( 'To', 'tribe-events-calendar-pro' ) }
 		>
 			<TimePicker
-				current={ endTime }
-				start={ START_OF_DAY }
-				end={ END_OF_DAY }
+				current={ endTimeInput }
+				start={ time.START_OF_DAY }
+				end={ time.END_OF_DAY }
+				onBlur={ onEndTimeBlur }
 				onChange={ onEndTimeChange }
 				onClick={ onEndTimeClick }
-				showAllDay={ true }
 				allDay={ isAllDay }
 			/>
-			<span>{ __( 'on', 'events-gutenberg' ) }</span>
+			<span>{ __( 'on', 'tribe-events-calendar-pro' ) }</span>
 			<DayPickerInput
 				value={ endDate }
 				format={ endDateFormat }
@@ -71,9 +67,10 @@ SingleToDateTimePicker.propTypes = {
 	className: PropTypes.string,
 	endDate: PropTypes.string,
 	endDateFormat: PropTypes.string,
-	endTime: TribePropTypes.timeFormat,
+	endTimeInput: PropTypes.string,
 	isAllDay: PropTypes.bool,
 	onEndDateChange: PropTypes.func,
+	onEndTimeBlur: PropTypes.func,
 	onEndTimeChange: PropTypes.func,
 	onEndTimeClick: PropTypes.func,
 };

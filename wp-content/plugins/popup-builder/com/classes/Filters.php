@@ -220,7 +220,7 @@ class Filters
 		return $filename;
 	}
 
-	public function editPopupPreviewLink($previewLink, $post)
+	public function editPopupPreviewLink($previewLink = '', $post = array())
 	{
 		if (get_option('theme_switched') === false) {
 			if (!empty($post) && $post->post_type == SG_POPUP_POST_TYPE) {

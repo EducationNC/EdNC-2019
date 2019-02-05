@@ -78,6 +78,9 @@ That's easy! [Signup here](http://wpengine.com/plans/).
 2. BlogVault dashboard showing live updates.
 
 == Changelog ==
+= 1.84 =
+* Disable form on submit
+
 = 1.82 =
 * Updating tested upto 5.0
 
