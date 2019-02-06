@@ -1,0 +1,153 @@
+@media only screen and (max-width: 1200px) {
+  .widget-content {
+    margin: 0 auto;
+    width: 92%;
+    z-index: 2;
+    position: relative;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .content-block-4 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 21%;
+    flex: 1 0 21%;
+    display: inline-block;
+    margin: 10px;
+  }
+
+  .content-box-container {
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: -webkit-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    padding-top: 30px;
+    margin: -10px -10px;
+    margin-bottom: 100px;
+  }
+  .columns::before {
+    content: '';
+    height: 194px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+    background: #3499CC;
+  }
+}
+
+
+@media only screen and (max-width: 900px) {
+  .content-block-4 {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 41%;
+    flex: 1 0 41%;
+    display: inline-block;
+    margin: 20px;
+    width: calc( 95% / 2 );
+  }
+  .logos {
+    width: 530px;
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+
+  /* MOBILE NAV */
+
+  header.header {
+    border-top: 5px solid $purple;
+  }
+  
+  .top-nav {
+    width: 92%;
+    margin: 0 auto;
+    padding-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .secondary-logo {
+    display: none;
+  }
+
+  .full-screen {
+    display: none;;
+  }
+
+  .main-logo {
+    width: 120px;
+    margin-bottom: 0px;
+  }
+
+  .social {
+    display: none;
+  }
+
+  .mobile-only {
+    display: block;
+  }
+
+  .logos {
+    // border: 5px solid pink;
+    width: 150px;
+    width: 0 auto;
+  }
+
+  .overlay .menu {
+    width: 100%;
+  }
+
+  .overlay .menu ul li {
+    float: none;
+    padding: 20px;
+    margin-bottom: 50px;
+    width: 100%;
+    border-top: 1px solid $lightgrey;
+  }
+
+  .overlay .menu ul li:last-child {
+    border-bottom: 1px solid $lightgrey;
+  }
+
+  #menu-popout-menu-1 > li.menu-donate > ul > li {
+    border-bottom:  none;
+  }
+
+  .overlay .menu ul li {
+    margin-bottom: 0px;
+  }
+
+  .overlay .menu ul ul {
+    margin-top: 20px;
+  }
+
+  .menu-btn {
+    height: auto;
+    // width: 50px;
+  }
+
+  .search-mobile {
+    // width: 50px;
+    height: auto;
+  }
+  .logos {
+    width: 130px;
+  }
+}

@@ -1,0 +1,24 @@
+.logo-section {
+  background-color: #731454;
+  width: 100%;
+}
+
+ul.logos {
+  padding: 20px 0px;
+  width: 92%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+ul.logos li {
+  list-style-type: none;
+  padding: 0px 10px;
+}
+
+footer {
+  height: 300px;
+  background-color: #5C1043;
+}
