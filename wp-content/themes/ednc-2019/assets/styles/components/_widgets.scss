@@ -75,6 +75,19 @@ h2.header-big {
 //   height: 200px;
 // }
 
+
+.row-full {
+   flex: 1;
+   width: 100%;
+   background-color: green;
+   margin: 20px;
+
+}
+img.SL-featured {
+  object-fit: cover;
+  width: 100%;
+}
+
 .row {
   margin-left: -20px;
   margin-right: -20px;
@@ -183,7 +196,7 @@ hr.break:last-of-type {
   top: 0;
   z-index: 1;
   // border: 1px solid red;
-  background: #F6B041;
+  background: #E94F37;
 }
 
 .featured-image {

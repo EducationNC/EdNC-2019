@@ -406,10 +406,10 @@ function register_post_types() {
 			'query_var' => true
 		)
 	);
-	
-	
+
+
 	register_post_type( 'reach-question',
-	
+
 		array(
 			'labels' => array(
 				'name' => __( 'Reach NC Questions' ),
@@ -430,7 +430,7 @@ function register_post_types() {
 		)
 	);
 register_post_type( 'reach-nc-poll',
-	
+
 		array(
 			'labels' => array(
 				'name' => __( 'Reach NC Polls' ),
@@ -636,8 +636,10 @@ register_taxonomy( 'appearance',
 		),
 		'show_ui' => true,
 		'query_var' => true,
+		'show_in_rest' => true,
 		'public' => true,
-		'rewrite' => true
+		'rewrite' => true,
+		'hierarchical' => true,
 	)
 );
 
@@ -658,7 +660,8 @@ register_taxonomy( 'column',
 		),
 		'show_ui' => true,
 		'query_var' => true,
-		
+		'show_in_rest' => true,
+		'hierarchical' => true,
 	)
 );
 
@@ -888,4 +891,3 @@ function replace_permalink_tokens($permalink, $post_id, $leavename) {
   return $permalink;
 }
 add_filter('post_type_link', __NAMESPACE__ . '\\replace_permalink_tokens', 10, 3);
-

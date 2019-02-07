@@ -32,6 +32,21 @@
     $(".menu-btn a").toggleClass('btn-open').toggleClass('btn-close');
   });
 
+  $('#menu-popout-menu li').click( function() {
+      $(this).find('ul').toggle();
+  });
+
+
+
+
+  // $('.menu a').on('click', function () {
+  //   $(".overlay").fadeToggle(200);
+  //   $(".menu-btn a").toggleClass('btn-open').toggleClass('btn-close');
+  // });
+
+
+
+
 
   // Init popovers
   $('[data-toggle="popover"]').popover();

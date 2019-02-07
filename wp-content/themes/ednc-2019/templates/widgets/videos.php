@@ -8,8 +8,8 @@
          'posts_per_page' => 3,
          'meta_query' => array(
             array(
-              'key' => 'video',
-              'operator' => 'EXISTS',
+              'key' => 'video_1',
+              'value' => '1',
             )
           )
          // 'meta_key' => 'updated_date',

@@ -1,33 +1,57 @@
+<?php
+
+use Roots\Sage\Assets;
+use Roots\Sage\Media;
+
+// global $featured;
+// global $SLfeatured;
+// global $featured_ids;
+// global $recent_ids;
+$featured_image = Media\get_featured_image('medium');
+//
+// if (empty($featured_ids)) {
+//   $featured_ids = array();
+// }
+
+?>
+
 <section class="block spotlight">
   <div class="widget-content">
     <h2 class="content-header">Spotlight: <?php echo get_cat_name($category); ?></h2>
-    <div class="row">
-      <div class="col-xs-12">
-        <?php
-        /*
-         * First spotlight post
-         *
-         * Displays most recently updated post that is in spotlight category
-         */
-        $featured = new WP_Query([
-          'posts_per_page' => 1,
-          'post_type' => array('post', 'edtalk'),
-          'cat' => $category,
-          'meta_key' => 'updated_date',
-          'orderby' => 'meta_value_num',
-          'order' => 'DESC'
-        ]);
+    <div class="content-box-container">
+      <?php
+      /*
+       * First spotlight post
+       *
+       * Displays most recently updated post that is in spotlight category
+       */
+      $SLfeatured = new WP_Query([
+        'posts_per_page' => 1,
+        'post_type' => array('post', 'edtalk'),
+        'cat' => $category,
+        'tax_query' => array(
+          array(
+            'taxonomy' => 'appearance',
+            'field' => 'slug',
+            'terms' => 'featured-spotlight'
+          )
+        ),
+        'meta_key' => 'updated_date',
+        'orderby' => 'meta_value_num',
+        'order' => 'DESC'
+      ]);
 
-        if ($featured->have_posts()) : while ($featured->have_posts()) : $featured->the_post();
+      if ($SLfeatured->have_posts()) : while ($SLfeatured->have_posts()) : $SLfeatured->the_post();?>
 
-          get_template_part('templates/layouts/block-overlay');
 
-        endwhile; endif; wp_reset_query();
-        ?>
+      <div class="row-full">
+        <h2 class="post-title">article</h2>
+        <img class="SL-featured" src=" <?php echo $featured_image; ?> " />
       </div>
-    </div>
 
-    <div class="row">
+      <?php endwhile; endif; wp_reset_query();?>
+
+
       <?php
       /*
        * Additional spotlight posts
@@ -48,77 +72,18 @@
         $i = 0;
         $o = 0;
 
-        // Set up the number of posts per row
-        if ($number == 6 || $number == 9) {
-          if ($i < 2) {
-            $div = 2;
-          } else {
-            $i = 0;
-            $div = 3;
-          }
-        }
-        elseif ($number == 8) {
-          if ($i < 4) {
-            $div = 2;
-          } else {
-            $i = 0;
-            $div = 4;
-          }
-        }
-        elseif ($number == 4 || $number == 7 || $number == 10) {
-          $div = 3;
-        } else {
-          $div = 2;
-        }
 
         // Loop through posts
-        if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();
-          // Reset iterator for numbers that change number of posts per row
-          if ($number == 6 || $number == 9) {
-            if ($i == 2 && $o == 0) {
-              echo '</div><div class="row">';
-              $i = 0;
-              $o = 1;
-              $div = 3;
-            }
-          }
-          elseif ($number == 8) {
-            if ($i == 4 && $o == 0) {
-              echo '</div><div class="row">';
-              $i = 0;
-              $o = 1;
-              $div = 3;
-            }
-          }
+        if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();  ?>
 
-          // Row divs
-          if (($i % $div == 0) && $i != 0) {
-            echo '</div><div class="row">';
-          }
+        <div class="row-full">
+          <h2 class="post-title">article</h2>
+        </div>
 
-          // Set width and layout of blocks inside rows
-          if ($number == 2) {
-            echo '<div class="col-sm-12">';
-              echo '<div class="hidden-sm">';
-                get_template_part('templates/layouts/block-post', 'side');
-              echo '</div>';
-              echo '<div class="visible-sm-block">';
-                get_template_part('templates/layouts/block-post');
-              echo '</div>';
-          } elseif ($div == 2) {
-            echo '<div class="col-sm-6 margins-6">';
-              get_template_part('templates/layouts/block-overlay');
-          } elseif ($div == 3) {
-            echo '<div class="col-sm-4 margins-sm">';
-              get_template_part('templates/layouts/block-post');
-          }
 
-          echo '</div>';
-
-          $i++;
-        endwhile; endif; wp_reset_query();
+        <?php endwhile; endif; wp_reset_query();
       }
       ?>
-      </div>
+    </div>
   </div>
 </section>

@@ -2,6 +2,7 @@
 
 use Roots\Sage\Resize;
 use Roots\Sage\Media;
+use Roots\Sage\Assets;
 
 // Number of posts to show
 // $features_n = $instance['features_n'];
@@ -20,6 +21,7 @@ $recent_ids = array();
         <div class="editors-box">
           <div class="editors-content-box">
             <h2 class="header">Editor's Picks</h2>
+            <img src="<?php echo Assets\asset_path('images/mebane.jpg'); ?>" width="153" alt="Mebane" />
             <hr class="break">
               <?php
               // Show 8 most news
