@@ -1,57 +1,7 @@
 <style>
-
-	/*.max-width-300{
-		width:300px;
-	}
-	.widget_reach_nc_polls{
-		padding:0px !important;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .full-width-btn{
-		width:90% !important;
-		position: absolute;
-		bottom: 25px;
-	}
-	*/
 	.widget_reach_questions #home-reach-nc-poll-block .overlay{
 		background: rgba(0, 0, 0, 0.5);
 	}
-	/*
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay{
-		padding:2em 0 4em;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay h3{
-		font-size: 44px;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .row{
-		padding:2em 0;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay article{
-		z-index: 9;
-		position: relative;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .shadow{
-		position: absolute;
-		box-shadow: 0px 0px 80px #000;
-		width: 95%;
-		height: 95%;
-		top: 6px;
-		z-index: 0;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .polls-box{
-		margin-bottom: 0px;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .polls-box .polls-box-container{
-		min-height:320px;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .col-sm-4{
-		margin-bottom:30px;
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .col-sm-4:first-child article{
-		clip-path: polygon(0 2%, 100% 0, 100% 100%, 0% 98%);
-	}
-	.widget_reach_nc_polls #home-reach-nc-poll-block .overlay .col-sm-4:last-child article{
-		clip-path: polygon(0% 0%, 100% 2%, 100% 98%, 0% 100%);
-	}*/
 	p.lead{
 		font-size: 18px;
 	}
@@ -92,25 +42,25 @@ function limit_text($text, $limit) {
 		  <h3 class="text-white text-center"><?php echo  $title ; ?></h3>
 		 <p class="text-white text-center"><?php echo  $msg ; ?></p>
 		  <div class="row">
-			<?php 
+			<?php
 			 while ( $loop->have_posts() ) : $loop->the_post();  ?>
 			  <div class="col-sm-12">
 				<article class="homepage-reach-question">
 				<h2 class="text-white text-center"><?php the_title(); ?></h2>
 				<div class="well">
-					<?php						
+					<?php
 						$content = get_the_content('Read more');
 						print $content;
 					?>
-				</div>				
+				</div>
 				</article>
 				<div class="shadow"></div>
 			  </div>
 			  <?php  endwhile; ?>
 		  </div>
-			
+
 		   <a class="btn-capitalize btn btn-primary btn-center max-width-300" href="column/reach-question/">See More</a>
-		   
+
 		</div>
 	</div>
 </div>
@@ -217,7 +167,7 @@ function limit_text($text, $limit) {
 		  <h3 class="text-white text-center"><?php echo  $title ; ?></h3>
 		 <p class="text-white text-center"><?php echo  $msg ; ?></p>
 		  <div class="row">
-			<?php 
+			<?php
 			 while ( $loop->have_posts() ) : $loop->the_post();  ?>
 			  <div class="col-sm-4">
 				<article class="homepage-reach-nc-polls">
@@ -233,7 +183,7 @@ function limit_text($text, $limit) {
 							?>
 								<?php echo limit_text($parts[0], 10); ?>
 							<a href="<?php the_permalink(); ?>" class="full-width-btn btn-capitalize btn btn-primary btn-center">Get Started.</a>
-							
+
 						</div>
 					</div>
 				</article>
@@ -241,11 +191,11 @@ function limit_text($text, $limit) {
 			  </div>
 			  <?php  endwhile; ?>
 		  </div>
-			
+
 		   <a class="btn-capitalize btn btn-primary btn-center max-width-300" href="column/reach-nc-polls/">See More</a>
 		    <!--
 		    <h2 class="text-center text-white h1 mb-4">Share Your Voice</h2>
-		    
+
 		    <div class="well">
 		    <h3 class="text-center h4">Raleigh and Washington D.C.</h3>
 		    <p class="lead">This questionnaire covers a broad set of topics to help us more completely understand beliefs about policy and governance.</p>
@@ -254,6 +204,5 @@ function limit_text($text, $limit) {
 		</div>
 	</div>
 </div>
-/*/ 
+/*/
 ?>
-

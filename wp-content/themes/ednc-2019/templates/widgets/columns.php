@@ -2,8 +2,10 @@
 
 use Roots\Sage\Assets;
 
-global $featured_ids;
-global $recent_ids;
+// global $featured_ids;
+// global $recent_ids;
+global $featured_recent;
+// echo '<pre>'; print_r($featured_recent); echo '</pre>';
 
 ?>
 
@@ -17,8 +19,7 @@ global $recent_ids;
 
        $args = array(
          'posts_per_page' => $number,
-         'post__not_in' => $featured_ids,
-         'post__not_in' => $recent_ids,
+         'post__not_in' => $featured_recent,
          'tax_query' => array(
            array(
              'taxonomy' => 'column',

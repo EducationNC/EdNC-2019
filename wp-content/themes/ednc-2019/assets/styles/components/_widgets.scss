@@ -1,3 +1,13 @@
+/*
+* === MAJOR SECTION HEADING ===
+*/
+
+/*
+* — Minor Section Heading —
+*/
+
+
+
 article {
   position: relative;
 }
@@ -22,6 +32,12 @@ article {
   top: 0;
   z-index: 1;
   background: #F6B041;
+}
+
+.ads .content-box-container img {
+  width: 100%;
+  // height: 300px;
+  background-color: blue;
 }
 
 .videos::before {
@@ -125,7 +141,7 @@ hr.break:last-of-type {
   // border: 1px solid blue;
   position: relative;
   clear: both;
-  margin-top: 40px;
+  margin-top: 20px;
   padding-top: 20px;
 }
 
@@ -453,6 +469,84 @@ h3.editor {
   // width: 30%;
   margin: 20px;
 }
+
+/*
+* === SOCIAL MEDIA ===
+*/
+
+section.widget_social_media {
+  background: white;
+
+  .juicer {
+    height: 400px;
+    overflow: hidden;
+    position: relative;
+
+    &:after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      // @include trans-pearl-gradient-bottom;
+    }
+  }
+
+  .follow-buttons a {
+    display: inline-block;
+    color: $white;
+    text-decoration: none;
+
+    span {
+      width: 60px;
+      height: 60px;
+      font-size: 32px;
+      line-height: 60px;
+      display: inline-block;
+      position: relative;
+      transition: all .3s;
+
+      &:before {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+      }
+    }
+
+    .icon-facebook {
+      background: #3b5998;
+
+      &:hover {
+        background: darken(#3b5998, 10%);
+      }
+    }
+
+    .icon-twitter {
+      background: #00aced;
+
+      &:hover {
+        background: darken(#00aced, 10%);
+      }
+    }
+
+    .icon-instagram {
+      background: #517fa4;
+
+      &:hover {
+        background: darken(#517fa4, 10%);
+      }
+    }
+
+  }
+}
+
+.j-text p {
+  font-size: 12px;
+  font-family: $font-family-sans-serif;
+}
+
 
 .news-block-image {
   height: auto;

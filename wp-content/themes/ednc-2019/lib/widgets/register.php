@@ -15,6 +15,7 @@ $includes = [
   'lib/widgets/spotlight.php',
   'lib/widgets/news.php',
   'lib/widgets/reach-nc-polls.php',
+  'lib/widgets/reach.php',
   'lib/widgets/ad-blocks-3.php',
   'lib/widgets/ad-block.php',
   'lib/widgets/reach-questions.php',
@@ -44,6 +45,7 @@ add_action( 'widgets_init', function(){
   register_widget( __NAMESPACE__ . '\\Ad_Block' );
   register_widget( __NAMESPACE__ . '\\Social_Media' );
   register_widget( __NAMESPACE__ . '\\Spotlight' );
+  register_widget( __NAMESPACE__ . '\\Reach' );
   register_widget( __NAMESPACE__ . '\\Reach_NC_Polls' );
   register_widget( __NAMESPACE__ . '\\Reach_Questions');
   register_widget( __NAMESPACE__ . '\\Email_Signup');

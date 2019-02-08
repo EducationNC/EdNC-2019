@@ -2,13 +2,10 @@
 
 use Roots\Sage\Assets;
 
-global $featured;
-global $featured_ids;
-global $recent_ids;
-
-if (empty($featured_ids)) {
-  $featured_ids = array();
-}
+// global $featured;
+// global $featured_ids;
+// global $recent_ids;
+global $featured_recent;
 
 ?>
 
@@ -20,7 +17,7 @@ if (empty($featured_ids)) {
        // Show 8 most news
        $args = array(
          'posts_per_page' => $number,
-         'post__not_in' => $featured_ids,
+         'post__not_in' => $featured_recent,
          'tax_query' => array(
            array(
              'taxonomy' => 'appearance',

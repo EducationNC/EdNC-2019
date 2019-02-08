@@ -9,9 +9,10 @@ use Roots\Sage\Assets;
 // $news_n = $instance['news_n'];
 
 // Set up variable to catch featured post ids -- we will exclude these ids from news query
-$featured = array();
+$featured_ids = array();
 global $featured;
 $recent_ids = array();
+global $featured_recent;
 ?>
 
 <section class="block features">
@@ -32,8 +33,8 @@ $recent_ids = array();
               if ($ednews->have_posts()) : while ($ednews->have_posts()) : $ednews->the_post();?>
 
                   <?php get_template_part('templates/layouts/block', 'editor'); ?>
-                <?php
-              endwhile; endif; wp_reset_query(); ?>
+
+              <?php endwhile; endif; wp_reset_query(); ?>
           </div>
         </div>
       </div>
@@ -59,11 +60,9 @@ $recent_ids = array();
 
           if ($featured->have_posts()) : while ($featured->have_posts()) : $featured->the_post(); ?>
 
-
-          <?php global $featured;
-          $featured_ids[] = get_the_id(); ?>
-
-            <?php get_template_part('templates/layouts/block', 'featured'); ?>
+            <?php global $featured;
+            $featured_ids[] = get_the_id();
+            get_template_part('templates/layouts/block', 'featured'); ?>
 
         <?php  endwhile; endif; wp_reset_query(); ?>
 
@@ -90,7 +89,7 @@ $recent_ids = array();
                   array(
                     'taxonomy' => 'appearance',
                     'field'    => 'slug',
-                    'terms'    => array( 'news' ),
+                    'terms'    => array('news'),
                   ),
                 ),
                 'meta_key' => 'updated_date',
@@ -98,19 +97,18 @@ $recent_ids = array();
                 'order' => 'DESC'
               ]);
 
-              $n = 0;
-
               if ($recent->have_posts()) : while ($recent->have_posts()) : $recent->the_post();
-                ?>
-
-                <?php global $recent_ids;
-                $recent_ids[] = get_the_id(); ?>
 
 
-                <?php get_template_part('templates/layouts/block', 'recent'); ?>
+                global $recent_ids;
+
+                $recent_ids[] = get_the_id();
+                $featured_recent = array_merge($featured_ids, $recent_ids);
+
+                get_template_part('templates/layouts/block', 'recent'); ?>
 
                 <?php
-                $n++;
+                // $n++;
 
               endwhile; endif; wp_reset_query(); ?>
           </div>
