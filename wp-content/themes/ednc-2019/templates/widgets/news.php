@@ -11,7 +11,7 @@ global $featured_recent;
 
 <section class="block news">
   <div class="widget-content">
-    <h2 class="header-big">EdNC's News</h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/news.svg'); ?>"></img>News</h2>
     <div class="content-box-container">
        <?php
        // Show 8 most news
@@ -35,9 +35,9 @@ global $featured_recent;
        if ($news->have_posts()) : while ($news->have_posts()) : $news->the_post();
 
          $featured_ids[] = get_the_id();
-         get_template_part('templates/layouts/block', 'news');
+         get_template_part('templates/layouts/block', 'news');?>
 
-       endwhile; endif; wp_reset_query(); ?>
+       <?php endwhile; endif; wp_reset_query(); ?>
     </div>
   </div>
 </section>

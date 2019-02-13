@@ -2,15 +2,15 @@
 
 namespace Roots\Sage\Widgets;
 
-class Ad_Block extends \WP_Widget {
+class Ad_Blocks_3 extends \WP_Widget {
 
 	/**
 	 * Sets up the widgets name etc
 	 */
 	public function __construct() {
     parent::__construct(
-			'ad_block', // Base ID
-			__( 'Ad Block (1)', 'sage' ), // Name
+			'ad_blocks', // Base ID
+			__( 'Ad Blocks (3)', 'sage' ), // Name
 			array( 'description' => __( 'Displays 1 full-width ad', 'sage' ), ) // Args
 		);
 	}
@@ -54,9 +54,17 @@ class Ad_Block extends \WP_Widget {
 
 		<section class="block">
 		  <div class="widget-content">
-				<a target="_blank" href="<?php echo $URL; ?>">
-		     <?php echo wp_get_attachment_image( $image, $size ); ?>
-			 </a>
+				<div class="content-box-container">
+						<a target="_blank" href="<?php echo $URL1; ?>">
+				     <?php echo wp_get_attachment_image( $image1, $size ); ?>
+					 	</a>
+						<a target="_blank" href="<?php echo $URL2; ?>">
+						 <?php echo wp_get_attachment_image( $image2, $size ); ?>
+						</a>
+						<a target="_blank" href="<?php echo $URL3; ?>">
+						 <?php echo wp_get_attachment_image( $image3, $size ); ?>
+						</a>
+				 </div>
 		  </div>
 		</section>
     <?php echo $args['after_widget'];

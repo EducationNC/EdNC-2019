@@ -11,7 +11,7 @@ global $featured_recent;
 
 <section class="block columns">
   <div class="widget-content">
-    <h2 class="header-big">EdNC's Columns</h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/columns.svg'); ?>"></img>Columns</h2>
     <div class="content-box-container">
        <?php
        // Show 8 most news

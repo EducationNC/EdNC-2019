@@ -22,19 +22,24 @@ global $featured_recent;
         <div class="editors-box">
           <div class="editors-content-box">
             <h2 class="header">Editor's Picks</h2>
-            <img src="<?php echo Assets\asset_path('images/mebane.jpg'); ?>" width="153" alt="Mebane" />
+            <img src="<?php echo Assets\asset_path('images/mebane-crop.png'); ?>" width="" alt="Mebane" />
             <hr class="break">
               <?php
               // Show 8 most news
               $ednews = new WP_Query([
                 'post_type' => 'ednews',
-                'posts_per_page' => 5
+                'posts_per_page' => 4
               ]);
               if ($ednews->have_posts()) : while ($ednews->have_posts()) : $ednews->the_post();?>
 
                   <?php get_template_part('templates/layouts/block', 'editor'); ?>
 
               <?php endwhile; endif; wp_reset_query(); ?>
+
+
+              <a class="more" href="<?php the_permalink(); ?>">
+                <button class="btn">Read More</button>
+              </a>
           </div>
         </div>
       </div>

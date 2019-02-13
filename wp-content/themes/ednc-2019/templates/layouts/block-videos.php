@@ -35,6 +35,6 @@ $iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
     <div class="videoWrapper">
        <?php echo $iframe; ?>
    </div>
-    <h3 class="post-title"><?php the_title(); ?></h3>
+    <h3 class="post-title-reach"><?php the_title(); ?></h3>
   </div>
 </div>

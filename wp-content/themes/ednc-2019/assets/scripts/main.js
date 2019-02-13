@@ -36,6 +36,34 @@
       $(this).find('ul').toggle();
   });
 
+  // Waypoints
+  $('.news').waypoint(function() {
+    // alert('You have scrolled to a thing.');
+  });
+
+  $(window).on("scroll", function() {
+    if($(window).scrollTop() > 40) {
+        $(".top-nav").addClass("active");
+        $(".secondary-logos").addClass("hide");
+        $(".main-logo").addClass("active");
+    } else {
+        //remove the background property so it comes transparent again (defined in your css)
+       $(".top-nav").removeClass("active");
+       $(".secondary-logos").removeClass("hide");
+       $(".main-logo").removeClass("active");
+    }
+});
+
+
+  $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');
+  $(".content-block-3:nth-child(3n):not(:nth-last-child(1)").after('<hr class="full">');
+
+  $('.block-content-reach').on('click', function () {
+    $('.full-width-reach').css('display', 'block');
+    return false;
+  });
+
+
 
 
 

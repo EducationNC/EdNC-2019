@@ -1,8 +1,12 @@
+<?php
 
+use Roots\Sage\Assets;
+
+?>
 
 <section class="block perspectives">
   <div class="widget-content">
-    <h2 class="header-big">Perspectives</h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/perspectives.svg'); ?>"></img>Perspectives</h2>
     <div class="content-box-container">
        <?php
         // Show 3 most recent featured perspective

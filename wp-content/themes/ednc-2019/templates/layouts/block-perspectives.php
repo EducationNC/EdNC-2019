@@ -10,7 +10,6 @@ $featured_image = Media\get_featured_image('medium');
 ?>
 
 <article <?php post_class('block-perspectives content-block-3 clearfix'); ?>>
-
   <!-- <div class="flex"> -->
   <?php if (has_term('perspectives', 'appearance')) { ?>
     <a class="" href="<?php the_permalink(); ?>"></a>

@@ -7,7 +7,7 @@ use Roots\Sage\Resize;
 
 ?>
 
-<section class="block ads">
+<section class="block ads" id="ad">
   <div class="widget-content">
     <h2 class="content-header"><?php// print_r(array_values($instance)); ?></h2>
     <div class="content-box-container">

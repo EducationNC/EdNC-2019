@@ -1,6 +1,14 @@
+<?php
+
+use Roots\Sage\Assets;
+
+?>
+
+
+
 <section class="block videos">
   <div class="widget-content">
-    <h2 class="content-header">Videos</h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/videos.svg'); ?>"></img>Videos</h2>
     <div class="content-box-container">
        <?php
        // Show 3 most recent videos

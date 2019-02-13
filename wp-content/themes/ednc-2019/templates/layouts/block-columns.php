@@ -27,6 +27,5 @@ $terms = get_the_terms( $post->ID, 'column' );
       <p class="lato"><?php echo wp_trim_excerpt(); ?></p>
     </div>
   <?php } ?>
-
   </div>
 </article>

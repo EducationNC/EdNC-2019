@@ -24,7 +24,6 @@ class Reach extends \WP_Widget {
 	public function widget( $args, $instance ) {
 		$before_widget = $args['before_widget'];
 		$after_widget = $args['after_widget'];
-		$number = $instance['number'];
 
 		echo $before_widget;
     include(locate_template('templates/widgets/reach.php'));
@@ -37,14 +36,7 @@ class Reach extends \WP_Widget {
 	 * @param array $instance The widget options
 	 */
 	public function form( $instance ) {
-		$number = isset( $instance['number'] ) ? $instance['number'] : 4;
-		?>
-		<select id="<?php echo $this->get_field_id('number'); ?>" name="<?php echo $this->get_field_name('number'); ?>" class="widefat" style="width:100%;">
-				<option <?php selected( $instance['number'], '4'); ?> value="4">4</option>
-				<option <?php selected( $instance['number'], '8'); ?> value="8">8</option>
-				<option <?php selected( $instance['number'], '12'); ?> value="12">12</option>
-		</select>
-		<?php
+
 	}
 
 	/**
@@ -54,8 +46,5 @@ class Reach extends \WP_Widget {
 	 * @param array $old_instance The previous options
 	 */
 	public function update( $new_instance, $old_instance ) {
-		$instance['number'] = ( ! empty( $new_instance['number'] ) ) ? strip_tags( $new_instance['number'] ) : '';
-
-		return $instance;
 	}
 }
