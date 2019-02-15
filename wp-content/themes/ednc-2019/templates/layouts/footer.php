@@ -7,7 +7,7 @@ use Roots\Sage\Assets;
 <?php get_template_part('templates/layouts/logos'); ?>
 
 
-<footer>
+<footer class="footer-btm">
   <div class="footer">
     <div class="about">
       <h3 class="patrick">About EdNC</h3>

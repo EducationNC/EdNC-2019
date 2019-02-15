@@ -8,7 +8,8 @@
   "private": true,
   "dependencies": {
     "bootstrap-sass": "3.3.6",
-    "waypoints": "^4.0.1"
+    "waypoints": "^4.0.1",
+    "slick-carousel": "^1.8.1"
   },
   "overrides": {
     "bootstrap-sass": {
@@ -38,6 +39,12 @@
         "lib/jquery.waypoints.js",
         "lib/shortcuts/sticky.js"
       ]
+    },
+    "slick-carousel": {
+           "main": [
+             "./slick/slick.js",
+             "./slick/slick.css"
+          ]
     }
   }
 }

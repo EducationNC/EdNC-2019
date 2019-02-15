@@ -36,7 +36,11 @@ header.header {
 .top-nav-outer {
   position: relative;
   height: 165px;
-  // background-color: red;
+}
+
+.top-nav-outer.active {
+  position: relative;
+  height: 0px;
 }
 
 .menu-btn {
@@ -53,8 +57,7 @@ a.btn-open {
   text-decoration: none;
 }
 
-.logos {
-  // border: 1px solid pink;
+.header-logos {
   width: 600px;
 }
 
@@ -156,7 +159,7 @@ a.menu-btn {
   overflow: auto;
   width: 100%;
   height: 100%;
-  background: red;
+  background-color: white;
 }
 
 .overlay .menu {

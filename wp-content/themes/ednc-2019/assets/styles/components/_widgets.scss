@@ -1,111 +1,7 @@
-/*
-* === MAJOR SECTION HEADING ===
-*/
-
-/*
-* — Minor Section Heading —
-*/
-
-
+/****** GENERAL *********/
 
 article {
   position: relative;
-}
-
-.news::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #F6B041;
-}
-
-.spotlight::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #384E77;
-}
-
-
-
-.ads .content-box-container img {
-  width: 100%;
-  // height: 300px;
-  background-color: blue;
-}
-
-.videos::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #98A83F;
-}
-
-.perspectives::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #384E77;
-}
-
-h2.header {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  margin-top: 1em;
-}
-
-h2.header-big {
-  color: white;
-  font-size: 25px;
-  font-weight: bold;
-  margin-top: 1em;
-}
-
-.margins-sm {
-  margin: 20px;
-  width: 30%;
-  padding: 0px;
-}
-
-.margins-6 {
-  // border: 1px solid black;
-  margin: 20px;
-  width: 46%;
-  // padding: 0px;
-}
-
-// .margins-img {
-//   height: 200px;
-// }
-
-
-.row-full {
-   flex: 1;
-   width: 100%;
-   background-color: green;
-   margin: 20px;
-
-}
-img.SL-featured {
-  object-fit: cover;
-  width: 100%;
 }
 
 .row {
@@ -113,42 +9,9 @@ img.SL-featured {
   margin-right: -20px;
 }
 
-hr.break {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border: 0;
-  width: 100%;
-  border-top: 1px solid #eee;
-}
-
-hr.break:last-of-type {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  border: 0;
-  width: 100%;
-  border-top: none;
-}
-
-.columns::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #3499CC;
-}
-
-.reach::before {
-  content: '';
-  height: 244px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 1;
-  background: #98A942
+.section-icon {
+  width: 50px;
+  margin-right: 10px;
 }
 
 .block {
@@ -158,6 +21,13 @@ hr.break:last-of-type {
   clear: both;
   margin-top: 20px;
   padding-top: 20px;
+}
+
+.block-content {
+  position: relative;
+  object-fit: cover;
+  // border: 1px solid blue;
+  // background-color: orange;
 }
 
 .widget-content {
@@ -177,6 +47,40 @@ hr.break:last-of-type {
   color: white;
 }
 
+h3.post-title {
+  text-transform: none;
+  font-weight: bold;
+  font-size: 22px;
+}
+
+.block-news, .block-columns, .block-perspectives, .block-videos {
+  height: auto;
+}
+
+.block-editor .block-content {
+  // background: url(https://upload.wikimedia.org/wikipedia/commons/9/93/The_Logo_of_The_Washington_Post_Newspaper.svg);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+.content-block-4 {
+  flex: 1 0 21%;
+  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
+  display: inline-block;
+  margin: 20px;
+}
+
+.content-block-3 {
+  flex: 1 0 27%;
+  // width: calc(100% * (1/3));
+  // margin: 10px 0 0 2%;
+  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
+  display: inline-block;
+  // width: 30%;
+  margin: 20px;
+}
+
 .content-box-container {
   display: -ms-flexbox;
   display: -webkit-box;
@@ -191,6 +95,112 @@ hr.break:last-of-type {
   margin: -20px;
 }
 
+hr.full {
+  background-color: #E6E6E5;
+  border: 0;
+  clear: both;
+  width: 100%;
+  height: 1px;
+  margin: 10px 20px;
+}
+.block::before {
+  content: '';
+  height: 244px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1;
+}
+
+h2.header {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+h2.header-big {
+  color: white;
+  font-size: 25px;
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+.news::before {
+    background: #F6B041;
+}
+
+.columns::before {
+  background: #3499CC;
+}
+
+.perspectives::before {
+  background: #384E77;
+}
+
+/****** SPOTLIGHT *********/
+
+.spotlight::before {
+  background: #384E77;
+}
+
+.spotlight-one {
+  width: 100%;
+  margin: 20px;
+}
+
+.spotlight-2 {
+  width: 46%;
+  margin: 20px;
+}
+
+.spotlight-3 {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+.spotlight-4 {
+  flex: 1 0 21%;
+  margin: 20px;
+}
+
+
+
+
+/****** VIDEOS *********/
+
+.videos::before {
+  background: #98A83F;
+}
+
+.block-content-video {
+  position: relative;
+  max-width: 375px;
+}
+
+
+.videoWrapper  {
+  max-width: 370px;
+}
+
+.videoWrapper iframe {
+  max-width: 370px;
+  height: 250px;
+}
+
+
+
+
+/****** REACH *********/
+
+.reach::before {
+  background: #98A942
+}
+
+.image-container {
+  position: relative;
+}
 
 .full-width-reach {
   // display: -ms-flexbox;
@@ -202,19 +212,42 @@ hr.break:last-of-type {
   // flex-wrap: wrap;
   // justify-content: space-around;
   // align-items: flex-start;
-  padding: 30px 40px 50px;
-  border: 1px solid black;
-  display: none;
+  padding: 0px 30px 30px 30px;
+  // border: 1px solid black;
+  // display: none;
   // background-color: red;
   // height: 200px;
 }
 
-.block-content-reach {
+.content-show {
   // border: 1px solid red;
 }
 
-.image-container {
-    position: relative;
+
+.slick-dots li button {
+}
+
+.slider {
+  // border: 1px solid blue;
+  padding: 0px 30px;
+}
+
+.slick-prev:before {
+  color: rgb(68, 71, 77);
+  font-size: 50px;
+  font-family: "Ionicons";
+  content: "\f3cf";
+}
+
+.slick-initialized .slick-slide {
+  padding: 0px 30px;
+}
+
+.slick-next:before {
+  color: rgb(68, 71, 77);
+  font-size: 50px;
+  font-family: "Ionicons";
+  content: "\f3d1";
 }
 
 .image-container:hover .overlay-reach {
@@ -236,6 +269,13 @@ hr.break:last-of-type {
     background-color: white;
 }
 
+h3.post-title-reach {
+  text-transform: none;
+  font-weight: bold;
+  font-size: 22px;
+  margin: 10px 0px;
+}
+
 .image-container:hover .after {
     display: block;
     height: 40px;
@@ -245,10 +285,6 @@ hr.break:last-of-type {
     left: 10px;
     background-color: white;
 }
-
-.content-show {
-}
-
 
 [type="radio"]:checked,
 [type="radio"]:not(:checked) {
@@ -303,9 +339,15 @@ hr.break:last-of-type {
     transform: scale(1);
 }
 
+.block-content-reach a {
+  text-decoration: none;
+}
 
+.block-content-reach.current {
+  border-bottom: 4px solid #98A942;
+}
 
-
+.pbox {display:none}
 
 button.btn {
   border: 1px solid white;
@@ -320,9 +362,105 @@ button.btn {
   margin-bottom: 10px;
 }
 
-.section-icon {
-  width: 50px;
-  margin-right: 10px;
+.block-content-reach.active {
+  border-bottom: 5px solid #98A942;
+}
+
+.block-content-reach {
+  height: 420px;
+  // padding-bottom: 15px;
+  // border: 1px solid black;
+}
+
+
+
+
+/****** FEATURED AND RECENT *********/
+
+img.SL-featured {
+  object-fit: cover;
+  width: 100%;
+}
+
+h3.post-title-recent {
+  text-transform: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h3.editor {
+  color: white;
+  text-transform: none;
+  font-size: 15px;
+  // letter-spacing: 0.5px;
+  margin: 0;
+}
+
+.news-block-image {
+  height: auto;
+  width: 100%;
+  // height: 200px;
+  // border: 1px solid red;
+}
+
+.content-block-recent {
+  // border: 1px solid black;
+  // flex: 1 0 21%;
+  width: 45%;
+
+  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
+
+  display: inline-block;
+  margin: 5px;
+}
+
+
+hr.break {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0;
+  width: 100%;
+  border-top: 1px solid white;
+}
+
+// h3.post-title-recent {
+//   text-transform: none;
+//   font-size: 18px;
+//   font-weight: bold;
+// }
+//
+// h3.editor {
+//   color: white;
+//   text-transform: none;
+//   font-size: 15px;
+//   margin: 0;
+// }
+
+hr.break:last-of-type {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  border: 0;
+  width: 100%;
+  border-top: none;
+}
+
+.recent-content-box {
+  z-index: 3;
+  width: 95%;
+  position: relative;
+  margin: 0 auto;
+  // border: 1px solid blue;
+  height: 100%;
+  // background: green;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: -10px;
 }
 
 .features-box {
@@ -372,13 +510,8 @@ img.featured-image, img.recent-block-image, img.news-block-image {
   object-fit: cover;
 }
 
-hr.full {
-  background-color: #E6E6E5;
-  border: 0;
-  clear: both;
-  width: 100%;
-  height: 1px;
-  margin: 10px 20px;
+lato a {
+  display: none;
 }
 
 .editors-box::before {
@@ -394,7 +527,6 @@ hr.full {
   background: #3399CC;
 }
 
-
 .editors-box {
   z-index: 2;
   width: 100%;
@@ -406,30 +538,6 @@ hr.full {
   clear: both;
 }
 
-
-.lato a {
-  display: none;
-}
-
-.recent-content-box {
-  z-index: 3;
-  width: 95%;
-  position: relative;
-  margin: 0 auto;
-  // border: 1px solid blue;
-  height: 100%;
-  // background: green;
-  display: -ms-flexbox;
-  display: -webkit-box;
-  display: -webkit-flexbox;
-  display: -webkit-flex;
-  justify-content: space-between;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  padding: -10px;
-}
-
 p.editor {
   font-family: $font-family-sans-serif;
   text-transform: uppercase;
@@ -437,8 +545,6 @@ p.editor {
   letter-spacing: 1px;
   font-size: 9px;
 }
-
-
 .editors-content-box {
   z-index: 3;
   width: 85%;
@@ -462,7 +568,6 @@ a.more {
   margin: 0 auto;
 }
 
-
 .recent-content-box h2 {
   width: 100%;
   height: 25px;
@@ -481,177 +586,21 @@ a.more {
   width: 100%;
 }
 
-h3.post-title-recent {
-  text-transform: none;
-  font-size: 18px;
-  font-weight: bold;
+/****** ADS *********/
+
+.ads .content-box-container img {
+  width: 100%;
+  // height: 300px;
+  background-color: blue;
+}
+
+.ads {
+  background-color: red;
+  height: 200px;
 }
 
 
-
-// .flex-container-red {
-//     flex: 0 1 auto;
-//     width: 20%;
-//
-//     display: flex;
-//     flex-flow: column;
-//     align-items: space-around;
-//     align-content: flex-start;
-//
-//     padding: 0;
-//     // margin: 10px;
-//     height: 100%;
-//     border: 1px solid silver;
-// }
-//
-// .flex-container-gold {
-//     flex: 0 1 auto;
-//     width: 40%;
-//     height: 100%;
-//
-//     display: flex;
-//     flex-flow: column;
-//     align-items: space-around;
-//     align-content: flex-start;
-//
-//     padding: 0;
-//     // margin: 10px;
-//
-//     border: 1px solid silver;
-// }
-//
-//
-// .flex-container-blue {
-//     flex: 0 1 auto;
-//     width: 40%;
-//     height: 100%;
-//     display: flex;
-//     flex-flow: row wrap;
-//     align-items: space-around;
-//     align-content: flex-start;
-//
-//     padding: 0;
-//     // margin: 10px;
-//
-//     border: 1px solid silver;
-// }
-//
-// .flex-container-red .flex-item {
-//     background: red;
-//     border: 1px solid silver;
-//         height: 100%;
-// }
-//
-// .flex-container-gold .flex-item {
-//     background: gold;
-//     height: 100%;
-// }
-//
-// .flex-container-blue .flex-item {
-//     background: deepskyblue;
-//     border: 1px solid silver;
-//     height: 100%;
-// }
-//
-// .flex-item {
-//     flex: 0 1 auto;
-//
-//     padding: 0px;
-//     // margin: 10px;
-//
-//     line-height: 100px;
-//     color: white;
-//     font-weight: bold;
-//     font-size: 2em;
-//     text-align: center;
-// }
-//
-//
-// .flex-container-blue .flex-item {
-//     flex: 0 1 auto;
-//     width: 50%;
-//     height: 50%;
-//     color: white;
-//     font-weight: bold;
-//     font-size: 2em;
-//     text-align: center;
-// }
-
-
-.videoWrapper  {
-  max-width: 370px;
-}
-
-.videoWrapper iframe {
-  max-width: 370px;
-  height: 250px;
-}
-
-.block-news, .block-columns {
-  height: auto;
-  // border: 1px solid purple;
-}
-
-.block-editor {
-  // padding: 10px 0;
-  // border-bottom: 1px solid red;
-}
-
-.block-perspectives, .block-videos {
-  height: auto;
-  // border: 1px solid red;
-}
-
-.block-recent {
-//   height: 200px;
-}
-
-.content-block-recent {
-  // border: 1px solid black;
-  // flex: 1 0 21%;
-  width: 45%;
-
-  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
-
-  display: inline-block;
-  margin: 5px;
-}
-
-h3.editor {
-  color: white;
-  text-transform: none;
-  font-size: 15px;
-  // letter-spacing: 0.5px;
-  margin: 0;
-}
-
-.block-editor .block-content {
-  // background: url(https://upload.wikimedia.org/wikipedia/commons/9/93/The_Logo_of_The_Washington_Post_Newspaper.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
-}
-
-.content-block-4 {
-  flex: 1 0 21%;
-  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
-  display: inline-block;
-  margin: 20px;
-}
-
-.content-block-3 {
-  flex: 1 0 27%;
-  // width: calc(100% * (1/3));
-  // margin: 10px 0 0 2%;
-  // flex: 0 0 auto; /* auto is important because of an IE bug with box-size */
-  display: inline-block;
-  // width: 30%;
-  margin: 20px;
-}
-
-/*
-* === SOCIAL MEDIA ===
-*/
+/****** SOCIAL MEDIA *********/
 
 section.widget_social_media {
   background: white;
@@ -727,47 +676,8 @@ section.widget_social_media {
 }
 
 
-.news-block-image {
-  height: auto;
-  width: 100%;
-  // height: 200px;
-  // border: 1px solid red;
-}
 
-
-.block-content {
-  position: relative;
-  object-fit: cover;
-  // border: 1px solid blue;
-  // background-color: orange;
-}
-
-.block-content-video {
-  position: relative;
-  max-width: 375px;
-}
-
-// .widget-info {
-//   height: 200px;
-//   // background-color: red;
-//   position: relative;
-//   // border: 1px solid green;
-// }
-
-h3.post-title {
-  text-transform: none;
-  font-weight: bold;
-  font-size: 22px;
-}
-
-h3.post-title-reach {
-  text-transform: none;
-  font-weight: bold;
-  font-size: 22px;
-  margin: 10px 0px;
-}
-
-//Email Widget
+/****** EMAIL *********/
 
 .ninja_forms_widget-2  {
   width: 100%;
@@ -815,24 +725,30 @@ color: white;
   width: 30%;
 }
 
-.spotlight-one {
-  width: 100%;
-  margin: 20px;
-}
 
-.spotlight-two {
-  width: 48%;
-  margin: 20px;
-}
 
-.spotlight-4 {
-  width: 10%;
-  margin: 20px;
-}
 
-//Ads
 
-.ads {
-  background-color: red;
-  height: 200px;
-}
+
+
+
+// .margins-sm {
+//   margin: 20px;
+//   width: 30%;
+//   padding: 0px;
+//   border: 10px solid blue;
+// }
+//
+// .margins-6 {
+//   margin: 20px;
+//   width: 46%;
+//     border: 10px solid red;
+// }
+//
+// .row-full {
+//    flex: 1;
+//    width: 100%;
+//    background-color: green;
+//    margin: 20px;
+//    border: 10px solid orange;
+// }

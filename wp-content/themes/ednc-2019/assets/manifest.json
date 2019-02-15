@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "main.js": {
+      "bower": ["slick-carousel"],
       "files": [
         "scripts/vendor/*.js",
         "scripts/main.js"
@@ -8,6 +9,7 @@
       "main": true
     },
     "main.css": {
+      "bower": ["slick-carousel"],
       "files": [
         "styles/main.scss"
       ],

@@ -37,20 +37,23 @@
   });
 
   // Waypoints
-  $('.news').waypoint(function() {
-    // alert('You have scrolled to a thing.');
-  });
+  // $('.news').waypoint(function() {
+  //   // alert('You have scrolled to a thing.');
+  // });
 
+  // Hamburger Menu
   $(window).on("scroll", function() {
-    if($(window).scrollTop() > 40) {
+    if($(window).scrollTop() > 20) {
         $(".top-nav").addClass("active");
         $(".secondary-logos").addClass("hide");
         $(".main-logo").addClass("active");
+        $(".top-nav-outer").addClass("active");
     } else {
         //remove the background property so it comes transparent again (defined in your css)
        $(".top-nav").removeClass("active");
        $(".secondary-logos").removeClass("hide");
        $(".main-logo").removeClass("active");
+       $(".top-nav-outer").removeClass("active");
     }
 });
 
@@ -58,11 +61,75 @@
   $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');
   $(".content-block-3:nth-child(3n):not(:nth-last-child(1)").after('<hr class="full">');
 
+
+  // Reacb Widget
   $('.block-content-reach').on('click', function () {
     $('.full-width-reach').css('display', 'block');
     return false;
   });
 
+  // $(".block-content-reach").click(function(){
+  //   // If this isn't already active
+  //   if (!$(this).hasClass("active")) {
+  //     // Remove the class from anything that is active
+  //     $(".block-content-reach.active").removeClass("active");
+  //     // And make this active
+  //     $(this).addClass("active");
+  //   }
+  // });
+
+  // JQuery Version
+  console.log($().jquery);
+
+  $('.slider').slick({
+    infinite: false,
+    dots: true,
+    arrows: true,
+    adaptiveHeight: true,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear'
+  });
+
+
+
+  $('.block-content-reach').on('click', 'a', function () {
+
+      // $('.current').not($(this).parents('div').addClass('current')).removeClass('current');
+      // fade out all open subcontents
+      // $('.pbox:visible').hide();
+      // fade in new selected subcontent
+      // var test = $('.pbox[id=' + $(this).attr('data-id') + ']').show();
+      // console.log (test);
+      // console.log (test['id']);
+
+      // var term = $(this).data('id');
+      // console.log (term);
+      // var test = getElementById();
+      //  var subm = "";
+      // subm = e.target.id;
+      // var a = $('#href').attr('data-id');
+      // console.log (sumb);
+      // term.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+
+      $(".slider").slick("refresh");
+  });
+
+  // $( "a" )
+  //   .attr( "id", function( arr ) {
+  //     return "#" + arr;
+  //   })
+  // });
+
+
+
+  // function toggleDiv(divNum) {
+  //   $("#close").hide();
+  //   $(".slide").animate({right:'-200'},350);
+  //   if($("#div"+divNum)) {
+  //       $("#div"+divNum).animate({right:'0'},350,function(){$("#close").show();});
+  //   }
+  // }
 
 
 
@@ -77,7 +144,7 @@
 
 
   // Init popovers
-  $('[data-toggle="popover"]').popover();
+  // $('[data-toggle="popover"]').popover();
 
   // Check for mobile or IE
   var ismobileorIE = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|MSIE|Trident|Edge/i.test(navigator.userAgent);

@@ -18,28 +18,35 @@ $featured_image = Media\get_featured_image('medium');
        *
        * Displays most recently updated post that is in spotlight category
        */
-      $spotlight_featured = new WP_Query([
-        'posts_per_page' => 1,
-        'post_type' => array('post', 'edtalk'),
-        'cat' => $category,
-        'meta_key' => 'updated_date',
-        'orderby' => 'meta_value_num',
-        'order' => 'DESC'
-      ]);
 
-      if ($spotlight_featured->have_posts()) : while ($spotlight_featured->have_posts()) : $spotlight_featured->the_post();
 
-         get_template_part('templates/layouts/block', 'spotlight');
-         echo $number;
-         
-      endwhile; endif; wp_reset_query();
 
+
+
+      if ($number == 1) {
+        $spotlight_featured = new WP_Query([
+          'posts_per_page' => 1,
+          'post_type' => array('post', 'edtalk'),
+          'cat' => $category,
+          'meta_key' => 'updated_date',
+          'orderby' => 'meta_value_num',
+          'order' => 'DESC'
+        ]);
+
+        if ($spotlight_featured->have_posts()) : while ($spotlight_featured->have_posts()) : $spotlight_featured->the_post();
+
+           get_template_part('templates/layouts/block', 'spotlight');
+           echo $number;
+
+        endwhile; endif; wp_reset_query();
+      }
 
       if ($number == 2) {
         $spotlight = new WP_Query([
-          'posts_per_page' => $number,
+          'posts_per_page' => 2,
           'post_type' => array('post', 'edtalk'),
           'cat' => $category,
+          // 'post__not_in' => $spotlight_featured,
           // 'offset' => 1,
           'meta_key' => 'updated_date',
           'orderby' => 'meta_value_num',
@@ -49,32 +56,50 @@ $featured_image = Media\get_featured_image('medium');
         if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();?>
 
           <?php get_template_part('templates/layouts/block', 'spotlight-2');
-          echo $number;
           ?>
 
         <?php endwhile; endif; wp_reset_query();
-      }
+        }
 
-      if ($number > 2) {
-        $spotlight = new WP_Query([
-          'posts_per_page' => $number,
-          'post_type' => array('post', 'edtalk'),
-          'cat' => $category,
-          // 'post__not_in' => $spotlight_featured,
-          'offset' => 1,
-          'meta_key' => 'updated_date',
-          'orderby' => 'meta_value_num',
-          'order' => 'DESC'
-        ]);
+        if ($number == 3 || $number == 6 || $number == 9) {
+          $spotlight = new WP_Query([
+            'posts_per_page' => $number,
+            'post_type' => array('post', 'edtalk'),
+            'cat' => $category,
+            // 'post__not_in' => $spotlight_featured,
+            // 'offset' => 1,
+            'meta_key' => 'updated_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC'
+          ]);
 
-        if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();?>
+          if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();?>
 
-          <?php get_template_part('templates/layouts/block', 'spotlight-2');
-          echo $number;
-          ?>
+            <?php get_template_part('templates/layouts/block', 'spotlight-3');
+            ?>
 
-        <?php endwhile; endif; wp_reset_query();
-      }
+          <?php endwhile; endif; wp_reset_query();
+        }
+
+        if ($number == 4 || $number == 8 || $number == 12) {
+          $spotlight = new WP_Query([
+            'posts_per_page' => $number,
+            'post_type' => array('post', 'edtalk'),
+            'cat' => $category,
+            // 'post__not_in' => $spotlight_featured,
+            // 'offset' => 1,
+            'meta_key' => 'updated_date',
+            'orderby' => 'meta_value_num',
+            'order' => 'DESC'
+          ]);
+
+          if ($spotlight->have_posts()) : while ($spotlight->have_posts()) : $spotlight->the_post();?>
+
+            <?php get_template_part('templates/layouts/block', 'spotlight-4');
+            ?>
+
+          <?php endwhile; endif; wp_reset_query();
+        }
       ?>
     </div>
   </div>

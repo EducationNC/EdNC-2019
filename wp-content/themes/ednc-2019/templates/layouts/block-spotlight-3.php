@@ -9,7 +9,7 @@ $author_pic = get_the_post_thumbnail($author_bio[0]->ID, 'thumbnail');
 $featured_image = Media\get_featured_image('medium');
 ?>
 
-<article <?php post_class('spotlight-2 clearfix'); ?>>
+<article <?php post_class('spotlight-3 clearfix'); ?>>
   <div class="block-content">
     <img class="news-block-image" src="<?php echo $featured_image; ?>" />
     <p class="small">Perspectives</p>

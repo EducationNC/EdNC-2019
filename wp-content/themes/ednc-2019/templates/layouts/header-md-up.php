@@ -10,7 +10,7 @@ use Roots\Sage\Nav;
         <div class="menu-btn">
            <a class="btn-open" href="javascript:void(0)"></a>
         </div>
-        <div class="logos">
+        <div class="header-logos">
           <a class="" target="" href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <img class="main-logo" src="<?php echo Assets\asset_path('images/EdNC-stamp-purple.png'); ?>" alt="EdNC" /></img>
           </a>

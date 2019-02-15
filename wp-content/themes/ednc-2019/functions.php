@@ -54,6 +54,7 @@ function admin_style() {
 }
 add_action('admin_enqueue_scripts', 'admin_style');
 
+
 /*ADMIN DASHBOARD AUTO SELECT TAXONOMY*/
 function set_default_object_terms( $post_id, $post ) {
 	if ( 'publish' === $post->post_status && $post->post_type === 'reach-nc-poll' ) {
@@ -196,6 +197,131 @@ function basic_wp_seo() {
 	$output .= "\t\t" . '<meta name="categories" content="' . esc_attr($keys) . '">' . "\n";
  	return $output;
 }
+
+
+function tabor_gutenberg_color_palette() {
+  add_theme_support( 'align-wide' );
+	add_theme_support(
+		'editor-color-palette', array(
+			array(
+				'name'  => esc_html__( 'Light-blue', '@@textdomain' ),
+				'slug' => 'light-blue',
+				'color' => '#5CADD6',
+			),
+			array(
+				'name'  => esc_html__( 'Med-Blue', '@@textdomain' ),
+				'slug' => 'med-blue',
+				'color' => '#3399CC',
+			),
+      array(
+        'name'  => esc_html__( 'blueish', '@@textdomain' ),
+        'slug' => 'blueish',
+        'color' => '#4E6CA5',
+      ),
+      array(
+        'name'  => esc_html__( 'Blue', '@@textdomain' ),
+        'slug' => 'blue',
+        'color' => '#384E77',
+      ),
+      array(
+        'name'  => esc_html__( 'Dark-Blue', '@@textdomain' ),
+        'slug' => 'dark-blue',
+        'color' => '#25283D',
+      ),
+      array(
+        'name'  => esc_html__( 'Light-Orange', '@@textdomain' ),
+        'slug' => 'light-orange',
+        'color' => '#F6B042',
+      ),
+      array(
+        'name'  => esc_html__( 'Orange', '@@textdomain' ),
+        'slug' => 'orange',
+        'color' => '#F49C11',
+      ),
+      array(
+        'name'  => esc_html__( 'Pink', '@@textdomain' ),
+        'slug' => 'pink',
+        'color' => '#EC6A56',
+      ),
+      array(
+        'name'  => esc_html__( 'Red', '@@textdomain' ),
+        'slug' => 'red',
+        'color' => '#E94F37',
+      ),
+      array(
+        'name'  => esc_html__( 'Yellow', '@@textdomain' ),
+        'slug' => 'yellow',
+        'color' => '#FFD700',
+      ),
+      array(
+        'name'  => esc_html__( 'Light-Green', '@@textdomain' ),
+        'slug' => 'light-green',
+        'color' => '#B0C05E',
+      ),
+      array(
+        'name'  => esc_html__( 'Green', '@@textdomain' ),
+        'slug' => 'green',
+        'color' => '#98A942',
+      ),
+      array(
+        'name'  => esc_html__( 'Light-Gray', '@@textdomain' ),
+        'slug' => 'light-gray',
+        'color' => '#DCDFE5',
+      ),
+      array(
+        'name'  => esc_html__( 'Medium-Gray', '@@textdomain' ),
+        'slug' => 'medium-gray',
+        'color' => '#777A80',
+      ),
+      array(
+        'name'  => esc_html__( 'Dark-Gray', '@@textdomain' ),
+        'slug' => 'dark-gray',
+        'color' => '#44474D',
+      ),
+      array(
+        'name'  => esc_html__( 'Black', '@@textdomain' ),
+        'slug' => 'black',
+        'color' => '#12151',
+      ),
+      array(
+        'name'  => esc_html__( 'Light-Purple', '@@textdomain' ),
+        'slug' => 'light-purple',
+        'color' => '#901969',
+      ),
+      array(
+        'name'  => esc_html__( 'Purple', '@@textdomain' ),
+        'slug' => 'purple',
+        'color' => '#731454',
+      ),
+      array(
+        'name'  => esc_html__( 'Dark-Purple', '@@textdomain' ),
+        'slug' => 'dark-purple',
+        'color' => '#5C1043',
+      ),
+      array(
+        'name'  => esc_html__( 'White', '@@textdomain' ),
+        'slug' => 'white',
+        'color' => '#FFFFFF',
+      )
+		)
+	);
+}
+add_action( 'after_setup_theme', 'tabor_gutenberg_color_palette' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function add_author_meta() {
      if (is_single()){
