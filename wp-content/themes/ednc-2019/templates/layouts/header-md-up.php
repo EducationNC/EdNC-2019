@@ -27,21 +27,36 @@ use Roots\Sage\Nav;
           </div>
         </div>
         <div class="social">
-            <a class="" target="_blank" href="https://www.facebook.com/educationnc">
-              <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
-            </a>
-            <a class="" target="_blank" href="https://www.instagram.com/educationnc/">
-              <img src="<?php echo Assets\asset_path('images/instagram-icon.svg'); ?>" width="30" alt="Instagram" /></img>
-            </a>
+            <div class="search">
+              <form class="searchbox">
+                <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+                <input type="submit" class="searchbox-submit" value="">
+                <span class="searchbox-icon">
+                  <img src="<?php echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
+                </span>
+              </form>
+            </div>
+            <div class="icon">
+              <a class="" target="_blank" href="https://www.facebook.com/educationnc">
+                <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
+              </a>
+            </div>
+            <div class="icon">
+              <a class="" target="_blank" href="https://www.instagram.com/educationnc/">
+                <img src="<?php echo Assets\asset_path('images/instagram-icon.svg'); ?>" width="30" alt="Instagram" /></img>
+              </a>
+            </div>
+            <div class="icon">
+              <a class="" target="_blank" href="https://twitter.com/educationnc">
+                <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
+              </a>
+            </div>
+        </div>
+        <!-- <div class="search-mobile mobile-only">
             <a class="" target="_blank" href="https://twitter.com/educationnc">
-              <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
+              <img src="<?php// echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
             </a>
-        </div>
-        <div class="search-mobile mobile-only">
-            <a class="" target="_blank" href="https://www.facebook.com/educationnc">
-              <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
-            </a>
-        </div>
+        </div> -->
     </div>
   </header>
 </div>

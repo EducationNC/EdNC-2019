@@ -14,7 +14,7 @@ global $featured_recent;
 
       <div class="block-perspectives content-block-3 clearfix">
           <div class="block-content block-content-reach">
-            <a href="#" id="div1" class="href" data-id="div1">
+            <a href="#" class="href" data-id="div1">
             <div class="image-container">
               <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2019/01/shutterstock_604132196.jpg" />
               <div class='overlay-reach'></div>
@@ -27,8 +27,8 @@ global $featured_recent;
       </div>
 
       <div class="block-perspectives content-block-3 clearfix">
-          <div class="block-content block-content-reach">
-            <a href="#" id="div2"class="href" data-id="div2">
+          <div class="block-content block-content-reach block-content-reach-2">
+            <a href="#"  class="href" data-id="div2">
             <div class="image-container">
               <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2018/11/shutterstock_531425212.jpg" />
               <div class='overlay-reach'></div>
@@ -41,8 +41,8 @@ global $featured_recent;
       </div>
 
       <div class="block-perspectives content-block-3 clearfix">
-          <div class="block-content block-content-reach">
-            <a href="#" id="div3" class="href" data-id="div3">
+          <div class="block-content block-content-reach block-content-reach-3">
+            <a href="#" class="href" data-id="div3">
             <div class="image-container">
               <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2018/11/shutterstock_1043563285.jpg" />
               <div class='overlay-reach'></div>

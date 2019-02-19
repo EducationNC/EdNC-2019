@@ -23,6 +23,7 @@ article {
   padding-top: 20px;
 }
 
+
 .block-content {
   position: relative;
   object-fit: cover;
@@ -59,9 +60,13 @@ h3.post-title {
 
 .block-editor .block-content {
   // background: url(https://upload.wikimedia.org/wikipedia/commons/9/93/The_Logo_of_The_Washington_Post_Newspaper.svg);
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center center;
+  // background-size: contain;
+  // background-repeat: no-repeat;
+  // background-position: center center;
+}
+
+img.favicon {
+  margin-right: 5px;
 }
 
 .content-block-4 {
@@ -145,6 +150,13 @@ h2.header-big {
   background: #384E77;
 }
 
+.spotlight-one-image {
+  height: auto;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
 .spotlight-one {
   width: 100%;
   margin: 20px;
@@ -165,6 +177,75 @@ h2.header-big {
   margin: 20px;
 }
 
+.spotlight-5:nth-child(1) {
+  width: 46%;
+  margin: 20px;
+}
+
+.spotlight-5:nth-child(2) {
+  width: 46%;
+  margin: 20px;
+}
+
+.spotlight-5:nth-child(3) {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+.spotlight-5:nth-child(4) {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+.spotlight-5:nth-child(5) {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+
+.spotlight-7:nth-child(1), .spotlight-7:nth-child(2),
+.spotlight-7:nth-child(3)  {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+.spotlight-7:nth-child(4), .spotlight-7:nth-child(5),
+.spotlight-7:nth-child(6), .spotlight-7:nth-child(7),
+.spotlight-7:nth-child(8), .spotlight-7:nth-child(9),
+.spotlight-7:nth-child(10), .spotlight-7:nth-child(11) {
+  flex: 1 0 21%;
+  margin: 20px;
+}
+
+.spotlight-10:nth-child(1), .spotlight-10:nth-child(2),
+.spotlight-10:nth-child(3), .spotlight-10:nth-child(4),
+.spotlight-10:nth-child(5), .spotlight-10:nth-child(6) {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+
+.spotlight-10:nth-child(7), .spotlight-10:nth-child(8),
+.spotlight-10:nth-child(9), .spotlight-10:nth-child(10) {
+  flex: 1 0 21%;
+  margin: 20px;
+}
+
+
+.spotlight-13:nth-child(1), .spotlight-13:nth-child(2),
+.spotlight-13:nth-child(3), .spotlight-13:nth-child(4),
+.spotlight-13:nth-child(5), .spotlight-13:nth-child(6) {
+  flex: 1 0 27%;
+  margin: 20px;
+}
+
+.spotlight-13:nth-child(7), .spotlight-13:nth-child(8),
+.spotlight-13:nth-child(9), .spotlight-13:nth-child(10),
+.spotlight-13:nth-child(11), .spotlight-13:nth-child(12),
+.spotlight-13:nth-child(13), .spotlight-13:nth-child(14) {
+  flex: 1 0 21%;
+  margin: 20px;
+}
 
 
 
@@ -606,6 +687,7 @@ section.widget_social_media {
   background: white;
 
   .juicer {
+    margin: 70px 0px;
     height: 400px;
     overflow: hidden;
     position: relative;

@@ -1,11 +1,11 @@
 .logo-section {
-  background-color: #731454;
+  background-color: #5C1043;
   width: 100%;
 }
 
 .logos {
   max-width: 1200px;
-  border: 1px solid red;
+  // border: 1px solid red;
   // padding: 20px;
   display: flex;
   flex-direction: row;
@@ -13,6 +13,8 @@
   justify-content: space-around;
   // align-items: center;
   margin: 0 auto;
+  padding: 30px 0px;
+  border-bottom: 1px solid #E6E6E5;
 }
 
 .logos .logo {
@@ -25,13 +27,52 @@ footer.footer-btm {
   background-color: #5C1043;
 }
 
+.support input {
+  border-radius: 0px;
+  background-color: #5C1043;
+  color: white;
+  font-size: 13px;
+  width: 75%;
+  display: inline-block;
+}
+
+input.submit {
+  width: 23%;
+  color: white;
+  display: inline-block;
+  font-size: 13px;
+  margin-top: 10px;
+  padding: 6px 12px;
+  height: 39px;
+}
+
+.support input::-webkit-input-placeholder  {
+  color: white;
+}
+
+.support {
+  font-family: $font-family-sans-serif;
+}
+
 .footer {
-  width: 92%;
-  padding: 60px 0px;
+  max-width: 1200px;
   margin: 0 auto;
   background-color: #5C1043;
+}
+
+.footer-flex {
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: -webkit-flexbox;
+  display: -webkit-flex;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  // align-items: flex-start;
+  // padding: 30px 0px 50px;
+  padding: 20px 0px;
+
 }
 
 
@@ -43,40 +84,38 @@ footer.footer-btm {
 }
 
 .about {
-  width: 40%;
+  flex-basis: calc(40% - 40px);
   color: white;
-  padding-right: 15%;
-  // border: 1px solid white;
+  // border: 1px solid red;
 }
 
 .links {
-  // width: 30%;
-  // border: 1px solid white;
+  flex-basis: calc(16% - 40px);
+  // border: 1px solid blue;
 }
 
 .support {
-  // width: 30%;
-  // border: 1px solid white;
+  flex-basis: calc(40% - 40px);
+  // border: 1px solid yellow;
 }
 
-.about h3, .about p.lato, .links p.lato {
+.about h3, .about p.lato, .links p.lato, .support p.lato {
   color: #DCDFE5;
 }
 
-.links {
-  width:30%;
-}
 
-.links a {
+
+
+.links a, .support a {
   text-decoration: none;
 }
 
-.links p.lato {
+.links p.lato, .support p.lato {
   margin: 0;
   // text-transform: uppercase;
 }
 
-.links p.lato {
+.links p.lato, .support p.lato {
   font-size: 17px;
 }
 
@@ -89,6 +128,20 @@ h3.patrick {
   margin-bottom: 18px;
 }
 
-.support {
-  width:30%;
+.footer-center {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #5C1043;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.footer-center a p.lato{
+  display: inline-block;
+  padding: 0px 10px;
+  color: white;
+  margin: 0 auto;
+  text-align: center;
 }

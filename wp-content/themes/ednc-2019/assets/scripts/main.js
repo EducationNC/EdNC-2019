@@ -43,7 +43,7 @@
 
   // Hamburger Menu
   $(window).on("scroll", function() {
-    if($(window).scrollTop() > 20) {
+    if($(window).scrollTop() >= 20) {
         $(".top-nav").addClass("active");
         $(".secondary-logos").addClass("hide");
         $(".main-logo").addClass("active");
@@ -55,28 +55,17 @@
        $(".main-logo").removeClass("active");
        $(".top-nav-outer").removeClass("active");
     }
-});
+  });
 
 
   $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');
   $(".content-block-3:nth-child(3n):not(:nth-last-child(1)").after('<hr class="full">');
-
 
   // Reacb Widget
   $('.block-content-reach').on('click', function () {
     $('.full-width-reach').css('display', 'block');
     return false;
   });
-
-  // $(".block-content-reach").click(function(){
-  //   // If this isn't already active
-  //   if (!$(this).hasClass("active")) {
-  //     // Remove the class from anything that is active
-  //     $(".block-content-reach.active").removeClass("active");
-  //     // And make this active
-  //     $(this).addClass("active");
-  //   }
-  // });
 
   // JQuery Version
   console.log($().jquery);
@@ -91,35 +80,82 @@
     cssEase: 'linear'
   });
 
-
-
   $('.block-content-reach').on('click', 'a', function () {
 
-      // $('.current').not($(this).parents('div').addClass('current')).removeClass('current');
+      $('.current').not($(this).parents('div').addClass('current')).removeClass('current');
       // fade out all open subcontents
-      // $('.pbox:visible').hide();
+      $('.pbox:visible').hide();
       // fade in new selected subcontent
-      // var test = $('.pbox[id=' + $(this).attr('data-id') + ']').show();
-      // console.log (test);
-      // console.log (test['id']);
-
-      // var term = $(this).data('id');
-      // console.log (term);
-      // var test = getElementById();
-      //  var subm = "";
-      // subm = e.target.id;
-      // var a = $('#href').attr('data-id');
-      // console.log (sumb);
-      // term.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
-
+      var test = $('.pbox[id=' + $(this).attr('data-id') + ']').show();
       $(".slider").slick("refresh");
   });
 
-  // $( "a" )
-  //   .attr( "id", function( arr ) {
-  //     return "#" + arr;
-  //   })
-  // });
+  $('.block-content-reach').click( function () {
+    var a = document.getElementById("div1");
+    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  });
+
+  $('.block-content-reach-2').click( function () {
+    var a = document.getElementById("div2");
+    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  });
+
+  $('.block-content-reach-3').click( function () {
+    var a = document.getElementById("div3");
+    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  });
+
+
+
+  var submitIcon = $('.searchbox-icon');
+  var inputBox = $('.searchbox-input');
+  var searchBox = $('.searchbox');
+  var isOpen = false;
+  submitIcon.click(function(){
+      if(isOpen == false){
+          searchBox.addClass('searchbox-open');
+          inputBox.focus();
+          isOpen = true;
+      } else {
+          searchBox.removeClass('searchbox-open');
+          inputBox.focusout();
+          isOpen = false;
+      }
+  });
+  submitIcon.mouseup(function(){
+          return false;
+      });
+  searchBox.mouseup(function(){
+          return false;
+      });
+  $(document).mouseup(function(){
+          if(isOpen == true){
+              $('.searchbox-icon').css('display','block');
+              submitIcon.click();
+          }
+  });
+
+  function buttonUp(){
+    var inputVal = $('.searchbox-input').val();
+    inputVal = $.trim(inputVal).length;
+    if( inputVal !== 0){
+        $('.searchbox-icon').css('display','none');
+    } else {
+        $('.searchbox-input').val('');
+        $('.searchbox-icon').css('display','block');
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -132,15 +168,10 @@
   // }
 
 
-
-
   // $('.menu a').on('click', function () {
   //   $(".overlay").fadeToggle(200);
   //   $(".menu-btn a").toggleClass('btn-open').toggleClass('btn-close');
   // });
-
-
-
 
 
   // Init popovers
