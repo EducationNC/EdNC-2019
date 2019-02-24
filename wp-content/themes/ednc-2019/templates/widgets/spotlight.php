@@ -10,7 +10,7 @@ $featured_image = Media\get_featured_image('medium');
 
 <section class="block spotlight">
   <div class="widget-content">
-    <h2 class="header-big">Spotlight: <?php echo get_cat_name($category); ?></h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/spotlight.svg'); ?>">Spotlight: <?php echo get_cat_name($category); ?></h2>
     <div class="content-box-container">
       <?php
       /*

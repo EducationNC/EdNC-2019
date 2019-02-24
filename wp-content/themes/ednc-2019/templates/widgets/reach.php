@@ -9,7 +9,7 @@ global $featured_recent;
 
 <section class="block reach">
   <div class="widget-content">
-    <h2 class="header-big">Reach NC Voices</h2>
+    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/reach.svg'); ?>">Reach NC Voices</h2>
     <div class="content-box-container">
 
       <div class="block-perspectives content-block-3 clearfix">

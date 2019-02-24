@@ -22,24 +22,53 @@ global $featured_recent;
         <div class="editors-box">
           <div class="editors-content-box">
             <h2 class="header">Editor's Picks</h2>
-            <img src="<?php echo Assets\asset_path('images/mebane-crop.png'); ?>" width="" alt="Mebane" />
+            <img src="<?php echo Assets\asset_path('images/Mebane_Rash-220x220newest.png'); ?>" width="" alt="Mebane" />
             <hr class="break">
               <?php
               // Show 8 most news
               $ednews = new WP_Query([
                 'post_type' => 'ednews',
-                'posts_per_page' => 4
+                'posts_per_page' => 1
               ]);
               if ($ednews->have_posts()) : while ($ednews->have_posts()) : $ednews->the_post();?>
 
-                  <?php get_template_part('templates/layouts/block', 'editor'); ?>
+                  <?php $feature = get_field('featured_read'); ?>
 
-              <?php endwhile; endif; wp_reset_query(); ?>
+                  <article <?php post_class('block-editor ednews clearfix'); ?> >
+                    <div class="block-content featured-ednews">
+                      <p class="small lato editor">FEATURED PICK</p>
+                      <p class="small lato editor"><?php echo $feature[0]['source']; ?></p>
+                      <h3 class="editor"><?php echo $feature[0]['title']; ?></h3>
+                      <a class="mega-link" href="<?php echo $feature['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
+                    </div>
+                  </article>
+                  <hr class="break">
+
+                  <?php
+                  $date = get_the_time('n/j/Y');
+                  $ednewsall = get_field('news_item');
+                  $count = count($ednewsall);
+                  // $item = $items[$i];
+                  // echo $count;
+                  $items = array_slice($ednewsall, 0, 3);
 
 
-              <a class="more" href="<?php the_permalink(); ?>">
-                <button class="btn">Read More</button>
-              </a>
+                  foreach ($items as $item) {?>
+                    <article <?php post_class('block-editor ednews clearfix'); ?> >
+                      <p class="small lato editor"><?php echo $item['source']; ?></p>
+                      <h3 class="editor"><?php echo $item['title']; ?></h3>
+                      <h3 class="editor"><?php echo $item['original_date']; ?></h3>
+                      <a class="mega-link" href="<?php echo $item['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
+                    </article>
+                    <hr class="break">
+                  <?php } ?>
+                  
+                  <a class="more" href="<?php the_permalink(); ?>">
+                    <button class="btn">Read More</button>
+                  </a>
+
+            <?php endwhile; endif; wp_reset_query(); ?>
+
           </div>
         </div>
       </div>
@@ -53,7 +82,7 @@ global $featured_recent;
 
           $featured = new WP_Query([
             'posts_per_page' => 1,
-            'post_type' => array('post', 'map'),
+            'post_type' => array('post', 'map', 'edtalk'),
             'tax_query' => array(
               array(
                 'taxonomy' => 'appearance',

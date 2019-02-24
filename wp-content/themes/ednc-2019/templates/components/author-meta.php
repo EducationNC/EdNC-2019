@@ -1,4 +1,5 @@
 <?php
+$author = get_the_author();
 // Check if coauthors plugin is enabled
 if ( function_exists( 'get_coauthors' ) ) {
   $coauthors = get_coauthors();
@@ -18,32 +19,16 @@ if ( function_exists( 'get_coauthors' ) ) {
     $bio = new WP_Query($args);
 
     if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
-      <div class="row">
+      <div class="row author">
         <div class="col-xs-3 col-sm-4 col-md-12">
-          <?php
-          if (
-            $author->user_nicename != 'agranados' &&
-            $author->user_nicename != 'lbell' &&
-            $author->user_nicename != 'mrash' &&
-            $author->user_nicename != 'nation-hahn' &&
-            $author->user_nicename != 'nrose' &&
-            $author->user_nicename != 'mosborne' &&
-            $author->user_nicename != 'cparker' &&
-            $author->user_nicename != 'annelisa-sorrells' &&
-            $author->user_nicename != 'robert-kinlaw' &&
-            $author->user_nicename != 'ybendaas' &&
-            $author->user_nicename != 'rupen.fofaria' &&
-            $author->user_nicename != 'staff'
-          ) { ?>
-            <div class="circle-image">
+            <div class="circle-image-article">
               <?php the_post_thumbnail('bio-headshot'); ?>
             </div>
-          <?php } else {
-            the_post_thumbnail('bio-headshot');
-          } ?>
-        </div>
-        <div class="col-xs-9 col-sm-8 col-md-12">
-          <?php get_template_part('templates/components/author', 'excerpt'); ?>
+            <div class="circle-image-article">
+              <?php the_author(); ?>
+              <?php// print_r ($bio); ?>
+            </div>
+            <?php// get_template_part('templates/components/author', 'excerpt'); ?>
         </div>
       </div>
     <?php endwhile; endif; wp_reset_query();

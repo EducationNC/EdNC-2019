@@ -49,7 +49,7 @@ while (have_posts()) : the_post(); ?>
 
                 <h3><?php echo $feature[0]['title']; ?></h3>
 
-                <p class="meta byline"><?php echo $feature[0]['source_name']; ?> | <?php echo $feature[0]['original_date']; ?></p>
+                <p class="meta byline"><?php echo $feature[0]['source']; ?> | <?php echo $feature[0]['original_date']; ?></p>
                 <?php echo $feature[0]['intro_text']; ?>... <a class="more" href="<?php echo $feature[0]['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');">Read the rest <span class="icon-external-link"></span></a></p></a>
 
                 <?php if (!empty($feature[0]['featured_image'])) { ?>
@@ -68,7 +68,7 @@ while (have_posts()) : the_post(); ?>
                 <li>
                   <a class="mega-link" href="<?php echo $item['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
                   <h3><?php echo $item['title']; ?></h3>
-                  <p class="meta"><?php echo $item['source_name']; ?> | <?php echo $item['original_date']; ?> <span class="icon-external-link"></span></p>
+                  <p class="meta"><?php echo $item['source']; ?> | <?php echo $item['original_date']; ?> <span class="icon-external-link"></span></p>
                 </li>
               <?php } ?>
             </ul>

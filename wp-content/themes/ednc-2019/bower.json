@@ -41,10 +41,10 @@
       ]
     },
     "slick-carousel": {
-           "main": [
-             "./slick/slick.js",
-             "./slick/slick.css"
-          ]
+       "main": [
+         "./slick/slick.js",
+         "./slick/slick.css"
+      ]
     }
   }
 }

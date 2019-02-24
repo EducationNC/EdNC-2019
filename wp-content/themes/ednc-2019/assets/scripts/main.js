@@ -37,9 +37,37 @@
   });
 
   // Waypoints
-  // $('.news').waypoint(function() {
-  //   // alert('You have scrolled to a thing.');
+  // var $logo = $('.main-logo-article');
+  // var $headerTitle = $('.header-title');
+  // var $entryTitle = $('.entry-title');
+
+  // $('.gallery').waypoint(function() {
+  //   $('.main-logo-article').addClass('hide');
+  //   $('.header-title').removeClass('hide');
+  // }, {
+  //     offset: '1%',
+  //     // triggerOnce: true
   // });
+
+  $('.entry-title').waypoint(function(direction) {
+    if (direction === 'down') {
+      $('.main-logo-article').addClass('hide');
+      $('.header-title').removeClass('hide');
+    }
+  }, {
+    offset: '0%'
+  });
+
+  $('.entry-title').waypoint(function(direction) {
+    if (direction === 'up') {
+      $('.main-logo-article').removeClass('hide');
+      $('.header-title').addClass('hide');
+    }
+  }, {
+    offset: '0%'
+  });
+
+
 
   // Hamburger Menu
   $(window).on("scroll", function() {

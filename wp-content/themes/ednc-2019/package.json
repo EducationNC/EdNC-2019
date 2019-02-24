@@ -27,7 +27,7 @@
     "npm": ">=2.1.5"
   },
   "devDependencies": {
-    "asset-builder": "^1.1.0",
+    "asset-builder": "^2.0.0",
     "browser-sync": "^2.8.2",
     "del": "^3.0.0",
     "gulp": "^3.9.0",
@@ -44,10 +44,10 @@
     "gulp-rename": "^1.2.2",
     "gulp-rev": "^9.0.0",
     "gulp-sass": "^4.0.2",
-    "gulp-sourcemaps": "^2.6.4",
+    "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.1",
     "imagemin-pngcrush": "^6.0.0",
-    "jshint": "^2.9.7",
+    "jshint": "^2.10.1",
     "jshint-stylish": "^2.0.1",
     "lazypipe": "^1.0.1",
     "merge-stream": "^1.0.0",

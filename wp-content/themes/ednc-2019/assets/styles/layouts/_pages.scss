@@ -1,3 +1,75 @@
+//HIGHLIGHT TO TWEET STYLING
+.w-button {
+    display: inline-block;
+    padding: 9px 15px;
+    background-color: #3898EC;
+    color: white;
+    border: 0;
+    line-height: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 0;
+}
+
+.tweet {
+    padding: 6px 35px 6px 10px;
+    font-family: $font-family-sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.6px;
+    font-size: 15px;
+    border-radius: 3px;
+    background-image: url(https://uploads-ssl.webflow.com/5c0fc877855e628366fd4fdc/5c0fc95998cebb674b6e977b_twitters.svg);
+    background-position: 89% 50%;
+    background-size: 18px;
+    background-repeat: no-repeat;
+    -webkit-transition: opacity 200ms ease, -webkit-transform 200ms cubic-bezier(.68, -.55, .265, 1.55);
+    transition: opacity 200ms ease, -webkit-transform 200ms cubic-bezier(.68, -.55, .265, 1.55);
+    z-index: 500;
+    transition: transform 200ms cubic-bezier(.68, -.55, .265, 1.55), opacity 200ms ease;
+    transition: transform 200ms cubic-bezier(.68, -.55, .265, 1.55), opacity 200ms ease, -webkit-transform 200ms cubic-bezier(.68, -.55, .265, 1.55);
+}
+
+.border {
+  border: 1px solid black;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.author h3.post-title-recent a {
+  text-decoration: none;
+  color: #44474d;
+}
+.author h3.post-title-recent a:hover {
+  text-decoration: underline;
+}
+.align-middle {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+
+.blue {
+  background-color: blue;
+}
+
+::selection {
+  background: #F6B041; /* WebKit/Blink Browsers */
+}
+::-moz-selection {
+  background: #F6B041; /* Gecko Browsers */
+}
+
+.circle-image-article {
+  display: inline-block;
+}
+
+.author {
+  margin-bottom: 20px;
+}
+//PAGE STYLING
+
 .page-header {
   &.photo-overlay {
     position: relative;

@@ -4,6 +4,11 @@ use Roots\Sage\Media;
 
 // $featured_image = Media\get_featured_image('medium');
 $iframe = get_field('video');
+// if ( empty( $iframe ) ){
+//    // get the first term
+//    echo "<h2>PHP is Fun!</h2>";
+//    // $term = array_shift( $terms );
+// }
 // use preg_match to find iframe src
 preg_match('/src="(.+?)"/', $iframe, $matches);
 $src = $matches[1];

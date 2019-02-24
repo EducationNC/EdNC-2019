@@ -143,6 +143,14 @@
   }
 }
 
+.circle-image-article {
+  img {
+    border-radius: 50%;
+    max-width: 60px;
+  }
+}
+
+
 .overflow-ellipsis {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -15,9 +15,15 @@ use Roots\Sage\Wrapper;
     <![endif]-->
     <?php
       do_action('get_header');
+      if ( is_front_page() && is_home() ) {
+        get_template_part('templates/layouts/header', 'home');
+      } else {
+      get_template_part('templates/layouts/header', 'article');
+      }
       get_template_part('templates/components/alert');
-      get_template_part('templates/layouts/header', 'sm-down');
-      get_template_part('templates/layouts/header', 'md-up');
+      // get_template_part('templates/layouts/header', 'sm-down');
+      // get_template_part('templates/layouts/header', 'md-up');
+      // get_template_part('templates/layouts/header', 'article');
     ?>
     <div class="wrap" role="document">
       <div class="content clearfix">

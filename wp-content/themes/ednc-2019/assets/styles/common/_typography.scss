@@ -40,9 +40,10 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
 
 h1, .h1, .article-title, .entry-title {
   font-family: $font-family-serif;
-  color: $plum;
+  // letter-spacing: .5px;
+  color: #44474d;
   font-size: 30px;
-  font-weight: normal;
+  font-weight: 400;
 
   @media (min-width: $screen-md-min) {
     font-size: 36px;
