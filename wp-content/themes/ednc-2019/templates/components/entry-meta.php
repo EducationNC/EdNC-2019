@@ -1,6 +1,10 @@
 <p class="byline author vcard">
   by
   <?php
+  // $author = get_the_author();
+  // echo $author;
+  // $author_bio = get_posts(array('post_type' => 'bio', 'meta_key' => 'user', 'meta_value' => $author_id));
+  // echo   $author_bio;
   if ( function_exists( 'coauthors_posts_links' ) ) {
     coauthors_posts_links();
   } else {

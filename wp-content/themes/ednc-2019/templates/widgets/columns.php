@@ -7,10 +7,7 @@ use Roots\Sage\Media;
 // global $recent_ids;
 global $featured_recent;
 
-$column = wp_get_post_terms(get_the_id(), 'column');
-if ($column) {
-  $post_type = $column[0]->name;
-}
+
 // elseif ($post->post_type == 'post') {
 //    $post_type = "News";
 // }
@@ -28,7 +25,7 @@ if ($column) {
 
        $args = array(
          'posts_per_page' => $number,
-        'post_type' => array('post', 'map', 'edtalk'),
+         'post_type' => array('post', 'map', 'edtalk'),
          'post__not_in' => $featured_recent,
          'tax_query' => array(
            	 'relation' => 'OR',
@@ -57,6 +54,20 @@ if ($column) {
        if ($columns->have_posts()) : while ($columns->have_posts()) : $columns->the_post();
 
           $featured_image = Media\get_featured_image('medium');
+
+          $column = wp_get_post_terms(get_the_id(), 'column');
+          if ($column) {
+            $post_type = $column[0]->name;
+          }
+          elseif ( has_term( 'press-release', 'appearance' ) ) {
+            $post_type = "Press Release";
+          }
+          elseif ( has_term ( 'issues', 'appearance' ) ) {
+            $post_type = "Issues";
+          }
+          else {
+            $post_type = "News";
+          }
           ?>
 
            <article <?php post_class('block-news content-block-4 clearfix'); ?>>

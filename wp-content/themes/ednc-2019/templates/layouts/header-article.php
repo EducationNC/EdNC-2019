@@ -47,9 +47,18 @@ use Roots\Sage\Nav;
                 </a>
               </div>
               <div class="icon">
-                <a class="" target="_blank" href="https://twitter.com/share" data-url="<?php// the_permalink(); ?>"
-                data-text="<?php// the_title(); ?>" class="" data-via="wpbeginner" data-show-count="false">
+                <!-- <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
+                 <a href="http://twitter.com/share" class="twitter-share-button"
+                    data-url="<?php the_permalink(); ?>"
+                    data-via="wpbeginner"
+                    data-text="<?php the_title(); ?>"
+                    data-related="syedbalkhi:Founder of WPBeginner"
+                    data-count="vertical">Tweet
+                </a> -->
+
                 <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                <a class="" target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-url="<?php the_permalink(); ?>"
+                data-text="<?php the_title(); ?>" class="twitter-share-button" data-via="wpbeginner" data-show-count="false">
                   <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
                 </a>
             </div>
@@ -59,6 +68,7 @@ use Roots\Sage\Nav;
     </header>
   </div>
 <!-- </div> -->
+
 
 
 

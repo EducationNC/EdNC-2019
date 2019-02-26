@@ -19,6 +19,7 @@ $sage_includes = [
   'lib/extras.php',             // Custom functions
   'lib/facebook-auth.php',      // Facebook auth - PRIVATE
   'lib/feeds.php',              // Custom RSS feeds
+  'lib/gutenburg-blocks.php',   // Gutenburg Customization
   'lib/media.php',              // Image and other media functions
   'lib/resize.php',             // Magic image resizer
   'lib/shortcodes.php',         // Shortcodes and UI
@@ -116,9 +117,6 @@ function new_excerpt_more( $more ) {
  }
  add_filter('excerpt_more', 'new_excerpt_more');
 
-
-
-
 //exclude private
 add_filter( 'pre_get_posts', 'exclude_private_post' );
 function exclude_private_post( $query ) {
@@ -198,9 +196,19 @@ function basic_wp_seo() {
  	return $output;
 }
 
+function add_author_meta() {
+     if (is_single()){
+        global $post;
+        $author = get_the_author_meta('display_name', $post->post_author);
+        echo "<meta name=\"author\" content=\"$author\">";
+    }
+}
+
+// add_action( 'wp_enqueue_scripts', 'add_author_meta' );
 
 function tabor_gutenberg_color_palette() {
   add_theme_support( 'align-wide' );
+  add_theme_support('editor-styles');
 	add_theme_support(
 		'editor-color-palette', array(
 			array(
@@ -308,28 +316,31 @@ function tabor_gutenberg_color_palette() {
 }
 add_action( 'after_setup_theme', 'tabor_gutenberg_color_palette' );
 
+/**
+ * Gutenberg scripts and styles
+ */
 
+function be_gutenberg_scripts() {
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-function add_author_meta() {
-     if (is_single()){
-        global $post;
-        $author = get_the_author_meta('display_name', $post->post_author);
-        echo "<meta name=\"author\" content=\"$author\">";
-    }
+	wp_enqueue_script(
+		'be-editor',
+		get_stylesheet_directory_uri() . '/assets/scripts/editor.js',
+		array( 'wp-blocks', 'wp-dom' ),
+		filemtime( get_stylesheet_directory() . '/assets/scripts/editor.js' ),
+		true
+	);
 }
+add_action( 'enqueue_block_editor_assets', 'be_gutenberg_scripts' );
 
+function gutenberg_boilerplate_block() {
+    wp_register_script(
+        'gutenberg-boilerplate-es5-step01',
+        plugins_url( 'step-01/block.js', __FILE__ ),
+        array( 'wp-blocks', 'wp-element' )
+    );
 
-// add_action( 'wp_enqueue_scripts', 'add_author_meta' );
+    register_block_type( 'gutenberg-boilerplate-es5/hello-world-step-01', array(
+        'editor_script' => 'gutenberg-boilerplate-es5-step01',
+    ) );
+}
+add_action( 'init', 'gutenberg_boilerplate_block' );

@@ -19,8 +19,15 @@ while (have_posts()) : the_post();
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
+  // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
   $title_overlay = get_field('title_overlay');
+
+  if(empty($alt_text)) // If not, Use the Caption
+  {
+      $attachment = get_post($post->ID);
+      $alt_text = trim(strip_tags( $attachment->post_excerpt ));
+  }
 
   $column = wp_get_post_terms(get_the_id(), 'column');
   $category = wp_get_post_terms(get_the_id(), 'category');
@@ -49,78 +56,60 @@ while (have_posts()) : the_post();
     </div>
     <?php } ?>
 
-    <div class="entry-content">
+    <div class="title">
       <div class="container">
         <div class="row">
-          <div class="col-md-2 col-md-push-10 meta hidden-xs hidden-sm print-no">
-          </div>
-
-          <div class="col-md-2 col-md-pull-2 print-no">
-            <div class="hidden-xs">
-            </div>
-          </div>
-          <div class="col-md-7 col-md-pull-1point5 print-only">
-            <h1 class="entry-title"><?php the_title(); ?></h1>
-            <?php get_template_part('templates/components/author', 'meta'); ?>
-            <?php if (has_post_thumbnail() && $featured_image_align == 'contained') {
-              echo '<div class="alignnone no-top-margin">';
-              the_post_thumbnail('large');
-              $thumb_id = get_post_thumbnail_id();
-              $thumb_post = get_post($thumb_id);
-
-              if ($thumb_post->post_excerpt) {
-                ?>
-                <div class="caption extra-bottom-margin">
-                  <?php echo $thumb_post->post_excerpt; ?>
-                </div>
-                <?php
-              }
-              echo '</div>';
-            } ?>
+          <div class="col-md-8 col-centered intro">
+              <h1 class="entry-title"><?php the_title(); ?></h1>
+              <?php//  print_r(  $author_bio); ?>
+              <!-- <img src="<?php// echo $author_avatar[0]; ?>" alt="<?php// echo get_the_title(get_field('avatar')) ?>" /> -->
+              <?php get_template_part('templates/components/author-meta'); ?>
           </div>
         </div>
       </div>
     </div>
 
-    <!-- <?php// if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <header class="entry-header hero-image">
+
+    <?php// if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
+      <!-- <header class="entry-header hero-image">
         <div class="photo-overlay">
-          <div class="parallax-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>')"></div>
+          <div class="parallax-img hidden-xs" style="background-image:url('<?php //echo $featured_image_src[0]; ?>')"></div>
           <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
-
-          <?php// if ( ! empty($title_overlay) ) { ?>
-            <img class="title-image-overlay" src="<?php// echo $title_overlay['url']; ?>" alt="<?php// the_title(); ?>" />
-            <h1 class="entry-title hidden"><?php// the_title(); ?></h1>
-          <?php } ?>
-
-          <div class="article-title-overlay">
-            <?php// if ( empty($title_overlay) ) { ?>
-              <div class="container">
-                <div class="row">
-                  <div class="col-md-8 col-centered">
-                  </div>
-                </div>
-              </div>
-            <?php } ?>
-
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
-                  <?php
-                  //$thumb_id = get_post_thumbnail_id();
-                //  $thumb_post = get_post($thumb_id);
-                //  echo $thumb_post->post_excerpt;
-                  ?>
-                </div>
-              </div>
-            </div>
-          </div>
+          <?php// echo $alt_text; ?>
         </div>
-      </header>
+      </header> -->
+    <?php// } ?>
+
+    <!-- <img class="hero-image-full">
+    </img> -->
+
+    <!-- <div id="wrapper-here">
+        <img class="here" src="http://lorempixel.com/200/200" />
+    </div>​​​​​​​​​​ -->
+
+    <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
+      <div class="">
+        <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
+        <img class="full-width-image" src="<?php echo $featured_image_src[0]; ?>" />
+        <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
+        <?php echo $alt_text; ?>
+      </div>
+    <?php } ?>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
+          <?php
+          //$thumb_id = get_post_thumbnail_id();
+          //$thumb_post = get_post($thumb_id);
+          //echo $thumb_post->post_excerpt;
+          ?>
+        </div>
+      </div>
+    </div>
 
 
-    <?php } else { ?>
-    <?php } ?> -->
+
 
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>

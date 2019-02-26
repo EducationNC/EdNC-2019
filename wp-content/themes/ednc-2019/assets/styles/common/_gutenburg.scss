@@ -1,0 +1,40 @@
+h1.is-style-alt,
+h2.is-style-alt,
+h3.is-style-alt,
+h4.is-style-alt {
+  font-family: $font-family-serif
+}
+
+h1.is-style-default,
+h2.is-style-default,
+h3.is-style-default,
+h4.is-style-default {
+  font-family: $font-family-sans-serif
+}
+
+.twitter-tweet {
+  margin: 0 auto;
+}
+
+.wp-block-embed {
+  text-align: center;
+}
+
+.wp-block-table tr, td {
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.wp-block-table {
+  // border: 1px solid black;
+  // margin: 0 auto;
+  margin-bottom: 20px;
+}
+
+.centered {
+  margin: 0 auto;
+}
+
+.wp-block-table.is-style-stripes tr:nth-child(odd) {
+  background-color: #eee;
+}

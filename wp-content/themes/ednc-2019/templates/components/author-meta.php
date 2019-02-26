@@ -1,10 +1,10 @@
+<?php use Roots\Sage\Titles; ?>
+
 <?php
-$author = get_the_author();
 // Check if coauthors plugin is enabled
 if ( function_exists( 'get_coauthors' ) ) {
   $coauthors = get_coauthors();
   $coauthors_count = count($coauthors);
-
   foreach ($coauthors as $author) {
     $args = array(
       'post_type' => 'bio',
@@ -15,20 +15,17 @@ if ( function_exists( 'get_coauthors' ) ) {
         )
       )
     );
-
     $bio = new WP_Query($args);
-
     if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
-      <div class="row author">
+      <div class="row">
         <div class="col-xs-3 col-sm-4 col-md-12">
-            <div class="circle-image-article">
-              <?php the_post_thumbnail('bio-headshot'); ?>
-            </div>
-            <div class="circle-image-article">
-              <?php the_author(); ?>
-              <?php// print_r ($bio); ?>
-            </div>
-            <?php// get_template_part('templates/components/author', 'excerpt'); ?>
+          <div class="circle-image">
+            <?php the_post_thumbnail('bio-headshot'); ?>
+          </div>
+        </div>
+        <div class="col-xs-9 col-sm-8 col-md-12">
+          By:<p><?= Titles\title(); ?></p>
+
         </div>
       </div>
     <?php endwhile; endif; wp_reset_query();
@@ -44,9 +41,7 @@ if ( function_exists( 'get_coauthors' ) ) {
       )
     )
   );
-
   $bio = new WP_Query($args);
-
   if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
     <div class="row">
       <div class="col-xs-3 col-sm-4 col-md-12">

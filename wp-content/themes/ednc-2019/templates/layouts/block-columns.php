@@ -5,10 +5,20 @@ use Roots\Sage\Media;
 $author_id = get_the_author_meta('ID');
 $author_bio = get_posts(array('post_type' => 'bio', 'meta_key' => 'user', 'meta_value' => $author_id));
 $featured_image = Media\get_featured_image('medium');
-$terms = get_the_terms( $post->ID, 'column' );
- if ( !empty( $terms ) ){
-    // get the first term
-    $term = array_shift( $terms );
+$featured_image = Media\get_featured_image('medium');
+
+$column = wp_get_post_terms(get_the_id(), 'column');
+if ($column) {
+  $post_type = $column[0]->name;
+}
+elseif ( has_term( 'press-release', 'appearance' ) ) {
+  $post_type = "Press Release";
+}
+elseif ( has_term ( 'issues', 'appearance' ) ) {
+  $post_type = "Issues";
+}
+else {
+  $post_type = "News";
 }
 
 ?>

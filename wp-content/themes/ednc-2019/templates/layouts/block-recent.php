@@ -12,14 +12,18 @@ if ($column) {
   // $link = get_term_link($column[0]);
   $post_type = $column[0]->name;
   // echo '<span class="label"><a href="' . $link . '">' . $column[0]->name. '</a></span> ';
-}  elseif ($post->post_type == 'post') {
-   $post_type = "News";
 }
+// elseif ($post->post_type == 'post') {
+//    $post_type = "News";
+// }
 elseif ($post->post_type == 'edtalk') {
   $post_type = "EdTalk";
 }
-else ($post->post_type == 'map') {
-  $post_type = "Maps"
+elseif ($post->post_type == 'map') {
+  $post_type = "Maps";
+}
+else  {
+  $post_type = "News";
 }
 
 ?>

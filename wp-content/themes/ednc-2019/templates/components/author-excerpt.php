@@ -5,14 +5,13 @@ $website = get_field('website');
 $author = get_the_author();
 
 if (get_field('has_bio_page') == 1) { ?>
-  <div class="inline-block">
-    <?php// the_advanced_excerpt(); ?>
-    <h3 class="post-title-recent inline-block">By:<a href="<?php// the_permalink(); ?>" class="read-more"> <?php //echo $author ?></a></h3>
+  <div>
+    <a href="<?php the_permalink(); ?>" class="read-more">Read full bio &raquo;</a>
   </div>
 <?php } else { ?>
-  <div>
-    <?php the_content(); ?>
-  </div>
+  <!-- <div>
+    <?php// the_content(); ?>
+  </div> -->
 <?php }
 
 if ($email) {
