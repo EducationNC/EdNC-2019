@@ -309,14 +309,24 @@
 //   }
 // }
 
+.full-width-image-block {
+  height: auto;
+  width: 92%;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.banner {
+  margin-bottom: 50px;
+}
+
+
 .full-width-image {
   height: auto;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  width: 92%;
-  margin-left: 4%;
-  margin-right: 4%;
+  width: 100%;
 }
 
 .parallax-img {

@@ -29,6 +29,9 @@ while (have_posts()) : the_post();
       $alt_text = trim(strip_tags( $attachment->post_excerpt ));
   }
 
+  $thumb_id = get_post_thumbnail_id();
+  $thumb_post = get_post($thumb_id);
+
   $column = wp_get_post_terms(get_the_id(), 'column');
   $category = wp_get_post_terms(get_the_id(), 'category');
   if ( ! empty($column) ) {
@@ -48,13 +51,14 @@ while (have_posts()) : the_post();
   ?>
   <article <?php post_class('article'); ?>>
 
-    <?php if (isset($banner)) { ?>
-    <div class="column-banner page-header page-header-auto background-purple photo-overlay no-padding" style="">
-      <div class="category-header background-purple no-margin no-padding">
-        <img src="<?php echo $banner[0];  ?>" alt="<?php the_author(); ?>" class="full-width">
-      </div>
+    <!-- <?php //if (isset($banner)) { ?> -->
+    <?php if (! empty($banner)) { ?>
+    <div class="full-width-image-block banner" style="">
+        <img src="<?php echo $banner[0];  ?>" alt="<?php the_author(); ?>" class="full-width-image">
     </div>
     <?php } ?>
+
+
 
     <div class="title">
       <div class="container">
@@ -80,19 +84,13 @@ while (have_posts()) : the_post();
       </header> -->
     <?php// } ?>
 
-    <!-- <img class="hero-image-full">
-    </img> -->
-
-    <!-- <div id="wrapper-here">
-        <img class="here" src="http://lorempixel.com/200/200" />
-    </div>​​​​​​​​​​ -->
 
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <div class="">
+      <div class="full-width-image-block">
         <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
         <img class="full-width-image" src="<?php echo $featured_image_src[0]; ?>" />
         <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
-        <?php echo $alt_text; ?>
+        <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
     <?php } ?>
 

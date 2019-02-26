@@ -19,7 +19,7 @@ if ( function_exists( 'get_coauthors' ) ) {
     if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
       <div class="row">
         <div class="col-xs-3 col-sm-4 col-md-12">
-          <div class="circle-image">
+          <div class="circle-image-article">
             <?php the_post_thumbnail('bio-headshot'); ?>
           </div>
         </div>
