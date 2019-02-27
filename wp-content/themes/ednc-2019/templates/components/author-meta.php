@@ -17,20 +17,34 @@ if ( function_exists( 'get_coauthors' ) ) {
     );
     $bio = new WP_Query($args);
     if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
-      <div class="row">
+      <div class="row bio">
         <div class="col-xs-3 col-sm-4 col-md-12">
           <div class="circle-image-article">
             <?php the_post_thumbnail('bio-headshot'); ?>
           </div>
-        </div>
-        <div class="col-xs-9 col-sm-8 col-md-12">
-          By:<p><?= Titles\title(); ?></p>
-
+          <div class="author-article">
+            <div class="margin-none"><p>By:</p>
+              <a href="<?php the_permalink(); ?>" class="read-more"><p><?= Titles\title(); ?></p></a>
+              <?php
+              $twitter = get_field('twitter');
+              $email = get_field('email');
+              $website = get_field('website');
+              if ($twitter) {
+                echo '<div class="inline"> <a href="http://twitter.com/' . $twitter . '" target="_blank"><span class="big-icon icon-twitter"></span></a></div>';
+              }
+              ?>
+            </div>
+            <?php endwhile; endif; wp_reset_query();?>
+            <?php } ?>
+            <time class="published pf-date" datetime="<?php echo get_the_time('c'); ?>">
+              <?php the_time(get_option('date_format')); ?>
+            </time>
+          </div>
         </div>
       </div>
-    <?php endwhile; endif; wp_reset_query();
-  }
-} else {
+
+
+<?php } else { 
   // Fallback for no coauthors plugin
   $args = array(
     'post_type' => 'bio',

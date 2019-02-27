@@ -38,11 +38,11 @@ global $featured_recent;
                 'field' => 'slug',
                 'terms' => 'issues'
               ),
-              array(
-                'taxonomy' => 'appearance',
-                'field' => 'slug',
-                'terms' => 'press-release'
-              ),
+              // array(
+              //   'taxonomy' => 'appearance',
+              //   'field' => 'slug',
+              //   'terms' => 'press-release'
+              // ),
          ),
          'meta_key' => 'updated_date',
          'orderby' => 'meta_value_num',
@@ -59,9 +59,9 @@ global $featured_recent;
           if ($column) {
             $post_type = $column[0]->name;
           }
-          elseif ( has_term( 'press-release', 'appearance' ) ) {
-            $post_type = "Press Release";
-          }
+          // elseif ( has_term( 'press-release', 'appearance' ) ) {
+          //   $post_type = "Press Release";
+          // }
           elseif ( has_term ( 'issues', 'appearance' ) ) {
             $post_type = "Issues";
           }

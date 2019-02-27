@@ -38,3 +38,30 @@ h4.is-style-default {
 .wp-block-table.is-style-stripes tr:nth-child(odd) {
   background-color: #eee;
 }
+
+.alignfull {
+	margin: 32px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
+}
+
+.alignwide {
+	margin: 32px calc(25% - 25vw);
+	max-width: 100vw;
+	width: 100vw;
+}
+
+.alignwide,
+.alignfull {
+	margin: 32px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
+}
+
+@media (max-width: 920px) {
+	.alignwide {
+		margin: 32px calc( ( 767px - 920px ) / 2 );
+		max-width: 920px;
+		width: 920px;
+	}
+}

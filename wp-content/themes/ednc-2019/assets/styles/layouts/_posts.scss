@@ -338,3 +338,42 @@
   background-size: cover;
   //background-position: 50% 50%;
 }
+
+.margin-none p {
+  margin: 0;
+  display: inline-block;
+}
+
+.bio {
+  margin-bottom: 20px;
+  width: 95%;
+}
+
+.author-article {
+  margin-left: 10px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+a.read-more {
+  text-decoration: none;
+  font-weight: bold;
+  color: #44474d;
+}
+
+a.read-more:hover {
+  // text-decoration: underline;
+  border-bottom: 1px solid #44474d;
+}
+
+.inline {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+.big-icon {
+  font-size: 1.65em;
+/* line-height: 0; */
+  vertical-align: bottom;
+  display: inline-block;
+}

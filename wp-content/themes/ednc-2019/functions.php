@@ -344,3 +344,43 @@ function gutenberg_boilerplate_block() {
     ) );
 }
 add_action( 'init', 'gutenberg_boilerplate_block' );
+
+if( function_exists('acf_add_options_page') ) {
+
+	acf_add_options_page(array(
+		'page_title' 	=> 'Theme General Settings',
+		'menu_title'	=> 'Theme Settings',
+		'menu_slug' 	=> 'theme-general-settings',
+		'capability'	=> 'edit_posts',
+		'redirect'		=> false
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Header Settings',
+		'menu_title'	=> 'Header',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+	acf_add_options_sub_page(array(
+		'page_title' 	=> 'Theme Footer Settings',
+		'menu_title'	=> 'Footer',
+		'parent_slug'	=> 'theme-general-settings',
+	));
+
+}
+
+/*
+function be_register_blocks() {
+	if( ! function_exists('acf_register_block') )
+		return;
+	acf_register_block( array(
+		'name'			=> 'Pull-Quote-ACF',
+		'title'			=> __( 'Pull Quote', 'gutenberg-pull-quote-acf-example' ),
+		'render_template'	=> 'components/pull-quote.php',
+		'category'		=> 'formatting',
+		'icon'			=> 'admin-users',
+		'mode'			=> 'preview',
+		'keywords'		=> array( 'pull quote', 'quote', 'acf' )
+	));
+}
+add_action('acf/init', 'be_register_blocks' );*/

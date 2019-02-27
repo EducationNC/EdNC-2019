@@ -63,7 +63,7 @@ while (have_posts()) : the_post();
     <div class="title">
       <div class="container">
         <div class="row">
-          <div class="col-md-8 col-centered intro">
+          <div class="col-md-7 col-centered intro">
               <h1 class="entry-title"><?php the_title(); ?></h1>
               <?php//  print_r(  $author_bio); ?>
               <!-- <img src="<?php// echo $author_avatar[0]; ?>" alt="<?php// echo get_the_title(get_field('avatar')) ?>" /> -->
@@ -133,15 +133,8 @@ while (have_posts()) : the_post();
     <div class="entry-content">
       <div class="container">
         <div class="row">
-          <div class="col-md-2 col-md-push-10 meta hidden-xs hidden-sm print-no">
-          </div>
 
-          <div class="col-md-2 col-md-pull-2 print-no">
-            <div class="hidden-xs">
-            </div>
-          </div>
-
-          <div class="col-md-7 col-md-pull-1point5 print-only">
+          <div class="col-md-7 col-centered print-only">
             <h1 class="entry-title"><?php// the_title(); ?></h1>
             <?php// get_template_part('templates/components/author', 'meta'); ?>
             <?php if (has_post_thumbnail() && $featured_image_align == 'contained') {
