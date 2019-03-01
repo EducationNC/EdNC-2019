@@ -18,11 +18,6 @@
     clickortap = 'click';
   }
 
-  // $('.btn-open').click( function() { alert('clicked'); });
-  // $('.menu-btn').click( function() { alert('clicked'); });
-  // $('.top-nav').click( function() { alert('nav'); });
-  // $('body').click( function() { alert('body'); });
-
   $(".menu-btn a").click(function () {
     $(".overlay").fadeToggle(200);
     $(this).toggleClass('btn-open').toggleClass('btn-close');
@@ -36,18 +31,6 @@
       $(this).find('ul').toggle();
   });
 
-  // Waypoints
-  // var $logo = $('.main-logo-article');
-  // var $headerTitle = $('.header-title');
-  // var $entryTitle = $('.entry-title');
-
-  // $('.gallery').waypoint(function() {
-  //   $('.main-logo-article').addClass('hide');
-  //   $('.header-title').removeClass('hide');
-  // }, {
-  //     offset: '1%',
-  //     // triggerOnce: true
-  // });
 
   $('.entry-title').waypoint(function(direction) {
     if (direction === 'down') {
@@ -161,7 +144,7 @@
   var searchBox = $('.searchbox');
   var isOpen = false;
   submitIcon.click(function(){
-      if(isOpen == false){
+      if(isOpen === false){
           searchBox.addClass('searchbox-open');
           inputBox.focus();
           isOpen = true;
@@ -171,6 +154,7 @@
           isOpen = false;
       }
   });
+
   submitIcon.mouseup(function(){
           return false;
       });
@@ -178,15 +162,11 @@
           return false;
       });
   $(document).mouseup(function(){
-          if(isOpen == true){
+          if(isOpen === true){
               $('.searchbox-icon').css('display','block');
               submitIcon.click();
           }
   });
-
-  document.getElementById("searchbox-input").onkeyup = function() {
-    buttonUp()
-  };
 
   function buttonUp() {
     var inputVal = $('.searchbox-input').val();
@@ -200,17 +180,20 @@
     }
   }
 
+  document.getElementById("searchbox-input").onkeyup = function() {
+    buttonUp();
+  };
+
   document.getElementById('searchbox-input').onkeydown = function(event){
     var e = event || window.event;
-    if(e.keyCode == 13){
+    if (e.keyCode === 13) {
         var frm = document.getElementsByName('search');
         frm.submit();
-        frm.reset();  // Reset all form data
+       	frm.reset();
         $('.searchbox-input').val('');
         return false;
     }
-  }​
-
+  };
 
   // Check for mobile or IE
   var ismobileorIE = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|MSIE|Trident|Edge/i.test(navigator.userAgent);
