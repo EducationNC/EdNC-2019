@@ -22,6 +22,7 @@ add_image_size('bio-headshot-committee', 150, 220, true);
 add_image_size('featured-large', $large_width, $large_height, true);
 add_image_size('featured-medium', $medium_width, $medium_height, true);
 add_image_size('featured-small', $small_width, $small_height, true);
+add_image_size('featured-img', 1200, 600, true);
 
 add_action('init', function() {
   remove_image_size('guest-author-32');

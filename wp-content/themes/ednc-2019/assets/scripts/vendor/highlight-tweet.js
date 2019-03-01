@@ -106,15 +106,15 @@
     };
 })(jQuery);
 
-
+var currentLocation = window.location;
 
 $('body').tweetHighlighted({
 
   node: '<a href="#" class="w-button tweet">Tweet</a>',
   minLength: 6,
   maxLength: 240 * 2,
-  extra: 'https://ednc.org',
-  via: 'waldobroodryk',
+  extra: currentLocation,
+  via: 'EdNC',
   popupArgs: 'width=600,height=600,toolbar=0,location=0'
 
 });

@@ -9,7 +9,18 @@ global $featured_recent;
 
 <section class="block reach">
   <div class="widget-content">
-    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/reach.svg'); ?>">Reach NC Voices</h2>
+    <?php if( have_rows('reach', 'option') ): ?>
+      <?php while( have_rows('reach', 'option') ): the_row(); ?>
+        <?php $header = get_sub_field('header'); ?>
+        <?php $image = get_sub_field('image'); ?>
+        <h2 class="header-big">
+            <?php if ($image){ ?>
+              <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+            <?php } ?>
+            <?php echo $header ?>
+        </h2>
+      <?php endwhile; ?>
+    <?php endif; ?>
     <div class="content-box-container">
 
       <div class="block-perspectives content-block-3 clearfix">

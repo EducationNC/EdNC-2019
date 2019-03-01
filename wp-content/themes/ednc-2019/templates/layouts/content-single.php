@@ -18,6 +18,7 @@ while (have_posts()) : the_post();
 
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
+  $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
   // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
@@ -88,7 +89,8 @@ while (have_posts()) : the_post();
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
       <div class="full-width-image-block">
         <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
-        <img class="full-width-image" src="<?php echo $featured_image_src[0]; ?>" />
+        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
+        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
         <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
         <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
@@ -105,10 +107,6 @@ while (have_posts()) : the_post();
         </div>
       </div>
     </div>
-
-
-
-
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>
       <div class="longform-intro">
@@ -179,7 +177,7 @@ while (have_posts()) : the_post();
             }
             ?>
 
-            <?php get_template_part('templates/components/labels'); ?>
+            <?php// get_template_part('templates/components/labels'); ?>
           </div>
         </div>
 

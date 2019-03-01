@@ -8,7 +8,18 @@ use Roots\Sage\Assets;
 
 <section class="block videos">
   <div class="widget-content">
-    <h2 class="header-big"><img class="section-icon" src="<?php echo Assets\asset_path('images/videos.svg'); ?>"></img>Videos</h2>
+    <?php if( have_rows('videos', 'option') ): ?>
+      <?php while( have_rows('videos', 'option') ): the_row(); ?>
+        <?php $header = get_sub_field('header'); ?>
+        <?php $image = get_sub_field('image'); ?>
+        <h2 class="header-big">
+            <?php if ($image){ ?>
+              <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+            <?php } ?>
+            <?php echo $header ?>
+        </h2>
+      <?php endwhile; ?>
+    <?php endif; ?>
     <div class="content-box-container">
        <?php
        // Show 3 most recent videos

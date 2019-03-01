@@ -21,7 +21,18 @@ global $featured_recent;
       <div class="editors">
         <div class="editors-box">
           <div class="editors-content-box">
-            <h2 class="header">Editor's Picks</h2>
+            <?php if( have_rows('editors_picks', 'option') ): ?>
+              <?php while( have_rows('editors_picks', 'option') ): the_row(); ?>
+                <?php $header = get_sub_field('header'); ?>
+                <?php $image = get_sub_field('image'); ?>
+                <h2 class="header">
+                    <?php if ($image){ ?>
+                      <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                    <?php } ?>
+                    <?php echo $header ?>
+                </h2>
+              <?php endwhile; ?>
+            <?php endif; ?>
             <img src="<?php echo Assets\asset_path('images/Mebane_Rash-220x220newest.png'); ?>" width="" alt="Mebane" />
             <hr class="break">
               <?php
@@ -30,22 +41,28 @@ global $featured_recent;
                 'post_type' => 'ednews',
                 'posts_per_page' => 1
               ]);
+
+
+
               if ($ednews->have_posts()) : while ($ednews->have_posts()) : $ednews->the_post();?>
 
-                  <?php $feature = get_field('featured_read'); ?>
+                  <?php $feature = get_field('featured_read');
+                  $date = get_the_time('F j, Y');?>
 
                   <article <?php post_class('block-editor ednews clearfix'); ?> >
                     <div class="block-content featured-ednews">
                       <p class="small lato editor">FEATURED PICK</p>
                       <p class="small lato editor"><?php echo $feature[0]['source']; ?></p>
                       <h3 class="editor"><?php echo $feature[0]['title']; ?></h3>
+                      <h3 class="editor"><?php// echo $date ?></h3>
+                      <h3 class="editor"><?php echo $feature[0]['original_date']; ?></h3>
                       <a class="mega-link" href="<?php echo $feature['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
                     </div>
                   </article>
                   <hr class="break">
 
                   <?php
-                  $date = get_the_time('n/j/Y');
+                  $date = get_the_time('F j, Y');
                   $ednewsall = get_field('news_item');
                   $count = count($ednewsall);
                   // $item = $items[$i];
@@ -55,14 +72,16 @@ global $featured_recent;
 
                   foreach ($items as $item) {?>
                     <article <?php post_class('block-editor ednews clearfix'); ?> >
+                      <?php// print_r($item) ?>
                       <p class="small lato editor"><?php echo $item['source']; ?></p>
                       <h3 class="editor"><?php echo $item['title']; ?></h3>
+                      <h3 class="editor"><?php// echo $item[$date] ?></h3>
                       <h3 class="editor"><?php echo $item['original_date']; ?></h3>
                       <a class="mega-link" href="<?php echo $item['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
                     </article>
                     <hr class="break">
                   <?php } ?>
-                  
+
                   <a class="more" href="<?php the_permalink(); ?>">
                     <button class="btn">Read More</button>
                   </a>
@@ -107,7 +126,18 @@ global $featured_recent;
       <div class="recent">
         <div class="recent-content">
           <div class="recent-content-box">
-            <h2 class="header">Most Recent</h2>
+            <?php if( have_rows('recent', 'option') ): ?>
+              <?php while( have_rows('recent', 'option') ): the_row(); ?>
+                <?php $header = get_sub_field('header'); ?>
+                <?php $image = get_sub_field('image'); ?>
+                <h2 class="header">
+                    <?php if ($image){ ?>
+                      <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
+                    <?php } ?>
+                    <?php echo $header ?>
+                </h2>
+              <?php endwhile; ?>
+            <?php endif; ?>
               <?php
               // Show 8 most news
               $recent = new WP_Query([

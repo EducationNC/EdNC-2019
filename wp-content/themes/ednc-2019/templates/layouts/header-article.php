@@ -9,68 +9,61 @@ use Roots\Sage\Nav;
 
 
 
-  <div class="top-nav-article-outer">
-    <header class="header">
-      <div class="top-nav-article">
-         <div class="flex-1">
-          <div class="menu-btn">
-             <a class="btn-open" href="javascript:void(0)"></a>
-          </div>
-          <div class="search">
-            <form class="searchbox">
-              <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
-              <input type="submit" class="searchbox-submit" value="">
-              <span class="searchbox-icon">
-                <img src="<?php echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
-              </span>
-            </form>
-          </div>
+<div class="top-nav-article-outer">
+  <header class="header">
+    <div class="top-nav-article">
+       <div class="flex-1">
+        <div class="menu-btn">
+           <a class="btn-open" href="javascript:void(0)"></a>
         </div>
-        <div class="flex-2">
-          <div class="header-logos">
-            <a class="" target="" href="<?php echo esc_url( home_url( '/' ) ); ?>">
-              <img class="main-logo-article" id="main-logo-article" src="<?php echo Assets\asset_path('images/EdNC-stamp-purple.png'); ?>" alt="EdNC" /></img>
-            </a>
-            <p class="header-title small hide"><?php echo get_the_title(); ?></p>
-          </div>
-        </div>
-        <div class="flex-3">
-          <div class="social">
-              <div class="icon">
-                <a class="" target="_blank" href="https://www.facebook.com/educationnc">
-                  <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
-                </a>
-              </div>
-              <div class="icon">
-                <a class="" target="_blank" href="https://www.instagram.com/educationnc/">
-                  <img src="<?php echo Assets\asset_path('images/instagram-icon.svg'); ?>" width="30" alt="Instagram" /></img>
-                </a>
-              </div>
-              <div class="icon">
-                <!-- <script src="http://platform.twitter.com/widgets.js" type="text/javascript"></script>
-                 <a href="http://twitter.com/share" class="twitter-share-button"
-                    data-url="<?php the_permalink(); ?>"
-                    data-via="wpbeginner"
-                    data-text="<?php the_title(); ?>"
-                    data-related="syedbalkhi:Founder of WPBeginner"
-                    data-count="vertical">Tweet
-                </a> -->
-
-                <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                <a class="" target="_blank" href="https://twitter.com/share?ref_src=twsrc%5Etfw" data-url="<?php the_permalink(); ?>"
-                data-text="<?php the_title(); ?>" class="twitter-share-button" data-via="wpbeginner" data-show-count="false">
-                  <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
-                </a>
-            </div>
-          </div>
+        <div class="search">
+          <form name="search" class="searchbox" role="search" method="get" action="<?php echo esc_url(home_url( '/' )); ?>">
+            <input type="search" value="<?php the_search_query(); ?>" placeholder="Search..." name="s" id="searchbox-input" class="searchbox-input" required>
+            <input type="submit" class="searchbox-submit" value="">
+            <span class="searchbox-icon">
+              <img src="<?php echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
+            </span>
+          </form>
         </div>
       </div>
-    </header>
-  </div>
-<!-- </div> -->
+      <div class="flex-2">
+        <div class="header-logos">
+          <a class="" target="" href="<?php echo esc_url( home_url( '/' ) ); ?>">
+            <img class="main-logo-article" id="main-logo-article" src="<?php echo Assets\asset_path('images/EdNC-stamp-purple.png'); ?>" alt="EdNC" /></img>
+          </a>
+          <p class="header-title small hide"><?php echo get_the_title(); ?></p>
+        </div>
+      </div>
+      <div class="flex-3">
+        <div class="social">
+            <div class="icon">
+              <!-- <div id="fb-root"></div> -->
+              <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
+              <!-- <div class="fb-share-button" data-href="https://www.ednc.org/sharer.php?u=<?php// the_permalink();?>&t=<?php //the_title(); ?>"
+                data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank"
+                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
+                class="fb-xfbml-parse-ignore">Share</a>
+              </div> -->
 
-
-
+              <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()) ?>" title="Share" class="fb-share-button" target="_blank">
+                <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
+              </a>
+            </div>
+            <div class="icon">
+              <a title="Tweet" target="_blank" href="https://twitter.com/share?url=&text=<?php the_title(); ?>: <?php echo urlencode(get_permalink($post->ID)); ?> &via=YOUR-TWITTER-USERNAME&count=horizontal">
+                <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
+              </a>
+            </div>
+            <div class="icon">
+              <a class="" target="_blank" href="mailto:someone@yoursite.com?subject=A%20Friend%20Has%20Shared%20An%20Article%20with%20You%20from%20EdNC">
+                <img src="<?php echo Assets\asset_path('images/email.svg'); ?>" width="30" alt="Email" /></img>
+              </a>
+            </div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
 
 
 <div class="overlay">

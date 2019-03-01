@@ -67,23 +67,44 @@
     offset: '0%'
   });
 
+  $('.main').waypoint(function(direction) {
+    if (direction === 'down') {
+        $(".secondary-logos").addClass("hide");
+        $(".top-nav").addClass("active");
+        $(".main-logo").addClass("active");
+        $(".top-nav-outer").addClass("active");
+    }
+  }, {
+    offset: '15%'
+  });
+
+  $('.main').waypoint(function(direction) {
+    if (direction === 'up') {
+        $(".secondary-logos").removeClass("hide");
+        $(".top-nav").removeClass("active");
+        $(".main-logo").removeClass("active");
+        $(".top-nav-outer").removeClass("active");
+    }
+  }, {
+    offset: '4%'
+  });
+
 
 
   // Hamburger Menu
-  $(window).on("scroll", function() {
-    if($(window).scrollTop() >= 20) {
-        $(".top-nav").addClass("active");
-        $(".secondary-logos").addClass("hide");
-        $(".main-logo").addClass("active");
-        $(".top-nav-outer").addClass("active");
-    } else {
-        //remove the background property so it comes transparent again (defined in your css)
-       $(".top-nav").removeClass("active");
-       $(".secondary-logos").removeClass("hide");
-       $(".main-logo").removeClass("active");
-       $(".top-nav-outer").removeClass("active");
-    }
-  });
+  // $(window).on("scroll", function() {
+  //   if($(window).scrollTop() >= 20) {
+  //       $(".top-nav").addClass("active");
+  //       $(".secondary-logos").addClass("hide");
+  //       $(".main-logo").addClass("active");
+  //       $(".top-nav-outer").addClass("active");
+  //   } else {
+  //      $(".top-nav").removeClass("active");
+  //      $(".secondary-logos").removeClass("hide");
+  //      $(".main-logo").removeClass("active");
+  //      $(".top-nav-outer").removeClass("active");
+  //   }
+  // });
 
 
   $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');
@@ -163,9 +184,14 @@
           }
   });
 
-  function buttonUp(){
+  document.getElementById("searchbox-input").onkeyup = function() {
+    buttonUp()
+  };
+
+  function buttonUp() {
     var inputVal = $('.searchbox-input').val();
     inputVal = $.trim(inputVal).length;
+    console.log (inputVal);
     if( inputVal !== 0){
         $('.searchbox-icon').css('display','none');
     } else {
@@ -174,36 +200,17 @@
     }
   }
 
+  document.getElementById('searchbox-input').onkeydown = function(event){
+    var e = event || window.event;
+    if(e.keyCode == 13){
+        var frm = document.getElementsByName('search');
+        frm.submit();
+        frm.reset();  // Reset all form data
+        $('.searchbox-input').val('');
+        return false;
+    }
+  }​
 
-
-
-
-
-
-
-
-
-
-
-
-
-  // function toggleDiv(divNum) {
-  //   $("#close").hide();
-  //   $(".slide").animate({right:'-200'},350);
-  //   if($("#div"+divNum)) {
-  //       $("#div"+divNum).animate({right:'0'},350,function(){$("#close").show();});
-  //   }
-  // }
-
-
-  // $('.menu a').on('click', function () {
-  //   $(".overlay").fadeToggle(200);
-  //   $(".menu-btn a").toggleClass('btn-open').toggleClass('btn-close');
-  // });
-
-
-  // Init popovers
-  // $('[data-toggle="popover"]').popover();
 
   // Check for mobile or IE
   var ismobileorIE = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|MSIE|Trident|Edge/i.test(navigator.userAgent);

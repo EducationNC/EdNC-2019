@@ -1,6 +1,5 @@
 <section class="block ads">
   <div class="widget-content">
-    <h2 class="content-header">Ads -3</h2>
     <div class="content-box-container">
       <div class="block-perspectives content-block-3">
         	<img src="<?php echo  $ad_block_1 ; ?>">

@@ -33,8 +33,8 @@ use Roots\Sage\Nav;
       <div class="flex-3">
         <div class="social">
             <div class="search">
-              <form class="searchbox">
-                <input type="search" placeholder="Search......" name="search" class="searchbox-input" onkeyup="buttonUp();" required>
+              <form name="search" class="searchbox" role="search" method="get" action="<?php echo esc_url(home_url( '/' )); ?>">
+                <input type="search" value="<?php the_search_query(); ?>" placeholder="Search..." name="s" id="searchbox-input" class="searchbox-input" required>
                 <input type="submit" class="searchbox-submit" value="">
                 <span class="searchbox-icon">
                   <img src="<?php echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
@@ -43,17 +43,17 @@ use Roots\Sage\Nav;
             </div>
             <div class="icon">
               <a class="" target="_blank" href="https://www.facebook.com/educationnc">
-                <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
+                <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="" alt="Facebook" /></img>
               </a>
             </div>
             <div class="icon">
               <a class="" target="_blank" href="https://www.instagram.com/educationnc/">
-                <img src="<?php echo Assets\asset_path('images/instagram-icon.svg'); ?>" width="30" alt="Instagram" /></img>
+                <img src="<?php echo Assets\asset_path('images/instagram-icon.svg'); ?>" width="" alt="Instagram" /></img>
               </a>
             </div>
             <div class="icon">
               <a class="" target="_blank" href="https://twitter.com/educationnc">
-                <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="30" alt="Twitter" /></img>
+                <img src="<?php echo Assets\asset_path('images/twitter-icon.svg'); ?>" width="" alt="Twitter" /></img>
               </a>
           </div>
         </div>

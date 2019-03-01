@@ -16,7 +16,7 @@ $featured_image = Media\get_featured_image('medium');
   <?php if (has_term('news', 'appearance')) { ?>
     <div class="block-content">
       <?php if (!empty($featured_image)) { ?>
-        <img class="news-block-image" src="<?php echo $featured_image; ?>" />
+        <img class="news-block-image column-img" src="<?php echo $featured_image; ?>" />
       <?php } else { ?>
         <div class="circle-image">
           <?php echo $author_pic; ?>

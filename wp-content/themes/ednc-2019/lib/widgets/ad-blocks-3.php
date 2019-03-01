@@ -55,15 +55,21 @@ class Ad_Blocks_3 extends \WP_Widget {
 		<section class="block">
 		  <div class="widget-content">
 				<div class="content-box-container">
+					<div class="block-perspectives content-block-3">
 						<a target="_blank" href="<?php echo $URL1; ?>">
-				     <?php echo wp_get_attachment_image( $image1, $size ); ?>
-					 	</a>
+						 <?php echo wp_get_attachment_image( $image1, $size ); ?>
+						</a>
+					</div>
+					<div class="block-perspectives content-block-3">
 						<a target="_blank" href="<?php echo $URL2; ?>">
 						 <?php echo wp_get_attachment_image( $image2, $size ); ?>
 						</a>
+					</div>
+					<div class="block-perspectives content-block-3">
 						<a target="_blank" href="<?php echo $URL3; ?>">
 						 <?php echo wp_get_attachment_image( $image3, $size ); ?>
 						</a>
+					</div>
 				 </div>
 		  </div>
 		</section>
