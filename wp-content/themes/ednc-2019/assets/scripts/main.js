@@ -69,7 +69,7 @@
         $(".top-nav-outer").removeClass("active");
     }
   }, {
-    offset: '4%'
+    offset: '10%'
   });
 
 

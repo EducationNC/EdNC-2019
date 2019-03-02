@@ -33,7 +33,7 @@ global $featured_recent;
                 </h2>
               <?php endwhile; ?>
             <?php endif; ?>
-            <img src="<?php echo Assets\asset_path('images/Mebane_Rash-220x220newest.png'); ?>" width="" alt="Mebane" />
+            <img class="mebane-pic" src="<?php echo Assets\asset_path('images/Mebane_Rash-220x220newest.png'); ?>" width="" alt="Mebane" />
             <hr class="break">
               <?php
               // Show 8 most news

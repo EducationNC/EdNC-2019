@@ -11,7 +11,7 @@ $featured_image = Media\get_featured_image('medium');
 
 <article <?php post_class('spotlight-4 clearfix'); ?>>
   <div class="block-content">
-    <img class="news-block-image" src="<?php echo $featured_image; ?>" />
+    <img class="news-block-image column-img" src="<?php echo $featured_image; ?>" />
     <p class="small">Spotlight</p>
     <h3 class="post-title"><?php the_title(); ?></h3>
     <?php get_template_part('templates/components/entry-meta'); ?>

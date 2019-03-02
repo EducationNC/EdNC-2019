@@ -17,6 +17,16 @@
     align-items: center;
   }
 
+  .top-nav-outer.active {
+    position: relative;
+    height: 75px;
+  }
+
+  .top-nav-outer {
+    position: relative;
+    height: 75px;
+  }
+
   .secondary-logo {
     display: none;
   }
