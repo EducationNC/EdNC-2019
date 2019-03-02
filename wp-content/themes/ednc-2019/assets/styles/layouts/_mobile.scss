@@ -94,10 +94,6 @@
     font-size: 13px;
   }
 
-  .content-block-3.block-videos {
-    flex-basis:30%;
-    margin: 10px;
-  }
   img.column-img {
     height: 200px;
   }
@@ -125,6 +121,11 @@
   .editors-content-box .header {
     width: 100%;
     // display: inline-block;
+  }
+  .content-block-3.block-videos {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    // margin: 10px;
   }
   img.mebane-pic {
     width: 30%;

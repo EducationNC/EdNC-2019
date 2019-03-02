@@ -90,7 +90,7 @@ while (have_posts()) : the_post();
       <div class="full-width-image-block">
         <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
         <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
-        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
+        <!-- <img class="full-width-image" src="<?php// echo $featured_image_lg[0]; ?>" /> -->
         <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
         <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
