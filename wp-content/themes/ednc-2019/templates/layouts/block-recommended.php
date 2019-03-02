@@ -31,7 +31,7 @@ if (!empty($post)) {
   }
   ?>
   <div class="row">
-    <div class="col-md-7 col-md-push-2point5">
+    <div class="col-md-7 col-md-push-2point5 recommended-block">
       <h2>Recommended for you</h2>
       <?php
       $featured_image = Media\get_featured_image('medium');

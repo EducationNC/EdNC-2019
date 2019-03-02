@@ -68,7 +68,7 @@ while (have_posts()) : the_post();
               <h1 class="entry-title"><?php the_title(); ?></h1>
               <?php//  print_r(  $author_bio); ?>
               <!-- <img src="<?php// echo $author_avatar[0]; ?>" alt="<?php// echo get_the_title(get_field('avatar')) ?>" /> -->
-              <?php get_template_part('templates/components/author-meta'); ?>
+              <?php get_template_part('templates/components/author-info'); ?>
           </div>
         </div>
       </div>
@@ -182,7 +182,7 @@ while (have_posts()) : the_post();
         </div>
 
         <div class="row">
-          <div class="col-xs-12 meta visible-xs-block visible-sm-block extra-top-margin">
+          <div class="col-xs-12 meta visible-xs-block visible-sm-block extra-top-margin authors">
             <?php
             if ( function_exists( 'get_coauthors' ) ) {
               $coauthors = get_coauthors();
@@ -197,7 +197,7 @@ while (have_posts()) : the_post();
               echo '<h2>About the author</h2>';
             }
 
-            get_template_part('templates/components/author', 'meta');
+            get_template_part('templates/components/author', 'excerpt');
             ?>
           </div>
         </div>

@@ -4,9 +4,9 @@ use Roots\Sage\Assets;
 use Roots\Sage\Nav;
 
 ?>
-<div class="top-nav-outer">
+<div class="top-nav-outer" id="top-nav-outer">
   <header class="header">
-    <div class="top-nav">
+    <div class="top-nav" id="top-nav">
       <div class="flex-1">
         <div class="menu-btn">
            <a class="btn-open" href="javascript:void(0)"></a>
@@ -78,6 +78,10 @@ use Roots\Sage\Nav;
         </div> -->
     </div>
   </header>
+</div>
+
+<div class="spacer">
+    &nbsp;
 </div>
 
 

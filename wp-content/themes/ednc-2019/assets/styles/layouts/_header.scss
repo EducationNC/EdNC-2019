@@ -34,15 +34,15 @@ header.header {
   transition:         all 0.3s ease-out;
 }
 
-.top-nav-outer {
-  position: relative;
-  height: 165px;
-}
-
-.top-nav-outer.active {
-  position: relative;
-  height: 0px;
-}
+// .top-nav-outer {
+//   position: relative;
+//   height: 165px;
+// }
+//
+// .top-nav-outer.active {
+//   position: relative;
+//   height: 0px;
+// }
 
 .flex-1, .flex-2, .flex-3 {
   width: 33.3%;
@@ -455,7 +455,7 @@ a.menu-btn {
 }
 
 .top-nav-article .flex-1 div {
-  margin: 0 20px;
+  // margin: 0 20px;
 }
 
 

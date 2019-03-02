@@ -72,6 +72,9 @@
     offset: '10%'
   });
 
+  var offsetHeight = document.getElementById('top-nav').offsetHeight;
+  console.log (offsetHeight);
+
 
 
   // Hamburger Menu

@@ -16,15 +16,15 @@ use Roots\Sage\Nav;
         <div class="menu-btn">
            <a class="btn-open" href="javascript:void(0)"></a>
         </div>
-        <div class="search">
-          <form name="search" class="searchbox" role="search" method="get" action="<?php echo esc_url(home_url( '/' )); ?>">
-            <input type="search" value="<?php the_search_query(); ?>" placeholder="Search..." name="s" id="searchbox-input" class="searchbox-input" required>
+        <!-- <div class="search">
+          <form name="search" class="searchbox" role="search" method="get" action="<?php// echo esc_url(home_url( '/' )); ?>">
+            <input type="search" value="<?php// the_search_query(); ?>" placeholder="Search..." name="s" id="searchbox-input" class="searchbox-input" required>
             <input type="submit" class="searchbox-submit" value="">
             <span class="searchbox-icon">
-              <img src="<?php echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
+              <img src="<?php// echo Assets\asset_path('images/search.svg'); ?>" width="30" alt="Search" /></img>
             </span>
           </form>
-        </div>
+        </div> -->
       </div>
       <div class="flex-2">
         <div class="header-logos">
@@ -37,14 +37,7 @@ use Roots\Sage\Nav;
       <div class="flex-3">
         <div class="social">
             <div class="icon">
-              <!-- <div id="fb-root"></div> -->
               <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
-              <!-- <div class="fb-share-button" data-href="https://www.ednc.org/sharer.php?u=<?php// the_permalink();?>&t=<?php //the_title(); ?>"
-                data-layout="button_count" data-size="small" data-mobile-iframe="true"><a target="_blank"
-                href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse"
-                class="fb-xfbml-parse-ignore">Share</a>
-              </div> -->
-
               <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()) ?>" title="Share" class="fb-share-button" target="_blank">
                 <img src="<?php echo Assets\asset_path('images/fb-icon.svg'); ?>" width="30" alt="Facebook" /></img>
               </a>
