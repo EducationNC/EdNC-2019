@@ -52,11 +52,17 @@ global $featured_recent;
                   <article <?php post_class('block-editor ednews clearfix'); ?> >
                     <div class="block-content featured-ednews">
                       <p class="small lato editor">FEATURED PICK</p>
-                      <p class="small lato editor"><?php echo $feature[0]['source']; ?></p>
+                      <?php if ($feature[0]['link'] != "") {
+                         $imgurl = "https://www.google.com/s2/favicons?domain=" . $feature[0]['link'];
+                       } ?>
+                      <p class="small lato editor">
+                        <?php echo '<img src="' . $imgurl . '" width="16" height="16" />'; ?>
+                        <?php echo $feature[0]['source_name'] ?>
+                      </p>
                       <h3 class="editor"><?php echo $feature[0]['title']; ?></h3>
                       <h3 class="editor"><?php// echo $date ?></h3>
                       <h3 class="editor"><?php echo $feature[0]['original_date']; ?></h3>
-                      <a class="mega-link" href="<?php echo $feature['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
+                      <a class="mega-link" href="<?php echo $feature[0]['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
                     </div>
                   </article>
                   <hr class="break">
@@ -73,9 +79,16 @@ global $featured_recent;
                   foreach ($items as $item) {?>
                     <article <?php post_class('block-editor ednews clearfix'); ?> >
                       <?php// print_r($item) ?>
-                      <p class="small lato editor"><?php echo $item['source']; ?></p>
+
+                      <?php if ($item['link'] != "") {
+                         $imgurl = "https://www.google.com/s2/favicons?domain=" . $item['link'];
+                       } ?>
+                      <p class="small lato editor">
+                        <?php echo '<img src="' . $imgurl . '" width="16" height="16" />'; ?>
+                        <?php echo $item['source_name']; ?>
+                      </p>
                       <h3 class="editor"><?php echo $item['title']; ?></h3>
-                      <h3 class="editor"><?php// echo $item[$date] ?></h3>
+                      <!-- <h3 class="editor"><?php// echo $item[$date] ?></h3> -->
                       <h3 class="editor"><?php echo $item['original_date']; ?></h3>
                       <a class="mega-link" href="<?php echo $item['link']; ?>" target="_blank" onclick="ga('send', 'event', 'ednews', 'click');"></a>
                     </article>
