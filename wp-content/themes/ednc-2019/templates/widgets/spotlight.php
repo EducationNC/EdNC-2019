@@ -10,8 +10,8 @@ $featured_image = Media\get_featured_image('medium');
 
 <section class="block spotlight">
   <div class="widget-content">
-    <?php if( have_rows('news', 'option') ): ?>
-      <?php while( have_rows('news', 'option') ): the_row(); ?>
+    <?php if( have_rows('spotlight', 'option') ): ?>
+      <?php while( have_rows('spotlight', 'option') ): the_row(); ?>
         <?php $header = get_sub_field('header'); ?>
         <?php $image = get_sub_field('image'); ?>
         <h2 class="header-big">
