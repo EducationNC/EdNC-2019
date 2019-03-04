@@ -1629,8 +1629,10 @@ register_field_group(array (
 				'id' => '',
 			),
 			'choices' => array (
-				'contained' => 'Regular Contained Image',
-				'hero' => 'Full-Width Hero',
+				'contained-new' => 'Regular Contained Image',
+				'hero-new' => 'Full-Width Hero',
+				'contained' => 'Regular Contained Image (old)',
+				'hero' => 'Full-Width Hero (old)',
 				'none' => 'Hide Featured Image',
 			),
 			'default_value' => array (

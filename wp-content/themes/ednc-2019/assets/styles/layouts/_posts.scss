@@ -316,6 +316,18 @@
   margin-right: 4%;
 }
 
+.legacy-full-width-image {
+  max-height: 600px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.full-width-image {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
 .banner {
   margin-bottom: 50px;
 }

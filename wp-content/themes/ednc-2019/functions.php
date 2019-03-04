@@ -178,6 +178,7 @@ function exclude_private_post( $query ) {
     return $query;
 }
 
+
 function basic_wp_seo() {
 	global $post;
 	// $default_keywords = 'wordpress, plugins, themes, design, dev, development, security, htaccess, apache, php, sql, html, css, jquery, javascript, tutorials'; // customize

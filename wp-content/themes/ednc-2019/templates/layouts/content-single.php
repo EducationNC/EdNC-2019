@@ -18,7 +18,6 @@ while (have_posts()) : the_post();
 
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
-  $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
   // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
@@ -85,18 +84,38 @@ while (have_posts()) : the_post();
       </header> -->
     <?php// } ?>
 
+    <?php
+    if (isset($featured_image_align) && $featured_image_align == 'hero'){
+        echo 'hero' . '<br />';
+    }
 
+    if (isset($featured_image_align) && $featured_image_align == 'contained'){
+        echo 'contained' . '<br />';
+    } else{
+        echo 'isset false' . '<br />';
+    }
+
+    ?>
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
       <div class="full-width-image-block">
+        <img class="legacy-full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
         <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
-        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
-        <!-- <img class="full-width-image" src="<?php// echo $featured_image_lg[0]; ?>" /> -->
-        <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
+        <!-- <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" /> -->
         <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
     <?php } ?>
 
-    <div class="container-fluid">
+    <?php if (has_post_thumbnail() && $featured_image_align == 'hero-new') { ?>
+      <div class="full-width-image-block">
+        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
+        <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
+      </div>
+    <?php } ?>
+
+
+
+
+    <!-- <div class="container-fluid">
       <div class="row">
         <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
           <?php
@@ -106,7 +125,7 @@ while (have_posts()) : the_post();
           ?>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>
       <div class="longform-intro">
