@@ -355,10 +355,17 @@
   vertical-align: middle;
 }
 
+.author-article,
+.author-article a.read-more p,
+.author-article .margin-none p{
+  font-family: $font-family-sans-serif;
+}
+
 a.read-more {
   text-decoration: none;
   font-weight: bold;
   color: #44474d;
+  font-family: $font-family-sans-serif !important;
 }
 
 a.read-more:hover {

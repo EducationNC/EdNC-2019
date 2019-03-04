@@ -6,6 +6,13 @@ header.header {
   background-color: white;
 }
 
+.spacer {
+  // background-color: red;
+  height: 200px;
+  width: 100%;
+  position: relative;
+}
+
 .top-nav {
   padding: 20px 0px;
   width: 100%;
@@ -23,7 +30,7 @@ header.header {
 }
 
 .top-nav.active {
-  padding: 10px 0px;
+  padding: 5px 0px;
   -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   -moz-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
@@ -46,6 +53,7 @@ header.header {
 
 .flex-1, .flex-2, .flex-3 {
   width: 33.3%;
+  align-self: center;
   // border: 1px solid blue;
 }
 
@@ -55,7 +63,7 @@ header.header {
   z-index: 999;
   font-size: 32px;
   left: 15px;
-  top: 5px;
+  // top: 5px;
   float: left;
   position: relative;
   // border: 1px solid yellow;
@@ -102,10 +110,10 @@ a.btn-open {
   width: 120px;
   margin-bottom:0px;
   -ms-transition:    all 0.3s ease-out;
--moz-transition:    all 0.3s ease-out;
--webkit-transition: all 0.3s ease-out;
--o-transition:      all 0.3s ease-out;
-transition:         all 0.3s ease-out;
+  -moz-transition:    all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  -o-transition:      all 0.3s ease-out;
+  transition:         all 0.3s ease-out;
 }
 
 

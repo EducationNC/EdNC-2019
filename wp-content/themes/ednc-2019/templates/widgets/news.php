@@ -16,7 +16,7 @@ global $featured_recent;
         <?php $header = get_sub_field('header'); ?>
         <?php $image = get_sub_field('image'); ?>
         <h2 class="header-big">
-            <?php if ($image){ ?>
+            <?php if ($image) { ?>
               <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
             <?php } ?>
             <?php echo $header ?>

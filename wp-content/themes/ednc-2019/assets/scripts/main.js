@@ -53,9 +53,9 @@
   $('.main').waypoint(function(direction) {
     if (direction === 'down') {
         $(".secondary-logos").addClass("hide");
-        $(".top-nav").addClass("active");
+        $(".spacer").css({"height": "60px"});
         $(".main-logo").addClass("active");
-        $(".top-nav-outer").addClass("active");
+        $(".top-nav").addClass("active");
     }
   }, {
     offset: '15%'
@@ -64,13 +64,14 @@
   $('.main').waypoint(function(direction) {
     if (direction === 'up') {
         $(".secondary-logos").removeClass("hide");
+        $(".spacer").css({"height": "200px"});
         $(".top-nav").removeClass("active");
         $(".main-logo").removeClass("active");
-        $(".top-nav-outer").removeClass("active");
     }
   }, {
-    offset: '10%'
+    offset: '200px'
   });
+
 
   var offsetHeight = document.getElementById('top-nav').offsetHeight;
   console.log (offsetHeight);

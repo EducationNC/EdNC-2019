@@ -4,7 +4,7 @@ use Roots\Sage\Assets;
 use Roots\Sage\Nav;
 
 ?>
-<div class="top-nav-outer" id="top-nav-outer">
+<!-- <div class="top-nav-outer" id="top-nav-outer"> -->
   <header class="header">
     <div class="top-nav" id="top-nav">
       <div class="flex-1">
@@ -17,17 +17,6 @@ use Roots\Sage\Nav;
           <a class="" target="" href="<?php echo esc_url( home_url( '/' ) ); ?>">
             <img class="main-logo" src="<?php echo Assets\asset_path('images/EdNC-stamp-purple.png'); ?>" alt="EdNC" /></img>
          </a>
-          <!-- <div class="secondary-logos full-screen">
-            <a class="secondary-logo" target="_blank" href="https://nccppr.org/">
-              <img class="secondary-logo-img" src="<?php// echo Assets\asset_path('images/NCCPPR-logo-long.svg'); ?>"></img>
-            </a>
-            <a class="secondary-logo" target="_blank" href="https://www.firstvotenc.org/">
-              <img class="secondary-logo-img" src="<?php// echo Assets\asset_path('images/FirstVoteNC-stamp-purple.png'); ?>"></img>
-            </a>
-            <a class="secondary-logo" target="_blank" href="https://www.reachncvoices.org/">
-              <img class="secondary-logo-img" src="<?php// echo Assets\asset_path('images/ReachNCVoices-stamp-purple.png'); ?>"></img>
-            </a>
-          </div> -->
         </div>
       </div>
       <div class="flex-3">
@@ -78,7 +67,7 @@ use Roots\Sage\Nav;
         </div> -->
     </div>
   </header>
-</div>
+<!-- </div> -->
 
 <div class="spacer">
     &nbsp;
