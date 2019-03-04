@@ -15,9 +15,9 @@ $featured_image = Media\get_featured_image('medium');
         <?php $header = get_sub_field('header'); ?>
         <?php $image = get_sub_field('image'); ?>
         <h2 class="header-big">
-            <!-- <?php// if ($image){ ?>
-              <img class="section-icon" src="<?php// echo $image['url']; ?>" alt="<?php// echo $image['alt'] ?>" />
-            <?php } ?> -->
+            <?php// if ($image){ ?>
+              <!-- <img class="section-icon" src="<?php// echo $image['url']; ?>" alt="<?php// echo $image['alt'] ?>" /> -->
+            <?php// } ?>
             <img class="section-icon" src="<?php echo Assets\asset_path('images/spotlight.svg'); ?>">
             <?php echo $header ?>
             <?php echo get_cat_name($category); ?>
