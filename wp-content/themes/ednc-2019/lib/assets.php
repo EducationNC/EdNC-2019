@@ -65,10 +65,10 @@ function defer_javascripts ( $url ) {
   if ( strpos( $url, 'jquery.js' ) &&  is_page_template('page-minimal.php'))  return '';
   if ( strpos( $url, 'jquery.js' ) || strpos( $url, 'charts/loader.js' ) ) return $url;
   if ( is_single() && strpos( $url, 'ednc-2016') ) return $url;
+  if( is_page_template('page-2019-Template.php') ) return $url;
   if ( is_page('story-2015-16') ) return $url;
   if( is_page_template('page-minimal.php') ) return '';
   if ( strpos( $url, 'mediaelement' ) ) return $url;
   return "$url' async='async";
 }
 add_filter('clean_url', __NAMESPACE__ . '\\defer_javascripts', 11, 1);
-

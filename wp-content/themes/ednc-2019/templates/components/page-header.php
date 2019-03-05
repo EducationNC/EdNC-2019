@@ -20,7 +20,7 @@ $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
   </header>
 <?php } else { ?>
   <div class="container page-header">
-    <div class="row">
+    <div class="row page">
       <div class="col-md-8 col-centered">
         <h1><?= Titles\title(); ?></h1>
       </div>

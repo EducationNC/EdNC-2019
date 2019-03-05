@@ -19,18 +19,8 @@ while (have_posts()) : the_post();
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
-  // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
   $title_overlay = get_field('title_overlay');
-
-  if(empty($alt_text)) // If not, Use the Caption
-  {
-      $attachment = get_post($post->ID);
-      $alt_text = trim(strip_tags( $attachment->post_excerpt ));
-  }
-
-  $thumb_id = get_post_thumbnail_id();
-  $thumb_post = get_post($thumb_id);
 
   $column = wp_get_post_terms(get_the_id(), 'column');
   $category = wp_get_post_terms(get_the_id(), 'category');
@@ -51,81 +41,111 @@ while (have_posts()) : the_post();
   ?>
   <article <?php post_class('article'); ?>>
 
-    <!-- <?php //if (isset($banner)) { ?> -->
-    <?php if (! empty($banner)) { ?>
-    <div class="full-width-image-block banner" style="">
-        <img src="<?php echo $banner[0];  ?>" alt="<?php the_author(); ?>" class="full-width-image">
-    </div>
-    <?php } ?>
+    <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
+      <header class="entry-header hero-image">
+        <div class="photo-overlay">
+          <div class="parallax-img hidden-xs" style="background-image:url('<?php echo $featured_image_src[0]; ?>')"></div>
+          <img class="visible-xs-block" src="<?php echo $featured_image_lg[0]; ?>" />
 
+          <?php if ( ! empty($title_overlay) ) { ?>
+            <img class="title-image-overlay" src="<?php echo $title_overlay['url']; ?>" alt="<?php the_title(); ?>" />
+            <h1 class="entry-title hidden"><?php the_title(); ?></h1>
+          <?php } ?>
 
+          <div class="article-title-overlay">
+            <?php if ( empty($title_overlay) ) { ?>
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-8 col-centered">
+                    <?php get_template_part('templates/components/labels'); ?>
+                    <h1 class="entry-title"><?php the_title(); ?></h1>
+                  </div>
+                </div>
+              </div>
+            <?php } ?>
 
-    <div class="title">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
+                  <?php
+                  $thumb_id = get_post_thumbnail_id();
+                  $thumb_post = get_post($thumb_id);
+                  echo $thumb_post->post_excerpt;
+                  ?>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
       <div class="container">
         <div class="row">
-          <div class="col-md-7 col-centered intro">
-              <h1 class="entry-title"><?php the_title(); ?></h1>
-              <?php//  print_r(  $author_bio); ?>
-              <!-- <img src="<?php// echo $author_avatar[0]; ?>" alt="<?php// echo get_the_title(get_field('avatar')) ?>" /> -->
-              <?php get_template_part('templates/components/author-info'); ?>
+          <div class="col-md-8 col-centered">
+            <?php get_template_part('templates/components/entry-meta'); ?>
           </div>
         </div>
       </div>
-    </div>
 
-
-    <?php// if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <!-- <header class="entry-header hero-image">
-        <div class="photo-overlay">
-          <div class="parallax-img hidden-xs" style="background-image:url('<?php //echo $featured_image_src[0]; ?>')"></div>
-          <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
-          <?php// echo $alt_text; ?>
+    <?php } else {
+      if (isset($banner)) {
+        ?>
+		<!--
+        <div class="column-banner <?php //echo $banner_slug; ?>" style="background-image: url('<?php// echo $banner[0]; ?>')">
+          <div class="column-name-overlay">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-8 col-centered">
+                  <div class="h1"><?php //echo $banner_name; ?></div>
+                  <?php //if ($author_avatar)
+				  { ?>
+                    <div class="avatar avatar-header hidden-xs">
+                      <img src="<?php //echo $author_avatar_sized['url']; ?>" alt="<?php //the_author(); ?>" />
+                    </div>
+                  <?php } ?>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-      </header> -->
-    <?php// } ?>
+		-->
+		 <div class="column-banner page-header page-header-auto background-purple photo-overlay no-padding" style="">
+			<div class="category-header background-purple no-margin no-padding">
+				<img src="<?php echo $banner[0];  ?>" alt="<?php the_author(); ?>" class="full-width">
+			</div>
+		  </div>
+        <?php
+      }
+      ?>
+      <header class="entry-header container">
+        <div class="row">
+          <div class="col-md-8 col-centered">
+            <?php get_template_part('templates/components/labels'); ?>
 
-    <?php
-    if (isset($featured_image_align) && $featured_image_align == 'hero'){
-        echo 'hero' . '<br />';
-    }
+            <?php
+            if (in_category('109')) {  // 1868 Constitutional Convention
+              ?>
+              <div class="top-margin">
+                <p><?php echo category_description(109); ?></p>
+              </div>
+              <div class="row bottom-margin">
+                <div class="col-md-6">
+                  <?php previous_post_link('%link', '&laquo; Previous day', true, 'category'); ?>
+                </div>
+                <div class="col-md-6 text-right">
+                  <?php next_post_link('%link', 'Next day &raquo;', true, 'category'); ?>
+                </div>
+              </div>
+              <?php
+            }
+            ?>
 
-    if (isset($featured_image_align) && $featured_image_align == 'contained'){
-        echo 'contained' . '<br />';
-    } else{
-        echo 'isset false' . '<br />';
-    }
-
-    ?>
-    <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <div class="full-width-image-block">
-        <img class="legacy-full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
-        <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
-        <!-- <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" /> -->
-        <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
-      </div>
-    <?php } ?>
-
-    <?php if (has_post_thumbnail() && $featured_image_align == 'hero-new') { ?>
-      <div class="full-width-image-block">
-        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
-        <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
-      </div>
-    <?php } ?>
-
-
-
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
-          <?php
-          //$thumb_id = get_post_thumbnail_id();
-          //$thumb_post = get_post($thumb_id);
-          //echo $thumb_post->post_excerpt;
-          ?>
+            <h1 class="entry-title"><?php the_title(); ?></h1>
+            <?php get_template_part('templates/components/entry-meta'); ?>
+          </div>
         </div>
-      </div>
-    </div> -->
+      </header>
+    <?php } ?>
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>
       <div class="longform-intro">
@@ -150,10 +170,27 @@ while (have_posts()) : the_post();
     <div class="entry-content">
       <div class="container">
         <div class="row">
+          <div class="col-md-2 col-md-push-10 meta hidden-xs hidden-sm print-no">
+            <?php get_template_part('templates/components/author', 'meta'); ?>
+          </div>
 
-          <div class="col-md-7 col-centered print-only">
-            <h1 class="entry-title"><?php// the_title(); ?></h1>
-            <?php// get_template_part('templates/components/author', 'meta'); ?>
+          <div class="col-md-2 col-md-pull-2 print-no">
+            <div class="hidden-xs">
+              <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+              <!-- Article sidebar -->
+              <ins class="adsbygoogle"
+                   style="display:block"
+                   data-ad-client="ca-pub-2642458473228537"
+                   data-ad-slot="6263040202"
+                   data-ad-format="auto"></ins>
+              <script>
+              (adsbygoogle = window.adsbygoogle || []).push({});
+              </script>
+            </div>
+          </div>
+
+          <div class="col-md-7 col-md-pull-1point5 print-only">
+
             <?php if (has_post_thumbnail() && $featured_image_align == 'contained') {
               echo '<div class="alignnone no-top-margin">';
               the_post_thumbnail('large');
@@ -196,12 +233,12 @@ while (have_posts()) : the_post();
             }
             ?>
 
-            <?php// get_template_part('templates/components/labels'); ?>
+            <?php get_template_part('templates/components/labels'); ?>
           </div>
         </div>
 
         <div class="row">
-          <div class="col-xs-12 meta visible-xs-block visible-sm-block extra-top-margin authors">
+          <div class="col-xs-12 meta visible-xs-block visible-sm-block extra-top-margin">
             <?php
             if ( function_exists( 'get_coauthors' ) ) {
               $coauthors = get_coauthors();
@@ -216,7 +253,7 @@ while (have_posts()) : the_post();
               echo '<h2>About the author</h2>';
             }
 
-            get_template_part('templates/components/author', 'excerpt');
+            get_template_part('templates/components/author', 'meta');
             ?>
           </div>
         </div>
