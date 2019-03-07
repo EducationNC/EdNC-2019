@@ -387,17 +387,22 @@ function wpb_change_search_url() {
 add_action( 'template_redirect', 'wpb_change_search_url' );
 
 /*
-function be_register_blocks() {
-	if( ! function_exists('acf_register_block') )
-		return;
-	acf_register_block( array(
-		'name'			=> 'Pull-Quote-ACF',
-		'title'			=> __( 'Pull Quote', 'gutenberg-pull-quote-acf-example' ),
-		'render_template'	=> 'components/pull-quote.php',
-		'category'		=> 'formatting',
-		'icon'			=> 'admin-users',
-		'mode'			=> 'preview',
-		'keywords'		=> array( 'pull quote', 'quote', 'acf' )
-	));
+
+function wds_register_acf_gutenberg_blocks() {
+	if ( function_exists( 'acf_register_block' ) ) {
+		// Register the hero block.
+		acf_register_block(array(
+			'name'            => 'hero',
+			'title'           => __( 'Hero', 'wds' ),
+			'description'     => __( 'A hero block.', 'wds' ),
+			'render_template' => get_template_directory() . '/templates/gutenberg/hero.php',
+			'category'        => 'layout',
+			'icon'            => 'slides',
+			'mode'            => 'preview',
+			'keywords'        => array( 'hero', 'slider' ),
+		));
+	}
 }
-add_action('acf/init', 'be_register_blocks' );*/
+add_action( 'acf/init', 'wds_register_acf_gutenberg_blocks' );
+
+*/

@@ -25,6 +25,7 @@ global $featured_recent;
             <?php if ($image){ ?>
               <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
             <?php } ?>
+            <img class="section-icon" src="<?php echo Assets\asset_path('images/columns.svg'); ?>">
             <?php echo $header ?>
         </h2>
       <?php endwhile; ?>

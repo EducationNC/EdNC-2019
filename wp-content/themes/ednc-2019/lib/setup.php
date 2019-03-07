@@ -160,3 +160,7 @@ function printfriendly_script() {
     }
 }
 // add_action('wp_head', __NAMESPACE__ . '\\printfriendly_script');
+
+/**
+ * Set default page template to 2019
+ */

@@ -80,6 +80,9 @@ img.favicon {
 .content-box-container {
   @include content-box(-20px);
 }
+.content-box-container-social {
+  @include content-box(0px);
+}
 
 hr.full {
   background-color: #E6E6E5;
@@ -293,21 +296,14 @@ section.videos .content-box-container {
   position: relative;
 }
 
+.full-width-reach-2 {
+  width: 200px;
+  height: 200px;
+  background-color: red;
+}
+
 .full-width-reach {
-  // display: -ms-flexbox;
-  // display: -webkit-box;
-  // display: -webkit-flexbox;
-  // display: -webkit-flex;
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: wrap;
-  // justify-content: space-around;
-  // align-items: flex-start;
-  padding: 0px 30px 30px 30px;
-  // border: 1px solid black;
-  // display: none;
-  // background-color: red;
-  // height: 200px;
+  padding: 30px;
 }
 
 .content-show {
@@ -430,15 +426,24 @@ h3.post-title-reach {
     transform: scale(1);
 }
 
-.block-content-reach a {
-  text-decoration: none;
+
+// .pbox {
+//   display:none;
+// }
+//
+// .current {
+//   display: block;
+// }
+
+.poll-body .poll-header {
+  font-family: $font-family-sans-serif;
+  color: red;
 }
 
-.block-content-reach.current {
-  border-bottom: 4px solid #98A942;
+#content-wrapper-div > div.poll-body > div.poll-header {
+  font-family: $font-family-sans-serif;
+  color: red !important;
 }
-
-.pbox {display:none}
 
 button.btn {
   border: 1px solid white;
@@ -457,9 +462,10 @@ button.btn {
   border-bottom: 5px solid #98A942;
 }
 
+
 .block-content-reach {
-  height: 420px;
-  // padding-bottom: 15px;
+  // height: 420px;
+  padding-bottom: 20px;
   // border: 1px solid black;
 }
 
@@ -718,8 +724,8 @@ section.widget_social_media {
   background: white;
 
   .juicer {
-    margin: 70px 0px;
-    height: 400px;
+    // margin: 70px 0px;
+    // height: 400px;
     overflow: hidden;
     position: relative;
 

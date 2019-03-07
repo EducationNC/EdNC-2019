@@ -78,6 +78,7 @@
 
 
 
+
   // Hamburger Menu
   // $(window).on("scroll", function() {
   //   if($(window).scrollTop() >= 20) {
@@ -97,11 +98,12 @@
   $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');
   $(".content-block-3:nth-child(3n):not(:nth-last-child(1)").after('<hr class="full">');
 
-  // Reacb Widget
-  $('.block-content-reach').on('click', function () {
-    $('.full-width-reach').css('display', 'block');
-    return false;
-  });
+  // // Reacb Widget
+  // $('.block-content-reach').on('click', function () {
+  //   // $('.full-width-reach').css('display', 'block');
+  //   // $(".full-width-reach").html('reach1');
+  //   return false;
+  // });
 
   // JQuery Version
   console.log($().jquery);
@@ -116,30 +118,31 @@
     cssEase: 'linear'
   });
 
-  $('.block-content-reach').on('click', 'a', function () {
 
-      $('.current').not($(this).parents('div').addClass('current')).removeClass('current');
-      // fade out all open subcontents
-      $('.pbox:visible').hide();
-      // fade in new selected subcontent
-      var test = $('.pbox[id=' + $(this).attr('data-id') + ']').show();
-      $(".slider").slick("refresh");
-  });
+  // $('.block-content-reach').on('click', 'a', function () {
+  //
+  //     $('.current').not($(this).parents('div').addClass('current')).removeClass('current');
+  //     // // fade out all open subcontents
+  //     // $('.pbox:visible').hide();
+  //     // // fade in new selected subcontent
+  //     // var test = $('.pbox[id=' + $(this).attr('data-id') + ']').show();
+  //     // $(".slider").slick("refresh");
+  // });
 
-  $('.block-content-reach').click( function () {
-    var a = document.getElementById("div1");
-    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
-  });
-
-  $('.block-content-reach-2').click( function () {
-    var a = document.getElementById("div2");
-    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
-  });
-
-  $('.block-content-reach-3').click( function () {
-    var a = document.getElementById("div3");
-    a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
-  });
+  // $('.block-content-reach').click( function () {
+  //   var a = document.getElementById("div1");
+  //   a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  // });
+  //
+  // $('.block-content-reach-2').click( function () {
+  //   var a = document.getElementById("div2");
+  //   a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  // });
+  //
+  // $('.block-content-reach-3').click( function () {
+  //   var a = document.getElementById("div3");
+  //   a.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"});
+  // });
 
 
 

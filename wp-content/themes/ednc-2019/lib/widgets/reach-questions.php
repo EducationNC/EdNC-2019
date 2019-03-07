@@ -23,15 +23,15 @@ class Reach_Questions extends \WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 		$title = apply_filters( 'widget_title', $instance['title']); 
-		$msg = apply_filters( 'widget_title', $instance['msg']); 
-		$bg_url = apply_filters( 'widget_title', $instance['bg_url']); 
+		$msg = apply_filters( 'widget_title', $instance['msg']);
+		$bg_url = apply_filters( 'widget_title', $instance['bg_url']);
 		$before_widget = $args['before_widget'];
 		$after_widget = $args['after_widget'];
 
 		echo $before_widget;
-		
+
 		include(locate_template('templates/widgets/reach-questions.php'));
-		
+
 		echo $after_widget;
 	}
 
@@ -53,18 +53,18 @@ class Reach_Questions extends \WP_Widget {
 			// Widget admin form
 		?>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'title' ); ?>"><?php _e( 'Title:' ); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'title' ); ?>" name="<?php echo $this->get_field_name( 'title' ); ?>" type="text" value="<?php echo esc_attr( $title ); ?>" />
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'msg' ); ?>"><?php _e( 'Message:' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'msg' ); ?>"><?php _e( 'Message:' ); ?></label>
 				<textarea class="widefat" rows="16" cols="20" id="<?php echo $this->get_field_id( 'msg' ); ?>" name="<?php echo $this->get_field_name( 'msg' ); ?>" ><?php echo esc_attr( $msg ); ?></textarea>
 			</p>
 			<p>
-				<label for="<?php echo $this->get_field_id( 'bg_url' ); ?>"><?php _e( 'Background Url:' ); ?></label> 
+				<label for="<?php echo $this->get_field_id( 'bg_url' ); ?>"><?php _e( 'Background Url:' ); ?></label>
 				<input class="widefat" id="<?php echo $this->get_field_id( 'bg_url' ); ?>" name="<?php echo $this->get_field_name( 'bg_url' ); ?>" type="text" value="<?php echo esc_attr( $bg_url ); ?>" />
 			</p>
-		<?php 
+		<?php
 	}
 
 	/**

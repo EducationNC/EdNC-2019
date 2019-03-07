@@ -1,8 +1,21 @@
 <?php
 
 use Roots\Sage\Assets;
+use Roots\Sage\Media;
+use Roots\Sage\Resize;
 
-global $featured_recent;
+global $featured_ids;
+// global $post;
+// global $date;
+// global $content_reach;
+//$content_reach = array();
+
+if (empty($featured_ids)) {
+  $featured_ids = array();
+}
+
+
+$title_overlay = get_field('title_overlay');
 
 
 ?>
@@ -23,183 +36,95 @@ global $featured_recent;
       <?php endwhile; ?>
     <?php endif; ?>
     <div class="content-box-container">
+      <?php
+      $args = array (
+        'post_type' => 'reach-question',
+        'posts_per_page' => 3,
+        'meta_key'		=> 'reach_privacy',
+        'meta_value'	=> 'Featured'
+      );
 
-      <div class="block-perspectives content-block-3 clearfix">
-          <div class="block-content block-content-reach">
-            <a href="#" class="href" data-id="div1">
-            <div class="image-container">
-              <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2019/01/shutterstock_604132196.jpg" />
-              <div class='overlay-reach'></div>
-              <img class="after" src="<?php echo Assets\asset_path('images/_ionicons_svg_md-arrow-down.svg'); ?>"></img>
-            </div>
-            <p class="small">February 7, 2019</p>
-            <h3 class="post-title">Has the partial federal government shutdown impacted you or someone you know?</h3>
-            </a>
-          </div>
-      </div>
+      $query = new WP_Query( $args );
+      //print_r ($query);
 
-      <div class="block-perspectives content-block-3 clearfix">
-          <div class="block-content block-content-reach block-content-reach-2">
-            <a href="#"  class="href" data-id="div2">
-            <div class="image-container">
-              <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2018/11/shutterstock_531425212.jpg" />
-              <div class='overlay-reach'></div>
-              <img class="after" src="<?php echo Assets\asset_path('images/_ionicons_svg_md-arrow-down.svg'); ?>"></img>
-            </div>
-            <p class="small">January 31, 2019</p>
-            <h3 class="post-title">Generally speaking, do you think North Carolina should split up large school districts? Why or why not? Weigh in below.</h3>
-            </a>
-          </div>
-      </div>
+      if ( $query->have_posts() ) {
 
-      <div class="block-perspectives content-block-3 clearfix">
-          <div class="block-content block-content-reach block-content-reach-3">
-            <a href="#" class="href" data-id="div3">
-            <div class="image-container">
-              <img class="news-block-image" src="https://ednc-2019-sage-8.test/wp-content/uploads/2018/11/shutterstock_1043563285.jpg" />
-              <div class='overlay-reach'></div>
-              <img class="after" src="<?php echo Assets\asset_path('images/_ionicons_svg_md-arrow-down.svg'); ?>"></img>
-            </div>
-            <p class="small">January 22, 2019</p>
-            <h3 class="post-title">How important of a role did (or does) your financial circumstances play in your decision whether or not to pursue a college degree?</h3>
-            </a>
-          </div>
-      </div>
+        $currentpost = 0;
 
-    </div>
+        while ( $query->have_posts() ) : $query->the_post();
 
-    <div class="full-width-reach">
-      <!-- <div class="content-show pbox"> -->
-        <div id="div1" class="slider pbox">
-          <div>
-            <p>A lapse in federal funding caused a partial government shutdown that has now
-              surpassed the record of a 21-day shutdown set in 1955-56. Last week, about
-              800,000 federal workers missed their paychecks. Share your thoughts with us below.</p>
-            <p>Has the partial federal government shutdown impacted you or someone you know?</p>
-            <p>
-              <input type="radio" id="test1-1" name="radio-group">
-              <label for="test1-1">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test1-2" name="radio-group">
-              <label for="test1-2">No</label>
-            </p>
-          </div>
-          <div>
-            <p>How has it impacted you or someone you know?</p>
-            <p>
-              <input type="radio" id="test1-3" name="radio-group">
-              <label for="test1-3">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test1-4" name="radio-group">
-              <label for="test1-4">No</label>
-            </p>
-          </div>
-          <div>
-            <p>Thank you. Do you have any other thoughts about the partial federal government shutdown?</p>
-            <p>
-              <input type="radio" id="test1-5" name="radio-group">
-              <label for="test1-5">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test1-6" name="radio-group">
-              <label for="test1-6">No</label>
-            </p>
+        $reach_title[$currentpost] = get_the_title();
+        $reach_id[$currentpost] = get_the_id();
+        $reach_date[$currentpost] = get_field('date');
+        $reach_content[$currentpost] = get_the_content();
+        $featured_image = Media\get_featured_image('medium');
+        // $featured_image[$currentpost] = Media\get_featured_image('medium');
+        ?>
+
+        <div class="block-perspectives content-block-3 clearfix">
+          <div class="block-content block-content-reach" id="<?php echo $reach_id[$currentpost] ?>">
+            <!-- <a href="" class="href" id="<?php//echo $reach_id[$currentpost] ?>" data-id="<?php// echo $reach_id[$currentpost] ?>"> -->
+              <div class="image-container" id="<?php echo $reach_id[$currentpost] ?>">
+                <img class="news-block-image" src="<?php echo $featured_image; ?>" />
+                <div class='overlay-reach'></div>
+                <img class="after" src="<?php echo Assets\asset_path('images/_ionicons_svg_md-arrow-down.svg'); ?>"></img>
+              </div>
+              <p class="small"><?php echo $reach_date[$currentpost] ?></p>
+              <h3 class="post-title"><?php echo $reach_title[$currentpost] ?></h3>
+            <!-- </a> -->
           </div>
         </div>
 
+        <?php $currentpost++;
 
-        <div id="div2" class="slider pbox">
-          <div>
-            <p>There are 115 public school districts in North Carolina, most of which are countywide.
-              Two of these districts — Wake and Mecklenburg — are among the top 20 districts in enrollment nationwide.
-              Recently, some have advocated for splitting up large school districts to promote local autonomy
-              and personalized learning, among other reasons. Others are concerned about increasing segregation
-              of schools and fiscal inefficiencies that could arise from deconsolidation, among other things.</p>
-            <p>Generally speaking, do you think North Carolina should split up large school districts?</p>
-            <p>
-              <input type="radio" id="test2-1" name="radio-group">
-              <label for="test2-1">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test2-2" name="radio-group">
-              <label for="test2-2">No</label>
-            </p>
-          </div>
-          <div>
-            <p>Why or why not? Do you have any other thoughts about splitting up school
-              districts, local autonomy, or the resegregation of schools? Share them with us now.</p>
-            <p>
-              <input type="radio" id="test2-3" name="radio-group">
-              <label for="test2-3">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test2-4" name="radio-group">
-              <label for="test2-4">No</label>
-            </p>
-          </div>
+        endwhile;
 
-          <div>
-            <p>A lapse in federal funding caused a partial government shutdown that has now surpassed
-              the record of a 21-day shutdown set in 1955-56. Last week, about 800,000 federal workers
-              missed their paychecks.</p>
-            <p>Has the partial federal government shutdown impacted you or someone you know?</p>
-            <p>
-              <input type="radio" id="test2-5" name="radio-group">
-              <label for="test2-5">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test2-6" name="radio-group">
-              <label for="test2-6">No</label>
-            </p>
-          </div>
+        wp_reset_postdata();
+
+      } ?>
+
+      <div class="full-width-reach">
+        <div class="box0 hide" id="box0">
+          <?php echo $reach_content[0];?>
         </div>
-
-        <div id="div3" class="slider pbox">
-          <div>
-            <p>The average tuition to attend a public four-year institution has seen a 213
-              percent increase from the 1997-98 school year to the 2018-18 school year,
-              after adjusting for inflation. As of 2017, the average student loan debt
-              was roughly $34,000, up 62 percent over the previous 10 years.</p>
-            <p>How important of a role did (or does) your financial circumstances play
-               in your decision whether or not to pursue a college degree?</p>
-            <p>
-              <input type="radio" id="test3-1" name="radio-group">
-              <label for="test3-1">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test3-2" name="radio-group">
-              <label for="test3-2">No</label>
-            </p>
-          </div>
-          <div>
-            <p>Do you have any thoughts about student loans or college affordability?</p>
-            <p>
-              <input type="radio" id="test3-3" name="radio-group">
-              <label for="test3-3">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test3-4" name="radio-group">
-              <label for="test3-4">No</label>
-            </p>
-          </div>
-          <div>
-            <p>A lapse in federal funding caused a partial government shutdown that has now surpassed
-              the record of a 21-day shutdown set in 1955-56. Last week, about 800,000 federal workers
-              missed their paychecks.</p>
-            <p>Has the partial federal government shutdown impacted you or someone you know?</p>
-            <p>
-              <input type="radio" id="test3-5" name="radio-group">
-              <label for="test3-5">Yes</label>
-            </p>
-            <p>
-              <input type="radio" id="test3-6" name="radio-group">
-              <label for="test3-6">No</label>
-            </p>
-          </div>
+        <div class="box1 hide" id="box1">
+          <?php echo $reach_content[1];?>
         </div>
-      <!-- </div> -->
+        <div class="box2 hide" id="box2">
+          <?php echo $reach_content[2];?>
+        </div>
+      </div>
+
+      <script type="text/javascript">
+      var reach0 = "<?php echo $reach_id[0]; ?>";
+      var reach1 = "<?php echo $reach_id[1]; ?>";
+      var reach2 = "<?php echo $reach_id[2]; ?>";
+      var reach0Click = document.getElementById(reach0);
+      var reach1Click = document.getElementById(reach1);
+      var reach2Click = document.getElementById(reach2);
+      reach0Click.onclick = function() {
+          $('#box0').addClass('show').siblings('div').removeClass('show');
+          $(reach1Click).removeClass('active');
+          $(reach2Click).removeClass('active');
+          $(reach0Click).addClass('active');
+          // $('#box0').toggleClass("show");
+          // e.preventDefault();
+      }
+      reach1Click.onclick = function() {
+          $('#box1').addClass('show').siblings('div').removeClass('show');
+          $(reach0Click).removeClass('active');
+          $(reach2Click).removeClass('active');
+          $(reach1Click).addClass('active');
+      }
+      reach2Click.onclick = function() {
+          $('#box2').addClass('show').siblings('div').removeClass('show');
+          $(reach1Click).removeClass('active');
+          $(reach0Click).removeClass('active');
+          $(reach2Click).addClass('active');
+      }
+
+      </script>
+
     </div>
   </div>
 </section>
