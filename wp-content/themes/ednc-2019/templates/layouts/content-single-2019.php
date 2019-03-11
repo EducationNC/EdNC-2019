@@ -16,9 +16,11 @@ while (have_posts()) : the_post();
     $author_avatar_sized = Resize\mr_image_resize($author_avatar, 140, null, false, '', false);
   }
 
+
   $image_id = get_post_thumbnail_id();
   $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
+  $featured_image_hero = wp_get_attachment_image_src($image_id, 'Hero');
   // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
   $title_overlay = get_field('title_overlay');
@@ -65,24 +67,13 @@ while (have_posts()) : the_post();
         <div class="row">
           <div class="col-md-7 col-centered intro">
               <h1 class="entry-title"><?php the_title(); ?></h1>
-              <?php//  print_r(  $author_bio); ?>
-              <!-- <img src="<?php// echo $author_avatar[0]; ?>" alt="<?php// echo get_the_title(get_field('avatar')) ?>" /> -->
+
               <?php get_template_part('templates/components/author-info'); ?>
+              <?php echo $image_id; ?>
           </div>
         </div>
       </div>
     </div>
-
-
-    <?php// if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <!-- <header class="entry-header hero-image">
-        <div class="photo-overlay">
-          <div class="parallax-img hidden-xs" style="background-image:url('<?php //echo $featured_image_src[0]; ?>')"></div>
-          <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" />
-          <?php// echo $alt_text; ?>
-        </div>
-      </header> -->
-    <?php// } ?>
 
     <?php
     if (isset($featured_image_align) && $featured_image_align == 'hero'){
@@ -91,16 +82,12 @@ while (have_posts()) : the_post();
 
     if (isset($featured_image_align) && $featured_image_align == 'contained'){
         echo 'contained' . '<br />';
-    } else{
-        echo 'isset false' . '<br />';
     }
 
     ?>
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
       <div class="full-width-image-block">
-        <img class="legacy-full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
-        <!-- <div class="full-width-img hidden-xs" style="background-image:url('<?php// echo $featured_image_src[0]; ?>') ; "></div> -->
-        <!-- <img class="visible-xs-block" src="<?php// echo $featured_image_lg[0]; ?>" /> -->
+        <img class="full-width-image" src="<?php echo $image_id ?>" />
         <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
     <?php } ?>
@@ -112,20 +99,6 @@ while (have_posts()) : the_post();
       </div>
     <?php } ?>
 
-
-
-
-    <!-- <div class="container-fluid">
-      <div class="row">
-        <div class="col-xs-12 text-right caption hidden-xs no-bottom-margin">
-          <?php
-          //$thumb_id = get_post_thumbnail_id();
-          //$thumb_post = get_post($thumb_id);
-          //echo $thumb_post->post_excerpt;
-          ?>
-        </div>
-      </div>
-    </div> -->
 
     <?php if (get_field('longform_intro') && $page < 2) { ?>
       <div class="longform-intro">

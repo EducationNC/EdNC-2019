@@ -26,9 +26,9 @@
     @include block-4(20px);
   }
 
-  .spotlight-3 {
-    @include block-3(20px);
-  }
+  // .spotlight-block-3 {
+  //   @include block-3(20px);
+  // }
 
   .content-block-3 {
     @include block-3(20px);
@@ -163,9 +163,23 @@
     width: 100%;
     order: 1;
   }
-  .spotlight-3, .spotlight-4 {
-    @include block-2(20px);
+
+  .spotlight-block-3, .spotlight-block-4, .spotlight-block-7:nth-child(n+4),
+  .spotlight-block-5, .spotlight-block-10:nth-child(n+7),
+  .spotlight-block-7, .spotlight-block-10, .spotlight-block-5:nth-child(n+3),
+  .spotlight-block-13, .spotlight-block-13:nth-child(n+10) {
+    @include block-2 (20px);
   }
+
+  .spotlight-block-3:nth-of-type(1),
+  .spotlight-block-5:nth-child(1),
+  .spotlight-block-7:nth-child(1),
+  .spotlight-block-9:nth-child(1),
+  .spotlight-block-11:nth-child(1),
+  .spotlight-block-13:nth-child(1) {
+    @include block-1 (20px, 40px);
+  }
+
   .content-box-container {
     margin-bottom: 0;
     padding-top: 10px;
@@ -201,22 +215,32 @@
     }
 
     .content-block-3 {
-      @include block-1(0px);
+      @include block-1(0px, 0px);
       margin-top: 10px;
       margin-bottom: 10px;
     }
-    .spotlight-3, .spotlight-4 {
-      @include block-1(0px);
+    .spotlight-block-3, .spotlight-block-4,
+    .spotlight-block-5, .spotlight-block-7,
+    .spotlight-block-10, .spotlight-block-13:nth-child(n+10),
+    .spotlight-block-13, .spotlight-block-10:nth-child(n+10),
+    .spotlight-block-7:nth-child(n+10), .spotlight-block-5:nth-child(n+10),
+    .spotlight-block-3:nth-of-type(1), .spotlight-block-1,
+    .spotlight-block-5:nth-child(1), .spotlight-block-2,
+    .spotlight-block-7:nth-child(1),
+    .spotlight-block-9:nth-child(1),
+    .spotlight-block-11:nth-child(1),
+    .spotlight-block-13:nth-child(1) {
+      @include block-1(0px, 0px);
       margin-top: 10px;
       margin-bottom: 10px;
     }
     .content-block-4 {
-      @include block-1(0px);
+      @include block-1(0px, 0px);
       margin-top: 10px;
       margin-bottom: 10px;
     }
     .block-recent {
-      @include block-1(0px);
+      @include block-1(0px, 0px);
       margin-top: 10px;
       margin-bottom: 10px;
     }

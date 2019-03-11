@@ -1,10 +1,11 @@
 <?php
 namespace sgpb;
+
 class ConditionBuilder
 {
 	private $savedData = array();
-	private $groupId;
-	private $ruleId;
+	private $groupId = 0;
+	private $ruleId = 0;
 	private $conditionName;
 	private $groupTotal;
 	private $popupId;
@@ -201,5 +202,46 @@ class ConditionBuilder
 		}
 
 		return $dataObj;
+	}
+
+	public static function additionalConditionBuilder()
+	{
+		$dataObj = apply_filters('sgpbAdditionalConditionBuilder', array());
+
+		if (empty($dataObj)) {
+			return array();
+		}
+		$allCondition = array();
+		$result = array();
+
+		foreach ($dataObj as $data) {
+			if (empty($data['conditionName'])) {
+				continue;
+			}
+			$conditionName = $data['conditionName'];
+			unset($data['conditionName']);
+
+			foreach ($data as $groupId => $groupData) {
+
+				if (empty($groupData)) {
+					continue;
+				}
+
+				foreach ($groupData as $ruleId => $ruleData) {
+
+					$builderObj = new ConditionBuilder();
+					$builderObj->setGroupId(0);
+					$builderObj->setRuleId($ruleId);
+					$builderObj->setSavedData($ruleData);
+					$builderObj->setConditionName($conditionName);
+					$builderObj->setGroupTotal(count($groupData) - 1);
+					$builderObj->setTakeValueFrom('operator');
+					$allCondition[] = $builderObj;
+				}
+			}
+			$result[$conditionName] = $allCondition;
+		}
+
+		return $result;
 	}
 }

@@ -50,27 +50,33 @@
     offset: '0%'
   });
 
-  $('.main').waypoint(function(direction) {
-    if (direction === 'down') {
-        $(".secondary-logos").addClass("hide");
-        $(".spacer").css({"height": "60px"});
-        $(".main-logo").addClass("active");
-        $(".top-nav").addClass("active");
-    }
-  }, {
-    offset: '15%'
+
+  $(function() {
+    $('#reach0').addClass('active');
   });
 
-  $('.main').waypoint(function(direction) {
-    if (direction === 'up') {
-        $(".secondary-logos").removeClass("hide");
-        $(".spacer").css({"height": "200px"});
-        $(".top-nav").removeClass("active");
-        $(".main-logo").removeClass("active");
-    }
-  }, {
-    offset: '200px'
-  });
+
+  // $('.main').waypoint(function(direction) {
+  //   if (direction === 'down') {
+  //       $(".secondary-logos").addClass("hide");
+  //       $(".spacer").css({"height": "60px"});
+  //       $(".main-logo").addClass("active");
+  //       $(".top-nav").addClass("active");
+  //   }
+  // }, {
+  //   offset: '15%'
+  // });
+  //
+  // $('.main').waypoint(function(direction) {
+  //   if (direction === 'up') {
+  //       $(".secondary-logos").removeClass("hide");
+  //       $(".spacer").css({"height": "200px"});
+  //       $(".top-nav").removeClass("active");
+  //       $(".main-logo").removeClass("active");
+  //   }
+  // }, {
+  //   offset: '200px'
+  // });
 
 
   var offsetHeight = document.getElementById('top-nav').offsetHeight;
@@ -80,19 +86,19 @@
 
 
   // Hamburger Menu
-  // $(window).on("scroll", function() {
-  //   if($(window).scrollTop() >= 20) {
-  //       $(".top-nav").addClass("active");
-  //       $(".secondary-logos").addClass("hide");
-  //       $(".main-logo").addClass("active");
-  //       $(".top-nav-outer").addClass("active");
-  //   } else {
-  //      $(".top-nav").removeClass("active");
-  //      $(".secondary-logos").removeClass("hide");
-  //      $(".main-logo").removeClass("active");
-  //      $(".top-nav-outer").removeClass("active");
-  //   }
-  // });
+  $(window).on("scroll", function() {
+    if($(window).scrollTop() >= 20) {
+        $(".secondary-logos").addClass("hide");
+        $(".spacer").css({"height": "60px"});
+        $(".main-logo").addClass("active");
+        $(".top-nav").addClass("active");
+    } else {
+        $(".secondary-logos").removeClass("hide");
+        $(".spacer").css({"height": "200px"});
+        $(".top-nav").removeClass("active");
+        $(".main-logo").removeClass("active");
+    }
+  });
 
 
   $(".content-block-4:nth-child(4n):not(:nth-last-child(1)").after('<hr class="full">');

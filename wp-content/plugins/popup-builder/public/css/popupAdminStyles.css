@@ -1333,6 +1333,7 @@ input:checked + .sgpb-slider:before {
 }
 
 .sgpb-box-target .sgpb-event-row:not(:first-child),
+.sgpb-box-autoresponder-events .sgpb-event-row:not(:first-child),
 .sgpb-box-woocommerce-special-events .sgpb-event-row:not(:first-child),
 .sgpb-box-conditions .sgpb-event-row:not(:first-child),
 .sgpb-box-events .sgpb-event-row:not(:first-child) {
@@ -1342,6 +1343,10 @@ input:checked + .sgpb-slider:before {
 }
 
 .sgpb-box-woocommerce-special-events .sgpb-event-row:not(:last-child) .sg-rules-add-button-wrapper.sgpb-static-padding-top {
+	display: none;
+}
+
+.sgpb-box-autoresponder-events .sgpb-event-row:not(:last-child) .sg-rules-add-button-wrapper.sgpb-static-padding-top {
 	display: none;
 }
 
@@ -2045,6 +2050,11 @@ input:checked + .sgpb-slider:before {
 	}
 }
 
+@media (max-width: 1224px) {
+	.sgpb-event-row .col-sm-3 {
+		width: 100% !important;
+	}
+}
 
 @media (max-width: 560px) {
 	.sgpb-rate-us-banner-2 {
@@ -2120,4 +2130,17 @@ input:checked + .sgpb-slider:before {
 
 .sgpb-gutenberg-form-selector-wrapper .components-base-control {
 	width: 100% !important;
+}
+
+.subscribers-wrapper .tablenav.top,
+.subscribers-wrapper .tablenav.bottom {
+    margin-left: -8px !important;
+}
+
+.mce-widget .dashicons-menu-icon-sgpb:before {
+	padding-left: 0px !important;
+}
+
+.sgpb-text-warning {
+	color: #007bff !important;
 }

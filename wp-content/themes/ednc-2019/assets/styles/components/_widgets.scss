@@ -146,85 +146,53 @@ h2.header-big {
   object-fit: cover;
 }
 
-.spotlight-one {
-  width: 100%;
-  margin: 20px;
+.spotlight-block-1 {
+  @include block-1(20px, 40px);
 }
 
-.spotlight-2 {
-  width: 46%;
-  margin: 20px;
+.spotlight-block-2 {
+  @include block-2(20px);
 }
 
-.spotlight-3 {
+.spotlight-block-3 {
   @include block-3(20px);
 }
 
-.spotlight-4 {
+.spotlight-block-4 {
   @include block-4(20px);
 }
 
-.spotlight-5:nth-child(1) {
-  width: 46%;
-  margin: 20px;
+.spotlight-block-5 {
+  @include block-2(20px);
 }
 
-.spotlight-5:nth-child(2) {
-  width: 46%;
-  margin: 20px;
-}
-
-.spotlight-5:nth-child(3) {
+.spotlight-block-5:nth-child(n+3) {
   @include block-3(20px);
 }
 
-.spotlight-5:nth-child(4) {
+.spotlight-block-7 {
   @include block-3(20px);
 }
 
-.spotlight-5:nth-child(5) {
-  @include block-3(20px);
-}
-
-
-.spotlight-7:nth-child(1), .spotlight-7:nth-child(2),
-.spotlight-7:nth-child(3)  {
-  @include block-3(20px);
-}
-
-.spotlight-7:nth-child(4), .spotlight-7:nth-child(5),
-.spotlight-7:nth-child(6), .spotlight-7:nth-child(7),
-.spotlight-7:nth-child(8), .spotlight-7:nth-child(9),
-.spotlight-7:nth-child(10), .spotlight-7:nth-child(11) {
+.spotlight-block-7:nth-child(n+4) {
   @include block-4(20px);
 }
 
-.spotlight-10:nth-child(1), .spotlight-10:nth-child(2),
-.spotlight-10:nth-child(3), .spotlight-10:nth-child(4),
-.spotlight-10:nth-child(5), .spotlight-10:nth-child(6) {
+.spotlight-block-10 {
   @include block-3(20px);
 }
 
-
-.spotlight-10:nth-child(7), .spotlight-10:nth-child(8),
-.spotlight-10:nth-child(9), .spotlight-10:nth-child(10) {
+.spotlight-block-10:nth-child(n+7) {
   @include block-4(20px);
 }
 
-
-.spotlight-13:nth-child(1), .spotlight-13:nth-child(2),
-.spotlight-13:nth-child(3), .spotlight-13:nth-child(4),
-.spotlight-13:nth-child(5), .spotlight-13:nth-child(6) {
+.spotlight-block-13 {
   @include block-3(20px);
 }
 
-.spotlight-13:nth-child(7), .spotlight-13:nth-child(8),
-.spotlight-13:nth-child(9), .spotlight-13:nth-child(10),
-.spotlight-13:nth-child(11), .spotlight-13:nth-child(12),
-.spotlight-13:nth-child(13), .spotlight-13:nth-child(14) {
+.spotlight-block-13:nth-child(n+10) {
   @include block-4(20px);
 }
-
 
 
 /****** VIDEOS *********/

@@ -75,8 +75,10 @@ class SgpbPopupConfig
 		self::addDefine('SG_POPUP_CATEGORY_TAXONOMY', 'popup-categories');
 		self::addDefine('SG_POPUP_MINIMUM_PHP_VERSION', '5.3.3');
 		self::addDefine('SG_POPUP_POST_TYPE', 'popupbuilder');
-		self::addDefine('SG_POPUP_NEWSLETTER_PAGE', 'newsletter');
-		self::addDefine('SG_POPUP_SETTINGS_PAGE', 'settings');
+		self::addDefine('SG_POPUP_NEWSLETTER_PAGE', 'sgpbNewsletter');
+		self::addDefine('SG_POPUP_SETTINGS_PAGE', 'sgpbSettings');
+		self::addDefine('SG_POPUP_SUBSCRIBERS_PAGE', 'sgpbSubscribers');
+		self::addDefine('SG_POPUP_SUPPORT_PAGE', 'sgpbSupport');
 		self::addDefine('SGPB_POPUP_LICENSE', 'license');
 		self::addDefine('SG_POPUP_EXTEND_PAGE', 'extend');
 		self::addDefine('SGPB_FILTER_REPEAT_INTERVAL', 50);
@@ -114,6 +116,7 @@ class SgpbPopupConfig
 		self::addDefine('SGPB_ASK_REVIEW_POPUP_COUNT', 80);
 		self::addDefine('SGPB_REVIEW_POPUP_PERIOD', 30);
 		self::addDefine('SGPB_POPUP_EXPORT_FILE_NAME', 'PopupBuilderPopups.xml');
+		self::addDefine('SG_POPUP_AUTORESPONDER_POST_TYPE', 'sgpbautoresponder');
 		self::popupTypesInit();
 	}
 

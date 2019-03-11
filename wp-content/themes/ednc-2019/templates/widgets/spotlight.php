@@ -10,6 +10,7 @@ $featured_image = Media\get_featured_image('medium');
 
 <section class="block spotlight">
   <div class="widget-content">
+
     <?php if( have_rows('spotlight', 'option') ): ?>
       <?php while( have_rows('spotlight', 'option') ): the_row(); ?>
         <?php $header = get_sub_field('header'); ?>
@@ -24,6 +25,7 @@ $featured_image = Media\get_featured_image('medium');
         </h2>
       <?php endwhile; ?>
     <?php endif; ?>
+
     <div class="content-box-container">
       <?php
       /*

@@ -328,20 +328,21 @@
 
 
 
-.post-template-page-2019-Template .hentry {
+.post-template-page-2019-Template  {
 
   .full-width-image-block {
     height: auto;
-    margin-left: 15px;
-    margin-right: 15px;
+    // margin-left: 15px;
+    // margin-right: 15px;
+
+    .full-width-image {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+    }
+
   }
 
-
-  .full-width-image {
-    height: 100%;
-    width: 100%;
-    object-fit: cover;
-  }
 
   .banner {
     margin-bottom: 50px;

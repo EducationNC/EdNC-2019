@@ -49,6 +49,7 @@ class SubscriptionPopup extends SGPopup
 	public static function getTablesSql()
 	{
 		$tablesSql = array();
+		$dbEngine = Functions::getDatabaseEngine();
 
 		$tablesSql[] = SGPB_SUBSCRIBERS_TABLE_NAME.' (
 					`id` int(12) NOT NULL AUTO_INCREMENT,
@@ -60,7 +61,7 @@ class SubscriptionPopup extends SGPopup
 					`status` varchar(255),
 					`unsubscribed` int(11) default 0,
 					PRIMARY KEY (id)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
+			) ENGINE='.$dbEngine.' DEFAULT CHARSET=utf8;';
 
 		$tablesSql[] = SGPB_SUBSCRIBERS_ERROR_TABLE_NAME.' (
 					`id` int(12) NOT NULL AUTO_INCREMENT,
@@ -69,7 +70,7 @@ class SubscriptionPopup extends SGPopup
 					`email` varchar(255),
 					`date` varchar(255),
 					PRIMARY KEY (id)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8;';
+			) ENGINE='.$dbEngine.' DEFAULT CHARSET=utf8;';
 
 		return $tablesSql;
 	}
@@ -164,7 +165,7 @@ class SubscriptionPopup extends SGPopup
 	private function getFieldValue($optionName)
 	{
 		$optionValue = '';
-		$postData = $this->getData();
+		$postData = $this->getPostData();
 
 		if (!empty($postData[$optionName])) {
 			return $postData[$optionName];
@@ -192,7 +193,6 @@ class SubscriptionPopup extends SGPopup
 		$formData = array();
 		$inputStyles = array();
 		$submitStyles = array();
-		$postData = $this->getData();
 		$emailPlaceholder = $this->getFieldValue('sgpb-subs-email-placeholder');
 		if ($this->getFieldValue('sgpb-subs-text-width'))  {
 			$inputWidth = $this->getFieldValue('sgpb-subs-text-width');

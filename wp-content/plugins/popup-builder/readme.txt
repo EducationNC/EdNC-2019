@@ -2,12 +2,14 @@
 Plugin Name: Popup Builder - Responsive Wordpress Pop up
 Contributors: Popup By Sygnoos, Sygnoos
 Author: Popup Builder
+Author URI: https://popup-builder.com
+Plugin URI: https://popup-builder.com
 Donate link: https://popup-builder.com
 Tags: popup, pop up, wordpress popup, popup maker, exit popup, popup builder, wordpress popup plugin
 Requires at least: 3.8
-Tested up to: 5.0
+Tested up to: 5.1
 Requires PHP: 5.3.3
-Stable tag: 3.1.5.2
+Stable tag: 3.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -179,6 +181,30 @@ Go to the Popup Builder settings and set your desired options.
 13. Facebook popup
 
 == Changelog ==
+
+= Version 3.1.7 =
+* Added Popup Builder button inside the TinyMCE editor, which will allow adding the popup shortcode inside the page/post content.
+* Added compatability with page builders.
+* Bug fixed related to Autoresponder conditions.
+* Bug fixed related to cache of the select box element.
+* Improvements related to script including for wordpress multisites.
+* Conflict resolved related to some extensions.
+* Bug fixed related to post category search action.
+* Code cleanup and improvements.
+
+= Version 3.1.6.1 =
+* Bug fixed related to overlay issue.
+* Mailchimp update issue fixed.
+
+= Version 3.1.6 =
+* Added new feature to change Close Button position.
+* Added new feature to hide/change popup's border (2nd and 3rd themes).
+* Added new feature inside the 'Display Rules' to show popup by post categories.
+* Improvement related to MyISAM and InnoDB when one if this engines don't supported.
+* Added class selector inside the popups' data table.
+* Fixed PHP notices.
+* Bug fixed related to extension licenses.
+* Code improvements and minor bug fixes.
 
 = Version 3.1.5.2 =
 * Added new extension Web Push Notification.
@@ -929,7 +955,7 @@ Leave us a good review :)
 
 == Upgrade Notice ==
 
-Current Version of Popup Builder is 3.1.5
+Current Version of Popup Builder is 3.1.7
 
 == Other Notes ==
 

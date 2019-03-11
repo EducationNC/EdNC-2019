@@ -155,12 +155,14 @@ class PopupChecker
 			foreach ($permissiveOptions as $permissiveOption) {
 				$isPermissiveConditions = $this->isSatisfyForConditionsOptions($permissiveOption);
 
-				if ($isPermissiveConditions === false) {
+				if ($isPermissiveConditions) {
 					return $isPermissiveConditions;
 				}
 			}
+
+			return false;
 		}
-		// proEndSilver
+
 		return true;
 	}
 
@@ -169,6 +171,7 @@ class PopupChecker
 		global $post;
 		$paramName  = $option['param'];
 		$defaultStatus = false;
+		$isAllowedConditionFilters = array();
 
 		// proStartSilver
 		if ($paramName == 'select_role') {
@@ -179,7 +182,9 @@ class PopupChecker
 			$defaultStatus = true;
 		}
 		// proEndSilver
-		$isAllowedConditionFilters = apply_filters('isAllowedConditionFilters', array($option));
+		if (!isset($isAllowedConditionFilters['status']) || $isAllowedConditionFilters['status'] == false) {
+			$isAllowedConditionFilters = apply_filters('isAllowedConditionFilters', array($option));
+		}
 		if (isset($isAllowedConditionFilters['status']) && $isAllowedConditionFilters['status'] === true) {
 			$defaultStatus = true;
 		}
@@ -312,6 +317,33 @@ class PopupChecker
 
 			if (in_array($postId, $values)) {
 				$isSatisfy = true;
+			}
+		}
+		else if (strpos($targetData['param'], '_categories')) {
+			$values = array();
+			$isSatisfy = false;
+
+			if (!empty($targetData['value'])) {
+				$values = array_values($targetData['value']);
+			}
+
+			global $post;
+			// get current all taxonomies of the current post
+			$taxonomies = get_post_taxonomies($post);
+			foreach ($taxonomies as $taxonomy) {
+				// get current post all categories
+				$terms = get_the_terms($post->ID, $taxonomy);
+				if (!empty($terms)) {
+					foreach ($terms as $term) {
+						if (empty($term)) {
+							continue;
+						}
+						if (in_array($term->term_id, $values)) {
+							$isSatisfy = true;
+							break;
+						}
+					}
+				}
 			}
 		}
 		else if ($targetData['param'] == 'post_type' && !empty($targetData['value'])) {

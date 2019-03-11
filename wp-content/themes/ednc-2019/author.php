@@ -5,7 +5,7 @@
     <div class="col-md-3 col-md-push-9 meta sidebar">
       <?php
       $author = get_user_by( 'slug', get_query_var( 'author_name' ) );
-      $author_id = $author->ID;
+      echo $author_id = $author->ID;
       $args = array(
         'post_type' => 'bio',
         'meta_query' => array(
@@ -17,8 +17,11 @@
       );
 
       $bio = new WP_Query($args);
+      // print_r ($bio);
+      // $echo (post_title);
 
       if ($bio->have_posts()) : while ($bio->have_posts()) : $bio->the_post(); ?>
+      <?php echo get_the_title(); ?>
         <div class="row">
           <div class="col-sm-4 col-md-12">
             <?php if (

@@ -4,6 +4,12 @@ use sgpb\PopupBuilderActivePackage;
 $defaultData = ConfigDataHelper::defaultData();
 $enablePopupOverlay = PopupBuilderActivePackage::canUseOption('sgpb-enable-popup-overlay');
 $removedOptions = $popupTypeObj->getRemoveOptions();
+$popupTheme = $popupTypeObj->getOptionValue('sgpb-popup-themes');
+$hidePopupBorderOption = ' sg-hide';
+if ($popupTheme == 'sgpb-theme-2' || $popupTheme == 'sgpb-theme-3') {
+	$hidePopupBorderOption = '';
+}
+
 ?>
 <div class="sgpb-wrapper">
 	<div class="row">
@@ -54,7 +60,7 @@ $removedOptions = $popupTypeObj->getRemoveOptions();
 				<label for="sgpb-popup-themes" class="col-md-5 control-label sgpb-static-padding-top">
 					<?php _e('Theme', SG_POPUP_TEXT_DOMAIN)?>:
 				</label>
-				<div class="col-md-7"><?php AdminHelper::createRadioButtons($defaultData['theme'], "sgpb-popup-themes", esc_html($popupTypeObj->getOptionValue('sgpb-popup-themes')), true); ?></div>
+				<div class="col-md-7"><?php AdminHelper::createRadioButtons($defaultData['theme'], "sgpb-popup-themes", esc_html($popupTheme), true); ?></div>
 			</div>
 			<div class="row">
 				<div class="col-md-10">
@@ -64,6 +70,14 @@ $removedOptions = $popupTypeObj->getRemoveOptions();
 					<div class="themes-preview theme-preview-4" style="display: none;"></div>
 					<div class="themes-preview theme-preview-5" style="display: none;"></div>
 					<div class="themes-preview theme-preview-6" style="display: none;"></div>
+				</div>
+			</div>
+			<div class="row form-group sgpb-disable-border-wrapper<?php echo $hidePopupBorderOption ;?>">
+				<label for="sgpb-force-rtl" class="col-md-5 control-label sgpb-static-padding-top">
+					<?php _e('Disable popup border', SG_POPUP_TEXT_DOMAIN)?>:
+				</label>
+				<div class="col-md-6">
+					<input type="checkbox" id="sgpb-disable-border" name="sgpb-disable-border" <?php echo $popupTypeObj->getOptionValue('sgpb-disable-border', true); ?>>
 				</div>
 			</div>
 			<!-- popup overlay start -->

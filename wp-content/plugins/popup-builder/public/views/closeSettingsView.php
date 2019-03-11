@@ -9,6 +9,23 @@
 		$popupTypeObj->getOptionValue('sgpb-popup-themes')
 	);
 
+	$hideTopPosition = '';
+	if ($closeButtonPosition == 'bottomRight' || $closeButtonPosition == 'bottomLeft') {
+		$hideTopPosition = ' style="display:none;"';
+	}
+	$hideBottomPosition = '';
+	if ($closeButtonPosition == 'topRight' || $closeButtonPosition == 'topLeft') {
+		$hideBottomPosition = ' style="display:none;"';
+	}
+	$hideRightPosition = '';
+	if ($closeButtonPosition == 'topLeft' || $closeButtonPosition == 'bottomLeft') {
+		$hideRightPosition = ' style="display:none;"';
+	}
+	$hideLeftPosition = '';
+	if ($closeButtonPosition == 'topRight' || $closeButtonPosition == 'bottomRight') {
+		$hideLeftPosition = ' style="display:none;"';
+	}
+
 	$defaultCloseButtonPositions = $defaultData['closeButtonPositions'];
 	if ($popupTypeObj->getOptionValue('sgpb-popup-themes') == 'sgpb-theme-1' ||
 		$popupTypeObj->getOptionValue('sgpb-popup-themes') == 'sgpb-theme-4' ||
@@ -24,6 +41,9 @@
 		$popupTypeObj->getOptionValue('sgpb-popup-themes'),
 		$popupTypeObj->getOptionValue('sgpb-button-image')
 	);
+	if (strpos($buttonImage, 'http') === false) {
+		$buttonImage = 'data:image/png;base64,'.$buttonImage;
+	}
 	$disablePopupClosing = PopupBuilderActivePackage::canUseOption('sgpb-disable-popup-closing');
 ?>
 <div class="sgpb-wrapper form-horizontal">
@@ -80,6 +100,50 @@
 						</label>
 						<div class="col-md-6"><?php echo AdminHelper::createSelectBox($defaultCloseButtonPositions, $closeButtonPosition, array('name' => 'sgpb-close-button-position', 'class'=>'js-sg-select2 sgpb-close-button-position')); ?></div>
 					</div>
+					<div class="row form-group sgpb-button-position-top-js"<?php echo $hideTopPosition ;?>>
+						<label for="sgpb-button-position-top" class="col-md-5 control-label sgpb-double-sub-option">
+							<?php _e('top', SG_POPUP_TEXT_DOMAIN)?>:
+						</label>
+						<div class="col-md-6">
+							<input id="sgpb-button-position-top" class="sgpb-full-width form-control sgpb-full-width-events" step="0.5" type="number" name="sgpb-button-position-top" value="<?php echo $popupTypeObj->getOptionValue('sgpb-button-position-top'); ?>">
+						</div>
+						<div class="col-md-1">
+							<span class="sgpb-restriction-unit">px</span>
+						</div>
+					</div>
+					<div class="row form-group sgpb-button-position-right-js"<?php echo $hideRightPosition ;?>>
+						<label for="sgpb-button-position-right" class="col-md-5 control-label sgpb-double-sub-option">
+							<?php _e('right', SG_POPUP_TEXT_DOMAIN)?>:
+						</label>
+						<div class="col-md-6">
+							<input id="sgpb-button-position-right" class="sgpb-full-width form-control sgpb-full-width-events" step="0.5" type="number" name="sgpb-button-position-right" value="<?php echo $popupTypeObj->getOptionValue('sgpb-button-position-right'); ?>">
+						</div>
+						<div class="col-md-1">
+							<span class="sgpb-restriction-unit">px</span>
+						</div>
+					</div>
+					<div class="row form-group sgpb-button-position-bottom-js"<?php echo $hideBottomPosition ;?>>
+						<label for="sgpb-button-position-bottom" class="col-md-5 control-label sgpb-double-sub-option">
+							<?php _e('bottom', SG_POPUP_TEXT_DOMAIN)?>:
+						</label>
+						<div class="col-md-6">
+							<input id="sgpb-button-position-bottom" class="sgpb-full-width form-control sgpb-full-width-events" step="0.5" type="number" name="sgpb-button-position-bottom" value="<?php echo $popupTypeObj->getOptionValue('sgpb-button-position-bottom'); ?>">
+						</div>
+						<div class="col-md-1">
+							<span class="sgpb-restriction-unit">px</span>
+						</div>
+					</div>
+					<div class="row form-group sgpb-button-position-left-js"<?php echo $hideLeftPosition ;?>>
+						<label for="sgpb-button-position-left" class="col-md-5 control-label sgpb-double-sub-option">
+							<?php _e('left', SG_POPUP_TEXT_DOMAIN)?>:
+						</label>
+						<div class="col-md-6">
+							<input id="sgpb-button-position-left" class="sgpb-full-width form-control sgpb-full-width-events" step="0.5" type="number" name="sgpb-button-position-left" value="<?php echo $popupTypeObj->getOptionValue('sgpb-button-position-left'); ?>">
+						</div>
+						<div class="col-md-1">
+							<span class="sgpb-restriction-unit">px</span>
+						</div>
+					</div>
 				<?php endif; ?>
 				<div class="<?php echo ($popupTypeObj->getOptionValue('sgpb-popup-themes') == 'sgpb-theme-4') ? 'sg-hide ' : '' ;?>sgpb-close-button-image-option-wrapper">
 					<div class="row form-group">
@@ -94,7 +158,7 @@
 						<div class="col-md-7">
 							<div class="row">
 								<div class="col-md-3 sgpb-close-btn-image-wrapper">
-									<div class="sgpb-show-button-image-container" style="background-image: url(<?php echo 'data:image/png;base64,'.$buttonImage;?>);">
+									<div class="sgpb-show-button-image-container" style="background-image: url(<?php echo $buttonImage;?>);">
 										<span class="sgpb-no-image"></span>
 									</div>
 								</div>

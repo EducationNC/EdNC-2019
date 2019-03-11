@@ -198,9 +198,15 @@ $link-hover-color:      $navy;
   margin: $margin;
 }
 
-@mixin block-1 ($margin) {
-  flex: 1 0 calc(100%);
-  max-width: calc(100%);
+@mixin block-1 ($margin, $neg-margin) {
+  flex: 1 0 calc(100% - #{$neg-margin});
+  max-width: calc(100% - #{$neg-margin});
+  margin: $margin;
+}
+
+@mixin block-1-test ($margin) {
+  flex: 1 0 calc(100% - 40px);
+  max-width: calc(100% - 40px);
   margin: $margin;
 }
 

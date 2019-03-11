@@ -6,6 +6,7 @@ use Roots\Sage\Assets;
 
 <section class="block perspectives">
   <div class="widget-content">
+
     <?php if( have_rows('perspectives', 'option') ): ?>
       <?php while( have_rows('perspectives', 'option') ): the_row(); ?>
         <?php $header = get_sub_field('header'); ?>
@@ -19,6 +20,8 @@ use Roots\Sage\Assets;
         </h2>
       <?php endwhile; ?>
     <?php endif; ?>
+
+
     <div class="content-box-container">
        <?php
         // Show 3 most recent featured perspective

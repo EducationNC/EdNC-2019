@@ -84,7 +84,7 @@ $title_overlay = get_field('title_overlay');
       } ?>
 
       <div class="full-width-reach">
-        <div class="box0 hide" id="box0">
+        <div class="box0" id="box0">
           <?php echo $reach_content[0];?>
         </div>
         <div class="box1 hide" id="box1">
@@ -102,8 +102,11 @@ $title_overlay = get_field('title_overlay');
       var reach0Click = document.getElementById(reach0);
       var reach1Click = document.getElementById(reach1);
       var reach2Click = document.getElementById(reach2);
+
+      document.getElementById(reach0).classList.add('active');
+
       reach0Click.onclick = function() {
-          $('#box0').addClass('show').siblings('div').removeClass('show');
+          $('#box0').addClass('show').siblings('div').removeClass('show').addClass('hide');
           $(reach1Click).removeClass('active');
           $(reach2Click).removeClass('active');
           $(reach0Click).addClass('active');
@@ -111,13 +114,13 @@ $title_overlay = get_field('title_overlay');
           // e.preventDefault();
       }
       reach1Click.onclick = function() {
-          $('#box1').addClass('show').siblings('div').removeClass('show');
+          $('#box1').addClass('show').siblings('div').removeClass('show').addClass('hide');
           $(reach0Click).removeClass('active');
           $(reach2Click).removeClass('active');
           $(reach1Click).addClass('active');
       }
       reach2Click.onclick = function() {
-          $('#box2').addClass('show').siblings('div').removeClass('show');
+          $('#box2').addClass('show').siblings('div').removeClass('show').addClass('hide');
           $(reach1Click).removeClass('active');
           $(reach0Click).removeClass('active');
           $(reach2Click).addClass('active');

@@ -11,18 +11,21 @@ global $featured_recent;
 
 <section class="block news">
   <div class="widget-content">
+
     <?php if( have_rows('news', 'option') ): ?>
       <?php while( have_rows('news', 'option') ): the_row(); ?>
         <?php $header = get_sub_field('header'); ?>
         <?php $image = get_sub_field('image'); ?>
         <h2 class="header-big">
-            <?php if ($image) { ?>
+            <?php if ($image){ ?>
               <img class="section-icon" src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt'] ?>" />
             <?php } ?>
+            <!-- <img class="section-icon" src="<?php// echo Assets\asset_path('images/social.svg'); ?>"> -->
             <?php echo $header ?>
         </h2>
       <?php endwhile; ?>
     <?php endif; ?>
+
     <div class="content-box-container">
        <?php
        // Show 8 most news

@@ -2,7 +2,6 @@
 namespace sgpb;
 use \SgpbDataConfig;
 use \SgpbPopupConfig;
-
 class RegisterPostType
 {
 	private $popupTypeObj;
@@ -173,7 +172,7 @@ class RegisterPostType
 		$args = $this->getPostTypeArgs();
 
 		register_post_type($postType, $args);
-		
+
 		$this->createPopupObjFromPopupType();
 		$this->registerTaxonomy();
 	}
@@ -269,7 +268,8 @@ class RegisterPostType
 	public function rightBannerMetabox()
 	{
 		$banner = AdminHelper::getRightMetaboxBannerText();
-		if ($banner == '') {
+		$isSubscriptionPlusActive = is_plugin_active(SGPB_POPUP_SUBSCRIPTION_PLUS_EXTENSION_KEY);
+		if ($banner == '' || $isSubscriptionPlusActive) {
 			return;
 		}
 		add_meta_box(
@@ -326,7 +326,7 @@ class RegisterPostType
 			__('Support', SG_POPUP_TEXT_DOMAIN),
 			__('Support', SG_POPUP_TEXT_DOMAIN),
 			'sgpb_manage_options',
-			'support',
+			SG_POPUP_SUPPORT_PAGE,
 			array($this, 'supportLink')
 		);
 	}
@@ -347,7 +347,7 @@ class RegisterPostType
 			__('Subscribers', SG_POPUP_TEXT_DOMAIN),
 			__('Subscribers', SG_POPUP_TEXT_DOMAIN),
 			'sgpb_manage_options',
-			'subscribers',
+			SG_POPUP_SUBSCRIBERS_PAGE,
 			array($this, 'subscribersPage')
 		);
 

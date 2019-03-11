@@ -3,7 +3,7 @@
 * Tags: parallax, video, youtube, background, gutenberg
 * Requires at least: 4.0.0
 * Tested up to: 5.0
-* Stable tag: 1.5.7
+* Stable tag: 1.5.8
 * License: GPLv2 or later
 * License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -45,8 +45,9 @@ AWB let you to use parallax backgrounds with images, videos, youtube and vimeo. 
 * Custom CSS offsets (paddings + margins)
 
 
-= Real Examples =
+= Real Usage Examples =
 
+* [Skylith - Multipurpose Gutenberg Theme](https://demo.nkdev.info/#skylith)
 * [Youplay - Gaming Theme](https://demo.nkdev.info/#youplay)
 * [Godlike - Gaming Theme](https://demo.nkdev.info/#godlike)
 * [Khaki - Multipurpose Theme](https://demo.nkdev.info/#khaki.corporate)
@@ -117,6 +118,11 @@ Note: this code for example only, your theme may not work with it properly (it m
 
 
 ## Changelog ##
+
+= 1.5.8 =
+
+* fixed Gutenberg editor background preview for Pattern images
+* fixed Ghost Kit Grid columns background image after WP demo import
 
 = 1.5.7 =
 

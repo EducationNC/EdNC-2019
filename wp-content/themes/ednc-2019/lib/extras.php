@@ -21,6 +21,7 @@ function body_class($classes) {
   }
 
   // Add authors names to posts
+
   if (is_single()) {
     if ( function_exists( 'coauthors_posts_links' ) ) {
       $authors = get_coauthors();

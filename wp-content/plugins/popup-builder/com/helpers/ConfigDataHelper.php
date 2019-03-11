@@ -33,7 +33,7 @@ class ConfigDataHelper
 		return $query;
 	}
 
-	private static function getAllCustomPosts()
+	public static function getAllCustomPosts()
 	{
 		$args = array(
 			'public' => true,
@@ -41,9 +41,11 @@ class ConfigDataHelper
 		);
 
 		$allCustomPosts = get_post_types($args);
+
 		if (isset($allCustomPosts[SG_POPUP_POST_TYPE])) {
 			unset($allCustomPosts[SG_POPUP_POST_TYPE]);
 		}
+
 		return $allCustomPosts;
 	}
 
@@ -72,7 +74,8 @@ class ConfigDataHelper
 		foreach ($allCustomPostTypes as $customPostType) {
 			$targetParams[$customPostType] = array(
 				$customPostType.'_all' => 'All '.ucfirst($customPostType).'s',
-				$customPostType.'_selected' => 'Select '.ucfirst($customPostType).'s'
+				$customPostType.'_selected' => 'Select '.ucfirst($customPostType).'s',
+				$customPostType.'_categories' => 'Select '.ucfirst($customPostType).' categories'
 			);
 		}
 
@@ -86,9 +89,21 @@ class ConfigDataHelper
 		foreach ($allCustomPostTypes as $customPostType) {
 			$targetData[$customPostType.'_all'] = null;
 			$targetData[$customPostType.'_selected'] = '';
+			$targetData[$customPostType.'_categories'] = self::getCustomPostCategories($customPostType);
 		}
 
 		return $targetData;
+	}
+
+	public static function getCustomPostCategories($postTypeName)
+	{
+		$taxonomyObjects = get_object_taxonomies($postTypeName);
+		if ($postTypeName == 'product') {
+			$taxonomyObjects = array('product_cat');
+		}
+		$categories = self::getPostsAllCategories($postTypeName, $taxonomyObjects);
+
+		return $categories;
 	}
 
 	public static function addPopupTargetTypes($targetTypes)
@@ -97,6 +112,7 @@ class ConfigDataHelper
 
 		foreach ($allCustomPostTypes as $customPostType) {
 			$targetTypes[$customPostType.'_selected'] = 'select';
+			$targetTypes[$customPostType.'_categories'] = 'select';
 		}
 
 		return $targetTypes;
@@ -109,6 +125,9 @@ class ConfigDataHelper
 		foreach ($allCustomPostTypes as $customPostType) {
 			$targetAttrs[$customPostType.'_selected']['htmlAttrs'] = array('class' => 'js-sg-select2 js-select-ajax', 'data-select-class' => 'js-select-ajax', 'data-select-type' => 'ajax', 'data-value-param' => $customPostType, 'multiple' => 'multiple');
 			$targetAttrs[$customPostType.'_selected']['infoAttrs'] = array('label' => __('Select ', SG_POPUP_TEXT_DOMAIN).$customPostType);
+
+			$targetAttrs[$customPostType.'_categories']['htmlAttrs'] = array('class' => 'js-sg-select2 js-select-ajax', 'data-select-class' => 'js-select-ajax', 'isNotPostType' => true, 'data-value-param' => $customPostType, 'multiple' => 'multiple');
+			$targetAttrs[$customPostType.'_categories']['infoAttrs'] = array('label' => __('Select ', SG_POPUP_TEXT_DOMAIN).$customPostType.' categories');
 		}
 
 		return $targetAttrs;
@@ -138,19 +157,21 @@ class ConfigDataHelper
 		return $allCustomPosts;
 	}
 
-	public static function getPostsAllCategories()
+	public static function getPostsAllCategories($postType = 'post', $taxonomies = array())
 	{
 
 		$cats =  get_terms(
 			array(
 				'hide_empty' => 0,
-				'type'      => 'post',
+				'type'      => $postType,
 				'orderby'   => 'name',
 				'order'     => 'ASC'
 			)
 		);
-
-		$supportedTaxonomies = array('category', 'product_cat');
+		$supportedTaxonomies = array('category');
+		if (!empty($taxonomies)) {
+			$supportedTaxonomies = $taxonomies;
+		}
 
 		$catsParams = array();
 		foreach ($cats as $cat) {
@@ -365,7 +386,8 @@ class ConfigDataHelper
 			'70' => '70%',
 			'80' => '80%',
 			'90' => '90%',
-			'100' => '100%'
+			'100' => '100%',
+			'fullScreen' => __('Full screen', SG_POPUP_TEXT_DOMAIN)
 		);
 
 		$data['freeConditions'] = array(
@@ -398,11 +420,8 @@ class ConfigDataHelper
 			SG_COUNTDOWN_COUNTER_SECONDS_HIDE => 'DD:HH:MM'
 		);
 
-		// proStartGold
 		$data['countdownTimezone'] = self::getPopupTimeZone();
-		// proEndGold
 
-		// proStartGold
 		$data['countdownLanguage'] = array(
 			'English'    => 'English',
 			'German'     => 'Deutsche',
@@ -417,7 +436,6 @@ class ConfigDataHelper
 			'Czech'      => 'Čeština',
 			'Chinese'    => '中文'
 		);
-		// proEndGold
 
 		$data['weekDaysArray'] = array(
 			'Mon' => __('Monday', SG_POPUP_TEXT_DOMAIN),
@@ -479,78 +497,6 @@ class ConfigDataHelper
 			)
 		);
 
-		$data['popupInsertEventTypes'] = array(
-			'inherit' => __('Inherit', SG_POPUP_TEXT_DOMAIN),
-			'onLoad' => __('On load', SG_POPUP_TEXT_DOMAIN),
-			'click' => __('On click', SG_POPUP_TEXT_DOMAIN),
-			'hover' => __('On hover', SG_POPUP_TEXT_DOMAIN)
-		);
-
-		$data['subscriptionSuccessBehavior'] = array(
-			'template' => array(
-				'fieldWrapperAttr' => array(
-					'class' => 'col-md-6 sgpb-choice-option-wrapper'
-				),
-				'labelAttr' => array(
-					'class' => 'col-md-6 sgpb-choice-option-wrapper sgpb-sub-option-label'
-				),
-				'groupWrapperAttr' => array(
-					'class' => 'row form-group sgpb-choice-wrapper'
-				)
-			),
-			'buttonPosition' => 'right',
-			'nextNewLine' => true,
-			'fields' => array(
-				array(
-					'attr' => array(
-						'type' => 'radio',
-						'name' => 'sgpb-subs-success-behavior',
-						'class' => 'subs-success-message',
-						'data-attr-href' => 'subs-show-success-message',
-						'value' => 'showMessage'
-					),
-					'label' => array(
-						'name' => __('Success message', SG_POPUP_TEXT_DOMAIN).':'
-					)
-				),
-				array(
-					'attr' => array(
-						'type' => 'radio',
-						'name' => 'sgpb-subs-success-behavior',
-						'class' => 'subs-redirect-to-URL',
-						'data-attr-href' => 'subs-redirect-to-URL',
-						'value' => 'redirectToURL'
-					),
-					'label' => array(
-						'name' => __('Redirect to url', SG_POPUP_TEXT_DOMAIN).':'
-					)
-				),
-				array(
-					'attr' => array(
-						'type' => 'radio',
-						'name' => 'sgpb-subs-success-behavior',
-						'class' => 'subs-success-open-popup',
-						'data-attr-href' => 'subs-open-popup',
-						'value' => 'openPopup'
-					),
-					'label' => array(
-						'name' => __('Open popup', SG_POPUP_TEXT_DOMAIN).':'
-					)
-				),
-				array(
-					'attr' => array(
-						'type' => 'radio',
-						'name' => 'sgpb-subs-success-behavior',
-						'class' => 'subs-hide-popup',
-						'value' => 'hidePopup'
-					),
-					'label' => array(
-						'name' => __('Hide popup', SG_POPUP_TEXT_DOMAIN).':'
-					)
-				)
-			)
-		);
-
 		$data['countdownDateFormat'] = array(
 			'template' => array(
 				'fieldWrapperAttr' => array(
@@ -587,7 +533,7 @@ class ConfigDataHelper
 						'value' => 'input'
 					),
 					'label' => array(
-						'name' => __('Duration', SG_POPUP_TEXT_DOMAIN).':'
+						'name' => __('Timer', SG_POPUP_TEXT_DOMAIN).':'
 					)
 				)
 			)
@@ -680,6 +626,78 @@ class ConfigDataHelper
 			'true' => __('True', SG_POPUP_TEXT_DOMAIN),
 			'false' => __('False', SG_POPUP_TEXT_DOMAIN),
 			'inside' => __('Inside', SG_POPUP_TEXT_DOMAIN)
+		);
+
+		$data['popupInsertEventTypes'] = array(
+			'inherit' => __('Inherit', SG_POPUP_TEXT_DOMAIN),
+			'onLoad' => __('On load', SG_POPUP_TEXT_DOMAIN),
+			'click' => __('On click', SG_POPUP_TEXT_DOMAIN),
+			'hover' => __('On hover', SG_POPUP_TEXT_DOMAIN)
+		);
+
+		$data['subscriptionSuccessBehavior'] = array(
+			'template' => array(
+				'fieldWrapperAttr' => array(
+					'class' => 'col-md-6 sgpb-choice-option-wrapper'
+				),
+				'labelAttr' => array(
+					'class' => 'col-md-6 sgpb-choice-option-wrapper sgpb-sub-option-label'
+				),
+				'groupWrapperAttr' => array(
+					'class' => 'row form-group sgpb-choice-wrapper'
+				)
+			),
+			'buttonPosition' => 'right',
+			'nextNewLine' => true,
+			'fields' => array(
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'sgpb-subs-success-behavior',
+						'class' => 'subs-success-message',
+						'data-attr-href' => 'subs-show-success-message',
+						'value' => 'showMessage'
+					),
+					'label' => array(
+						'name' => __('Success message', SG_POPUP_TEXT_DOMAIN).':'
+					)
+				),
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'sgpb-subs-success-behavior',
+						'class' => 'subs-redirect-to-URL',
+						'data-attr-href' => 'subs-redirect-to-URL',
+						'value' => 'redirectToURL'
+					),
+					'label' => array(
+						'name' => __('Redirect to url', SG_POPUP_TEXT_DOMAIN).':'
+					)
+				),
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'sgpb-subs-success-behavior',
+						'class' => 'subs-success-open-popup',
+						'data-attr-href' => 'subs-open-popup',
+						'value' => 'openPopup'
+					),
+					'label' => array(
+						'name' => __('Open popup', SG_POPUP_TEXT_DOMAIN).':'
+					)
+				),
+				array(
+					'attr' => array(
+						'type' => 'radio',
+						'name' => 'sgpb-subs-success-behavior',
+						'class' => 'subs-hide-popup',
+						'value' => 'hidePopup'
+					),
+					'label' => array(
+						'name' => __('Hide popup', SG_POPUP_TEXT_DOMAIN).':'
+					)
+				)
+			)
 		);
 
 		$data['buttonsType'] = array(
@@ -790,7 +808,7 @@ class ConfigDataHelper
 	// proEndSilver
 
 	// proStartGold
-	private static function getPopupTimeZone()
+	public static function getPopupTimeZone()
 	{
 		return array(
 			'Pacific/Midway' => '(GMT-11:00) Midway',
@@ -1062,7 +1080,19 @@ class ConfigDataHelper
 		);
 	}
 
-	// use in countdown popup
+	public static function getJsLocalizedData()
+	{
+		$translatedData = array(
+			'imageSupportAlertMessage' => __('Only image files supported', SG_POPUP_TEXT_DOMAIN),
+			'areYouSure' => __('Are you sure?', SG_POPUP_TEXT_DOMAIN),
+			'addButtonSpinner' => __('Add', SG_POPUP_TEXT_DOMAIN),
+			'audioSupportAlertMessage' => __('Only audio files supported (e.g.: mp3, wav, m4a, ogg)', SG_POPUP_TEXT_DOMAIN),
+			'publishPopupBeforeElemntor' => __('Please, publish the popup before starting to use Elementor with it!', SG_POPUP_TEXT_DOMAIN)
+		);
+
+		return $translatedData;
+	}
+
 	public static function getCurrentDateTime()
 	{
 		return date('Y-m-d H:i', strtotime(' +1 day'));
@@ -1076,18 +1106,5 @@ class ConfigDataHelper
 		}
 
 		return $timezone;
-	}
-	// proEndGold
-
-	public static function getJsLocalizedData()
-	{
-		$translatedData = array(
-			'imageSupportAlertMessage' => __('Only image files supported', SG_POPUP_TEXT_DOMAIN),
-			'areYouSure' => __('Are you sure?', SG_POPUP_TEXT_DOMAIN),
-			'addButtonSpinner' => __('Add', SG_POPUP_TEXT_DOMAIN),
-			'audioSupportAlertMessage' => __('Only audio files supported (e.g.: mp3, wav, m4a, ogg)', SG_POPUP_TEXT_DOMAIN)
-		);
-
-		return $translatedData;
 	}
 }

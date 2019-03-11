@@ -316,6 +316,7 @@ class Filters
 		$additionalItems['onOff'] = __('Enabled (show popup)', SG_POPUP_TEXT_DOMAIN);
 		$additionalItems['type'] = __('Type', SG_POPUP_TEXT_DOMAIN);
 		$additionalItems['shortcode'] = __('Shortcode', SG_POPUP_TEXT_DOMAIN);
+		$additionalItems['className'] = __('Class', SG_POPUP_TEXT_DOMAIN);
 
 		return $columns + $additionalItems;
 	}

@@ -1,5 +1,38 @@
 function SGPBBackend() {
-
+	this.closeButtonDefaultPositions = {};
+	this.closeButtonDefaultPositions[1] = {
+		'left': 9,
+		'right': 9,
+		'bottom': 9
+	};
+	this.closeButtonDefaultPositions[2] = {
+		'left': 0,
+		'right': 0,
+		'top': parseInt('-20'),
+		'bottom': parseInt('-20')
+	};
+	this.closeButtonDefaultPositions[3] = {
+		'right': 4,
+		'bottom': 4,
+		'left': 4,
+		'top': 4
+	};
+	this.closeButtonDefaultPositions[4] = {
+		'left': 12,
+		'right': 12,
+		'bottom': 9
+	};
+	this.closeButtonDefaultPositions[5] = {
+		'left': 8,
+		'right': 8,
+		'bottom': 8
+	};
+	this.closeButtonDefaultPositions[6] = {
+		'left': parseInt('-18.5'),
+		'right': parseInt('-18.5'),
+		'bottom': parseInt('-18.5'),
+		'top': parseInt('-18.5')
+	};
 }
 
 SGPBBackend.sgAddEvent = function(element, eventName, fn)
@@ -22,6 +55,7 @@ SGPBBackend.prototype.sgInit = function()
 	this.initRadioAccordions();
 	this.fixedPositionSelection();
 	this.popupThemesPreview();
+	this.setCloseButtonDefaultPositionValues();
 	this.colorPicker();
 	this.rangeSlider();
 	this.backgroundRangeSliderInit();
@@ -41,6 +75,7 @@ SGPBBackend.prototype.sgInit = function()
 	this.openAnimationPreview();
 	this.closeAnimationPreview();
 	this.resetToDefaultValue();
+	this.editPopupSettingsForFullscreenMode();
 };
 
 SGPBBackend.prototype.resetToDefaultValue = function()
@@ -300,7 +335,9 @@ SGPBBackend.prototype.initRadioAccordions = function()
 	for (var radioButtonIndex in radioButtonsList) {
 
 		var radioButton = radioButtonsList[radioButtonIndex];
-
+		if (typeof radioButton != 'object') {
+			continue;
+		}
 		var that = this;
 		radioButton.each(function() {
 			that.buildRadioAccordionActions(jQuery(this));
@@ -850,19 +887,29 @@ SGPBBackend.prototype.popupHiddenContentAccordions = function()
 
 SGPBBackend.prototype.popupThemesPreview = function()
 {
+	var that = this;
 	if (!jQuery('.js-sgpb-popup-themes').length){
 		return false;
 	}
 
-	this.themeRelatedSettings();
+	that.themeRelatedSettings();
 	jQuery('.js-sgpb-popup-themes').bind("mouseover",function(e) {
 		var themeId = jQuery(this).attr('data-popup-theme-number');
 		jQuery('.theme-preview-'+themeId).css('display', 'block');
-		jQuery(this).click(function(){
+		jQuery(this).click(function() {
+			jQuery('.sgpb-disable-border-wrapper').addClass('sg-hide');
+			that.setCloseButtonDefaultPositions();
+			that.setCloseButtonDefaultPositionValues();
+			document.getElementById('sgpb-button-position-top').value = 'none';
+			document.getElementById('sgpb-button-position-right').value = 'none';
+			document.getElementById('sgpb-button-position-bottom').value = 'none';
+			document.getElementById('sgpb-button-position-left').value = 'none';
 			if (themeId == 4) {/* for theme with close button type=button */
 				jQuery('.sgpb-close-button-image-option-wrapper').addClass('sg-hide');
 				jQuery('.sgpb-close-button-border-options').addClass('sg-hide');
 				jQuery('.sgpb-close-button-text-option-wrapper').removeClass('sg-hide');
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[themeId].bottom;
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
 			}
 			else if (themeId == 3) {
 				jQuery('.sgpb-close-button-text-option-wrapper').addClass('sg-hide');
@@ -871,27 +918,41 @@ SGPBBackend.prototype.popupThemesPreview = function()
 				/* set default close button sizes for the current theme */
 				jQuery('input[name=sgpb-button-image-width]').val('38');
 				jQuery('input[name=sgpb-button-image-height]').val('19');
+				jQuery('.sgpb-disable-border-wrapper').removeClass('sg-hide');
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[themeId].top;
 			}
 			else {
 				if (themeId == 2) {
 					/* default theme 2 button size */
 					jQuery('input[name=sgpb-button-image-width]').val('20');
 					jQuery('input[name=sgpb-button-image-height]').val('20');
+					jQuery('.sgpb-disable-border-wrapper').removeClass('sg-hide');
+					document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
+					document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[themeId].top;
 				}
 				else if (themeId == 5) {
 					/* default theme 5 button size */
 					jQuery('input[name=sgpb-button-image-width]').val('17');
 					jQuery('input[name=sgpb-button-image-height]').val('17');
+					document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[themeId].bottom;
+					document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
 				}
 				else if (themeId == 6) {
 					/* default theme 6 button size */
 					jQuery('input[name=sgpb-button-image-width]').val('30');
 					jQuery('input[name=sgpb-button-image-height]').val('30');
+					document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[themeId].top;
+					document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
 				}
 				else {
 					/* for other themes default sizes equel to 21 */
 					jQuery('input[name=sgpb-button-image-width]').val('21');
 					jQuery('input[name=sgpb-button-image-height]').val('21');
+				}
+				if (themeId == 1) {
+					document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[themeId].bottom;
+					document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[themeId].right;
 				}
 				jQuery('.sgpb-close-button-text-option-wrapper').addClass('sg-hide');
 				jQuery('.sgpb-close-button-border-options').addClass('sg-hide');
@@ -903,6 +964,144 @@ SGPBBackend.prototype.popupThemesPreview = function()
 	jQuery('.js-sgpb-popup-themes').bind("mouseout",function(e) {
 		jQuery('.themes-preview').css('display', 'none');
 	});
+};
+
+/* set default positions while changing theme */
+SGPBBackend.prototype.setCloseButtonDefaultPositions = function()
+{
+	var theme = jQuery('.js-sgpb-popup-themes:checked').attr('data-popup-theme-number');
+	if (theme == 1 || theme == 4 || theme == 5) {
+		jQuery('.sgpb-button-position-top-js').hide();
+		jQuery('.sgpb-button-position-right-js').show();
+		jQuery('.sgpb-button-position-left-js').hide();
+		jQuery('.sgpb-button-position-bottom-js').show();
+	}
+	else if (theme == 2 || theme == 3 || theme == 6) {
+		jQuery('.sgpb-button-position-top-js').show();
+		jQuery('.sgpb-button-position-right-js').show();
+		jQuery('.sgpb-button-position-left-js').hide();
+		jQuery('.sgpb-button-position-bottom-js').hide();
+	}
+};
+
+SGPBBackend.prototype.setCloseButtonDefaultPositionValues = function()
+{
+	var that = this;
+	jQuery('.sgpb-close-button-position').on('change', function(){
+		var theme = jQuery('.js-sgpb-popup-themes:checked').attr('data-popup-theme-number');
+		/* button location => like topRight, bottomLeft, etc. */
+		var buttonLocation = jQuery('.sgpb-close-button-position option:selected').val();
+		that.setCloseButtonLocation(buttonLocation);
+		document.getElementById('sgpb-button-position-top').value = 'none';
+		document.getElementById('sgpb-button-position-right').value = 'none';
+		document.getElementById('sgpb-button-position-bottom').value = 'none';
+		document.getElementById('sgpb-button-position-left').value = 'none';
+		if (theme == 1) {
+			document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+			}
+		}
+		else if (theme == 2) {
+			if (buttonLocation == 'topLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+			}
+			else if (buttonLocation == 'topRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+			else if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+		}
+		else if (theme == 3) {
+			if (buttonLocation == 'topLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+			}
+			else if (buttonLocation == 'topRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+			else if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+		}
+		else if (theme == 4) {
+			document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+			}
+		}
+		else if (theme == 5) {
+			document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+			}
+		}
+		else if (theme == 6) {
+			if (buttonLocation == 'topRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+			}
+			else if (buttonLocation == 'topLeft') {
+				document.getElementById('sgpb-button-position-top').value = that.closeButtonDefaultPositions[theme].top;
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+			}
+			else if (buttonLocation == 'bottomLeft') {
+				document.getElementById('sgpb-button-position-left').value = that.closeButtonDefaultPositions[theme].left;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+			else if (buttonLocation == 'bottomRight') {
+				document.getElementById('sgpb-button-position-right').value = that.closeButtonDefaultPositions[theme].right;
+				document.getElementById('sgpb-button-position-bottom').value = that.closeButtonDefaultPositions[theme].bottom;
+			}
+		}
+	});
+};
+
+SGPBBackend.prototype.setCloseButtonLocation = function(location)
+{
+	jQuery('.sgpb-button-position-top-js').hide();
+	jQuery('.sgpb-button-position-right-js').hide();
+	jQuery('.sgpb-button-position-left-js').hide();
+	jQuery('.sgpb-button-position-bottom-js').hide();
+	if (location == 'topRight') {
+		jQuery('.sgpb-button-position-top-js').show();
+		jQuery('.sgpb-button-position-right-js').show();
+	}
+	else if (location == 'topLeft') {
+		jQuery('.sgpb-button-position-top-js').show();
+		jQuery('.sgpb-button-position-left-js').show();
+	}
+	else if (location == 'bottomLeft') {
+		jQuery('.sgpb-button-position-left-js').show();
+		jQuery('.sgpb-button-position-bottom-js').show();
+	}
+	else if (location == 'bottomRight') {
+		jQuery('.sgpb-button-position-right-js').show();
+		jQuery('.sgpb-button-position-bottom-js').show();
+	}
 };
 
 SGPBBackend.prototype.rangeSlider = function()
@@ -1219,6 +1418,13 @@ SGPBBackend.makeContactAndSubscriptionFieldsRequired = function()
 
 SGPBBackend.prototype.makePopupTitleRequired = function()
 {
+	var editModeBtn = jQuery('#elementor-switch-mode-button');
+	if (editModeBtn.length) {
+		if (!SGPBBackend.getParamFromUrl('post')) {
+			editModeBtn.attr('disabled', 'disabled');
+			editModeBtn.after('<p class="sgpb-text-warning">'+SGPB_JS_LOCALIZATION.publishPopupBeforeElemntor+'</p>');
+		}
+	}
 	if (jQuery('#title').length) {
 		var postType = jQuery('#post_type');
 		if (postType.length && postType.val() == 'popupbuilder') {
@@ -1340,6 +1546,25 @@ SGPBBackend.prototype.eventsAddButtonSpinner = function(element, showHide)
 		jQuery('.sg-rules-add-rule').removeClass('sgpb-events-spinner');
 		jQuery('.sg-rules-add-rule').text(' ' + SGPB_JS_LOCALIZATION.addButtonSpinner);
 	}
+};
+
+SGPBBackend.prototype.editPopupSettingsForFullscreenMode = function(popupId)
+{
+	var responsiveModeSelector = jQuery('.sgpb-responsive-mode-change-js');
+	var that = this;
+	var closeButtonCheckbox = jQuery('#close-button');
+
+	if (typeof responsiveModeSelector == 'undefined') {
+		return false;
+	}
+	responsiveModeSelector.change(function() {
+		var selectedMode = jQuery(this).val();
+		if (selectedMode == 'fullScreen') {
+			if (closeButtonCheckbox.is(':checked')) {
+				closeButtonCheckbox.click();
+			}
+		}
+	});
 };
 
 SGPBBackend.hexToRgba = function(hex, opacity)
