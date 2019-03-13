@@ -125,7 +125,7 @@ global $featured_recent;
           ]);
 
           if ($featured->have_posts()) : while ($featured->have_posts()) : $featured->the_post(); ?>
-
+            <?php// $featured_image_trending = wp_get_attachment_image_src($image_id, 'Trending'); ?>
             <?php global $featured;
             $featured_ids[] = get_the_id();
             get_template_part('templates/layouts/block', 'featured'); ?>

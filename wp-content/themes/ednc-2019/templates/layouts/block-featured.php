@@ -3,11 +3,12 @@
 use Roots\Sage\Media;
 global $featured_ids;
 $featured_ids[] = get_the_id();
-$featured_image = Media\get_featured_image('medium');
-
+$featured_image = Media\get_featured_image('trending');
+//$featured_image_trending = wp_get_attachment_image_src($image_id, 'Trending');
 ?>
 
 <article <?php post_class(''); ?> >
+
   <img class="featured-image" src=" <?php echo $featured_image; ?> " />
   <p class="small">Trending</p>
   <h3 class="post-title"><?php the_title(); ?></h3>

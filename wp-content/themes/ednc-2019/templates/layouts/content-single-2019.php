@@ -18,8 +18,9 @@ while (have_posts()) : the_post();
 
 
   $image_id = get_post_thumbnail_id();
-  $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
+  // $featured_image_src = wp_get_attachment_image_src($image_id, 'full');
   $featured_image_lg = wp_get_attachment_image_src($image_id, 'large');
+  $featured_image_src = wp_get_attachment_image_src($image_id, 'Contained');
   $featured_image_hero = wp_get_attachment_image_src($image_id, 'Hero');
   // $alt_text = get_post_meta($post->ID, $featured_image_src, true);
   $featured_image_align = get_field('featured_image_alignment');
@@ -66,10 +67,10 @@ while (have_posts()) : the_post();
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-centered intro">
-              <h1 class="header-title"><?php the_title(); ?></h1>
+              <h1 class="article-header"><?php the_title(); ?></h1>
 
               <?php get_template_part('templates/components/author-info'); ?>
-              <?php echo $image_id; ?>
+
           </div>
         </div>
       </div>
@@ -78,6 +79,7 @@ while (have_posts()) : the_post();
     <?php
     if (isset($featured_image_align) && $featured_image_align == 'hero'){
         echo 'hero' . '<br />';
+        echo $image_id;
     }
 
     if (isset($featured_image_align) && $featured_image_align == 'contained'){
@@ -85,28 +87,13 @@ while (have_posts()) : the_post();
     }
 
     ?>
-    <?php if (has_post_thumbnail() && $featured_image_align == 'hero') { ?>
-      <div class="full-width-image-block">
-        <img class="full-width-image" src="<?php echo $image_id ?>" />
-        <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
-      </div>
-    <?php } ?>
 
     <?php if (has_post_thumbnail() && $featured_image_align == 'hero-new') { ?>
       <div class="full-width-image-block">
-        <img class="full-width-image" src="<?php echo $featured_image_lg[0]; ?>" />
+        <img class="full-width-image" src="<?php echo $featured_image_hero[0]; ?>" />
         <p class="lato"><?php echo $thumb_post->post_excerpt; ?></p>
       </div>
     <?php } ?>
-
-
-    <div id="chapters" class="chapters container hidden-xs hidden-sm print-no">
-      <div class="row">
-        <div class="col-md-8 col-centered">
-          <ul class="nav"></ul>
-        </div>
-      </div>
-    </div>
 
     <div class="entry-content">
       <div class="container">
@@ -117,7 +104,7 @@ while (have_posts()) : the_post();
             <?php// get_template_part('templates/components/author', 'meta'); ?>
             <?php if (has_post_thumbnail() && $featured_image_align == 'contained-new') {
               echo '<div class="alignnone no-top-margin">';
-              the_post_thumbnail('large');
+              the_post_thumbnail('Contained');
               $thumb_id = get_post_thumbnail_id();
               $thumb_post = get_post($thumb_id);
 

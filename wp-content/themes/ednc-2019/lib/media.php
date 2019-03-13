@@ -15,6 +15,8 @@ $medium_width = 747;
 $medium_height = 421;
 $small_width = 564;
 $small_height = 239;
+$trending_width = 420;
+$trending_height = 420;
 
 add_image_size('medium-square', 400, 400, true);
 add_image_size('bio-headshot', 220, 220, true);
@@ -23,7 +25,9 @@ add_image_size('featured-large', $large_width, $large_height, true);
 add_image_size('featured-medium', $medium_width, $medium_height, true);
 add_image_size('featured-small', $small_width, $small_height, true);
 add_image_size('Hero', 1200, 500, true);
+add_image_size('Contained', 1200, 900, true);
 add_image_size('Trending', 300, 300, true);
+add_image_size('featured-trending', $trending_width, $trending_height, true);
 
 add_action('init', function() {
   remove_image_size('guest-author-32');
@@ -55,7 +59,7 @@ function catch_that_image() {
  * Get featured image for post blocks
  */
  function get_featured_image($size) {
-   global $post, $large_width, $large_height, $medium_width, $medium_height, $small_width, $small_height;
+   global $post, $large_width, $large_height, $medium_width, $medium_height, $small_width, $small_height, $trending_width, $trending_height;
 
    if ($size == 'large') {
      $width = $large_width;
@@ -66,6 +70,9 @@ function catch_that_image() {
    } elseif ($size == 'small') {
      $width = $small_width;
      $height = $small_height;
+   } elseif ($size == 'trending') {
+     $width = $trending_width;
+     $height = $trending_height;
    }
 
    // Use featured image if set, but fallback to first image in content if there is no featured image and EdNC logo if no image at all

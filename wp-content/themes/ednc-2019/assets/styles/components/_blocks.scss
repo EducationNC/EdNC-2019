@@ -228,8 +228,16 @@
   }
 }
 
-.alignfull {
+.fullwidth {
 	margin: 32px calc(50% - 50vw);
 	max-width: 100vw;
 	width: 100vw;
+}
+
+.parallax {
+	margin: 32px calc(50% - 50vw);
+	max-width: 100vw;
+	width: 100vw;
+  height: 100vw;
+  object-fit: contain;
 }
