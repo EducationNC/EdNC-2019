@@ -1,34 +1,28 @@
 <?php
-/**
- * The template used for displaying a Hero block.
- *
- * @package _s
- */
-
-// Set up fields.
-$title            = get_field( 'title' );
-$text             = get_field( 'text' );
-$button_url       = get_field( 'button_url' );
-$button_text      = get_field( 'button_text' );
-$background_image = get_field( 'background_image' );
-?>
-<section class="hero-block">
-	<div class="hero-content">
-		<?php if ( $title ) : ?>
-			<h2 class="hero-title"><?php echo esc_html( $title ); ?></h2>
-		<?php endif; ?>
-
-		<?php if ( $text ) : ?>
-			<p class="hero-description"><?php echo esc_html( $text ); ?></p>
-		<?php endif; ?>
-
-		<?php if ( $button_text && $button_url ) : ?>
-			<a class="button button-hero" href="<?php echo esc_url( $button_url ); ?>"><?php echo esc_html( $button_text ); ?></a>
-		<?php endif; ?>
-	</div><!-- .hero-content-->
-	<?php if ( $background_image ) : ?>
-		<figure class="image-background" aria-hidden="true">
-			<?php echo wp_get_attachment_image( $background_image['id'], 'full' ); ?>
-		</figure><!-- .image-background -->
-	<?php endif ?>
-</section><!-- .hero -->
+ /**
+  * Team Member block
+  *
+  * @package      ClientName
+  * @author       Bill Erickson
+  * @since        1.0.0
+  * @license      GPL-2.0+
+ **/
+ $name = get_field( 'name' );
+ $title = get_field( 'title' );
+ $photo = get_field( 'photo' );
+ $description = get_field( 'description' );
+ ?>
+<div class="block-team" style="background-color: red;">
+<?php
+ echo '<div class="team-member">';
+ 	echo '<div class="team-member--header">';
+ 		if( !empty( $photo ) )
+ 			echo wp_get_attachment_image( $photo['ID'], 'thumbnail', null, array( 'class' => 'team-member--avatar' ) );
+ 		if( !empty( $name ) )
+ 			echo '<h4>' . esc_html( $name ) . '</h4>';
+ 		if( !empty( $title ) )
+ 			echo '<h6 class="alt">' . esc_html( $title ) . '</h6>';
+ 	echo '</div>';
+ 	echo '<div class="team-member--content">' . apply_filters( 'ea_the_content', $description ) . '</div>';
+ echo '</div>'; ?>
+</div>

@@ -54,6 +54,8 @@ header.header {
 .flex-1, .flex-2, .flex-3 {
   width: 33.3%;
   align-self: center;
+  align-items: center;
+  justify-content: center;
   // border: 1px solid blue;
 }
 
@@ -88,9 +90,21 @@ a.btn-open {
   font-size: 32px;
   position: relative;
   right: 15px;
-  // border: 1px solid green;
+  align-items: center;
   display: flex;
   direction: row;
+}
+
+.social p.lato {
+  margin: 0;
+  text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  font-family: Lato, sans-serif;
+  font-size: 16px;
+  line-height: 1.88em;
+  word-wrap: break-word;
+  color: #44474d;
 }
 
 .icon {

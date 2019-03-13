@@ -5105,9 +5105,9 @@
 	}
 	
 	// vars
-	var globalFieldActions = [ 'prepare', 'ready', 'load', 'append', 'remove', 'sortstart', 'sortstop', 'show', 'hide', 'unload' ];
+	var globalFieldActions = [ 'prepare', 'ready', 'load', 'append', 'remove', 'unmount', 'remount', 'sortstart', 'sortstop', 'show', 'hide', 'unload' ];
 	var singleFieldActions = [ 'valid', 'invalid', 'enable', 'disable', 'new' ];
-	var singleFieldEvents = [ 'remove', 'sortstart', 'sortstop', 'show', 'hide', 'unload', 'valid', 'invalid', 'enable', 'disable' ];
+	var singleFieldEvents = [ 'remove', 'unmount', 'remount', 'sortstart', 'sortstop', 'show', 'hide', 'unload', 'valid', 'invalid', 'enable', 'disable' ];
 	
 	// add
 	globalFieldActions.map( addGlobalFieldAction );
@@ -8746,8 +8746,8 @@
 		
 		events: {
 			'mousedown .acf-editor-wrap.delay':	'onMousedown',
-			'sortstartField': 'disableEditor',
-			'sortstopField': 'enableEditor',
+			'unmountField': 'disableEditor',
+			'remountField': 'enableEditor',
 			'removeField': 'disableEditor'
 		},
 		
@@ -13455,6 +13455,30 @@
 		}
 	});
 	
+	/**
+	 * mountHelper
+	 *
+	 * Adds compatiblity for the 'unmount' and 'remount' actions added in 5.8.0
+	 *
+	 * @date	7/3/19
+	 * @since	5.7.14
+	 *
+	 * @param	void
+	 * @return	void
+	 */
+	var mountHelper = new acf.Model({
+		priority: 1,
+		actions: {
+			'sortstart': 'onSortstart',
+			'sortstop': 'onSortstop'
+		},
+		onSortstart: function( $item ){
+			acf.doAction('unmount', $item);
+		},
+		onSortstop: function( $item ){
+			acf.doAction('remount', $item);
+		}
+	});
 	
 	/**
 	*  sortableHelper

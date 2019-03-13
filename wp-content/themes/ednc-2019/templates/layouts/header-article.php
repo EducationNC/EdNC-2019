@@ -36,6 +36,7 @@ use Roots\Sage\Nav;
       </div>
       <div class="flex-3">
         <div class="social">
+            <p class="lato">Share:</p>
             <div class="icon">
               <script async defer src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.2"></script>
               <a href="http://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()) ?>" title="Share" class="fb-share-button" target="_blank">

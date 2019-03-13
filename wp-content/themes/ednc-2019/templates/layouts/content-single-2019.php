@@ -66,7 +66,7 @@ while (have_posts()) : the_post();
       <div class="container">
         <div class="row">
           <div class="col-md-7 col-centered intro">
-              <h1 class="entry-title"><?php the_title(); ?></h1>
+              <h1 class="header-title"><?php the_title(); ?></h1>
 
               <?php get_template_part('templates/components/author-info'); ?>
               <?php echo $image_id; ?>
@@ -99,18 +99,6 @@ while (have_posts()) : the_post();
       </div>
     <?php } ?>
 
-
-    <?php if (get_field('longform_intro') && $page < 2) { ?>
-      <div class="longform-intro">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-8 col-centered intro">
-              <?php the_field('longform_intro'); ?>
-            </div>
-          </div>
-        </div>
-      </div>
-    <?php } ?>
 
     <div id="chapters" class="chapters container hidden-xs hidden-sm print-no">
       <div class="row">
@@ -197,12 +185,12 @@ while (have_posts()) : the_post();
     </div>
 
     <footer class="container print-no">
-      <?php get_template_part('templates/layouts/block', 'recommended'); ?>
+      <?php get_template_part('templates/layouts/block', 'recommended-2019'); ?>
       <?php if ($comments_open == 1) { ?>
         <div class="row">
           <div class="col-md-7 col-md-push-2point5">
-            <h2>Join the conversation</h2>
-            <?php comments_template('templates/components/comments'); ?>
+            <!-- <h2>Join the conversation</h2> -->
+            <?php// comments_template('templates/components/comments'); ?>
           </div>
         </div>
       <?php } ?>

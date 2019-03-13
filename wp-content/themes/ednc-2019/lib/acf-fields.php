@@ -31,9 +31,9 @@ register_field_group(array (
 	'location' => array (
 		array (
 			array (
-				'param' => 'post_type',
+				'param' => 'post_template',
 				'operator' => '==',
-				'value' => 'post',
+				'value' => 'default',
 			),
 		),
 	),
@@ -2410,9 +2410,9 @@ register_field_group(array (
 	'location' => array (
 		array (
 			array (
-				'param' => 'post_type',
+				'param' => 'post_template',
 				'operator' => '==',
-				'value' => 'post',
+				'value' => 'default',
 			),
 		),
 	),
